@@ -9,6 +9,26 @@ import csv, json, re, sys
 from pathlib import Path
 from collections import OrderedDict, Counter
 
+
+def truthy_flag(v):
+    return str(v or '').strip().lower() in ('1', 'true', 'yes', 'y')
+
+def detect_is_new(row, source=''):
+    """Source-market 'new' signals (not scrapedAt). Funda has none."""
+    if truthy_flag(row.get('isNewAdvert')):
+        return True
+    if truthy_flag(row.get('isNew')):
+        return True
+    for k in ('listingLabel', 'labels/0', 'label'):
+        if str(row.get(k) or '').strip().lower() == 'nieuw':
+            return True
+    for k, v in row.items():
+        if str(k).startswith('labels/') and str(v or '').strip().lower() == 'nieuw':
+            return True
+    if str(row.get('status') or '').strip().lower() == 'nieuw':
+        return True
+    return False
+
 ROOT = Path(__file__).resolve().parents[1] / 'dist'
 OUT = ROOT / 'listings.json'
 
@@ -148,6 +168,8 @@ def to_listing(row):
         'status': (row.get('status') or row.get('listingLabel') or 'beschikbaar').strip() or 'beschikbaar',
         'url': url, 'yearBuilt': (row.get('constructionYear') or row.get('yearBuilt') or '').strip(),
         'source': source,
+        'isNew': detect_is_new(row, source),
+        'publishDate': (row.get('publishDate') or row.get('listedDate') or row.get('createDate') or '').strip(),
     }
     for i in range(max(6, len(photos))):
         listing[f'photos/{i}'] = photos[i] if i < len(photos) else ''
@@ -223,7 +245,12 @@ def main():
             old = by_key[key]
             merged = dict(old)
             for k, v in listing.items():
-                if v is None or (isinstance(v, str) and not str(v).strip()):
+                if v is None or (isinstance(v, str) and not str(v).strip() and k not in ('isNew',)):
+                    continue
+                if k == 'isNew':
+                    merged['isNew'] = bool(merged.get('isNew')) or bool(v)
+                    continue
+                if k == 'publishDate' and merged.get('publishDate') and not prefer_new:
                     continue
                 if prefer_new or not merged.get(k):
                     merged[k] = v

@@ -7,7 +7,7 @@ const x=k=>extra[lang][k];
 function listingKey(p){if(!p)return'';const u=p.url!=null?String(p.url).trim():'';if(u)return u;return p.id!=null?String(p.id):''}
 let favouriteIds=new Set();try{const a=JSON.parse(localStorage.getItem('woonwekker-favourites')||'[]');if(Array.isArray(a))favouriteIds=new Set(a.filter(v=>typeof v==='string'&&v))}catch{}
 let compareIds=new Set(),savedOnly=false,favMigrated=false;
-Object.assign(filters,{type:'',area:'',minBudget:'',garden:false,balcony:false,energy:false});
+Object.assign(filters,{type:'',area:'',minBudget:'',garden:false,balcony:false,energy:false,isNew:false});
 function migrateFavourites(){if(favMigrated||!listings.length)return;favMigrated=true;const next=new Set();for(const k of favouriteIds){if(!k)continue;const hit=listings.find(p=>(p.url&&String(p.url)===k)||String(p.id)===k);next.add(hit?listingKey(hit):k)}favouriteIds=next;try{localStorage.setItem('woonwekker-favourites',JSON.stringify([...favouriteIds]))}catch{}}
 function typeValuesFor(kind){if(kind==='rooms')return['Kamer','Studio'];if(kind==='homes')return['Huis','Appartement'];return['Appartement','Huis','Studio','Kamer']}
 function typeLabel(v){if(!v)return x('typesAll');if(v==='Appartement')return t('apartment');if(v==='Huis')return t('house');if(v==='Studio')return t('studio');if(v==='Kamer')return t('room');return v}
@@ -19,7 +19,7 @@ function syncFilterFields(){
   const pt=document.getElementById('property-type');if(pt)pt.value=filters.type||'';
   const area=document.getElementById('min-area');if(area)area.value=filters.area||'';
   const minB=document.getElementById('min-budget');if(minB)minB.value=filters.minBudget||'';
-  ['garden','balcony','energy'].forEach(k=>{const el=document.getElementById('filter-'+k);if(el)el.checked=!!filters[k]});
+  ['garden','balcony','energy','isNew'].forEach(k=>{const el=document.getElementById('filter-'+k);if(el)el.checked=!!filters[k]});
 }
 let cityDebounce=null;
 function wireLivePrimary(){
@@ -39,15 +39,15 @@ function injectDiscoveryTools(){
   const kind=typeof pageKind==='function'?pageKind():'all';
   sanitizeTypeForKind(kind);
   const typeOpts=['',...typeValuesFor(kind)];
-  const advancedOpen=filters.type||filters.area||filters.minBudget||filters.garden||filters.balcony||filters.energy?'open':'';
-  form.insertAdjacentHTML('afterend',`<div class="discovery-tools"><div class="view-tabs"><button type="button" id="all-listings" class="${!savedOnly?'selected':''}" aria-pressed="${!savedOnly}">${x('all')}</button><button type="button" id="saved-listings" class="${savedOnly?'selected':''}" aria-pressed="${savedOnly}">♡ ${x('saved')} <span>${favouriteIds.size}</span></button></div><details class="advanced" ${advancedOpen}><summary>${x('filters')} <span aria-hidden="true">＋</span></summary><div class="advanced-fields"><label>${x('type')}<select id="property-type">${typeOpts.map(v=>`<option value="${v}" ${v===filters.type?'selected':''}>${typeLabel(v)}</option>`).join('')}</select></label><label>${x('area')}<select id="min-area"><option value="">${x('any')}</option>${[25,50,75,100,150].map(v=>`<option value="${v}" ${filters.area==v?'selected':''}>${v} m²</option>`).join('')}</select></label><label>${x('minBudget')}<select id="min-budget"><option value="">${x('any')}</option>${[500,800,1000,1200,1500,2000].map(v=>`<option value="${v}" ${filters.minBudget==v?'selected':''}>${money(v)}</option>`).join('')}</select></label>${['garden','balcony','energy'].map(k=>`<label class="check-filter"><input type="checkbox" id="filter-${k}" ${filters[k]?'checked':''}>${x(k)}</label>`).join('')}</div></details></div><div class="active-filters" id="active-filters" aria-label="${x('active')}"></div><p class="local-note" id="saved-note" ${savedOnly?'':'hidden'}>${x('local')}</p><p id="interaction-status" class="interaction-status" role="status"></p>`);
+  const advancedOpen=filters.type||filters.area||filters.minBudget||filters.garden||filters.balcony||filters.energy||filters.isNew?'open':'';
+  form.insertAdjacentHTML('afterend',`<div class="discovery-tools"><div class="view-tabs"><button type="button" id="all-listings" class="${!savedOnly?'selected':''}" aria-pressed="${!savedOnly}">${x('all')}</button><button type="button" id="saved-listings" class="${savedOnly?'selected':''}" aria-pressed="${savedOnly}">♡ ${x('saved')} <span>${favouriteIds.size}</span></button></div><details class="advanced" ${advancedOpen}><summary>${x('filters')} <span aria-hidden="true">＋</span></summary><div class="advanced-fields"><label>${x('type')}<select id="property-type">${typeOpts.map(v=>`<option value="${v}" ${v===filters.type?'selected':''}>${typeLabel(v)}</option>`).join('')}</select></label><label>${x('area')}<select id="min-area"><option value="">${x('any')}</option>${[25,50,75,100,150].map(v=>`<option value="${v}" ${filters.area==v?'selected':''}>${v} m²</option>`).join('')}</select></label><label>${x('minBudget')}<select id="min-budget"><option value="">${x('any')}</option>${[500,800,1000,1200,1500,2000].map(v=>`<option value="${v}" ${filters.minBudget==v?'selected':''}>${money(v)}</option>`).join('')}</select></label>${['garden','balcony','energy','isNew'].map(k=>`<label class="check-filter"><input type="checkbox" id="filter-${k}" ${filters[k]?'checked':''}>${k==='isNew'?(t('filterNew')||t('tagNew')||'Nieuw'):x(k)}</label>`).join('')}</div></details></div><div class="active-filters" id="active-filters" aria-label="${x('active')}"></div><p class="local-note" id="saved-note" ${savedOnly?'':'hidden'}>${x('local')}</p><p id="interaction-status" class="interaction-status" role="status"></p>`);
   const setSaved=v=>{savedOnly=v;document.querySelector('#all-listings')?.classList.toggle('selected',!savedOnly);document.querySelector('#saved-listings')?.classList.toggle('selected',savedOnly);document.querySelector('#all-listings')?.setAttribute('aria-pressed',String(!savedOnly));document.querySelector('#saved-listings')?.setAttribute('aria-pressed',String(savedOnly));const note=document.querySelector('#saved-note');if(note)note.hidden=!savedOnly;limit=12;applyFilters()};
   document.querySelector('#all-listings').onclick=()=>setSaved(false);
   document.querySelector('#saved-listings').onclick=()=>setSaved(true);
   document.querySelector('#property-type').onchange=e=>{filters.type=e.target.value;limit=12;applyFilters()};
   document.querySelector('#min-area').onchange=e=>{filters.area=e.target.value;limit=12;applyFilters()};
   document.querySelector('#min-budget').onchange=e=>{filters.minBudget=e.target.value;limit=12;applyFilters()};
-  ['garden','balcony','energy'].forEach(k=>document.querySelector('#filter-'+k).onchange=e=>{filters[k]=e.target.checked;limit=12;applyFilters()});
+  ['garden','balcony','energy','isNew'].forEach(k=>document.querySelector('#filter-'+k).onchange=e=>{filters[k]=e.target.checked;limit=12;applyFilters()});
   wireLivePrimary();
   applyFilters();
 }
@@ -73,6 +73,7 @@ applyFilters=function(){
     if(filters.garden&&p.garden!=='true')return false;
     if(filters.balcony&&p.balcony!=='true')return false;
     if(filters.energy&&!/^A\+*$/.test(p.energyLabel||''))return false;
+    if(filters.isNew&&!(typeof isNewListing==='function'?isNewListing(p):(p.isNew===true||p.isNew==='true'||String(p.status||'').toLowerCase()==='nieuw')))return false;
     return true;
   });
   if(filters.sort==='priceAsc')filtered.sort((a,b)=>+a.price-+b.price);
@@ -82,7 +83,7 @@ applyFilters=function(){
 };
 function clearFilters(){
   const kind=typeof pageKind==='function'?pageKind():'all';
-  Object.assign(filters,{city:'',budget:'',beds:'',type:'',area:'',minBudget:'',garden:false,balcony:false,energy:false,sort:'source'});
+  Object.assign(filters,{city:'',budget:'',beds:'',type:'',area:'',minBudget:'',garden:false,balcony:false,energy:false,isNew:false,sort:'source'});
   filters.ptype=defaultPtype(kind);
   limit=12;
   syncFilterFields();
@@ -102,13 +103,14 @@ function drawChips(){
     area:filters.area?`≥ ${filters.area} m²`:'',
     garden:filters.garden?x('garden'):'',
     balcony:filters.balcony?x('balcony'):'',
-    energy:filters.energy?x('energy'):''
+    energy:filters.energy?x('energy'):'',
+    isNew:filters.isNew?(t('filterNew')||t('tagNew')||'Nieuw'):''
   };
   node.innerHTML=Object.entries(labels).filter(([,v])=>v).map(([k,v])=>`<button type="button" data-clear-filter="${k}">${esc(v)} <span aria-hidden="true">×</span></button>`).join('');
   if(node.children.length)node.insertAdjacentHTML('beforeend',`<button type="button" id="clear-all" class="text-clear">${x('reset')}</button>`);
   node.querySelectorAll('[data-clear-filter]').forEach(b=>b.onclick=()=>{
     const key=b.dataset.clearFilter;
-    filters[key]=['garden','balcony','energy'].includes(key)?false:'';
+    filters[key]=['garden','balcony','energy','isNew'].includes(key)?false:'';
     const kind=typeof pageKind==='function'?pageKind():'all';
     if(!filters.ptype)filters.ptype=defaultPtype(kind);
     limit=12;
