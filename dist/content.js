@@ -944,7 +944,7 @@ const copy={
     "openHomes": "Browse homes",
     "date": ""
   ,
-    "sourceLocked": "El enlace a la fuente forma parte de Bellen (15 €/mes).",
+    "sourceLocked": "El enlace a la fuente forma parte de Bellen (€18,50/mes).",
     "unlockSource": "Desbloquear fuente — Bellen €18,50",
     "onboardTitle": "Bienvenido a Woonwekker",
     "onboardSkip": "Omitir",
@@ -1273,7 +1273,7 @@ const copy={
     "openHomes": "Browse homes",
     "date": ""
   ,
-    "sourceLocked": "Link do źródła jest częścią Bellen (15 €/mies.).",
+    "sourceLocked": "Link do źródła jest częścią Bellen (€18,50/mies.).",
     "unlockSource": "Odblokuj źródło — Bellen €18,50",
     "onboardTitle": "Witamy w Woonwekker",
     "onboardSkip": "Pomiń",
