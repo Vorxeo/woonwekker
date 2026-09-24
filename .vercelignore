@@ -1,0 +1,11 @@
+.env
+server-state.json
+node_modules
+bin
+proof-bellen
+proof-favicon
+proof-photos
+drafts
+*.tgz
+test-avatar.png
+dist/listings.json.bak-*
