@@ -18,7 +18,7 @@ const copy={
     "kijkenFeat6": "Volledige details & bronlink vergrendeld",
     "kijkenCta": "Woningen bekijken",
     "bellenTitle": "Bellen",
-    "bellenPrice": "€15",
+    "bellenPrice": "€18,50",
     "bellenPeriod": "/maand",
     "bellenFeat1": "Alles van Kijken",
     "bellenFeat2": "Volledige details + bronlink via het officiële pad",
@@ -26,7 +26,7 @@ const copy={
     "bellenFeat4": "Tot 4 zoekprofielen + 1 zoekgenoot",
     "bellenFeat5": "NL/EN reactie-kit, docs-checklist & contactgeschiedenis",
     "bellenFeat6": "1-klik opzeggen · 14 dagen geld-terug · geen trial",
-    "bellenCta": "Word Bellen — €15/mnd",
+    "bellenCta": "Word Bellen — €18,50/mnd",
     "pricingNote": "1-klik opzeggen · 14 dagen geld-terug · geen 1-cent of €1 trial",
     "footer": "Een helder begin van jouw volgende hoofdstuk.",
     "eyebrow": "De beste prijzen",
@@ -116,7 +116,7 @@ const copy={
       ],
       [
         "Moet ik betalen om te zoeken?",
-        "Met Kijken (€0) blader je gratis door teasers van huurwoningen. Met Bellen (€15/mnd) ontgrendel je volledige details, de bronlink (Funda e.a.), onbeperkt e-mail+WhatsApp-alerts, zoekgenoot en reactie-kit. 1-klik opzeggen, 14 dagen geld-terug, geen trial. Huurafspraken maak je altijd met de aanbieder."
+        "Met Kijken (€0) blader je gratis door teasers van huurwoningen. Met Bellen (€18,50/mnd) ontgrendel je volledige details, de bronlink (Funda e.a.), onbeperkt e-mail+WhatsApp-alerts, zoekgenoot en reactie-kit. 1-klik opzeggen, 14 dagen geld-terug, geen trial. Huurafspraken maak je altijd met de aanbieder."
       ],
       [
         "Kan ik zoeken in mijn eigen taal?",
@@ -128,7 +128,7 @@ const copy={
       ],
       [
         "Krijg ik meldingen van nieuwe woningen?",
-        "Ja, via zoekprofielen in je account. Met Kijken: max. 3 e-mailalerts per week. Met Bellen (€15/mnd): onbeperkt e-mail + WhatsApp (doel <60s). Stel tot 4 zoekprofielen in onder Account. De dataset zelf is een momentopname (zie datum); alerts zijn een productdemo op dit apparaat."
+        "Ja, via zoekprofielen in je account. Met Kijken: max. 3 e-mailalerts per week. Met Bellen (€18,50/mnd): onbeperkt e-mail + WhatsApp (doel <60s). Stel tot 4 zoekprofielen in onder Account. De dataset zelf is een momentopname (zie datum); alerts zijn een productdemo op dit apparaat."
       ],
       [
         "Wat doe ik bij een fout of een verdachte advertentie?",
@@ -206,7 +206,7 @@ const copy={
     "accCity": "Stad",
     "plan": "Abonnement",
     "planKijken": "Kijken (€0)",
-    "planBellen": "Bellen (€15/mnd)",
+    "planBellen": "Bellen (€18,50/mnd)",
     "avatar": "Profielfoto",
     "avatarHint": "Upload een afbeelding (max. ~400 KB). Geen foto? We tonen initialen.",
     "avatarTooBig": "Bestand te groot (max. ~400 KB).",
@@ -252,7 +252,7 @@ const copy={
     "zoekgenootHint": "Deel alerts met één zoekgenoot (Bellen).",
     "zoekgenootName": "Naam zoekgenoot",
     "zoekgenootEmail": "E-mail zoekgenoot",
-    "zoekgenootUpsell": "Zoekgenoot is beschikbaar met Bellen (€15/mnd).",
+    "zoekgenootUpsell": "Zoekgenoot is beschikbaar met Bellen (€18,50/mnd).",
     "upgradeBellen": "Upgrade naar Bellen",
     "pipelineTitle": "Pipeline",
     "tabFav": "Favorieten",
@@ -286,8 +286,8 @@ const copy={
     "openHomes": "Naar woningen",
     "date": ""
   ,
-    "sourceLocked": "Bronlink is onderdeel van Bellen (€15/mnd).",
-    "unlockSource": "Ontgrendel bron — Bellen €15",
+    "sourceLocked": "Bronlink is onderdeel van Bellen (€18,50/mnd).",
+    "unlockSource": "Ontgrendel bron — Bellen €18,50",
     "onboardTitle": "Welkom bij Woonwekker",
     "onboardSkip": "Overslaan",
     "onboardNext": "Volgende",
@@ -297,7 +297,7 @@ const copy={
     "onboard3": "Met Bellen open je de bronlink en WhatsApp-alerts.",
     "pricingAntiTrial": "Geen 1-cent- of €1-trial — heldere prijs vanaf dag 1",
     "stripKijken": "Kijken €0",
-    "stripBellen": "Bellen €15/mnd",
+    "stripBellen": "Bellen €18,50/mnd",
     "stripCta": "Bekijk prijzen",
     "bronFree": "Gratis bron",
     "bronPaid": "Betaalde bron",
@@ -326,7 +326,7 @@ const copy={
     "housesNote": "Jouw volgende thuis",
     "housesNoteSub": "Van appartement tot huis met tuin — start vandaag.",
     "categoryCta": "Bekijk het aanbod",
-    "categorySeoLine": "Actueel huuraanbod · Kijken gratis · Bellen €15/mnd"
+    "categorySeoLine": "Actueel huuraanbod · Kijken gratis · Bellen €18,50/mnd"
 },
   "en": {
     "homes": "Find a home",
@@ -347,7 +347,7 @@ const copy={
     "kijkenFeat6": "Full details & source link locked",
     "kijkenCta": "Browse homes",
     "bellenTitle": "Bellen",
-    "bellenPrice": "€15",
+    "bellenPrice": "€18.50",
     "bellenPeriod": "/month",
     "bellenFeat1": "Everything in Kijken",
     "bellenFeat2": "Full details + source link via the official path",
@@ -355,7 +355,7 @@ const copy={
     "bellenFeat4": "Up to 4 search profiles + 1 search buddy",
     "bellenFeat5": "NL/EN reply kit, docs checklist & contact history",
     "bellenFeat6": "1-click cancel · 14-day money-back · no trial",
-    "bellenCta": "Get Bellen — €15/mo",
+    "bellenCta": "Get Bellen — €18.50/mo",
     "pricingNote": "1-click cancel · 14-day money-back · no 1-cent or €1 trial",
     "footer": "A clear start to your next chapter.",
     "eyebrow": "The best prices",
@@ -445,7 +445,7 @@ const copy={
       ],
       [
         "Do I have to pay to search?",
-        "Kijken (€0) lets you browse rental teasers for free. Bellen (€15/mo) unlocks full details, the source link (Funda etc.), unlimited email+WhatsApp alerts, a search buddy and reply kit. 1-click cancel, 14-day money-back, no trial. Rental deals are always with the provider."
+        "Kijken (€0) lets you browse rental teasers for free. Bellen (€18.50/mo) unlocks full details, the source link (Funda etc.), unlimited email+WhatsApp alerts, a search buddy and reply kit. 1-click cancel, 14-day money-back, no trial. Rental deals are always with the provider."
       ],
       [
         "Can I browse in my own language?",
@@ -457,7 +457,7 @@ const copy={
       ],
       [
         "Will I receive new property alerts?",
-        "Yes — via search profiles in your account. Kijken: max 3 email alerts per week. Bellen (€15/mo): unlimited email + WhatsApp (target <60s). Set up to 4 profiles under Account. The listing dataset is a snapshot (see date); alerts are a local product demo on this device."
+        "Yes — via search profiles in your account. Kijken: max 3 email alerts per week. Bellen (€18.50/mo): unlimited email + WhatsApp (target <60s). Set up to 4 profiles under Account. The listing dataset is a snapshot (see date); alerts are a local product demo on this device."
       ],
       [
         "What if I notice an error or a suspicious listing?",
@@ -535,7 +535,7 @@ const copy={
     "accCity": "City",
     "plan": "Plan",
     "planKijken": "Kijken (€0)",
-    "planBellen": "Bellen (€15/mo)",
+    "planBellen": "Bellen (€18.50/mo)",
     "avatar": "Profile photo",
     "avatarHint": "Upload an image (max ~400 KB). No photo? We show initials.",
     "avatarTooBig": "File too large (max ~400 KB).",
@@ -581,7 +581,7 @@ const copy={
     "zoekgenootHint": "Share alerts with one buddy (Bellen).",
     "zoekgenootName": "Buddy name",
     "zoekgenootEmail": "Buddy email",
-    "zoekgenootUpsell": "Search buddy is available with Bellen (€15/mo).",
+    "zoekgenootUpsell": "Search buddy is available with Bellen (€18.50/mo).",
     "upgradeBellen": "Upgrade to Bellen",
     "pipelineTitle": "Pipeline",
     "tabFav": "Favourites",
@@ -615,8 +615,8 @@ const copy={
     "openHomes": "Browse homes",
     "date": ""
   ,
-    "sourceLocked": "The source link is part of Bellen (€15/mo).",
-    "unlockSource": "Unlock source — Bellen €15",
+    "sourceLocked": "The source link is part of Bellen (€18.50/mo).",
+    "unlockSource": "Unlock source — Bellen €18.50",
     "onboardTitle": "Welcome to Woonwekker",
     "onboardSkip": "Skip",
     "onboardNext": "Next",
@@ -626,7 +626,7 @@ const copy={
     "onboard3": "With Bellen you open the source link and WhatsApp alerts.",
     "pricingAntiTrial": "No 1-cent or €1 trial — clear price from day one",
     "stripKijken": "Kijken €0",
-    "stripBellen": "Bellen €15/mo",
+    "stripBellen": "Bellen €18.50/mo",
     "stripCta": "See pricing",
     "bronFree": "Free source",
     "bronPaid": "Paid source",
@@ -655,7 +655,7 @@ const copy={
     "housesNote": "More than four walls",
     "housesNoteSub": "Homes with character, ready for your story.",
     "categoryCta": "Browse listings",
-    "categorySeoLine": "Live rental feed · Kijken free · Bellen €15/mo"
+    "categorySeoLine": "Live rental feed · Kijken free · Bellen €18.50/mo"
 },
   "es": {
     "homes": "Viviendas",
@@ -676,7 +676,7 @@ const copy={
     "kijkenFeat6": "Detalles completos y enlace a la fuente bloqueados",
     "kijkenCta": "Ver viviendas",
     "bellenTitle": "Bellen",
-    "bellenPrice": "€15",
+    "bellenPrice": "€18.50",
     "bellenPeriod": "/mes",
     "bellenFeat1": "Todo de Kijken",
     "bellenFeat2": "Detalles completos + enlace a la fuente por la vía oficial",
@@ -684,7 +684,7 @@ const copy={
     "bellenFeat4": "Hasta 4 perfiles + 1 compañero de búsqueda",
     "bellenFeat5": "Kit de respuesta NL/EN, checklist y historial",
     "bellenFeat6": "Cancelación 1 clic · 14 días devolución · sin trial",
-    "bellenCta": "Hazte Bellen — €15/mes",
+    "bellenCta": "Hazte Bellen — €18,50/mes",
     "pricingNote": "Cancelación en 1 clic · 14 días de devolución · sin trial de 1 céntimo ni €1",
     "footer": "Un comienzo claro para tu próxima etapa.",
     "eyebrow": "Los mejores precios",
@@ -774,7 +774,7 @@ const copy={
       ],
       [
         "¿Hay que pagar para buscar?",
-        "Con Kijken (€0) navegas teasers de alquiler gratis. Con Bellen (€15/mes) desbloqueas detalles, el enlace a la fuente (Funda, etc.), alertas ilimitadas e-mail+WhatsApp, compañero de búsqueda y kit de respuesta. Cancelación 1 clic, 14 días de devolución, sin trial. El alquiler lo cierras siempre con el anunciante."
+        "Con Kijken (€0) navegas teasers de alquiler gratis. Con Bellen (€18,50/mes) desbloqueas detalles, el enlace a la fuente (Funda, etc.), alertas ilimitadas e-mail+WhatsApp, compañero de búsqueda y kit de respuesta. Cancelación 1 clic, 14 días de devolución, sin trial. El alquiler lo cierras siempre con el anunciante."
       ],
       [
         "¿Puedo navegar en mi idioma?",
@@ -786,7 +786,7 @@ const copy={
       ],
       [
         "¿Recibiré alertas de nuevas viviendas?",
-        "Sí, con perfiles de búsqueda en tu cuenta. Kijken: máx. 3 alertas e-mail/semana. Bellen (€15/mes): alertas ilimitadas e-mail + WhatsApp (objetivo <60s). Configura hasta 4 perfiles en Cuenta. El dataset es una instantánea (ver fecha); las alertas son una demo local en este dispositivo."
+        "Sí, con perfiles de búsqueda en tu cuenta. Kijken: máx. 3 alertas e-mail/semana. Bellen (€18,50/mes): alertas ilimitadas e-mail + WhatsApp (objetivo <60s). Configura hasta 4 perfiles en Cuenta. El dataset es una instantánea (ver fecha); las alertas son una demo local en este dispositivo."
       ],
       [
         "¿Qué hago ante un error o anuncio sospechoso?",
@@ -864,7 +864,7 @@ const copy={
     "accCity": "City",
     "plan": "Plan",
     "planKijken": "Kijken (€0)",
-    "planBellen": "Bellen (€15/mo)",
+    "planBellen": "Bellen (€18.50/mo)",
     "avatar": "Profile photo",
     "avatarHint": "Upload an image (max ~400 KB). No photo? We show initials.",
     "avatarTooBig": "File too large (max ~400 KB).",
@@ -910,7 +910,7 @@ const copy={
     "zoekgenootHint": "Share alerts with one buddy (Bellen).",
     "zoekgenootName": "Buddy name",
     "zoekgenootEmail": "Buddy email",
-    "zoekgenootUpsell": "Search buddy is available with Bellen (€15/mo).",
+    "zoekgenootUpsell": "Search buddy is available with Bellen (€18.50/mo).",
     "upgradeBellen": "Pasar a Bellen",
     "pipelineTitle": "Pipeline",
     "tabFav": "Favourites",
@@ -945,7 +945,7 @@ const copy={
     "date": ""
   ,
     "sourceLocked": "El enlace a la fuente forma parte de Bellen (15 €/mes).",
-    "unlockSource": "Desbloquear fuente — Bellen 15 €",
+    "unlockSource": "Desbloquear fuente — Bellen €18,50",
     "onboardTitle": "Bienvenido a Woonwekker",
     "onboardSkip": "Omitir",
     "onboardNext": "Siguiente",
@@ -955,7 +955,7 @@ const copy={
     "onboard3": "Con Bellen abres el enlace a la fuente y alertas de WhatsApp.",
     "pricingAntiTrial": "Sin trial de 1 céntimo ni €1 — precio claro desde el día 1",
     "stripKijken": "Kijken €0",
-    "stripBellen": "Bellen €15/mes",
+    "stripBellen": "Bellen €18,50/mes",
     "stripCta": "Ver precios",
     "bronFree": "Fuente gratis",
     "bronPaid": "Fuente de pago",
@@ -984,7 +984,7 @@ const copy={
     "housesNote": "Más que cuatro paredes",
     "housesNoteSub": "Casas con carácter, listas para tu historia.",
     "categoryCta": "Ver anuncios",
-    "categorySeoLine": "Oferta actual · Kijken gratis · Bellen €15/mes"
+    "categorySeoLine": "Oferta actual · Kijken gratis · Bellen €18,50/mes"
 },
   "pl": {
     "homes": "Mieszkania i domy",
@@ -1005,7 +1005,7 @@ const copy={
     "kijkenFeat6": "Pełne szczegóły i link do źródła zablokowane",
     "kijkenCta": "Przeglądaj oferty",
     "bellenTitle": "Bellen",
-    "bellenPrice": "€15",
+    "bellenPrice": "€18.50",
     "bellenPeriod": "/mies.",
     "bellenFeat1": "Wszystko z Kijken",
     "bellenFeat2": "Pełne szczegóły + link do źródła oficjalną ścieżką",
@@ -1013,7 +1013,7 @@ const copy={
     "bellenFeat4": "Do 4 profili + 1 współlokator wyszukiwania",
     "bellenFeat5": "Kit odpowiedzi NL/EN, checklista i historia",
     "bellenFeat6": "Anulowanie 1 klik · 14 dni zwrotu · bez trialu",
-    "bellenCta": "Weź Bellen — €15/mies.",
+    "bellenCta": "Weź Bellen — €18,50/mies.",
     "pricingNote": "Anulowanie 1 kliknięciem · 14 dni zwrotu · bez trialu 1 cent / €1",
     "footer": "Dobry początek nowego rozdziału.",
     "eyebrow": "Najlepsze ceny",
@@ -1115,7 +1115,7 @@ const copy={
       ],
       [
         "Czy otrzymam powiadomienia o nowych ofertach?",
-        "Tak — przez profile wyszukiwania na koncie. Kijken: maks. 3 alerty e-mail/tydzień. Bellen (€15/mies.): nielimitowane e-mail + WhatsApp (cel <60s). Ustaw do 4 profili w Koncie. Zbiór ogłoszeń to migawka (zob. datę); alerty to lokalna demo na tym urządzeniu."
+        "Tak — przez profile wyszukiwania na koncie. Kijken: maks. 3 alerty e-mail/tydzień. Bellen (€18,50/mies.): nielimitowane e-mail + WhatsApp (cel <60s). Ustaw do 4 profili w Koncie. Zbiór ogłoszeń to migawka (zob. datę); alerty to lokalna demo na tym urządzeniu."
       ],
       [
         "Co zrobić w razie błędu lub podejrzanego ogłoszenia?",
@@ -1193,7 +1193,7 @@ const copy={
     "accCity": "City",
     "plan": "Plan",
     "planKijken": "Kijken (€0)",
-    "planBellen": "Bellen (€15/mo)",
+    "planBellen": "Bellen (€18.50/mo)",
     "avatar": "Profile photo",
     "avatarHint": "Upload an image (max ~400 KB). No photo? We show initials.",
     "avatarTooBig": "File too large (max ~400 KB).",
@@ -1239,7 +1239,7 @@ const copy={
     "zoekgenootHint": "Share alerts with one buddy (Bellen).",
     "zoekgenootName": "Buddy name",
     "zoekgenootEmail": "Buddy email",
-    "zoekgenootUpsell": "Search buddy is available with Bellen (€15/mo).",
+    "zoekgenootUpsell": "Search buddy is available with Bellen (€18.50/mo).",
     "upgradeBellen": "Przejdź na Bellen",
     "pipelineTitle": "Pipeline",
     "tabFav": "Favourites",
@@ -1274,7 +1274,7 @@ const copy={
     "date": ""
   ,
     "sourceLocked": "Link do źródła jest częścią Bellen (15 €/mies.).",
-    "unlockSource": "Odblokuj źródło — Bellen 15 €",
+    "unlockSource": "Odblokuj źródło — Bellen €18,50",
     "onboardTitle": "Witamy w Woonwekker",
     "onboardSkip": "Pomiń",
     "onboardNext": "Dalej",
@@ -1284,7 +1284,7 @@ const copy={
     "onboard3": "Z Bellen otwierasz link do źródła i alerty WhatsApp.",
     "pricingAntiTrial": "Bez trialu 1 cent ani €1 — jasna cena od dnia 1",
     "stripKijken": "Kijken €0",
-    "stripBellen": "Bellen €15/mies.",
+    "stripBellen": "Bellen €18,50/mies.",
     "stripCta": "Zobacz cennik",
     "bronFree": "Darmowe źródło",
     "bronPaid": "Płatne źródło",
@@ -1313,6 +1313,6 @@ const copy={
     "housesNote": "Więcej niż cztery ściany",
     "housesNoteSub": "Domy z charakterem, gotowe na Twoją historię.",
     "categoryCta": "Zobacz oferty",
-    "categorySeoLine": "Aktualne oferty · Kijken gratis · Bellen €15/mies."
+    "categorySeoLine": "Aktualne oferty · Kijken gratis · Bellen €18,50/mies."
 }
 };

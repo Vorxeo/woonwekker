@@ -34,8 +34,8 @@ module.exports = async function handler(req, res) {
     });
     const stateToken = crypto.randomBytes(16).toString('hex');
     const pay = await mollieRequest('POST', '/payments', {
-      amount: { currency: 'EUR', value: '15.00' },
-      description: 'Woonwekker Bellen — €15/maand',
+      amount: { currency: 'EUR', value: '18.50' },
+      description: 'Woonwekker Bellen — €18,50/maand',
       redirectUrl: `${base}/api/checkout/return?customer_id=${encodeURIComponent(customer.id)}&state=${encodeURIComponent(stateToken)}`,
       webhookUrl: `${base}/api/mollie/webhook`,
       sequenceType: 'first',

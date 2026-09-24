@@ -302,7 +302,7 @@ function profilePanel(a){
       <div class="ww-field"><label for="prof-phone">${esc(t('phone'))}</label><input id="prof-phone" name="phone" type="tel" value="${esc(p.phone||'')}"></div>
       <div class="ww-field"><label>${esc(t('plan'))}</label>
         <p class="ww-status">${esc(hasBellenAccess(a)?t('planBellen'):t('planKijken'))}</p>
-        ${hasBellenAccess(a)?'':`<p class="ww-locked ww-paywall" data-ww-locked="1"><button type="button" class="ww-btn" data-ww-checkout="1">${esc(t('upgradeBellen'))} — €15</button></p>`}
+        ${hasBellenAccess(a)?'':`<p class="ww-locked ww-paywall" data-ww-locked="1"><button type="button" class="ww-btn" data-ww-checkout="1">${esc(t('upgradeBellen'))} — €18,50</button></p>`}
       </div>
       <div class="ww-field"><label for="prof-income">${esc(t('income'))}</label>
         <select id="prof-income" name="income">

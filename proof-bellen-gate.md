@@ -19,7 +19,7 @@ Mollie key: **not set** (Vercel Production env later) → unlock impossible.
 
 ## Vercel-ready structure
 ```
-api/checkout.js              POST  create Mollie first payment €15 + mandate
+api/checkout.js              POST  create Mollie first payment €18,50 + mandate
 api/checkout/return.js       GET   verify paid → Set-Cookie → redirect /account/
 api/mollie/webhook.js        POST  Mollie webhook (grant on paid)
 api/entitlement.js           GET   {plan, source, mollieConfigured}
