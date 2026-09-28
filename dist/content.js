@@ -6,7 +6,7 @@ const copy={
     "privacy": "Privacy",
     "pricing": "Prijzen",
     "pricingTitle": "Eenvoudige prijzen",
-    "pricingIntro": "Gratis zoeken met Kijken. Volledige details en de officiële bronlink met Bellen — 1 dag gratis, daarna €18,50/maand.",
+    "pricingIntro": "Gratis zoeken met Kijken. Volledige details en contact met de verhuurder met Bellen — 1 dag gratis, daarna €18,50/maand.",
     "kijkenTitle": "Kijken",
     "kijkenPrice": "€0",
     "kijkenPeriod": "/maand",
@@ -15,13 +15,13 @@ const copy={
     "kijkenFeat3": "Listing specs & foto’s (teaser)",
     "kijkenFeat4": "Tot 4 zoekprofielen (alerts begrensd)",
     "kijkenFeat5": "Alerts: max. 3×/week, alleen e-mail",
-    "kijkenFeat6": "Volledige details & bronlink vergrendeld",
+    "kijkenFeat6": "Volledige details & contact vergrendeld",
     "kijkenCta": "Woningen bekijken",
     "bellenTitle": "Bellen",
     "bellenPrice": "€18,50",
     "bellenPeriod": "/maand",
     "bellenFeat1": "Alles van Kijken",
-    "bellenFeat2": "Volledige details + bronlink via het officiële pad",
+    "bellenFeat2": "Volledige details + contact met de verhuurder",
     "bellenFeat3": "Directe alerts (e-mail; push volgt): onbeperkt — geen tweede paywall",
     "bellenFeat4": "Tot 4 zoekprofielen + 1 zoekgenoot",
     "bellenFeat5": "NL/EN reactie-kit, docs-checklist & contactgeschiedenis",
@@ -45,7 +45,7 @@ const copy={
     "results": "huuradvertenties",
     "updated": "Controleer de actuele status bij de aanbieder",
     "sort": "Sorteer op",
-    "newest": "Volgorde bron",
+    "newest": "Standaard",
     "cheap": "Prijs: laag naar hoog",
     "expensive": "Prijs: hoog naar laag",
     "large": "Grootste oppervlakte",
@@ -77,16 +77,16 @@ const copy={
     "balcony": "Balkon",
     "tagNew": "Nieuw",
     "newSectionTitle": "Nieuw op Woonwekker",
-    "newSectionSub": "{n} verse advertenties van Kamernet en Pararius",
+    "newSectionSub": "{n} verse advertenties",
     "newSectionCta": "Toon nieuwe",
     "filterNew": "Nieuw",
     "parking": "Eigen parkeerplaats",
     "yes": "Ja",
     "no": "Nee",
     "unknown": "Niet vermeld",
-    "source": "Bekijk oorspronkelijke advertentie ↗",
+    "source": "Contact verhuurder ↗",
     "detailNote": "Controleer de actuele beschikbaarheid, huurvoorwaarden en eventuele bijkomende kosten bij de aanbieder. Deze gegevens zijn een momentopname, geen live aanbod.",
-    "sourceText": "De volledige omschrijving en contactgegevens vind je bij de oorspronkelijke advertentie.",
+    "sourceText": "Neem contact op met de verhuurder voor de volledige omschrijving en contactgegevens.",
     "close": "Sluiten",
     "photoUnavailable": "Foto niet beschikbaar",
     "loadError": "De woningen kunnen niet worden geladen.",
@@ -109,11 +109,11 @@ const copy={
       ],
       [
         "Zijn de woningen nog beschikbaar?",
-        "Aanbod en prijzen kunnen inmiddels zijn gewijzigd. Controleer altijd de actuele status via de knop “Bekijk oorspronkelijke advertentie”."
+        "Aanbod en prijzen kunnen inmiddels zijn gewijzigd. Controleer altijd de actuele status via “Contact verhuurder”."
       ],
       [
         "Hoe plan ik een bezichtiging?",
-        "Open een woning en ga via “Bekijk oorspronkelijke advertentie” naar de oorspronkelijke advertentie. Neem daar contact op met de aanbieder. Woonwekker plant zelf geen bezichtigingen en behandelt geen huuraanvragen."
+        "Open een woning en ga via “Contact verhuurder” naar de verhuurder. Neem daar contact op. Woonwekker plant zelf geen bezichtigingen en behandelt geen huuraanvragen."
       ],
       [
         "Is de getoonde prijs inclusief alle kosten?",
@@ -121,15 +121,15 @@ const copy={
       ],
       [
         "Moet ik betalen om te zoeken?",
-        "Met Kijken (€0) blader je gratis door teasers van huurwoningen. Met Bellen krijg je 1 dag gratis, daarna €18,50/mnd: volledige details, de bronlink (Funda e.a.), onbeperkt e-mail+WhatsApp-alerts, zoekgenoot en reactie-kit. Na de proefperiode wordt het abonnement in rekening gebracht tenzij je opzegt. 1-klik opzeggen. Huurafspraken maak je altijd met de aanbieder."
+        "Met Kijken (€0) blader je gratis door teasers van huurwoningen. Met Bellen krijg je 1 dag gratis, daarna €18,50/mnd: volledige details, contact met de verhuurder, onbeperkt e-mail+WhatsApp-alerts, zoekgenoot en reactie-kit. Na de proefperiode wordt het abonnement in rekening gebracht tenzij je opzegt. 1-klik opzeggen. Huurafspraken maak je altijd met de aanbieder."
       ],
       [
         "Kan ik zoeken in mijn eigen taal?",
-        "Ja. Kies Nederlands, English, Español of Polski in het taalmenu. De interface, FAQ en juridische informatie veranderen mee. Adressen en namen uit de bron blijven ongewijzigd."
+        "Ja. Kies Nederlands, English, Español of Polski in het taalmenu. De interface, FAQ en juridische informatie veranderen mee. Adressen en namen in advertenties blijven ongewijzigd."
       ],
       [
         "Waarom heeft een woning maar enkele foto’s?",
-        "Het aangeleverde overzicht bevat één tot zes foto’s per woning. Op de oorspronkelijke advertentie kunnen meer foto’s en aanvullende gegevens staan."
+        "Het aangeleverde overzicht bevat één tot zes foto’s per woning. Via contact met de verhuurder kunnen meer foto’s en aanvullende gegevens beschikbaar zijn."
       ],
       [
         "Krijg ik meldingen van nieuwe woningen?",
@@ -137,7 +137,7 @@ const copy={
       ],
       [
         "Wat doe ik bij een fout of een verdachte advertentie?",
-        "Controleer de oorspronkelijke advertentie en meld onjuiste gegevens bij de aanbieder of het bronplatform. Maak geen geld over op basis van alleen een advertentie; controleer de identiteit en afspraken voordat je betaalt."
+        "Controleer de advertentie en meld onjuiste gegevens bij de aanbieder. Maak geen geld over op basis van alleen een advertentie; controleer de identiteit en afspraken voordat je betaalt."
       ]
     ],
     "legalSections": [
@@ -180,14 +180,14 @@ const copy={
     "how1Text": "Blader gratis door teasers met Kijken. Filter op stad, prijs, type en slaapkamers.",
     "how2Title": "Bewaar & reageer",
     "how2Text": "Sla favorieten op, stel zoekprofielen in en gebruik kant-en-klare reacties (Bellen).",
-    "how3Title": "Naar de bron",
-    "how3Text": "Met Bellen open je volledige details en de oorspronkelijke advertentie om te bellen of mailen.",
+    "how3Title": "Contact verhuurder",
+    "how3Text": "Met Bellen open je volledige details en neem je contact op met de verhuurder.",
     "trust1": "Privacy first — zoekfilters en favorieten blijven op jouw apparaat",
     "trust2": "1 dag gratis · daarna €18,50/mnd · 1-klik opzeggen",
-    "trust3": "Alleen woningen met foto’s — altijd via de officiële bron",
+    "trust3": "Alleen woningen met foto’s — helder pad naar contact met de verhuurder",
     "accountTitle": "Jouw account",
     "accountIntro": "Beheer profiel, zoekprofielen, alerts, reactie-kit en pipeline. Alles lokaal in je browser (demo).",
-    "accountDemo": "Log in met Google (voorkeur) of bevestig je e-mail. Google = geen bevestigingsmail. Bellen-unlock blijft apart (Mollie).",
+    "accountDemo": "Log in met Google (voorkeur) of bevestig je e-mail. Google = geen bevestigingsmail. Bellen-toegang blijft apart (Mollie).",
     "loginTitle": "Inloggen",
     "loginIntro": "Log in met Google, of open de bevestigingslink uit je e-mail. Er is geen wachtwoord-login.",
     "signupTitle": "Account aanmaken",
@@ -309,8 +309,8 @@ const copy={
     "plaatsNeedLogin": "Maak eerst een account aan onder Account om te plaatsen (demo).",
     "openHomes": "Naar woningen",
     "date": "",
-    "sourceLocked": "Bronlink is onderdeel van Bellen (€18,50/mnd).",
-    "unlockSource": "Ontgrendel bron — Bellen €18,50",
+    "sourceLocked": "Contactgegevens zijn onderdeel van Bellen (€18,50/mnd).",
+    "unlockSource": "Contact verhuurder — Bellen €18,50",
     "photosLocked": "Meer foto’s zijn onderdeel van Bellen (€18,50/mnd).",
     "unlockPhotos": "Ontgrendel met Bellen (€18,50)",
     "onboardTitle": "Welkom bij Woonwekker",
@@ -319,13 +319,13 @@ const copy={
     "onboardDone": "Naar woningen",
     "onboard1": "Filter gratis op stad, prijs en type (Kijken).",
     "onboard2": "Bewaar favorieten en stel tot 4 zoekprofielen in.",
-    "onboard3": "Met Bellen open je de bronlink en WhatsApp-alerts.",
+    "onboard3": "Met Bellen open je contact met de verhuurder en WhatsApp-alerts.",
     "pricingAntiTrial": "1 dag gratis, daarna €18,50/maand — helder, geen verborgen cent-trial",
     "stripKijken": "Kijken €0",
     "stripBellen": "Bellen €18,50/mnd",
     "stripCta": "Bekijk prijzen",
-    "bronFree": "Gratis bron",
-    "bronPaid": "Betaalde bron",
+    "bronFree": "Direct contact",
+    "bronPaid": "Via Bellen",
     "zoekStripTitle": "Jouw zoekprofielen",
     "zoekStripHint": "Tot 4 slots — vul ze onder Account",
     "zoekSlotEmpty": "Leeg slot",
@@ -373,13 +373,13 @@ const copy={
     "insightsPromoLink": "Naar Insights →",
     "insightsA1Title": "Kamer, studio of huis: welk huurtype past in Nederland",
     "insightsA1Intro": "Begin met het juiste type woning — anders ververs je wekenlang de verkeerde pagina's.",
-    "insightsA2Title": "Nederlandse huur zoeken zonder Funda de hele dag te verversen",
+    "insightsA2Title": "Nederlandse huur zoeken zonder de hele dag te verversen",
     "insightsA2Intro": "Definieer wat je accepteert, bekijk alleen dat, en besteed energie aan listings die wél passen.",
     "insightsA3Title": "Gratis account vs Bellen €18,50: waar je voor betaalt op Woonwekker",
     "insightsA3Intro": "Account aanmaken is niet hetzelfde als betalen. Zo zit Kijken vs Bellen.",
-    "insightsA1Body": "<p>Een woning vinden in Nederland begint met één saaie keuze: welk type woning zoek je echt. Haal je dat door elkaar, dan ververs je wekenlang de verkeerde pagina’s.</p>\n<p>Een <strong>kamer</strong> is meestal een kamer in een gedeeld huis of appartement. Keuken — en vaak badkamer — deel je. Klassieke route voor studenten, starters en veel expats die sneller iets nodig hebben dan perfect. Zoek die lijn op <a href=\"/kamers/\">/kamers/</a> — kamers en studio’s staan daar vaak samen, omdat dezelfde mensen beide zoeken; filter daarna als je alleen een kamer of alleen een studio wilt.</p>\n<p>Een <strong>studio</strong> blijft compact, maar is typisch zelfstandig: eigen kitchenette en badkamer. Je betaalt meer voor privacy en sneller settelen. Land je steeds op gedeelde-huis-advertenties die je haat, strak dan het typefilter aan in plaats van de hele markt de schuld te geven.</p>\n<p>Een <strong>huis</strong> is een ander traject. Gezinnen en stellen die ruimte nodig hebben, horen niet in een kamerfeed te hangen. Gebruik <a href=\"/huizen/\">/huizen/</a> als huisaanbod is wat je bedoelt. Appartementen en gemengd aanbod zie je nog in de bredere woningenzoektocht; begin bij het type dat bij je leven past, filter daarna op stad en budget.</p>\n<p>Stad kiest net zo hard als type. Amsterdam, Utrecht, Rotterdam en kleinere plaatsen verschillen in prijs en concurrentie. Gebruik <a href=\"/plaats/\">/plaats/</a> als je al weet waar je wilt kijken, of als een verhuurder daar wil plaatsen.</p>\n<p><strong>Praktische volgorde die minder tijd verspilt:</strong></p>\n<ol>\n<li>Kies type (kamer / studio / huis).</li>\n<li>Zet een echt budgetplafond, inclusief servicekosten als die zichtbaar zijn.</li>\n<li>Kies één of twee steden, niet half de Randstad.</li>\n<li>Bewaar een zoekprofiel zodat je filters niet elke avond opnieuw bouwt — <a href=\"/signup/\">/signup/</a> is gratis account; dat is niet de betaalde unlock.</li>\n</ol>\n<p>Ziet een kaart er verkeerd uit voor jouw type, vertrouw dat signaal. Een uitleg “waarom dit past / waarom niet” op basis van je filters is nuttiger dan een vaag “aanbevolen”-badge. Hoe plannen werken als je broncontact wilt ontgrendelen: zie <a href=\"/prijzen/\">/prijzen/</a> en de <a href=\"/faq/\">/faq/</a>.</p>\n<p>Precisie is hier simpel: zoek het aanbod dat bij je leven past, niet de luidste feed.</p>",
-    "insightsA2Body": "<p>De Nederlandse huurmarkt beloont wie vroeg reageert. Niet wie tot middernacht naar dezelfde drie tabbladen staart.</p>\n<p>Een betere lus: definieer wat je accepteert, bekijk alleen dat, en steek energie in listings die jouw eigen regels halen.</p>\n<p>Schrijf het profiel één keer. Stad, max. huur, type (kamer, studio, huis), dealbreakers (geen begane grond, inschrijving moet kunnen, gestoffeerd of niet). Kort genoeg dat je jezelf later niet voorliegt. Op Woonwekker kun je dat profiel gratis houden — maak een account op <a href=\"/signup/\">/signup/</a>. Inloggen en aanmelden is niet hetzelfde als betalen voor Bellen.</p>\n<p>Blader in het juiste schap. Kamers en studio’s: <a href=\"/kamers/\">/kamers/</a>. Huizen: <a href=\"/huizen/\">/huizen/</a>. Eerst op plaats: <a href=\"/plaats/\">/plaats/</a>. Alles door elkaar scrollen is hoe je de ene kamer mist die wél past.</p>\n<p>Kies “waarom wel / waarom niet” boven vibes. Een nuttige kaart zegt dat prijs en stad kloppen, of dat het faalt omdat het type verkeerd is. Dat is filtereerlijkheid, geen belofte dat de woning perfect is. Faalt iets jouw regels: sla over. Tijd is schaars.</p>\n<p>Reageer als het de moeite waard is. Klaar om broncontact te openen en sneller te gaan? Dat is Bellen — <strong>€18,50</strong> per maand op <a href=\"/prijzen/\">/prijzen/</a>. Gratis bladeren en een account blijven zonder die unlock. Details en opzegtaal staan bij prijzen en in de <a href=\"/faq/\">/faq/</a>.</p>\n<p>Wat dit niet is: een chatbot die “een huis voor je vindt”, mysterieus gescraped aanbod, of de claim dat betalen concurrentie wegneemt. Anderen solliciteren ook. Precisie betekent minder tabs, duidelijkere regels, minder dood scrollen.</p>\n<p>Plaats je als eigenaar of makelaar, gebruik <a href=\"/plaats/\">/plaats/</a> zodat zoekers geautoriseerde listings zien in plaats van placeholders.</p>",
-    "insightsA3Body": "<p>Veel huursites vermengen “account aanmaken” met “betaal ons.” Woonwekker hoort dat niet te doen.</p>\n<p><strong>Gratis (Kijken).</strong> Je kunt bladeren, filters zetten en een zoekprofiel bewaren. <a href=\"/signup/\">/signup/</a> maakt een account zodat voorkeuren blijven. Inloggen ontgrendelt op zich geen bronlinks van verhuurders.</p>\n<p><strong>Bellen — 1 dag gratis, daarna €18,50 per maand.</strong> Dit is het betaalde plan voor het snellere pad: unlock naar het officiële broncontact zodat je kunt reageren. Na de proefperiode wordt het abonnement in rekening gebracht tenzij je opzegt. Volledige prijs en opzegpad staan op <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Waar geld niet voor is.</strong> Bellen is geen garantie dat je de woning krijgt. Het is geen bemiddelingskosten bovenop de huur (zie trust-taal op prijzen / FAQ: geen bemiddelingskosten als Woonwekker-add-on). Het vervangt niet het bekijken van de listing op de officiële bron of de voorwaarden van de verhuurder.</p>\n<p><strong>Hoe te beslissen.</strong></p>\n<ul>\n<li>Nog stad en budget aanscherpen? Blijf gratis. Gebruik <a href=\"/kamers/\">/kamers/</a> of <a href=\"/huizen/\">/huizen/</a> en verfijn.</li>\n<li>Matches die je vandaag écht zou beantwoorden? Open <a href=\"/prijzen/\">/prijzen/</a> en unlock Bellen pas dan.</li>\n<li>Verhuurder of makelaar met aanbod? <a href=\"/plaats/\">/plaats/</a> is het plaatsingspad.</li>\n</ul>\n<p>Vragen over verlenging, opzeggen of wat erbij zit: <a href=\"/faq/\">/faq/</a>. Als een pagina ooit suggereert dat inloggen gelijk is aan betaalde toegang, is dat een fout in het verhaal — de productregel is apart: account ≠ Bellen.</p>\n<p>Eerlijke prijzen horen bij sneller een woning vinden. Je moet weten wat je koopt vóór checkout, niet erna.</p>"
+    "insightsA1Body": "<p>Een woning vinden in Nederland begint met één saaie keuze: welk type woning zoek je echt. Haal je dat door elkaar, dan ververs je wekenlang de verkeerde pagina’s.</p>\n<p>Een <strong>kamer</strong> is meestal een kamer in een gedeeld huis of appartement. Keuken — en vaak badkamer — deel je. Klassieke route voor studenten, starters en veel expats die sneller iets nodig hebben dan perfect. Zoek die lijn op <a href=\"/kamers/\">/kamers/</a> — kamers en studio’s staan daar vaak samen, omdat dezelfde mensen beide zoeken; filter daarna als je alleen een kamer of alleen een studio wilt.</p>\n<p>Een <strong>studio</strong> blijft compact, maar is typisch zelfstandig: eigen kitchenette en badkamer. Je betaalt meer voor privacy en sneller settelen. Land je steeds op gedeelde-huis-advertenties die je haat, strak dan het typefilter aan in plaats van de hele markt de schuld te geven.</p>\n<p>Een <strong>huis</strong> is een ander traject. Gezinnen en stellen die ruimte nodig hebben, horen niet in een kamerfeed te hangen. Gebruik <a href=\"/huizen/\">/huizen/</a> als huisaanbod is wat je bedoelt. Appartementen en gemengd aanbod zie je nog in de bredere woningenzoektocht; begin bij het type dat bij je leven past, filter daarna op stad en budget.</p>\n<p>Stad kiest net zo hard als type. Amsterdam, Utrecht, Rotterdam en kleinere plaatsen verschillen in prijs en concurrentie. Gebruik <a href=\"/plaats/\">/plaats/</a> als je al weet waar je wilt kijken, of als een verhuurder daar wil plaatsen.</p>\n<p><strong>Praktische volgorde die minder tijd verspilt:</strong></p>\n<ol>\n<li>Kies type (kamer / studio / huis).</li>\n<li>Zet een echt budgetplafond, inclusief servicekosten als die zichtbaar zijn.</li>\n<li>Kies één of twee steden, niet half de Randstad.</li>\n<li>Bewaar een zoekprofiel zodat je filters niet elke avond opnieuw bouwt — <a href=\"/signup/\">/signup/</a> is gratis account; dat is niet de betaalde unlock.</li>\n</ol>\n<p>Ziet een kaart er verkeerd uit voor jouw type, vertrouw dat signaal. Een uitleg “waarom dit past / waarom niet” op basis van je filters is nuttiger dan een vaag “aanbevolen”-badge. Hoe plannen werken als je contact met de verhuurder wilt openen: zie <a href=\"/prijzen/\">/prijzen/</a> en de <a href=\"/faq/\">/faq/</a>.</p>\n<p>Precisie is hier simpel: zoek het aanbod dat bij je leven past, niet de luidste feed.</p>",
+    "insightsA2Body": "<p>De Nederlandse huurmarkt beloont wie vroeg reageert. Niet wie tot middernacht naar dezelfde drie tabbladen staart.</p>\n<p>Een betere lus: definieer wat je accepteert, bekijk alleen dat, en steek energie in listings die jouw eigen regels halen.</p>\n<p>Schrijf het profiel één keer. Stad, max. huur, type (kamer, studio, huis), dealbreakers (geen begane grond, inschrijving moet kunnen, gestoffeerd of niet). Kort genoeg dat je jezelf later niet voorliegt. Op Woonwekker kun je dat profiel gratis houden — maak een account op <a href=\"/signup/\">/signup/</a>. Inloggen en aanmelden is niet hetzelfde als betalen voor Bellen.</p>\n<p>Blader in het juiste schap. Kamers en studio’s: <a href=\"/kamers/\">/kamers/</a>. Huizen: <a href=\"/huizen/\">/huizen/</a>. Eerst op plaats: <a href=\"/plaats/\">/plaats/</a>. Alles door elkaar scrollen is hoe je de ene kamer mist die wél past.</p>\n<p>Kies “waarom wel / waarom niet” boven vibes. Een nuttige kaart zegt dat prijs en stad kloppen, of dat het faalt omdat het type verkeerd is. Dat is filtereerlijkheid, geen belofte dat de woning perfect is. Faalt iets jouw regels: sla over. Tijd is schaars.</p>\n<p>Reageer als het de moeite waard is. Klaar om contact met de verhuurder te openen en sneller te gaan? Dat is Bellen — <strong>€18,50</strong> per maand op <a href=\"/prijzen/\">/prijzen/</a>. Gratis bladeren en een account blijven zonder die unlock. Details en opzegtaal staan bij prijzen en in de <a href=\"/faq/\">/faq/</a>.</p>\n<p>Wat dit niet is: een chatbot die “een huis voor je vindt”, mysterieus gescraped aanbod, of de claim dat betalen concurrentie wegneemt. Anderen solliciteren ook. Precisie betekent minder tabs, duidelijkere regels, minder dood scrollen.</p>\n<p>Plaats je als eigenaar of makelaar, gebruik <a href=\"/plaats/\">/plaats/</a> zodat zoekers geautoriseerde listings zien in plaats van placeholders.</p>",
+    "insightsA3Body": "<p>Veel huursites vermengen “account aanmaken” met “betaal ons.” Woonwekker hoort dat niet te doen.</p>\n<p><strong>Gratis (Kijken).</strong> Je kunt bladeren, filters zetten en een zoekprofiel bewaren. <a href=\"/signup/\">/signup/</a> maakt een account zodat voorkeuren blijven. Inloggen ontgrendelt op zich geen contact met verhuurders.</p>\n<p><strong>Bellen — 1 dag gratis, daarna €18,50 per maand.</strong> Dit is het betaalde plan voor het snellere pad: toegang tot contact met de verhuurder zodat je kunt reageren. Na de proefperiode wordt het abonnement in rekening gebracht tenzij je opzegt. Volledige prijs en opzegpad staan op <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Waar geld niet voor is.</strong> Bellen is geen garantie dat je de woning krijgt. Het is geen bemiddelingskosten bovenop de huur (zie trust-taal op prijzen / FAQ: geen bemiddelingskosten als Woonwekker-add-on). Het vervangt niet het lezen van de voorwaarden van de verhuurder.</p>\n<p><strong>Hoe te beslissen.</strong></p>\n<ul>\n<li>Nog stad en budget aanscherpen? Blijf gratis. Gebruik <a href=\"/kamers/\">/kamers/</a> of <a href=\"/huizen/\">/huizen/</a> en verfijn.</li>\n<li>Matches die je vandaag écht zou beantwoorden? Open <a href=\"/prijzen/\">/prijzen/</a> en unlock Bellen pas dan.</li>\n<li>Verhuurder of makelaar met aanbod? <a href=\"/plaats/\">/plaats/</a> is het plaatsingspad.</li>\n</ul>\n<p>Vragen over verlenging, opzeggen of wat erbij zit: <a href=\"/faq/\">/faq/</a>. Als een pagina ooit suggereert dat inloggen gelijk is aan betaalde toegang, is dat een fout in het verhaal — de productregel is apart: account ≠ Bellen.</p>\n<p>Eerlijke prijzen horen bij sneller een woning vinden. Je moet weten wat je koopt vóór checkout, niet erna.</p>"
   },
   "en": {
     "homes": "Find a home",
@@ -388,7 +388,7 @@ const copy={
     "privacy": "Privacy",
     "pricing": "Pricing",
     "pricingTitle": "Simple pricing",
-    "pricingIntro": "Browse free with Kijken. Unlock full details and the official source link with Bellen — 1 day free trial, then €18.50/month.",
+    "pricingIntro": "Browse free with Kijken. Full details and landlord contact with Bellen — 1 day free trial, then €18.50/month.",
     "kijkenTitle": "Kijken",
     "kijkenPrice": "€0",
     "kijkenPeriod": "/month",
@@ -397,13 +397,13 @@ const copy={
     "kijkenFeat3": "Listing specs & photos (teaser)",
     "kijkenFeat4": "Up to 4 search profiles (alerts capped)",
     "kijkenFeat5": "Alerts: max 3×/week, email only",
-    "kijkenFeat6": "Full details & source link locked",
+    "kijkenFeat6": "Full details & contact locked",
     "kijkenCta": "Browse homes",
     "bellenTitle": "Bellen",
     "bellenPrice": "€18.50",
     "bellenPeriod": "/month",
     "bellenFeat1": "Everything in Kijken",
-    "bellenFeat2": "Full details + source link via the official path",
+    "bellenFeat2": "Full details + landlord contact",
     "bellenFeat3": "Instant alerts (email; push placeholder): unlimited — no second paywall",
     "bellenFeat4": "Up to 4 search profiles + 1 search buddy",
     "bellenFeat5": "NL/EN reply kit, docs checklist & contact history",
@@ -427,7 +427,7 @@ const copy={
     "results": "rental listings",
     "updated": "Check current status with the provider",
     "sort": "Sort by",
-    "newest": "Source order",
+    "newest": "Default",
     "cheap": "Price: low to high",
     "expensive": "Price: high to low",
     "large": "Largest area",
@@ -459,16 +459,16 @@ const copy={
     "balcony": "Balcony",
     "tagNew": "New",
     "newSectionTitle": "New on Woonwekker",
-    "newSectionSub": "{n} fresh listings from Kamernet and Pararius",
+    "newSectionSub": "{n} fresh listings",
     "newSectionCta": "Show new",
     "filterNew": "New",
     "parking": "Private parking",
     "yes": "Yes",
     "no": "No",
     "unknown": "Not provided",
-    "source": "View original listing ↗",
+    "source": "Contact landlord ↗",
     "detailNote": "Check current availability, rental terms and additional costs with the provider. These records are a snapshot, not a live feed.",
-    "sourceText": "See the original listing for the complete description and contact details.",
+    "sourceText": "Contact the landlord for the full description and contact details.",
     "close": "Close",
     "photoUnavailable": "Photo unavailable",
     "loadError": "The homes could not be loaded.",
@@ -491,11 +491,11 @@ const copy={
       ],
       [
         "Are these homes still available?",
-        "Prices and availability may have changed. Always check the current status using “View original listing”."
+        "Prices and availability may have changed. Always check the current status using “Contact landlord”."
       ],
       [
         "How do I arrange a viewing?",
-        "Open a home and follow “View original listing” to the original listing. Contact the provider there. Woonwekker does not schedule viewings or process rental applications."
+        "Open a home and use “Contact landlord” to reach the provider. Contact them there. Woonwekker does not schedule viewings or process rental applications."
       ],
       [
         "Does the price include all costs?",
@@ -503,15 +503,15 @@ const copy={
       ],
       [
         "Do I have to pay to search?",
-        "Kijken (€0) lets you browse rental teasers for free. Bellen: 1 day free trial, then €18.50/mo — unlocks full details, the source link (Funda etc.), unlimited email+WhatsApp alerts, a search buddy and reply kit. After the trial, the subscription charges unless cancelled. 1-click cancel. Rental deals are always with the provider."
+        "Kijken (€0) lets you browse rental teasers for free. Bellen: 1 day free trial, then €18.50/mo — unlocks full details, landlord contact, unlimited email+WhatsApp alerts, a search buddy and reply kit. After the trial, the subscription charges unless cancelled. 1-click cancel. Rental deals are always with the provider."
       ],
       [
         "Can I browse in my own language?",
-        "Yes. Choose Nederlands, English, Español or Polski in the language menu. The interface, FAQ and legal information change together. Original addresses and names remain unchanged."
+        "Yes. Choose Nederlands, English, Español or Polski in the language menu. The interface, FAQ and legal information change together. Addresses and names in listings remain unchanged."
       ],
       [
         "Why are there only a few photos?",
-        "The supplied dataset includes one to six photos per property. The original listing may contain more photos and further details."
+        "The supplied dataset includes one to six photos per property. More photos and further details may be available when you contact the landlord."
       ],
       [
         "Will I receive new property alerts?",
@@ -519,7 +519,7 @@ const copy={
       ],
       [
         "What if I notice an error or a suspicious listing?",
-        "Check the original listing and report incorrect information to the provider or source platform. Do not transfer money based only on an advert; verify identities and agreements before paying."
+        "Check the listing and report incorrect information to the provider. Do not transfer money based only on an advert; verify identities and agreements before paying."
       ]
     ],
     "legalSections": [
@@ -562,14 +562,14 @@ const copy={
     "how1Text": "Browse free teasers with Kijken. Filter by city, price, type and bedrooms.",
     "how2Title": "Save & reply",
     "how2Text": "Save favourites, set search profiles and use ready-made replies (Bellen).",
-    "how3Title": "Go to the source",
-    "how3Text": "With Bellen you unlock full details and the original listing to call or email.",
+    "how3Title": "Contact landlord",
+    "how3Text": "With Bellen you open full details and contact the landlord.",
     "trust1": "Privacy first — filters and favorites stay on your device",
     "trust2": "1 day free · then €18.50/mo · 1-click cancel",
-    "trust3": "Listings with photos only — always via the official source",
+    "trust3": "Listings with photos only — a clear path to contact the landlord",
     "accountTitle": "Your account",
     "accountIntro": "Manage profile, search profiles, alerts, reply kit and pipeline. Everything local in your browser (demo).",
-    "accountDemo": "Sign in with Google (preferred) or confirm your email. Google skips confirmation. Bellen unlock stays separate (Mollie).",
+    "accountDemo": "Sign in with Google (preferred) or confirm your email. Google skips confirmation. Bellen access stays separate (Mollie).",
     "loginTitle": "Sign in",
     "loginIntro": "Sign in with Google, or open the confirmation link from your email. There is no password login.",
     "signupTitle": "Create your account",
@@ -691,8 +691,8 @@ const copy={
     "plaatsNeedLogin": "Create an account under Account first to list (demo).",
     "openHomes": "Browse homes",
     "date": "",
-    "sourceLocked": "The source link is part of Bellen (€18.50/mo).",
-    "unlockSource": "Unlock source — Bellen €18.50",
+    "sourceLocked": "Contact details are part of Bellen (€18.50/mo).",
+    "unlockSource": "Contact landlord — Bellen €18.50",
     "photosLocked": "More photos are part of Bellen (€18.50/mo).",
     "unlockPhotos": "Unlock with Bellen (€18.50)",
     "onboardTitle": "Welcome to Woonwekker",
@@ -701,13 +701,13 @@ const copy={
     "onboardDone": "Browse homes",
     "onboard1": "Filter free by city, price and type (Kijken).",
     "onboard2": "Save favourites and set up to 4 search profiles.",
-    "onboard3": "With Bellen you open the source link and WhatsApp alerts.",
+    "onboard3": "With Bellen you open landlord contact and WhatsApp alerts.",
     "pricingAntiTrial": "1 day free, then €18.50/month — clear price, no hidden cent-trial",
     "stripKijken": "Kijken €0",
     "stripBellen": "Bellen €18.50/mo",
     "stripCta": "See pricing",
-    "bronFree": "Free source",
-    "bronPaid": "Paid source",
+    "bronFree": "Direct contact",
+    "bronPaid": "Via Bellen",
     "zoekStripTitle": "Your search profiles",
     "zoekStripHint": "Up to 4 slots — fill them under Account",
     "zoekSlotEmpty": "Empty slot",
@@ -736,7 +736,7 @@ const copy={
     "roomsNote": "Your next address is waiting",
     "roomsNoteSub": "From a single room to a shared house — start today.",
     "housesPageTitle": "Homes to rent in the Netherlands | Woonwekker",
-    "housesMeta": "Find homes to rent in the Netherlands — apartments and houses. Compare photos and prices, then go to the source via Woonwekker.",
+    "housesMeta": "Find homes to rent in the Netherlands — apartments and houses. Compare photos and prices, then contact the landlord via Woonwekker.",
     "housesEyebrow": "Homes to rent",
     "housesHeadline": "A home.<br><em>Room to grow.</em>",
     "housesIntro": "Apartment or house: what matters is a place to live. Woonwekker brings homes to rent together so you compare faster — clear, honest and without noise.",
@@ -755,13 +755,13 @@ const copy={
     "insightsPromoLink": "Go to Insights →",
     "insightsA1Title": "Room, studio, or house: how to choose a rental type in the Netherlands",
     "insightsA1Intro": "Finding a place starts with one boring decision: what kind of home you are actually looking for.",
-    "insightsA2Title": "How to hunt Dutch rentals without refreshing Funda all day",
+    "insightsA2Title": "How to search Dutch rentals without refreshing all day",
     "insightsA2Intro": "The market rewards people who reply early — not people who stare at the same three tabs until midnight.",
     "insightsA3Title": "Free account vs Bellen €18.50: what you actually pay for on Woonwekker",
     "insightsA3Intro": "Creating an account is not the same as paying. Here is Kijken vs Bellen.",
-    "insightsA1Body": "<p>Finding a place in the Netherlands starts with one boring decision: what kind of home are you actually looking for. Mix that up and you will refresh the wrong pages for weeks.</p>\n<p>A Dutch <strong>kamer</strong> (room) is usually a room in a shared house or apartment. You share kitchen and often bathroom. It is the classic path for students, starters, and many expats who need something sooner rather than perfect. Browse that lane on <a href=\"/kamers/\">/kamers/</a> — rooms and studios often sit together there because the same people search both, then narrow with filters if you only want a room or only a studio.</p>\n<p>A <strong>studio</strong> is still compact, but it is typically self-contained: your own kitchenette and bathroom. You pay more for privacy and speed of settling in. If you keep landing on shared-house ads you hate, tighten the type filter instead of blaming the whole market.</p>\n<p>A Dutch <strong>huis</strong> (house) is a different job. Families and couples who need space should not live inside a room feed. Use <a href=\"/huizen/\">/huizen/</a> when house-type inventory is what you mean. Apartments and mixed stock still show up in the broader homes search; start from the type that matches how you live, then filter city and budget.</p>\n<p>City choice matters as much as type. Amsterdam, Utrecht, Rotterdam, and smaller towns behave differently on price and competition. Use <a href=\"/plaats/\">/plaats/</a> when you already know where you want to look, or when a landlord wants to list there.</p>\n<p><strong>Practical order that wastes less time:</strong></p>\n<ol>\n<li>Pick type (room / studio / house).</li>\n<li>Cap budget for real, including service costs if the listing shows them.</li>\n<li>Set one or two cities, not half the Randstad.</li>\n<li>Save a search profile so you are not rebuilding filters every night — <a href=\"/signup/\">/signup/</a> is free account signup; it is not the paid unlock.</li>\n</ol>\n<p>If a card looks wrong for your type, trust that signal. A “why this fits / why it does not” explanation based on your filters is more useful than a vague “recommended” badge. For how plans work when you are ready to unlock source contact, see <a href=\"/prijzen/\">/prijzen/</a> and the <a href=\"/faq/\">/faq/</a>.</p>\n<p>Precision here is simple: search the inventory that matches your life, not the loudest feed.</p>",
-    "insightsA2Body": "<p>The Dutch rental market rewards people who reply early. It does not reward people who stare at the same three tabs until midnight.</p>\n<p>A better loop looks like this: define what you will accept, watch only that, and spend energy on listings that clear your own rules.</p>\n<p>Write the profile once. City, max rent, type (room, studio, house), deal-breakers (no ground floor, must allow registration, furnished or not). Keep it short enough that you will not lie to yourself later. On Woonwekker you can keep that profile on the free side — create an account at <a href=\"/signup/\">/signup/</a>. Login and signup are not the same thing as paying for Bellen.</p>\n<p>Browse the right shelf. Rooms and studios: <a href=\"/kamers/\">/kamers/</a>. Houses: <a href=\"/huizen/\">/huizen/</a>. City-first browsing: <a href=\"/plaats/\">/plaats/</a>. Mixing every type into one endless scroll is how you miss the one room that actually fits.</p>\n<p>Prefer “why this / why not” over vibes. A useful card tells you it matches your price and city, or that it fails because it is the wrong type. That is filter honesty, not a promise that the home is perfect for you. If something fails your rules, skip it. Your time is the scarce resource.</p>\n<p>Respond when it is worth it. When you are ready to open source contact and move faster, that is the paid Bellen plan — <strong>€18.50</strong> per month on <a href=\"/prijzen/\">/prijzen/</a>. Free browsing and an account stay available without that unlock. Details and cancel language live on pricing and in the <a href=\"/faq/\">/faq/</a>.</p>\n<p>What this is not: a chatbot that “finds you a home,” scraped mystery inventory, or a claim that paying removes competition. Other people are still applying. Precision means fewer tabs, clearer rules, and less dead scrolling.</p>\n<p>If you list as an owner or agent, use <a href=\"/plaats/\">/plaats/</a> so seekers see authorized listings instead of placeholders.</p>",
-    "insightsA3Body": "<p>A lot of rental sites blur “create account” with “pay us.” Woonwekker should not.</p>\n<p><strong>Free (Kijken).</strong> You can browse listings, set filters, and keep a search profile. <a href=\"/signup/\">/signup/</a> creates an account so your preferences stick. Signing in does not unlock landlord source links by itself.</p>\n<p><strong>Bellen — 1 day free trial, then €18.50 per month.</strong> This is the paid plan for when you need the faster path: unlock to the official source contact path so you can reply. After the trial, the subscription charges unless cancelled. Full price and cancel path are on <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>What money is not for.</strong> Bellen is not a guarantee you will get the house. It is not a brokerage fee added on top of rent (see trust language on pricing / FAQ: no bemiddelingskosten as a Woonwekker add-on). It does not replace viewing the listing on the official source or reading the landlord’s conditions.</p>\n<p><strong>How to decide.</strong></p>\n<ul>\n<li>Still clarifying city and budget? Stay free. Use <a href=\"/kamers/\">/kamers/</a> or <a href=\"/huizen/\">/huizen/</a> and refine.</li>\n<li>Seeing matches you would actually reply to today? Open <a href=\"/prijzen/\">/prijzen/</a> and unlock Bellen only then.</li>\n<li>Landlord or agent with stock? <a href=\"/plaats/\">/plaats/</a> is the listing path.</li>\n</ul>\n<p>Questions about renewals, cancel, or what is included sit in the <a href=\"/faq/\">/faq/</a>. If a page ever implies that logging in equals paid access, that is a bug in the story — the product rule is separate: account ≠ Bellen.</p>\n<p>Honest pricing is part of finding a home faster. You should know what you are buying before checkout, not after.</p>"
+    "insightsA1Body": "<p>Finding a place in the Netherlands starts with one boring decision: what kind of home are you actually looking for. Mix that up and you will refresh the wrong pages for weeks.</p>\n<p>A Dutch <strong>kamer</strong> (room) is usually a room in a shared house or apartment. You share kitchen and often bathroom. It is the classic path for students, starters, and many expats who need something sooner rather than perfect. Browse that lane on <a href=\"/kamers/\">/kamers/</a> — rooms and studios often sit together there because the same people search both, then narrow with filters if you only want a room or only a studio.</p>\n<p>A <strong>studio</strong> is still compact, but it is typically self-contained: your own kitchenette and bathroom. You pay more for privacy and speed of settling in. If you keep landing on shared-house ads you hate, tighten the type filter instead of blaming the whole market.</p>\n<p>A Dutch <strong>huis</strong> (house) is a different job. Families and couples who need space should not live inside a room feed. Use <a href=\"/huizen/\">/huizen/</a> when house-type inventory is what you mean. Apartments and mixed stock still show up in the broader homes search; start from the type that matches how you live, then filter city and budget.</p>\n<p>City choice matters as much as type. Amsterdam, Utrecht, Rotterdam, and smaller towns behave differently on price and competition. Use <a href=\"/plaats/\">/plaats/</a> when you already know where you want to look, or when a landlord wants to list there.</p>\n<p><strong>Practical order that wastes less time:</strong></p>\n<ol>\n<li>Pick type (room / studio / house).</li>\n<li>Cap budget for real, including service costs if the listing shows them.</li>\n<li>Set one or two cities, not half the Randstad.</li>\n<li>Save a search profile so you are not rebuilding filters every night — <a href=\"/signup/\">/signup/</a> is free account signup; it is not the paid unlock.</li>\n</ol>\n<p>If a card looks wrong for your type, trust that signal. A “why this fits / why it does not” explanation based on your filters is more useful than a vague “recommended” badge. For how plans work when you are ready to open landlord contact, see <a href=\"/prijzen/\">/prijzen/</a> and the <a href=\"/faq/\">/faq/</a>.</p>\n<p>Precision here is simple: search the inventory that matches your life, not the loudest feed.</p>",
+    "insightsA2Body": "<p>The Dutch rental market rewards people who reply early. It does not reward people who stare at the same three tabs until midnight.</p>\n<p>A better loop looks like this: define what you will accept, watch only that, and spend energy on listings that clear your own rules.</p>\n<p>Write the profile once. City, max rent, type (room, studio, house), deal-breakers (no ground floor, must allow registration, furnished or not). Keep it short enough that you will not lie to yourself later. On Woonwekker you can keep that profile on the free side — create an account at <a href=\"/signup/\">/signup/</a>. Login and signup are not the same thing as paying for Bellen.</p>\n<p>Browse the right shelf. Rooms and studios: <a href=\"/kamers/\">/kamers/</a>. Houses: <a href=\"/huizen/\">/huizen/</a>. City-first browsing: <a href=\"/plaats/\">/plaats/</a>. Mixing every type into one endless scroll is how you miss the one room that actually fits.</p>\n<p>Prefer “why this / why not” over vibes. A useful card tells you it matches your price and city, or that it fails because it is the wrong type. That is filter honesty, not a promise that the home is perfect for you. If something fails your rules, skip it. Your time is the scarce resource.</p>\n<p>Respond when it is worth it. When you are ready to contact the landlord and move faster, that is the paid Bellen plan — <strong>€18.50</strong> per month on <a href=\"/prijzen/\">/prijzen/</a>. Free browsing and an account stay available without that unlock. Details and cancel language live on pricing and in the <a href=\"/faq/\">/faq/</a>.</p>\n<p>What this is not: a chatbot that “finds you a home,” scraped mystery inventory, or a claim that paying removes competition. Other people are still applying. Precision means fewer tabs, clearer rules, and less dead scrolling.</p>\n<p>If you list as an owner or agent, use <a href=\"/plaats/\">/plaats/</a> so seekers see authorized listings instead of placeholders.</p>",
+    "insightsA3Body": "<p>A lot of rental sites blur “create account” with “pay us.” Woonwekker should not.</p>\n<p><strong>Free (Kijken).</strong> You can browse listings, set filters, and keep a search profile. <a href=\"/signup/\">/signup/</a> creates an account so your preferences stick. Signing in does not unlock landlord contact by itself.</p>\n<p><strong>Bellen — 1 day free trial, then €18.50 per month.</strong> This is the paid plan for when you need the faster path: access to landlord contact so you can reply. After the trial, the subscription charges unless cancelled. Full price and cancel path are on <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>What money is not for.</strong> Bellen is not a guarantee you will get the house. It is not a brokerage fee added on top of rent (see trust language on pricing / FAQ: no bemiddelingskosten as a Woonwekker add-on). It does not replace reading the landlord’s conditions.</p>\n<p><strong>How to decide.</strong></p>\n<ul>\n<li>Still clarifying city and budget? Stay free. Use <a href=\"/kamers/\">/kamers/</a> or <a href=\"/huizen/\">/huizen/</a> and refine.</li>\n<li>Seeing matches you would actually reply to today? Open <a href=\"/prijzen/\">/prijzen/</a> and unlock Bellen only then.</li>\n<li>Landlord or agent with stock? <a href=\"/plaats/\">/plaats/</a> is the listing path.</li>\n</ul>\n<p>Questions about renewals, cancel, or what is included sit in the <a href=\"/faq/\">/faq/</a>. If a page ever implies that logging in equals paid access, that is a bug in the story — the product rule is separate: account ≠ Bellen.</p>\n<p>Honest pricing is part of finding a home faster. You should know what you are buying before checkout, not after.</p>"
   },
   "es": {
     "homes": "Viviendas",
@@ -770,7 +770,7 @@ const copy={
     "privacy": "Privacidad",
     "pricing": "Precios",
     "pricingTitle": "Precios simples",
-    "pricingIntro": "Busca gratis con Kijken. Desbloquea detalles completos y el enlace oficial a la fuente con Bellen — 1 día gratis, luego €18,50/mes.",
+    "pricingIntro": "Busca gratis con Kijken. Detalles completos y contacto con el propietario con Bellen — 1 día gratis, luego €18,50/mes.",
     "kijkenTitle": "Kijken",
     "kijkenPrice": "€0",
     "kijkenPeriod": "/mes",
@@ -779,13 +779,13 @@ const copy={
     "kijkenFeat3": "Specs y fotos (teaser)",
     "kijkenFeat4": "Hasta 4 perfiles de búsqueda (alertas limitadas)",
     "kijkenFeat5": "Alertas: máx. 3×/semana, solo e-mail",
-    "kijkenFeat6": "Detalles completos y enlace a la fuente bloqueados",
+    "kijkenFeat6": "Detalles completos y contacto bloqueados",
     "kijkenCta": "Ver viviendas",
     "bellenTitle": "Bellen",
     "bellenPrice": "€18,50",
     "bellenPeriod": "/mes",
     "bellenFeat1": "Todo de Kijken",
-    "bellenFeat2": "Detalles completos + enlace a la fuente por la vía oficial",
+    "bellenFeat2": "Detalles completos + contacto con el propietario",
     "bellenFeat3": "Alertas directas (e-mail; push provisional): ilimitadas — sin segundo paywall",
     "bellenFeat4": "Hasta 4 perfiles + 1 compañero de búsqueda",
     "bellenFeat5": "Kit de respuesta NL/EN, checklist y historial",
@@ -809,7 +809,7 @@ const copy={
     "results": "anuncios de alquiler",
     "updated": "Comprueba el estado actual con el proveedor",
     "sort": "Ordenar por",
-    "newest": "Orden de la fuente",
+    "newest": "Predeterminado",
     "cheap": "Precio: de menor a mayor",
     "expensive": "Precio: de mayor a menor",
     "large": "Mayor superficie",
@@ -841,16 +841,16 @@ const copy={
     "balcony": "Balcón",
     "tagNew": "Nuevo",
     "newSectionTitle": "Nuevo en Woonwekker",
-    "newSectionSub": "{n} anuncios nuevos de Kamernet y Pararius",
+    "newSectionSub": "{n} anuncios nuevos",
     "newSectionCta": "Ver nuevos",
     "filterNew": "Nuevo",
     "parking": "Aparcamiento privado",
     "yes": "Sí",
     "no": "No",
     "unknown": "No indicado",
-    "source": "Ver anuncio original ↗",
+    "source": "Contactar al propietario ↗",
     "detailNote": "Consulta la disponibilidad actual, las condiciones y los gastos adicionales con el anunciante. Estos datos son una captura, no una oferta en tiempo real.",
-    "sourceText": "Consulta el anuncio original para ver la descripción completa y los datos de contacto.",
+    "sourceText": "Contacta al propietario para ver la descripción completa y los datos de contacto.",
     "close": "Cerrar",
     "photoUnavailable": "Foto no disponible",
     "loadError": "No se pudieron cargar las viviendas.",
@@ -873,11 +873,11 @@ const copy={
       ],
       [
         "¿Siguen disponibles las viviendas?",
-        "Los precios y la disponibilidad pueden haber cambiado. Comprueba el estado actual mediante “Ver anuncio original”."
+        "Los precios y la disponibilidad pueden haber cambiado. Comprueba el estado actual mediante “Contactar al propietario”."
       ],
       [
         "¿Cómo concertar una visita?",
-        "Abre una vivienda y pulsa “Ver anuncio original” para acceder al anuncio original. Contacta allí con el anunciante. Woonwekker no organiza visitas ni tramita solicitudes de alquiler."
+        "Abre una vivienda y pulsa “Contactar al propietario” para llegar al anunciante. Contacta allí. Woonwekker no organiza visitas ni tramita solicitudes de alquiler."
       ],
       [
         "¿El precio incluye todos los gastos?",
@@ -885,15 +885,15 @@ const copy={
       ],
       [
         "¿Hay que pagar para buscar?",
-        "Con Kijken (€0) navegas teasers de alquiler gratis. Con Bellen: 1 día gratis, luego €18,50/mes — detalles, enlace a la fuente (Funda, etc.), alertas ilimitadas e-mail+WhatsApp, compañero de búsqueda y kit de respuesta. Tras la prueba, la suscripción se cobra salvo cancelación. Cancelación 1 clic. El alquiler lo cierras siempre con el anunciante."
+        "Con Kijken (€0) navegas teasers de alquiler gratis. Con Bellen: 1 día gratis, luego €18,50/mes — detalles, contacto con el propietario, alertas ilimitadas e-mail+WhatsApp, compañero de búsqueda y kit de respuesta. Tras la prueba, la suscripción se cobra salvo cancelación. Cancelación 1 clic. El alquiler lo cierras siempre con el anunciante."
       ],
       [
         "¿Puedo navegar en mi idioma?",
-        "Sí. Elige Nederlands, English, Español o Polski en el menú. La interfaz, las preguntas frecuentes y la información legal cambian de idioma. Los nombres y las direcciones originales se conservan."
+        "Sí. Elige Nederlands, English, Español o Polski en el menú. La interfaz, las preguntas frecuentes y la información legal cambian de idioma. Los nombres y las direcciones en los anuncios se conservan."
       ],
       [
         "¿Por qué hay pocas fotos?",
-        "El archivo contiene de una a seis fotos por vivienda. El anuncio original puede incluir más fotos e información."
+        "El archivo contiene de una a seis fotos por vivienda. Al contactar al propietario pueden estar disponibles más fotos e información."
       ],
       [
         "¿Recibiré alertas de nuevas viviendas?",
@@ -901,7 +901,7 @@ const copy={
       ],
       [
         "¿Qué hago ante un error o anuncio sospechoso?",
-        "Revisa el anuncio original e informa al anunciante o a la plataforma de origen. No transfieras dinero basándote solo en un anuncio; verifica la identidad y los acuerdos antes de pagar."
+        "Revisa el anuncio e informa al anunciante. No transfieras dinero basándote solo en un anuncio; verifica la identidad y los acuerdos antes de pagar."
       ]
     ],
     "legalSections": [
@@ -944,11 +944,11 @@ const copy={
     "how1Text": "Browse free teasers with Kijken. Filter by city, price, type and bedrooms.",
     "how2Title": "Save & reply",
     "how2Text": "Guarda favoritos, configura perfiles de búsqueda y usa respuestas listas (Bellen).",
-    "how3Title": "Go to the source",
-    "how3Text": "Con Bellen desbloqueas los detalles completos y el anuncio original para llamar o escribir.",
+    "how3Title": "Contactar al propietario",
+    "how3Text": "Con Bellen abres los detalles completos y contactas al propietario.",
     "trust1": "Privacidad primero — filtros y favoritos se quedan en tu dispositivo",
     "trust2": "1 día gratis · luego €18,50/mes · cancelación 1 clic",
-    "trust3": "Solo anuncios con fotos — siempre a través de la fuente oficial",
+    "trust3": "Solo anuncios con fotos — camino claro al contacto con el propietario",
     "accountTitle": "Tu cuenta",
     "accountIntro": "Manage profile, search profiles, alerts, reply kit and pipeline. Everything local in your browser (demo).",
     "accountDemo": "Inicia sesión con Google (preferido) o confirma tu email. Google no envía confirmación. Bellen sigue aparte (Mollie).",
@@ -1073,8 +1073,8 @@ const copy={
     "plaatsNeedLogin": "Create an account under Account first to list (demo).",
     "openHomes": "Browse homes",
     "date": "",
-    "sourceLocked": "El enlace a la fuente forma parte de Bellen (€18,50/mes).",
-    "unlockSource": "Desbloquear fuente — Bellen €18,50",
+    "sourceLocked": "Los datos de contacto forman parte de Bellen (€18,50/mes).",
+    "unlockSource": "Contactar al propietario — Bellen €18,50",
     "photosLocked": "Más fotos forman parte de Bellen (€18,50/mes).",
     "unlockPhotos": "Desbloquear con Bellen (€18,50)",
     "onboardTitle": "Bienvenido a Woonwekker",
@@ -1083,13 +1083,13 @@ const copy={
     "onboardDone": "Ver viviendas",
     "onboard1": "Filtra gratis por ciudad, precio y tipo (Kijken).",
     "onboard2": "Guarda favoritos y crea hasta 4 perfiles de búsqueda.",
-    "onboard3": "Con Bellen abres el enlace a la fuente y alertas de WhatsApp.",
+    "onboard3": "Con Bellen abres el contacto con el propietario y alertas de WhatsApp.",
     "pricingAntiTrial": "1 día gratis, luego €18,50/mes — precio claro, sin centavos ocultos",
     "stripKijken": "Kijken €0",
     "stripBellen": "Bellen €18,50/mes",
     "stripCta": "Ver precios",
-    "bronFree": "Fuente gratis",
-    "bronPaid": "Fuente de pago",
+    "bronFree": "Contacto directo",
+    "bronPaid": "Con Bellen",
     "zoekStripTitle": "Tus perfiles de búsqueda",
     "zoekStripHint": "Hasta 4 ranuras — rellénalas en Account",
     "zoekSlotEmpty": "Ranura vacía",
@@ -1118,7 +1118,7 @@ const copy={
     "roomsNote": "Tu próxima dirección te espera",
     "roomsNoteSub": "De una habitación a una casa compartida — empieza hoy.",
     "housesPageTitle": "Casas en alquiler en Países Bajos | Woonwekker",
-    "housesMeta": "Encuentra casas en alquiler en Países Bajos: jardín, luz y espacio para crecer. Compara anuncios y ve a la fuente con Woonwekker.",
+    "housesMeta": "Encuentra casas en alquiler en Países Bajos: jardín, luz y espacio para crecer. Compara anuncios y contacta al propietario con Woonwekker.",
     "housesEyebrow": "Casas en alquiler",
     "housesHeadline": "Una casa.<br><em>Espacio para crecer.</em>",
     "housesIntro": "Más habitaciones, un jardín, calma tras un día largo. Si formas una familia o por fin quieres espacio: las casas en alquiler abren otra vida. Woonwekker te ayuda a comparar y dar el siguiente paso — con precios claros y camino directo al contacto.",
@@ -1137,13 +1137,13 @@ const copy={
     "insightsPromoLink": "Ir a Insights →",
     "insightsA1Title": "Habitación, studio o casa: cómo elegir el tipo de alquiler en Países Bajos",
     "insightsA1Intro": "Encontrar piso empieza por una decisión aburrida: qué tipo de vivienda buscas de verdad.",
-    "insightsA2Title": "Cómo buscar alquiler en Países Bajos sin refrescar Funda todo el día",
+    "insightsA2Title": "Cómo buscar alquiler en Países Bajos sin refrescar todo el día",
     "insightsA2Intro": "El mercado premia a quien responde pronto — no a quien mira las mismas pestañas hasta medianoche.",
     "insightsA3Title": "Cuenta gratis vs Bellen €18,50: por qué pagas en Woonwekker",
     "insightsA3Intro": "Crear cuenta no es lo mismo que pagar. Así es Kijken vs Bellen.",
-    "insightsA1Body": "<p>Encontrar piso en Países Bajos empieza por una decisión aburrida: qué tipo de vivienda buscas de verdad. Si lo mezclas, refrescarás las páginas equivocadas durante semanas.</p>\n<p>Una <strong>kamer</strong> neerlandesa (habitación) suele ser una habitación en una casa o piso compartido. Compartes cocina y a menudo baño. Es la vía clásica para estudiantes, principiantes y muchos expatriados que necesitan algo pronto más que perfecto. Esa franja está en <a href=\"/kamers/\">/kamers/</a> — habitaciones y studios suelen ir juntos porque la misma gente busca ambos; luego filtra si solo quieres habitación o solo studio.</p>\n<p>Un <strong>studio</strong> sigue siendo compacto, pero suele ser independiente: tu propia kitchenette y baño. Pagas más por privacidad y por asentarte antes. Si sigues cayendo en anuncios de casa compartida que odias, aprieta el filtro de tipo en lugar de culpar a todo el mercado.</p>\n<p>Una <strong>huis</strong> (casa) es otro trabajo. Familias y parejas que necesitan espacio no deberían vivir dentro de un feed de habitaciones. Usa <a href=\"/huizen/\">/huizen/</a> cuando el inventario de casas es lo que quieres. Pisos y stock mixto siguen en la búsqueda más amplia; empieza por el tipo que encaja con cómo vives, luego filtra ciudad y presupuesto.</p>\n<p>La ciudad importa tanto como el tipo. Ámsterdam, Utrecht, Róterdam y pueblos más pequeños se comportan distinto en precio y competencia. Usa <a href=\"/plaats/\">/plaats/</a> cuando ya sabes dónde mirar, o cuando un propietario quiere publicar ahí.</p>\n<p><strong>Orden práctico que pierde menos tiempo:</strong></p>\n<ol>\n<li>Elige tipo (habitación / studio / casa).</li>\n<li>Fija un techo de presupuesto de verdad, con gastos de comunidad si el anuncio los muestra.</li>\n<li>Elige una o dos ciudades, no media Randstad.</li>\n<li>Guarda un perfil de búsqueda para no reconstruir filtros cada noche — <a href=\"/signup/\">/signup/</a> es cuenta gratis; no es el desbloqueo de pago.</li>\n</ol>\n<p>Si una tarjeta no encaja con tu tipo, confía en esa señal. Una explicación “por qué encaja / por qué no” según tus filtros vale más que un “recomendado” vago. Cómo funcionan los planes al desbloquear el contacto de origen: <a href=\"/prijzen/\">/prijzen/</a> y la <a href=\"/faq/\">/faq/</a>.</p>\n<p>La precisión aquí es simple: busca el inventario que encaja con tu vida, no el feed más ruidoso.</p>",
-    "insightsA2Body": "<p>El mercado de alquiler neerlandés premia a quien responde pronto. No a quien mira las mismas tres pestañas hasta medianoche.</p>\n<p>Un bucle mejor: define qué aceptas, mira solo eso y gasta energía en anuncios que pasan tus propias reglas.</p>\n<p>Escribe el perfil una vez. Ciudad, alquiler máximo, tipo (habitación, studio, casa), deal-breakers (no planta baja, debe permitir empadronamiento, amueblado o no). Corto para no mentirte después. En Woonwekker puedes guardar ese perfil en el lado gratis — crea cuenta en <a href=\"/signup/\">/signup/</a>. Entrar y registrarse no es lo mismo que pagar Bellen.</p>\n<p>Navega el estante correcto. Habitaciones y studios: <a href=\"/kamers/\">/kamers/</a>. Casas: <a href=\"/huizen/\">/huizen/</a>. Primero por ciudad: <a href=\"/plaats/\">/plaats/</a>. Mezclar todos los tipos en un scroll infinito es cómo pierdes la habitación que sí encaja.</p>\n<p>Prefiere “por qué sí / por qué no” a vibes. Una tarjeta útil dice que precio y ciudad cuadran, o que falla porque el tipo es incorrecto. Eso es honestidad de filtro, no promesa de que la vivienda es perfecta. Si algo falla tus reglas, sáltalo. Tu tiempo es el recurso escaso.</p>\n<p>Responde cuando merezca la pena. Cuando quieras abrir el contacto de origen e ir más rápido, ese es el plan de pago Bellen — <strong>€18,50</strong> al mes en <a href=\"/prijzen/\">/prijzen/</a>. Navegar gratis y tener cuenta siguen sin ese desbloqueo. Detalles y cancelación están en precios y en la <a href=\"/faq/\">/faq/</a>.</p>\n<p>Lo que no es: un chatbot que “te encuentra casa”, inventario misterioso scraping, o la idea de que pagar elimina la competencia. Otras personas siguen postulando. Precisión = menos pestañas, reglas más claras, menos scroll muerto.</p>\n<p>Si publicas como propietario o agente, usa <a href=\"/plaats/\">/plaats/</a> para que los buscadores vean anuncios autorizados en lugar de placeholders.</p>",
-    "insightsA3Body": "<p>Muchos sitios de alquiler mezclan “crear cuenta” con “págannos.” Woonwekker no debería.</p>\n<p><strong>Gratis (Kijken).</strong> Puedes navegar anuncios, poner filtros y guardar un perfil de búsqueda. <a href=\"/signup/\">/signup/</a> crea una cuenta para que tus preferencias persistan. Entrar no desbloquea por sí solo los enlaces de origen del propietario.</p>\n<p><strong>Bellen — 1 día gratis, luego €18,50 al mes.</strong> Es el plan de pago para la vía más rápida: desbloqueo al contacto oficial de origen para poder responder. Tras la prueba, la suscripción se cobra salvo cancelación. Precio completo y cancelación en <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Para qué no es el dinero.</strong> Bellen no garantiza que consigas la vivienda. No es una comisión de intermediación encima del alquiler (ver lenguaje de confianza en precios / FAQ: sin bemiddelingskosten como extra de Woonwekker). No sustituye ver el anuncio en la fuente oficial ni leer las condiciones del propietario.</p>\n<p><strong>Cómo decidir.</strong></p>\n<ul>\n<li>¿Aún afinando ciudad y presupuesto? Quédate gratis. Usa <a href=\"/kamers/\">/kamers/</a> o <a href=\"/huizen/\">/huizen/</a> y refina.</li>\n<li>¿Ves matches a los que responderías hoy? Abre <a href=\"/prijzen/\">/prijzen/</a> y desbloquea Bellen solo entonces.</li>\n<li>¿Propietario o agente con stock? <a href=\"/plaats/\">/plaats/</a> es la vía de publicación.</li>\n</ul>\n<p>Preguntas sobre renovación, cancelación o qué incluye: <a href=\"/faq/\">/faq/</a>. Si alguna página implica que entrar = acceso de pago, es un error en la historia — la regla de producto es aparte: cuenta ≠ Bellen.</p>\n<p>Precios honestos forman parte de encontrar casa más rápido. Debes saber qué compras antes del checkout, no después.</p>"
+    "insightsA1Body": "<p>Encontrar piso en Países Bajos empieza por una decisión aburrida: qué tipo de vivienda buscas de verdad. Si lo mezclas, refrescarás las páginas equivocadas durante semanas.</p>\n<p>Una <strong>kamer</strong> neerlandesa (habitación) suele ser una habitación en una casa o piso compartido. Compartes cocina y a menudo baño. Es la vía clásica para estudiantes, principiantes y muchos expatriados que necesitan algo pronto más que perfecto. Esa franja está en <a href=\"/kamers/\">/kamers/</a> — habitaciones y studios suelen ir juntos porque la misma gente busca ambos; luego filtra si solo quieres habitación o solo studio.</p>\n<p>Un <strong>studio</strong> sigue siendo compacto, pero suele ser independiente: tu propia kitchenette y baño. Pagas más por privacidad y por asentarte antes. Si sigues cayendo en anuncios de casa compartida que odias, aprieta el filtro de tipo en lugar de culpar a todo el mercado.</p>\n<p>Una <strong>huis</strong> (casa) es otro trabajo. Familias y parejas que necesitan espacio no deberían vivir dentro de un feed de habitaciones. Usa <a href=\"/huizen/\">/huizen/</a> cuando el inventario de casas es lo que quieres. Pisos y stock mixto siguen en la búsqueda más amplia; empieza por el tipo que encaja con cómo vives, luego filtra ciudad y presupuesto.</p>\n<p>La ciudad importa tanto como el tipo. Ámsterdam, Utrecht, Róterdam y pueblos más pequeños se comportan distinto en precio y competencia. Usa <a href=\"/plaats/\">/plaats/</a> cuando ya sabes dónde mirar, o cuando un propietario quiere publicar ahí.</p>\n<p><strong>Orden práctico que pierde menos tiempo:</strong></p>\n<ol>\n<li>Elige tipo (habitación / studio / casa).</li>\n<li>Fija un techo de presupuesto de verdad, con gastos de comunidad si el anuncio los muestra.</li>\n<li>Elige una o dos ciudades, no media Randstad.</li>\n<li>Guarda un perfil de búsqueda para no reconstruir filtros cada noche — <a href=\"/signup/\">/signup/</a> es cuenta gratis; no es el desbloqueo de pago.</li>\n</ol>\n<p>Si una tarjeta no encaja con tu tipo, confía en esa señal. Una explicación “por qué encaja / por qué no” según tus filtros vale más que un “recomendado” vago. Cómo funcionan los planes al abrir el contacto con el propietario: <a href=\"/prijzen/\">/prijzen/</a> y la <a href=\"/faq/\">/faq/</a>.</p>\n<p>La precisión aquí es simple: busca el inventario que encaja con tu vida, no el feed más ruidoso.</p>",
+    "insightsA2Body": "<p>El mercado de alquiler neerlandés premia a quien responde pronto. No a quien mira las mismas tres pestañas hasta medianoche.</p>\n<p>Un bucle mejor: define qué aceptas, mira solo eso y gasta energía en anuncios que pasan tus propias reglas.</p>\n<p>Escribe el perfil una vez. Ciudad, alquiler máximo, tipo (habitación, studio, casa), deal-breakers (no planta baja, debe permitir empadronamiento, amueblado o no). Corto para no mentirte después. En Woonwekker puedes guardar ese perfil en el lado gratis — crea cuenta en <a href=\"/signup/\">/signup/</a>. Entrar y registrarse no es lo mismo que pagar Bellen.</p>\n<p>Navega el estante correcto. Habitaciones y studios: <a href=\"/kamers/\">/kamers/</a>. Casas: <a href=\"/huizen/\">/huizen/</a>. Primero por ciudad: <a href=\"/plaats/\">/plaats/</a>. Mezclar todos los tipos en un scroll infinito es cómo pierdes la habitación que sí encaja.</p>\n<p>Prefiere “por qué sí / por qué no” a vibes. Una tarjeta útil dice que precio y ciudad cuadran, o que falla porque el tipo es incorrecto. Eso es honestidad de filtro, no promesa de que la vivienda es perfecta. Si algo falla tus reglas, sáltalo. Tu tiempo es el recurso escaso.</p>\n<p>Responde cuando merezca la pena. Cuando quieras contactar al propietario e ir más rápido, ese es el plan de pago Bellen — <strong>€18,50</strong> al mes en <a href=\"/prijzen/\">/prijzen/</a>. Navegar gratis y tener cuenta siguen sin ese desbloqueo. Detalles y cancelación están en precios y en la <a href=\"/faq/\">/faq/</a>.</p>\n<p>Lo que no es: un chatbot que “te encuentra casa”, inventario misterioso scraping, o la idea de que pagar elimina la competencia. Otras personas siguen postulando. Precisión = menos pestañas, reglas más claras, menos scroll muerto.</p>\n<p>Si publicas como propietario o agente, usa <a href=\"/plaats/\">/plaats/</a> para que los buscadores vean anuncios autorizados en lugar de placeholders.</p>",
+    "insightsA3Body": "<p>Muchos sitios de alquiler mezclan “crear cuenta” con “págannos.” Woonwekker no debería.</p>\n<p><strong>Gratis (Kijken).</strong> Puedes navegar anuncios, poner filtros y guardar un perfil de búsqueda. <a href=\"/signup/\">/signup/</a> crea una cuenta para que tus preferencias persistan. Entrar no desbloquea por sí solo el contacto con el propietario.</p>\n<p><strong>Bellen — 1 día gratis, luego €18,50 al mes.</strong> Es el plan de pago para la vía más rápida: acceso al contacto con el propietario para poder responder. Tras la prueba, la suscripción se cobra salvo cancelación. Precio completo y cancelación en <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Para qué no es el dinero.</strong> Bellen no garantiza que consigas la vivienda. No es una comisión de intermediación encima del alquiler (ver lenguaje de confianza en precios / FAQ: sin bemiddelingskosten como extra de Woonwekker). No sustituye leer las condiciones del propietario.</p>\n<p><strong>Cómo decidir.</strong></p>\n<ul>\n<li>¿Aún afinando ciudad y presupuesto? Quédate gratis. Usa <a href=\"/kamers/\">/kamers/</a> o <a href=\"/huizen/\">/huizen/</a> y refina.</li>\n<li>¿Ves matches a los que responderías hoy? Abre <a href=\"/prijzen/\">/prijzen/</a> y desbloquea Bellen solo entonces.</li>\n<li>¿Propietario o agente con stock? <a href=\"/plaats/\">/plaats/</a> es la vía de publicación.</li>\n</ul>\n<p>Preguntas sobre renovación, cancelación o qué incluye: <a href=\"/faq/\">/faq/</a>. Si alguna página implica que entrar = acceso de pago, es un error en la historia — la regla de producto es aparte: cuenta ≠ Bellen.</p>\n<p>Precios honestos forman parte de encontrar casa más rápido. Debes saber qué compras antes del checkout, no después.</p>"
   },
   "pl": {
     "homes": "Mieszkania i domy",
@@ -1152,7 +1152,7 @@ const copy={
     "privacy": "Prywatność",
     "pricing": "Cennik",
     "pricingTitle": "Proste ceny",
-    "pricingIntro": "Przeglądaj za darmo z Kijken. Odblokuj pełne szczegóły i oficjalny link do źródła z Bellen — 1 dzień za darmo, potem €18,50/mies.",
+    "pricingIntro": "Przeglądaj za darmo z Kijken. Pełne szczegóły i kontakt z właścicielem z Bellen — 1 dzień za darmo, potem €18,50/mies.",
     "kijkenTitle": "Kijken",
     "kijkenPrice": "€0",
     "kijkenPeriod": "/mies.",
@@ -1161,13 +1161,13 @@ const copy={
     "kijkenFeat3": "Specyfikacje i zdjęcia (teaser)",
     "kijkenFeat4": "Do 4 profili wyszukiwania (alerty ograniczone)",
     "kijkenFeat5": "Alerty: max 3×/tydzień, tylko e-mail",
-    "kijkenFeat6": "Pełne szczegóły i link do źródła zablokowane",
+    "kijkenFeat6": "Pełne szczegóły i kontakt zablokowane",
     "kijkenCta": "Przeglądaj oferty",
     "bellenTitle": "Bellen",
     "bellenPrice": "€18,50",
     "bellenPeriod": "/mies.",
     "bellenFeat1": "Wszystko z Kijken",
-    "bellenFeat2": "Pełne szczegóły + link do źródła oficjalną ścieżką",
+    "bellenFeat2": "Pełne szczegóły + kontakt z właścicielem",
     "bellenFeat3": "Natychmiastowe alerty (e-mail; push placeholder): bez limitu — bez drugiej paywall",
     "bellenFeat4": "Do 4 profili + 1 współlokator wyszukiwania",
     "bellenFeat5": "Kit odpowiedzi NL/EN, checklista i historia",
@@ -1191,7 +1191,7 @@ const copy={
     "results": "ofert wynajmu",
     "updated": "Sprawdź aktualny stan u oferenta",
     "sort": "Sortuj",
-    "newest": "Kolejność źródłowa",
+    "newest": "Domyślnie",
     "cheap": "Cena: rosnąco",
     "expensive": "Cena: malejąco",
     "large": "Największa powierzchnia",
@@ -1223,16 +1223,16 @@ const copy={
     "balcony": "Balkon",
     "tagNew": "Nowe",
     "newSectionTitle": "Nowe na Woonwekker",
-    "newSectionSub": "{n} świeżych ogłoszeń z Kamernet i Pararius",
+    "newSectionSub": "{n} świeżych ogłoszeń",
     "newSectionCta": "Pokaż nowe",
     "filterNew": "Nowe",
     "parking": "Prywatny parking",
     "yes": "Tak",
     "no": "Nie",
     "unknown": "Nie podano",
-    "source": "Zobacz oryginalne ogłoszenie ↗",
+    "source": "Skontaktuj się z właścicielem ↗",
     "detailNote": "Sprawdź aktualną dostępność, warunki najmu i dodatkowe koszty u ogłoszeniodawcy. Dane przedstawiają stan z dnia ich zebrania, nie ofertę na żywo.",
-    "sourceText": "Pełny opis i dane kontaktowe znajdziesz w oryginalnym ogłoszeniu.",
+    "sourceText": "Skontaktuj się z właścicielem, by zobaczyć pełny opis i dane kontaktowe.",
     "close": "Zamknij",
     "photoUnavailable": "Zdjęcie niedostępne",
     "loadError": "Nie udało się wczytać ofert.",
@@ -1255,11 +1255,11 @@ const copy={
       ],
       [
         "Czy oferty są nadal aktualne?",
-        "Ceny i dostępność mogły się zmienić. Sprawdź aktualny stan przyciskiem „Zobacz oryginalne ogłoszenie”."
+        "Ceny i dostępność mogły się zmienić. Sprawdź aktualny stan przyciskiem „Skontaktuj się z właścicielem”."
       ],
       [
         "Jak umówić oglądanie?",
-        "Otwórz ofertę i wybierz „Zobacz oryginalne ogłoszenie”, aby przejść do oryginalnego ogłoszenia. Tam skontaktuj się z ogłoszeniodawcą. Woonwekker nie umawia oglądania ani nie przyjmuje wniosków o najem."
+        "Otwórz ofertę i wybierz „Skontaktuj się z właścicielem”, aby dotrzeć do ogłoszeniodawcy. Tam skontaktuj się. Woonwekker nie umawia oglądania ani nie przyjmuje wniosków o najem."
       ],
       [
         "Czy cena obejmuje wszystkie koszty?",
@@ -1267,15 +1267,15 @@ const copy={
       ],
       [
         "Czy wyszukiwanie jest płatne?",
-        "Z Kijken (€0) przeglądasz teasery wynajmu za darmo. Z Bellen: 1 dzień za darmo, potem €18,50/mies. — pełne szczegóły, link do źródła (Funda itd.), nielimitowane alerty e-mail+WhatsApp, współlokator wyszukiwania i kit odpowiedzi. Po okresie próbnym subskrypcja jest pobierana, chyba że anulujesz. Anulowanie 1 klik. Logowanie ≠ Bellen — odblokowanie Bellen jest osobno. Umowy najmu zawsze z ogłoszeniodawcą."
+        "Z Kijken (€0) przeglądasz teasery wynajmu za darmo. Z Bellen: 1 dzień za darmo, potem €18,50/mies. — pełne szczegóły, kontakt z właścicielem, nielimitowane alerty e-mail+WhatsApp, współlokator wyszukiwania i kit odpowiedzi. Po okresie próbnym subskrypcja jest pobierana, chyba że anulujesz. Anulowanie 1 klik. Logowanie ≠ Bellen — odblokowanie Bellen jest osobno. Umowy najmu zawsze z ogłoszeniodawcą."
       ],
       [
         "Czy mogę korzystać ze swojego języka?",
-        "Tak. Wybierz Nederlands, English, Español lub Polski. Interfejs, pytania i informacje prawne zmienią język. Oryginalne adresy i nazwy pozostaną bez zmian."
+        "Tak. Wybierz Nederlands, English, Español lub Polski. Interfejs, pytania i informacje prawne zmienią język. Adresy i nazwy w ogłoszeniach pozostaną bez zmian."
       ],
       [
         "Dlaczego zdjęć jest niewiele?",
-        "Dostarczony plik zawiera od jednego do sześciu zdjęć każdej nieruchomości. Oryginalne ogłoszenie może zawierać więcej zdjęć i szczegółów."
+        "Dostarczony plik zawiera od jednego do sześciu zdjęć każdej nieruchomości. Po kontakcie z właścicielem mogą być dostępne dodatkowe zdjęcia i szczegóły."
       ],
       [
         "Czy otrzymam powiadomienia o nowych ofertach?",
@@ -1283,7 +1283,7 @@ const copy={
       ],
       [
         "Co zrobić w razie błędu lub podejrzanego ogłoszenia?",
-        "Sprawdź oryginalną ofertę i zgłoś problem ogłoszeniodawcy lub platformie źródłowej. Nie wysyłaj pieniędzy wyłącznie na podstawie ogłoszenia; wcześniej zweryfikuj tożsamość i ustalenia."
+        "Sprawdź ofertę i zgłoś problem ogłoszeniodawcy. Nie wysyłaj pieniędzy wyłącznie na podstawie ogłoszenia; wcześniej zweryfikuj tożsamość i ustalenia."
       ]
     ],
     "legalSections": [
@@ -1326,11 +1326,11 @@ const copy={
     "how1Text": "Browse free teasers with Kijken. Filter by city, price, type and bedrooms.",
     "how2Title": "Save & reply",
     "how2Text": "Zapisuj ulubione, ustawiaj profile wyszukiwania i korzystaj z gotowych odpowiedzi (Bellen).",
-    "how3Title": "Go to the source",
-    "how3Text": "Z Bellen odblokujesz pełne szczegóły i oryginalne ogłoszenie, by zadzwonić lub napisać.",
+    "how3Title": "Kontakt z właścicielem",
+    "how3Text": "Z Bellen otwierasz pełne szczegóły i kontaktujesz się z właścicielem.",
     "trust1": "Prywatność przede wszystkim — filtry i ulubione zostają na Twoim urządzeniu",
     "trust2": "1 dzień za darmo · potem €18,50/mies. · anulowanie 1 klik",
-    "trust3": "Tylko ogłoszenia ze zdjęciami — zawsze przez oficjalne źródło",
+    "trust3": "Tylko ogłoszenia ze zdjęciami — jasna ścieżka kontaktu z właścicielem",
     "accountTitle": "Twoje konto",
     "accountIntro": "Manage profile, search profiles, alerts, reply kit and pipeline. Everything local in your browser (demo).",
     "accountDemo": "Zaloguj się przez Google (preferowane) lub potwierdź e-mail. Google bez maila potwierdzającego. Bellen osobno (Mollie).",
@@ -1455,8 +1455,8 @@ const copy={
     "plaatsNeedLogin": "Create an account under Account first to list (demo).",
     "openHomes": "Browse homes",
     "date": "",
-    "sourceLocked": "Link do źródła jest częścią Bellen (€18,50/mies.).",
-    "unlockSource": "Odblokuj źródło — Bellen €18,50",
+    "sourceLocked": "Dane kontaktowe są częścią Bellen (€18,50/mies.).",
+    "unlockSource": "Skontaktuj się z właścicielem — Bellen €18,50",
     "photosLocked": "Więcej zdjęć jest częścią Bellen (€18,50/mies.).",
     "unlockPhotos": "Odblokuj z Bellen (€18,50)",
     "onboardTitle": "Witamy w Woonwekker",
@@ -1465,13 +1465,13 @@ const copy={
     "onboardDone": "Przeglądaj mieszkania",
     "onboard1": "Filtruj za darmo po mieście, cenie i typie (Kijken).",
     "onboard2": "Zapisuj ulubione i ustaw do 4 profili wyszukiwania.",
-    "onboard3": "Z Bellen otwierasz link do źródła i alerty WhatsApp.",
+    "onboard3": "Z Bellen otwierasz kontakt z właścicielem i alerty WhatsApp.",
     "pricingAntiTrial": "1 dzień za darmo, potem €18,50/mies. — jasna cena, bez ukrytego trialu za centa",
     "stripKijken": "Kijken €0",
     "stripBellen": "Bellen €18,50/mies.",
     "stripCta": "Zobacz cennik",
-    "bronFree": "Darmowe źródło",
-    "bronPaid": "Płatne źródło",
+    "bronFree": "Kontakt bezpośredni",
+    "bronPaid": "Przez Bellen",
     "zoekStripTitle": "Twoje profile wyszukiwania",
     "zoekStripHint": "Do 4 slotów — uzupełnij w Account",
     "zoekSlotEmpty": "Pusty slot",
@@ -1500,7 +1500,7 @@ const copy={
     "roomsNote": "Twój kolejny adres czeka",
     "roomsNoteSub": "Od pojedynczego pokoju po wspólny dom — zacznij dziś.",
     "housesPageTitle": "Domy do wynajęcia w Holandii | Woonwekker",
-    "housesMeta": "Znajdź domy do wynajęcia w Holandii: ogród, światło i przestrzeń do wzrostu. Porównuj oferty i przejdź do źródła z Woonwekker.",
+    "housesMeta": "Znajdź domy do wynajęcia w Holandii: ogród, światło i przestrzeń do wzrostu. Porównuj oferty i skontaktuj się z właścicielem przez Woonwekker.",
     "housesEyebrow": "Domy do wynajęcia",
     "housesHeadline": "Dom.<br><em>Przestrzeń do wzrostu.</em>",
     "housesIntro": "Więcej pokoi, ogród, spokój po długim dniu. Rodzina albo wreszcie własna przestrzeń: domy do wynajęcia otwierają inne życie. Woonwekker pomaga porównać i zrobić kolejny krok — z jasnymi cenami i prostą drogą do kontaktu.",
@@ -1519,13 +1519,13 @@ const copy={
     "insightsPromoLink": "Przejdź do Insights →",
     "insightsA1Title": "Pokój, studio czy dom: jak wybrać typ wynajmu w Holandii",
     "insightsA1Intro": "Szukanie zaczyna się od jednej nudnej decyzji: jakiego typu domu naprawdę szukasz.",
-    "insightsA2Title": "Jak szukać wynajmu w Holandii bez odświeżania Funda cały dzień",
+    "insightsA2Title": "Jak szukać wynajmu w Holandii bez odświeżania cały dzień",
     "insightsA2Intro": "Rynek nagradza tych, którzy odpowiadają wcześnie — nie tych, którzy gapią się w te same karty do północy.",
     "insightsA3Title": "Darmowe konto vs Bellen €18,50: za co naprawdę płacisz na Woonwekker",
     "insightsA3Intro": "Założenie konta to nie to samo co płatność. Oto Kijken vs Bellen.",
-    "insightsA1Body": "<p>Szukanie mieszkania w Holandii zaczyna się od jednej nudnej decyzji: jakiego typu domu naprawdę szukasz. Pomyl to i będziesz odświeżać złe strony przez tygodnie.</p>\n<p>Holenderski <strong>kamer</strong> (pokój) to zwykle pokój w współdzielonym domu lub mieszkaniu. Dzielisz kuchnię i często łazienkę. Klasyczna ścieżka dla studentów, starterów i wielu ekspatsów, którzy potrzebują czegoś szybciej niż idealnie. Ta półka jest na <a href=\"/kamers/\">/kamers/</a> — pokoje i studia często są razem, bo ci sami ludzie szukają obu; potem zawęź filtr, jeśli chcesz tylko pokój albo tylko studio.</p>\n<p><strong>Studio</strong> nadal jest kompaktowe, ale zwykle samodzielne: własna aneks kuchenny i łazienka. Płacisz więcej za prywatność i szybsze zadomowienie. Jeśli wciąż trafiasz na ogłoszenia współdzielonych domów, których nienawidzisz, zaciśnij filtr typu zamiast winić cały rynek.</p>\n<p>Holenderski <strong>huis</strong> (dom) to inna robota. Rodziny i pary potrzebujące przestrzeni nie powinny żyć w feedzie pokoi. Użyj <a href=\"/huizen/\">/huizen/</a>, gdy chodzi o ofertę domów. Mieszkania i mieszany stock nadal są w szerszym wyszukiwaniu; zacznij od typu dopasowanego do życia, potem filtruj miasto i budżet.</p>\n<p>Wybór miasta liczy się tak samo jak typ. Amsterdam, Utrecht, Rotterdam i mniejsze miasta zachowują się inaczej pod względem ceny i konkurencji. Użyj <a href=\"/plaats/\">/plaats/</a>, gdy już wiesz, gdzie chcesz patrzeć, albo gdy właściciel chce tam ogłosić.</p>\n<p><strong>Praktyczna kolejność, która mniej marnuje czas:</strong></p>\n<ol>\n<li>Wybierz typ (pokój / studio / dom).</li>\n<li>Ustal realny sufit budżetu, z opłatami serwisowymi jeśli widać je w ogłoszeniu.</li>\n<li>Ustaw jedno lub dwa miasta, nie pół Randstadu.</li>\n<li>Zapisz profil wyszukiwania, żeby nie budować filtrów co wieczór — <a href=\"/signup/\">/signup/</a> to darmowe konto; to nie jest płatny unlock.</li>\n</ol>\n<p>Jeśli karta wygląda źle dla Twojego typu, zaufaj temu sygnałowi. Wyjaśnienie „dlaczego pasuje / dlaczego nie” na podstawie filtrów jest lepsze niż mgliste „polecane”. Jak działają plany przy odblokowaniu kontaktu źródła: <a href=\"/prijzen/\">/prijzen/</a> i <a href=\"/faq/\">/faq/</a>.</p>\n<p>Precyzja jest prosta: szukaj oferty dopasowanej do życia, nie najgłośniejszego feedu.</p>",
-    "insightsA2Body": "<p>Holenderski rynek wynajmu nagradza tych, którzy odpowiadają wcześnie. Nie tych, którzy gapią się w te same trzy karty do północy.</p>\n<p>Lepsza pętla: zdefiniuj, co akceptujesz, oglądaj tylko to i wkładaj energię w oferty, które przechodzą Twoje reguły.</p>\n<p>Napisz profil raz. Miasto, max czynsz, typ (pokój, studio, dom), deal-breakery (nie parter, musi pozwalać na meldunek, umeblowane czy nie). Na tyle krótko, by później nie kłamać sobie. Na Woonwekker możesz trzymać ten profil po stronie darmowej — załóż konto na <a href=\"/signup/\">/signup/</a>. Logowanie i rejestracja to nie to samo co płatność za Bellen.</p>\n<p>Przeglądaj właściwą półkę. Pokoje i studia: <a href=\"/kamers/\">/kamers/</a>. Domy: <a href=\"/huizen/\">/huizen/</a>. Najpierw miasto: <a href=\"/plaats/\">/plaats/</a>. Mieszanie wszystkich typów w nieskończonym scrollu to jak przegapić jeden pokój, który naprawdę pasuje.</p>\n<p>Wolisz „dlaczego tak / dlaczego nie” niż vibe. Przydatna karta mówi, że cena i miasto pasują, albo że odpada przez zły typ. To uczciwość filtrów, nie obietnica idealnego domu. Jeśli coś łamie reguły — pomiń. Czas jest rzadkim zasobem.</p>\n<p>Odpowiadaj, gdy warto. Gdy chcesz otworzyć kontakt źródła i iść szybciej, to płatny plan Bellen — <strong>€18,50</strong> miesięcznie na <a href=\"/prijzen/\">/prijzen/</a>. Darmowe przeglądanie i konto zostają bez tego unlocka. Szczegóły i rezygnacja: cennik i <a href=\"/faq/\">/faq/</a>.</p>\n<p>Czym to nie jest: chatbot, który „znajdzie Ci dom”, tajemniczy scrapowany zasób ani twierdzenie, że płacenie usuwa konkurencję. Inni też aplikują. Precyzja = mniej kart, jaśniejsze reguły, mniej martwego scrollowania.</p>\n<p>Jeśli ogłaszasz jako właściciel lub agent, użyj <a href=\"/plaats/\">/plaats/</a>, żeby szukający widzieli autoryzowane oferty zamiast placeholderów.</p>",
-    "insightsA3Body": "<p>Wiele serwisów wynajmu miesza „załóż konto” z „zapłać nam.” Woonwekker nie powinien.</p>\n<p><strong>Darmowe (Kijken).</strong> Możesz przeglądać oferty, ustawiać filtry i trzymać profil wyszukiwania. <a href=\"/signup/\">/signup/</a> tworzy konto, żeby preferencje zostały. Samo logowanie nie odblokowuje linków źródła właściciela.</p>\n<p><strong>Bellen — 1 dzień za darmo, potem €18,50 miesięcznie.</strong> To płatny plan na szybszą ścieżkę: unlock do oficjalnego kontaktu źródła, żebyś mógł odpowiedzieć. Po okresie próbnym subskrypcja jest pobierana, chyba że anulujesz. Pełna cena i rezygnacja na <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Za co pieniądze nie są.</strong> Bellen nie gwarantuje domu. To nie prowizja pośrednictwa na czynsz (zob. język zaufania na cenniku / FAQ: bez bemiddelingskosten jako dodatek Woonwekker). Nie zastępuje obejrzenia oferty w oficjalnym źródle ani warunków właściciela.</p>\n<p><strong>Jak zdecydować.</strong></p>\n<ul>\n<li>Nadal doprecyzowujesz miasto i budżet? Zostań za darmo. Użyj <a href=\"/kamers/\">/kamers/</a> lub <a href=\"/huizen/\">/huizen/</a> i dopracuj.</li>\n<li>Widzisz matche, na które odpowiedziałbyś dziś? Otwórz <a href=\"/prijzen/\">/prijzen/</a> i odblokuj Bellen dopiero wtedy.</li>\n<li>Właściciel lub agent z ofertą? <a href=\"/plaats/\">/plaats/</a> to ścieżka ogłoszeń.</li>\n</ul>\n<p>Pytania o odnowienie, rezygnację lub zakres: <a href=\"/faq/\">/faq/</a>. Jeśli strona sugeruje, że logowanie = płatny dostęp, to błąd w opowieści — reguła produktu jest osobna: konto ≠ Bellen.</p>\n<p>Uczciwe ceny są częścią szybszego znalezienia domu. Powinieneś wiedzieć, co kupujesz przed checkoutem, nie po.</p>"
+    "insightsA1Body": "<p>Szukanie mieszkania w Holandii zaczyna się od jednej nudnej decyzji: jakiego typu domu naprawdę szukasz. Pomyl to i będziesz odświeżać złe strony przez tygodnie.</p>\n<p>Holenderski <strong>kamer</strong> (pokój) to zwykle pokój w współdzielonym domu lub mieszkaniu. Dzielisz kuchnię i często łazienkę. Klasyczna ścieżka dla studentów, starterów i wielu ekspatsów, którzy potrzebują czegoś szybciej niż idealnie. Ta półka jest na <a href=\"/kamers/\">/kamers/</a> — pokoje i studia często są razem, bo ci sami ludzie szukają obu; potem zawęź filtr, jeśli chcesz tylko pokój albo tylko studio.</p>\n<p><strong>Studio</strong> nadal jest kompaktowe, ale zwykle samodzielne: własna aneks kuchenny i łazienka. Płacisz więcej za prywatność i szybsze zadomowienie. Jeśli wciąż trafiasz na ogłoszenia współdzielonych domów, których nienawidzisz, zaciśnij filtr typu zamiast winić cały rynek.</p>\n<p>Holenderski <strong>huis</strong> (dom) to inna robota. Rodziny i pary potrzebujące przestrzeni nie powinny żyć w feedzie pokoi. Użyj <a href=\"/huizen/\">/huizen/</a>, gdy chodzi o ofertę domów. Mieszkania i mieszany stock nadal są w szerszym wyszukiwaniu; zacznij od typu dopasowanego do życia, potem filtruj miasto i budżet.</p>\n<p>Wybór miasta liczy się tak samo jak typ. Amsterdam, Utrecht, Rotterdam i mniejsze miasta zachowują się inaczej pod względem ceny i konkurencji. Użyj <a href=\"/plaats/\">/plaats/</a>, gdy już wiesz, gdzie chcesz patrzeć, albo gdy właściciel chce tam ogłosić.</p>\n<p><strong>Praktyczna kolejność, która mniej marnuje czas:</strong></p>\n<ol>\n<li>Wybierz typ (pokój / studio / dom).</li>\n<li>Ustal realny sufit budżetu, z opłatami serwisowymi jeśli widać je w ogłoszeniu.</li>\n<li>Ustaw jedno lub dwa miasta, nie pół Randstadu.</li>\n<li>Zapisz profil wyszukiwania, żeby nie budować filtrów co wieczór — <a href=\"/signup/\">/signup/</a> to darmowe konto; to nie jest płatny unlock.</li>\n</ol>\n<p>Jeśli karta wygląda źle dla Twojego typu, zaufaj temu sygnałowi. Wyjaśnienie „dlaczego pasuje / dlaczego nie” na podstawie filtrów jest lepsze niż mgliste „polecane”. Jak działają plany przy otwieraniu kontaktu z właścicielem: <a href=\"/prijzen/\">/prijzen/</a> i <a href=\"/faq/\">/faq/</a>.</p>\n<p>Precyzja jest prosta: szukaj oferty dopasowanej do życia, nie najgłośniejszego feedu.</p>",
+    "insightsA2Body": "<p>Holenderski rynek wynajmu nagradza tych, którzy odpowiadają wcześnie. Nie tych, którzy gapią się w te same trzy karty do północy.</p>\n<p>Lepsza pętla: zdefiniuj, co akceptujesz, oglądaj tylko to i wkładaj energię w oferty, które przechodzą Twoje reguły.</p>\n<p>Napisz profil raz. Miasto, max czynsz, typ (pokój, studio, dom), deal-breakery (nie parter, musi pozwalać na meldunek, umeblowane czy nie). Na tyle krótko, by później nie kłamać sobie. Na Woonwekker możesz trzymać ten profil po stronie darmowej — załóż konto na <a href=\"/signup/\">/signup/</a>. Logowanie i rejestracja to nie to samo co płatność za Bellen.</p>\n<p>Przeglądaj właściwą półkę. Pokoje i studia: <a href=\"/kamers/\">/kamers/</a>. Domy: <a href=\"/huizen/\">/huizen/</a>. Najpierw miasto: <a href=\"/plaats/\">/plaats/</a>. Mieszanie wszystkich typów w nieskończonym scrollu to jak przegapić jeden pokój, który naprawdę pasuje.</p>\n<p>Wolisz „dlaczego tak / dlaczego nie” niż vibe. Przydatna karta mówi, że cena i miasto pasują, albo że odpada przez zły typ. To uczciwość filtrów, nie obietnica idealnego domu. Jeśli coś łamie reguły — pomiń. Czas jest rzadkim zasobem.</p>\n<p>Odpowiadaj, gdy warto. Gdy chcesz skontaktować się z właścicielem i iść szybciej, to płatny plan Bellen — <strong>€18,50</strong> miesięcznie na <a href=\"/prijzen/\">/prijzen/</a>. Darmowe przeglądanie i konto zostają bez tego unlocka. Szczegóły i rezygnacja: cennik i <a href=\"/faq/\">/faq/</a>.</p>\n<p>Czym to nie jest: chatbot, który „znajdzie Ci dom”, tajemniczy scrapowany zasób ani twierdzenie, że płacenie usuwa konkurencję. Inni też aplikują. Precyzja = mniej kart, jaśniejsze reguły, mniej martwego scrollowania.</p>\n<p>Jeśli ogłaszasz jako właściciel lub agent, użyj <a href=\"/plaats/\">/plaats/</a>, żeby szukający widzieli autoryzowane oferty zamiast placeholderów.</p>",
+    "insightsA3Body": "<p>Wiele serwisów wynajmu miesza „załóż konto” z „zapłać nam.” Woonwekker nie powinien.</p>\n<p><strong>Darmowe (Kijken).</strong> Możesz przeglądać oferty, ustawiać filtry i trzymać profil wyszukiwania. <a href=\"/signup/\">/signup/</a> tworzy konto, żeby preferencje zostały. Samo logowanie nie odblokowuje kontaktu z właścicielem.</p>\n<p><strong>Bellen — 1 dzień za darmo, potem €18,50 miesięcznie.</strong> To płatny plan na szybszą ścieżkę: dostęp do kontaktu z właścicielem, żebyś mógł odpowiedzieć. Po okresie próbnym subskrypcja jest pobierana, chyba że anulujesz. Pełna cena i rezygnacja na <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Za co pieniądze nie są.</strong> Bellen nie gwarantuje domu. To nie prowizja pośrednictwa na czynsz (zob. język zaufania na cenniku / FAQ: bez bemiddelingskosten jako dodatek Woonwekker). Nie zastępuje przeczytania warunków właściciela.</p>\n<p><strong>Jak zdecydować.</strong></p>\n<ul>\n<li>Nadal doprecyzowujesz miasto i budżet? Zostań za darmo. Użyj <a href=\"/kamers/\">/kamers/</a> lub <a href=\"/huizen/\">/huizen/</a> i dopracuj.</li>\n<li>Widzisz matche, na które odpowiedziałbyś dziś? Otwórz <a href=\"/prijzen/\">/prijzen/</a> i odblokuj Bellen dopiero wtedy.</li>\n<li>Właściciel lub agent z ofertą? <a href=\"/plaats/\">/plaats/</a> to ścieżka ogłoszeń.</li>\n</ul>\n<p>Pytania o odnowienie, rezygnację lub zakres: <a href=\"/faq/\">/faq/</a>. Jeśli strona sugeruje, że logowanie = płatny dostęp, to błąd w opowieści — reguła produktu jest osobna: konto ≠ Bellen.</p>\n<p>Uczciwe ceny są częścią szybszego znalezienia domu. Powinieneś wiedzieć, co kupujesz przed checkoutem, nie po.</p>"
   },
   "pt": {
     "homes": "Encontrar um imóvel",
@@ -1534,7 +1534,7 @@ const copy={
     "privacy": "Privacidade",
     "pricing": "Preços",
     "pricingTitle": "Preços simples",
-    "pricingIntro": "Navegue de graça com Kijken. Desbloqueie detalhes completos e o link oficial da fonte com Bellen — 1 dia grátis, depois €18,50/mês.",
+    "pricingIntro": "Navegue de graça com Kijken. Detalhes completos e contacto com o proprietário com Bellen — 1 dia grátis, depois €18,50/mês.",
     "kijkenTitle": "Kijken",
     "kijkenPrice": "€0",
     "kijkenPeriod": "/mês",
@@ -1543,13 +1543,13 @@ const copy={
     "kijkenFeat3": "Especificações e fotos do anúncio (prévia)",
     "kijkenFeat4": "Até 4 perfis de busca (alertas com limite)",
     "kijkenFeat5": "Alertas: máx. 3×/semana, só e-mail",
-    "kijkenFeat6": "Detalhes completos e link da fonte bloqueados",
+    "kijkenFeat6": "Detalhes completos e contacto bloqueados",
     "kijkenCta": "Ver imóveis",
     "bellenTitle": "Bellen",
     "bellenPrice": "€18,50",
     "bellenPeriod": "/mês",
     "bellenFeat1": "Tudo do Kijken",
-    "bellenFeat2": "Detalhes completos + link da fonte pelo caminho oficial",
+    "bellenFeat2": "Detalhes completos + contacto com o proprietário",
     "bellenFeat3": "Alertas instantâneos (e-mail; push placeholder): ilimitados — sem segundo paywall",
     "bellenFeat4": "Até 4 perfis de busca + 1 parceiro de busca",
     "bellenFeat5": "Kit de resposta NL/EN, checklist de documentos e histórico de contato",
@@ -1573,7 +1573,7 @@ const copy={
     "results": "anúncios de aluguel",
     "updated": "Confirme o estado atual com o anunciante",
     "sort": "Ordenar por",
-    "newest": "Ordem da fonte",
+    "newest": "Padrão",
     "cheap": "Preço: menor para maior",
     "expensive": "Preço: maior para menor",
     "large": "Maior área",
@@ -1605,16 +1605,16 @@ const copy={
     "balcony": "Varanda",
     "tagNew": "Nieuw",
     "newSectionTitle": "Novidades no Woonwekker",
-    "newSectionSub": "{n} anúncios novos do Kamernet e Pararius",
+    "newSectionSub": "{n} anúncios novos",
     "newSectionCta": "Mostrar novos",
     "filterNew": "Nieuw",
     "parking": "Estacionamento privativo",
     "yes": "Sim",
     "no": "Não",
     "unknown": "Não informado",
-    "source": "Ver anúncio original ↗",
+    "source": "Contactar o proprietário ↗",
     "detailNote": "Confirme a disponibilidade atual, as condições de aluguel e custos extras com o anunciante. Estes registros são um instantâneo, não um feed ao vivo.",
-    "sourceText": "Veja o anúncio original para a descrição completa e os dados de contato.",
+    "sourceText": "Contacte o proprietário para a descrição completa e os dados de contacto.",
     "close": "Fechar",
     "photoUnavailable": "Foto indisponível",
     "loadError": "Não foi possível carregar os imóveis.",
@@ -1637,11 +1637,11 @@ const copy={
       ],
       [
         "Esses imóveis ainda estão disponíveis?",
-        "Preços e disponibilidade podem ter mudado. Sempre confira o status atual em “Ver anúncio original”."
+        "Preços e disponibilidade podem ter mudado. Sempre confira o status atual em “Contactar o proprietário”."
       ],
       [
         "Como agendar uma visita?",
-        "Abra um imóvel e siga “Ver anúncio original” até o anúncio original. Entre em contato com o anunciante lá. O Woonwekker não agenda visitas nem processa pedidos de aluguel."
+        "Abra um imóvel e use “Contactar o proprietário” para chegar ao anunciante. Entre em contato lá. O Woonwekker não agenda visitas nem processa pedidos de aluguel."
       ],
       [
         "O preço inclui todos os custos?",
@@ -1649,15 +1649,15 @@ const copy={
       ],
       [
         "Preciso pagar para buscar?",
-        "Com Kijken (€0) você navega teasers de aluguel de graça. Com Bellen: 1 dia grátis, depois €18,50/mês — detalhes completos, link da fonte (Funda etc.), alertas ilimitados por e-mail+WhatsApp, parceiro de busca e kit de resposta. Após o período de teste, a assinatura é cobrada salvo cancelamento. Cancelamento em 1 clique. O aluguel é sempre fechado com o anunciante."
+        "Com Kijken (€0) você navega teasers de aluguel de graça. Com Bellen: 1 dia grátis, depois €18,50/mês — detalhes completos, contacto com o proprietário, alertas ilimitados por e-mail+WhatsApp, parceiro de busca e kit de resposta. Após o período de teste, a assinatura é cobrada salvo cancelamento. Cancelamento em 1 clique. O aluguel é sempre fechado com o anunciante."
       ],
       [
         "Posso navegar no meu idioma?",
-        "Sim. Escolha Nederlands, English, Español, Polski ou Português no menu de idiomas. A interface, as perguntas frequentes e as informações jurídicas mudam juntas. Endereços e nomes originais permanecem iguais."
+        "Sim. Escolha Nederlands, English, Español, Polski ou Português no menu de idiomas. A interface, as perguntas frequentes e as informações jurídicas mudam juntas. Endereços e nomes nos anúncios permanecem iguais."
       ],
       [
         "Por que há só algumas fotos?",
-        "O conjunto de dados fornecido inclui de uma a seis fotos por imóvel. O anúncio original pode ter mais fotos e mais detalhes."
+        "O conjunto de dados fornecido inclui de uma a seis fotos por imóvel. Ao contactar o proprietário podem estar disponíveis mais fotos e detalhes."
       ],
       [
         "Vou receber alertas de novos imóveis?",
@@ -1665,7 +1665,7 @@ const copy={
       ],
       [
         "E se eu notar um erro ou um anúncio suspeito?",
-        "Confira o anúncio original e reporte informações incorretas ao anunciante ou à plataforma de origem. Não transfira dinheiro só com base em um anúncio; verifique identidades e acordos antes de pagar."
+        "Confira o anúncio e reporte informações incorretas ao anunciante. Não transfira dinheiro só com base em um anúncio; verifique identidades e acordos antes de pagar."
       ]
     ],
     "legalSections": [
@@ -1708,11 +1708,11 @@ const copy={
     "how1Text": "Navegue teasers grátis com Kijken. Filtre por cidade, preço, tipo e quartos.",
     "how2Title": "Salve e responda",
     "how2Text": "Salve favoritos, configure perfis de busca e use respostas prontas (Bellen).",
-    "how3Title": "Vá à fonte",
-    "how3Text": "Com Bellen você desbloqueia detalhes completos e o anúncio original para ligar ou enviar e-mail.",
+    "how3Title": "Contactar o proprietário",
+    "how3Text": "Com Bellen você abre detalhes completos e contacta o proprietário.",
     "trust1": "Privacidade em primeiro lugar — filtros e favoritos ficam no seu dispositivo",
     "trust2": "1 dia grátis · depois €18,50/mês · cancelamento em 1 clique",
-    "trust3": "Anúncios só com fotos — sempre pela fonte oficial",
+    "trust3": "Anúncios só com fotos — caminho claro para contactar o proprietário",
     "accountTitle": "Sua conta",
     "accountIntro": "Gerencie perfil, perfis de busca, alertas, kit de resposta e pipeline. Tudo local no seu navegador (demo).",
     "accountDemo": "Entre com Google (preferencial) ou confirme seu e-mail. O Google pula a confirmação. O desbloqueio Bellen continua separado (Mollie).",
@@ -1837,8 +1837,8 @@ const copy={
     "plaatsNeedLogin": "Crie uma conta em Conta primeiro para anunciar (demo).",
     "openHomes": "Ver imóveis",
     "date": "",
-    "sourceLocked": "O link da fonte faz parte do Bellen (€18,50/mês).",
-    "unlockSource": "Desbloquear fonte — Bellen €18,50",
+    "sourceLocked": "Os dados de contacto fazem parte do Bellen (€18,50/mês).",
+    "unlockSource": "Contactar o proprietário — Bellen €18,50",
     "photosLocked": "Mais fotos fazem parte do Bellen (€18,50/mês).",
     "unlockPhotos": "Desbloquear com Bellen (€18,50)",
     "onboardTitle": "Bem-vindo ao Woonwekker",
@@ -1847,13 +1847,13 @@ const copy={
     "onboardDone": "Ver imóveis",
     "onboard1": "Filtre de graça por cidade, preço e tipo (Kijken).",
     "onboard2": "Salve favoritos e configure até 4 perfis de busca.",
-    "onboard3": "Com Bellen você abre o link da fonte e alertas por WhatsApp.",
+    "onboard3": "Com Bellen você abre o contacto com o proprietário e alertas por WhatsApp.",
     "pricingAntiTrial": "1 dia grátis, depois €18,50/mês — preço claro, sem centavos ocultos",
     "stripKijken": "Kijken €0",
     "stripBellen": "Bellen €18,50/mês",
     "stripCta": "Ver preços",
-    "bronFree": "Fonte grátis",
-    "bronPaid": "Fonte paga",
+    "bronFree": "Contacto direto",
+    "bronPaid": "Via Bellen",
     "zoekStripTitle": "Seus perfis de busca",
     "zoekStripHint": "Até 4 vagas — preencha-as em Conta",
     "zoekSlotEmpty": "Vaga vazia",
@@ -1882,7 +1882,7 @@ const copy={
     "roomsNote": "Seu próximo endereço está esperando",
     "roomsNoteSub": "De um quarto individual a uma casa compartilhada — comece hoje.",
     "housesPageTitle": "Imóveis para alugar na Holanda | Woonwekker",
-    "housesMeta": "Encontre imóveis para alugar na Holanda — apartamentos e casas. Compare fotos e preços e vá à fonte pelo Woonwekker.",
+    "housesMeta": "Encontre imóveis para alugar na Holanda — apartamentos e casas. Compare fotos e preços e contacte o proprietário pelo Woonwekker.",
     "housesEyebrow": "Imóveis para alugar",
     "housesHeadline": "Um lar.<br><em>Espaço para crescer.</em>",
     "housesIntro": "Apartamento ou casa: o que importa é um lugar para viver. O Woonwekker reúne imóveis para alugar para você comparar mais rápido — claro, honesto e sem ruído.",
@@ -1901,12 +1901,12 @@ const copy={
     "insightsPromoLink": "Ir para Insights →",
     "insightsA1Title": "Kamer, studio ou casa: como escolher o tipo de aluguel na Holanda",
     "insightsA1Intro": "Encontrar um lugar começa com uma decisão chata: que tipo de imóvel você está buscando de verdade.",
-    "insightsA2Title": "Como buscar aluguel na Holanda sem atualizar o Funda o dia todo",
+    "insightsA2Title": "Como buscar aluguel na Holanda sem atualizar o dia todo",
     "insightsA2Intro": "O mercado premia quem responde cedo — não quem fica olhando as mesmas três abas até a meia-noite.",
     "insightsA3Title": "Conta grátis vs Bellen €18,50: pelo que você realmente paga no Woonwekker",
     "insightsA3Intro": "Criar uma conta não é o mesmo que pagar. Veja Kijken vs Bellen.",
-    "insightsA1Body": "<p>Encontrar um lugar na Holanda começa com uma decisão chata: que tipo de imóvel você está buscando de verdade. Se errar isso, vai atualizar as páginas erradas por semanas.</p>\n<p>Um <strong>kamer</strong> holandês (quarto) costuma ser um quarto em uma casa ou apartamento compartilhado. Você divide a cozinha e, muitas vezes, o banheiro. É o caminho clássico para estudantes, quem está começando e muitos expatriados que precisam de algo mais cedo do que perfeito. Navegue nessa faixa em <a href=\"/kamers/\">/kamers/</a> — quartos e studios costumam aparecer juntos porque as mesmas pessoas buscam os dois; depois refine com filtros se quiser só quarto ou só studio.</p>\n<p>Um <strong>studio</strong> ainda é compacto, mas em geral é autônomo: sua própria cozinha e banheiro. Você paga mais por privacidade e para se instalar mais rápido. Se fica caindo em anúncios de casa compartilhada que odeia, aperte o filtro de tipo em vez de culpar o mercado inteiro.</p>\n<p>Um <strong>huis</strong> holandês (casa) é outro trabalho. Famílias e casais que precisam de espaço não deveriam viver dentro de um feed de quartos. Use <a href=\"/huizen/\">/huizen/</a> quando o inventário de casas for o que você quer. Apartamentos e estoque misto ainda aparecem na busca mais ampla de imóveis; comece pelo tipo que combina com como você vive e depois filtre cidade e orçamento.</p>\n<p>A escolha da cidade importa tanto quanto o tipo. Amsterdam, Utrecht, Rotterdam e cidades menores se comportam de forma diferente em preço e concorrência. Use <a href=\"/plaats/\">/plaats/</a> quando já souber onde quer procurar, ou quando um proprietário quiser anunciar lá.</p>\n<p><strong>Ordem prática que desperdiça menos tempo:</strong></p>\n<ol>\n<li>Escolha o tipo (quarto / studio / casa).</li>\n<li>Defina um teto de orçamento de verdade, incluindo taxas de serviço se o anúncio mostrar.</li>\n<li>Escolha uma ou duas cidades, não metade da Randstad.</li>\n<li>Salve um perfil de busca para não remontar filtros toda noite — <a href=\"/signup/\">/signup/</a> é cadastro gratuito; não é o desbloqueio pago.</li>\n</ol>\n<p>Se um card parece errado para o seu tipo, confie nesse sinal. Uma explicação de “por que encaixa / por que não” com base nos seus filtros é mais útil do que um selo vago de “recomendado”. Para ver como os planos funcionam quando estiver pronto para desbloquear o contato da fonte, veja <a href=\"/prijzen/\">/prijzen/</a> e as <a href=\"/faq/\">/faq/</a>.</p>\n<p>A precisão aqui é simples: busque o inventário que combina com a sua vida, não o feed mais barulhento.</p>",
-    "insightsA2Body": "<p>O mercado de aluguel holandês premia quem responde cedo. Não premia quem fica olhando as mesmas três abas até a meia-noite.</p>\n<p>Um ciclo melhor é este: defina o que você aceita, acompanhe só isso e gaste energia em anúncios que passam nas suas próprias regras.</p>\n<p>Escreva o perfil uma vez. Cidade, aluguel máximo, tipo (quarto, studio, casa), deal-breakers (sem térreo, precisa permitir registro, mobiliado ou não). Mantenha curto o bastante para você não se enganar depois. No Woonwekker você pode manter esse perfil no lado gratuito — crie uma conta em <a href=\"/signup/\">/signup/</a>. Login e cadastro não são a mesma coisa que pagar pelo Bellen.</p>\n<p>Navegue na prateleira certa. Quartos e studios: <a href=\"/kamers/\">/kamers/</a>. Casas: <a href=\"/huizen/\">/huizen/</a>. Busca por cidade: <a href=\"/plaats/\">/plaats/</a>. Misturar todos os tipos em um scroll infinito é como perder o único quarto que realmente encaixa.</p>\n<p>Prefira “por que sim / por que não” a vibes. Um card útil diz que combina com seu preço e cidade, ou que falha porque é o tipo errado. Isso é honestidade de filtro, não uma promessa de que o imóvel é perfeito para você. Se algo falha nas suas regras, pule. Seu tempo é o recurso escasso.</p>\n<p>Responda quando valer a pena. Quando estiver pronto para abrir o contato da fonte e ir mais rápido, esse é o plano pago Bellen — <strong>€18,50</strong> por mês em <a href=\"/prijzen/\">/prijzen/</a>. A navegação gratuita e a conta continuam disponíveis sem esse desbloqueio. Detalhes e cancelamento estão nos preços e nas <a href=\"/faq/\">/faq/</a>.</p>\n<p>O que isso não é: um chatbot que “acha um lar para você”, inventário misterioso raspado, ou a alegação de que pagar remove a concorrência. Outras pessoas ainda estão se candidatando. Precisão significa menos abas, regras mais claras e menos scroll morto.</p>\n<p>Se você anuncia como proprietário ou corretor, use <a href=\"/plaats/\">/plaats/</a> para que quem busca veja anúncios autorizados em vez de placeholders.</p>",
-    "insightsA3Body": "<p>Muitos sites de aluguel misturam “criar conta” com “pague-nos.” O Woonwekker não deveria.</p>\n<p><strong>Grátis (Kijken).</strong> Você pode navegar anúncios, definir filtros e manter um perfil de busca. <a href=\"/signup/\">/signup/</a> cria uma conta para suas preferências ficarem salvas. Entrar não desbloqueia sozinho os links da fonte do proprietário.</p>\n<p><strong>Bellen — 1 dia grátis, depois €18,50 por mês.</strong> Este é o plano pago para quando você precisa do caminho mais rápido: desbloquear o contato oficial da fonte para poder responder. Após o período de teste, a assinatura é cobrada salvo cancelamento. Preço completo e cancelamento estão em <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Para o que o dinheiro não serve.</strong> Bellen não é garantia de que você vai conseguir o imóvel. Não é uma taxa de corretagem em cima do aluguel (veja a linguagem de confiança em preços / FAQ: sem bemiddelingskosten como adicional do Woonwekker). Não substitui ver o anúncio na fonte oficial nem ler as condições do proprietário.</p>\n<p><strong>Como decidir.</strong></p>\n<ul>\n<li>Ainda definindo cidade e orçamento? Fique no grátis. Use <a href=\"/kamers/\">/kamers/</a> ou <a href=\"/huizen/\">/huizen/</a> e refine.</li>\n<li>Vendo combinações para as quais você responderia hoje? Abra <a href=\"/prijzen/\">/prijzen/</a> e desbloqueie o Bellen só então.</li>\n<li>Proprietário ou corretor com estoque? <a href=\"/plaats/\">/plaats/</a> é o caminho de anúncio.</li>\n</ul>\n<p>Perguntas sobre renovação, cancelamento ou o que está incluso ficam nas <a href=\"/faq/\">/faq/</a>. Se alguma página sugerir que entrar na conta equivale a acesso pago, isso é um bug na história — a regra do produto é separada: conta ≠ Bellen.</p>\n<p>Preço honesto faz parte de achar um lar mais rápido. Você deveria saber o que está comprando antes do checkout, não depois.</p>"
+    "insightsA1Body": "<p>Encontrar um lugar na Holanda começa com uma decisão chata: que tipo de imóvel você está buscando de verdade. Se errar isso, vai atualizar as páginas erradas por semanas.</p>\n<p>Um <strong>kamer</strong> holandês (quarto) costuma ser um quarto em uma casa ou apartamento compartilhado. Você divide a cozinha e, muitas vezes, o banheiro. É o caminho clássico para estudantes, quem está começando e muitos expatriados que precisam de algo mais cedo do que perfeito. Navegue nessa faixa em <a href=\"/kamers/\">/kamers/</a> — quartos e studios costumam aparecer juntos porque as mesmas pessoas buscam os dois; depois refine com filtros se quiser só quarto ou só studio.</p>\n<p>Um <strong>studio</strong> ainda é compacto, mas em geral é autônomo: sua própria cozinha e banheiro. Você paga mais por privacidade e para se instalar mais rápido. Se fica caindo em anúncios de casa compartilhada que odeia, aperte o filtro de tipo em vez de culpar o mercado inteiro.</p>\n<p>Um <strong>huis</strong> holandês (casa) é outro trabalho. Famílias e casais que precisam de espaço não deveriam viver dentro de um feed de quartos. Use <a href=\"/huizen/\">/huizen/</a> quando o inventário de casas for o que você quer. Apartamentos e estoque misto ainda aparecem na busca mais ampla de imóveis; comece pelo tipo que combina com como você vive e depois filtre cidade e orçamento.</p>\n<p>A escolha da cidade importa tanto quanto o tipo. Amsterdam, Utrecht, Rotterdam e cidades menores se comportam de forma diferente em preço e concorrência. Use <a href=\"/plaats/\">/plaats/</a> quando já souber onde quer procurar, ou quando um proprietário quiser anunciar lá.</p>\n<p><strong>Ordem prática que desperdiça menos tempo:</strong></p>\n<ol>\n<li>Escolha o tipo (quarto / studio / casa).</li>\n<li>Defina um teto de orçamento de verdade, incluindo taxas de serviço se o anúncio mostrar.</li>\n<li>Escolha uma ou duas cidades, não metade da Randstad.</li>\n<li>Salve um perfil de busca para não remontar filtros toda noite — <a href=\"/signup/\">/signup/</a> é cadastro gratuito; não é o desbloqueio pago.</li>\n</ol>\n<p>Se um card parece errado para o seu tipo, confie nesse sinal. Uma explicação de “por que encaixa / por que não” com base nos seus filtros é mais útil do que um selo vago de “recomendado”. Para ver como os planos funcionam quando estiver pronto para abrir o contacto com o proprietário, veja <a href=\"/prijzen/\">/prijzen/</a> e as <a href=\"/faq/\">/faq/</a>.</p>\n<p>A precisão aqui é simples: busque o inventário que combina com a sua vida, não o feed mais barulhento.</p>",
+    "insightsA2Body": "<p>O mercado de aluguel holandês premia quem responde cedo. Não premia quem fica olhando as mesmas três abas até a meia-noite.</p>\n<p>Um ciclo melhor é este: defina o que você aceita, acompanhe só isso e gaste energia em anúncios que passam nas suas próprias regras.</p>\n<p>Escreva o perfil uma vez. Cidade, aluguel máximo, tipo (quarto, studio, casa), deal-breakers (sem térreo, precisa permitir registro, mobiliado ou não). Mantenha curto o bastante para você não se enganar depois. No Woonwekker você pode manter esse perfil no lado gratuito — crie uma conta em <a href=\"/signup/\">/signup/</a>. Login e cadastro não são a mesma coisa que pagar pelo Bellen.</p>\n<p>Navegue na prateleira certa. Quartos e studios: <a href=\"/kamers/\">/kamers/</a>. Casas: <a href=\"/huizen/\">/huizen/</a>. Busca por cidade: <a href=\"/plaats/\">/plaats/</a>. Misturar todos os tipos em um scroll infinito é como perder o único quarto que realmente encaixa.</p>\n<p>Prefira “por que sim / por que não” a vibes. Um card útil diz que combina com seu preço e cidade, ou que falha porque é o tipo errado. Isso é honestidade de filtro, não uma promessa de que o imóvel é perfeito para você. Se algo falha nas suas regras, pule. Seu tempo é o recurso escasso.</p>\n<p>Responda quando valer a pena. Quando estiver pronto para contactar o proprietário e ir mais rápido, esse é o plano pago Bellen — <strong>€18,50</strong> por mês em <a href=\"/prijzen/\">/prijzen/</a>. A navegação gratuita e a conta continuam disponíveis sem esse desbloqueio. Detalhes e cancelamento estão nos preços e nas <a href=\"/faq/\">/faq/</a>.</p>\n<p>O que isso não é: um chatbot que “acha um lar para você”, inventário misterioso raspado, ou a alegação de que pagar remove a concorrência. Outras pessoas ainda estão se candidatando. Precisão significa menos abas, regras mais claras e menos scroll morto.</p>\n<p>Se você anuncia como proprietário ou corretor, use <a href=\"/plaats/\">/plaats/</a> para que quem busca veja anúncios autorizados em vez de placeholders.</p>",
+    "insightsA3Body": "<p>Muitos sites de aluguel misturam “criar conta” com “pague-nos.” O Woonwekker não deveria.</p>\n<p><strong>Grátis (Kijken).</strong> Você pode navegar anúncios, definir filtros e manter um perfil de busca. <a href=\"/signup/\">/signup/</a> cria uma conta para suas preferências ficarem salvas. Entrar não desbloqueia sozinho o contacto com o proprietário.</p>\n<p><strong>Bellen — 1 dia grátis, depois €18,50 por mês.</strong> Este é o plano pago para quando você precisa do caminho mais rápido: aceder ao contacto com o proprietário para poder responder. Após o período de teste, a assinatura é cobrada salvo cancelamento. Preço completo e cancelamento estão em <a href=\"/prijzen/\">/prijzen/</a>.</p>\n<p><strong>Para o que o dinheiro não serve.</strong> Bellen não é garantia de que você vai conseguir o imóvel. Não é uma taxa de corretagem em cima do aluguel (veja a linguagem de confiança em preços / FAQ: sem bemiddelingskosten como adicional do Woonwekker). Não substitui ler as condições do proprietário.</p>\n<p><strong>Como decidir.</strong></p>\n<ul>\n<li>Ainda definindo cidade e orçamento? Fique no grátis. Use <a href=\"/kamers/\">/kamers/</a> ou <a href=\"/huizen/\">/huizen/</a> e refine.</li>\n<li>Vendo combinações para as quais você responderia hoje? Abra <a href=\"/prijzen/\">/prijzen/</a> e desbloqueie o Bellen só então.</li>\n<li>Proprietário ou corretor com estoque? <a href=\"/plaats/\">/plaats/</a> é o caminho de anúncio.</li>\n</ul>\n<p>Perguntas sobre renovação, cancelamento ou o que está incluso ficam nas <a href=\"/faq/\">/faq/</a>. Se alguma página sugerir que entrar na conta equivale a acesso pago, isso é um bug na história — a regra do produto é separada: conta ≠ Bellen.</p>\n<p>Preço honesto faz parte de achar um lar mais rápido. Você deveria saber o que está comprando antes do checkout, não depois.</p>"
   }
 };
