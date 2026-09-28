@@ -49,6 +49,7 @@ function injectDiscoveryTools(){
   document.querySelector('#min-budget').onchange=e=>{filters.minBudget=e.target.value;limit=12;applyFilters()};
   ['garden','balcony','energy','isNew'].forEach(k=>document.querySelector('#filter-'+k).onchange=e=>{filters[k]=e.target.checked;limit=12;applyFilters()});
   wireLivePrimary();
+  injectWekkerProfilePanel();
   applyFilters();
 }
 const originalHomes=renderHomes,originalCategory=renderCategory,originalCards=drawCards,originalFaq=renderFaq,originalLegal=renderLegal;
@@ -74,6 +75,8 @@ applyFilters=function(){
     if(filters.balcony&&p.balcony!=='true')return false;
     if(filters.energy&&!/^A\+*$/.test(p.energyLabel||''))return false;
     if(filters.isNew&&!(typeof isNewListing==='function'?isNewListing(p):(p.isNew===true||p.isNew==='true'||String(p.status||'').toLowerCase()==='nieuw')))return false;
+    const wp=typeof WWWekker!=='undefined'?WWWekker.loadWekkerProfile():null;
+    if(wp&&wp.requirePhoto&&WWWekker.listingHasPhoto&&!WWWekker.listingHasPhoto(p))return false;
     return true;
   });
   if(filters.sort==='priceAsc')filtered.sort((a,b)=>+a.price-+b.price);
@@ -130,6 +133,8 @@ drawCards=function(){
     const key=listingKey(p);
     const saved=favouriteIds.has(key),selected=compareIds.has(key);
     card.insertAdjacentHTML('beforeend',`<button class="save-home ${saved?'saved':''}" data-save="${p.id}" aria-label="${x(saved?'unsave':'save')}: ${esc(p.address)}" aria-pressed="${saved}">${saved?'♥':'♡'}</button><div class="card-actions"><button class="compare-home ${selected?'selected':''}" data-compare="${p.id}" aria-pressed="${selected}"><span aria-hidden="true">${selected?'✓':'＋'}</span> ${x('compare')}</button>${+p.livingArea>0&&+p.price>0?`<span>${money(+p.price/+p.livingArea)}/m²</span>`:''}</div>`);
+    const why=wwWhyHtmlFor(p);
+    if(why)card.insertAdjacentHTML('beforeend',why);
   });
   document.querySelectorAll('[data-save]').forEach(b=>b.onclick=()=>{
     const p=listings.find(p=>p.id===b.dataset.save);if(!p)return;
@@ -204,3 +209,85 @@ function wwBindCardTilt(root){
 }
 const wwOriginalDrawCards=drawCards;
 drawCards=function(){wwOriginalDrawCards();wwBindCardTilt(document.querySelector('#results')||document)};
+
+
+/* --- A1+A2 wekker profile (client-only) + deterministic why --- */
+function wwEffectiveProfile(){
+  if(typeof WWWekker==='undefined')return null;
+  const saved=WWWekker.loadWekkerProfile();
+  if(WWWekker.hasActiveCriteria(saved))return saved;
+  return WWWekker.profileFromFilters(filters, saved);
+}
+function wwWhyHtmlFor(listing){
+  if(typeof WWWekker==='undefined'||typeof WWWekker.renderWhyHtml!=='function')return '';
+  const profile=wwEffectiveProfile();
+  // Fail-closed: no criteria → hide why-block (never invent matches).
+  if(!profile||!WWWekker.hasActiveCriteria(profile))return '';
+  return WWWekker.renderWhyHtml(listing, profile, {t, esc, money});
+}
+function injectWekkerProfilePanel(){
+  if(typeof WWWekker==='undefined')return;
+  if(document.querySelector('#wekker-profile-panel'))return;
+  const anchor=document.querySelector('.discovery-tools')||document.querySelector('#search');
+  if(!anchor)return;
+  const p=WWWekker.loadWekkerProfile();
+  const open=WWWekker.hasActiveCriteria(p)||p.query?'open':'';
+  const html=`<details class="wekker-profile" id="wekker-profile-panel" ${open}>
+    <summary>${esc(t('wekkerProfileTitle')||'Wekker')}</summary>
+    <p class="wekker-hint">${esc(t('wekkerProfileHint')||'')}</p>
+    <label class="wekker-nl">${esc(t('wekkerNlLabel')||'')}
+      <textarea id="wekker-nl" rows="2" maxlength="200" placeholder="${esc(t('wekkerNlPlaceholder')||'')}">${esc(p.query||'')}</textarea>
+    </label>
+    <label class="check-filter"><input type="checkbox" id="wekker-require-photo" ${p.requirePhoto?'checked':''}>${esc(t('wekkerRequirePhoto')||'Photo')}</label>
+    <div class="wekker-actions">
+      <button type="button" class="ww-btn" id="wekker-parse">${esc(t('wekkerParse')||'Parse')}</button>
+      <button type="button" class="ww-btn secondary" id="wekker-save-filters">${esc(t('wekkerSaveFilters')||'Save')}</button>
+      <button type="button" class="ww-btn secondary" id="wekker-apply">${esc(t('wekkerApply')||'Apply')}</button>
+      <button type="button" class="ww-btn secondary" id="wekker-clear">${esc(t('wekkerClear')||'Clear')}</button>
+    </div>
+    <p class="interaction-status" id="wekker-status" role="status"></p>
+  </details>`;
+  anchor.insertAdjacentHTML('afterend', html);
+  const status=(msg)=>{const el=document.querySelector('#wekker-status');if(el)el.textContent=msg||''};
+  document.querySelector('#wekker-parse').onclick=()=>{
+    const nl=document.querySelector('#wekker-nl')?.value||'';
+    const requirePhoto=!!document.querySelector('#wekker-require-photo')?.checked;
+    const parsed=WWWekker.parseNlToProfile(nl, {...WWWekker.loadWekkerProfile(), requirePhoto});
+    parsed.requirePhoto=requirePhoto||parsed.requirePhoto;
+    WWWekker.saveWekkerProfile(parsed);
+    WWWekker.applyProfileToFilters(parsed, filters);
+    limit=12;syncFilterFields();applyFilters();
+    status(t('savedOk')||'OK');
+  };
+  document.querySelector('#wekker-save-filters').onclick=()=>{
+    const requirePhoto=!!document.querySelector('#wekker-require-photo')?.checked;
+    const next=WWWekker.profileFromFilters(filters, WWWekker.loadWekkerProfile());
+    next.requirePhoto=requirePhoto;
+    next.query=String(document.querySelector('#wekker-nl')?.value||'').trim().slice(0,200);
+    WWWekker.saveWekkerProfile(next);
+    status(t('savedOk')||'OK');
+    drawCards();
+  };
+  document.querySelector('#wekker-apply').onclick=()=>{
+    const cur=WWWekker.loadWekkerProfile();
+    cur.requirePhoto=!!document.querySelector('#wekker-require-photo')?.checked;
+    cur.query=String(document.querySelector('#wekker-nl')?.value||'').trim().slice(0,200);
+    WWWekker.saveWekkerProfile(cur);
+    WWWekker.applyProfileToFilters(cur, filters);
+    limit=12;syncFilterFields();applyFilters();
+    status(t('savedOk')||'OK');
+  };
+  document.querySelector('#wekker-clear').onclick=()=>{
+    WWWekker.clearWekkerProfile();
+    const nl=document.querySelector('#wekker-nl');if(nl)nl.value='';
+    const rp=document.querySelector('#wekker-require-photo');if(rp)rp.checked=false;
+    status(typeof x==='function'?x('forgot'):'');
+    drawCards();
+  };
+  document.querySelector('#wekker-require-photo')?.addEventListener('change',()=>{
+    const cur=WWWekker.loadWekkerProfile();
+    cur.requirePhoto=!!document.querySelector('#wekker-require-photo').checked;
+    WWWekker.saveWekkerProfile(cur);
+    limit=12;applyFilters();
+  });
+}

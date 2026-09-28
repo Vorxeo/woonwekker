@@ -67,3 +67,21 @@
 /* Bellen source lock hooks (Uixis owns polish) */
 .ww-detail-locked,.ww-paywall[data-ww-lock="source"]{margin-top:12px;padding:14px 16px;border:1px dashed var(--border, #c9c2b8);border-radius:12px;background:var(--panel, #f7f4ef)}
 .ww-detail-locked .primary,[data-ww-checkout]{cursor:pointer}
+
+/* A1+A2 wekker profile + why chips */
+.wekker-profile{margin:12px 0 8px;padding:14px 16px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.wekker-profile>summary{cursor:pointer;font-weight:650;color:var(--navy)}
+.wekker-hint{margin:10px 0 12px;font-size:13px;line-height:1.55;color:var(--muted)}
+.wekker-nl{display:block;font-size:13px;font-weight:600;margin:0 0 10px}
+.wekker-nl textarea{display:block;width:100%;margin-top:6px;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font:inherit;color:var(--navy);background:#f6f8fc;resize:vertical;min-height:64px}
+.wekker-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.wekker-actions .ww-btn{padding:8px 12px;font-size:13px;min-height:36px;border-radius:8px;border:0;background:var(--blue);color:#fff;cursor:pointer}
+.wekker-actions .ww-btn.secondary{background:#edf2fa;color:var(--navy)}
+.ww-why{margin:0 16px 14px;padding:10px 12px;background:#f5f7fb;border-radius:10px;font-size:12px;color:var(--navy)}
+.ww-why>summary{cursor:pointer;font-weight:600;list-style:none}
+.ww-why>summary::-webkit-details-marker{display:none}
+.ww-why-list{margin:8px 0 0;padding-left:16px;line-height:1.5}
+.ww-why-pass{color:#1a6b3c}
+.ww-why-fail{color:#8a3b2a}
+.ww-why-hint{margin:8px 0 0;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){.wekker-profile,.ww-why{transition:none}}
