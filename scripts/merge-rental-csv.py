@@ -29,8 +29,26 @@ def detect_is_new(row, source=''):
         return True
     return False
 
-ROOT = Path(__file__).resolve().parents[1] / 'dist'
-OUT = ROOT / 'listings.json'
+REPO = Path(__file__).resolve().parents[1]
+DATA_FULL = REPO / 'data' / 'listings.full.json'
+DIST_FULL = REPO / 'dist' / 'listings.full.json'
+PUBLIC = REPO / 'dist' / 'listings.json'
+SOURCE_FIELDS = ('url', 'sourceUrl', 'originalUrl', 'listingUrl', 'externalUrl')
+
+
+def write_outputs(listings):
+    """Sync full feeds and keep the browser-served feed source-redacted."""
+    text = json.dumps(listings, ensure_ascii=False, indent=2) + '\n'
+    DATA_FULL.write_text(text, encoding='utf-8')
+    DIST_FULL.write_text(text, encoding='utf-8')
+    public = []
+    for listing in listings:
+        row = dict(listing)
+        for key in SOURCE_FIELDS:
+            if key in row:
+                row[key] = ''
+        public.append(row)
+    PUBLIC.write_text(json.dumps(public, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 def norm_url(u):
     return (u or '').strip().rstrip('/').split('?')[0].split('#')[0].lower()
@@ -100,14 +118,34 @@ def address_from_title(title):
             return t[len(prefix):].strip()
     return t
 
+def canonical_photo_url(value):
+    """Keep portal-hosted originals; upgrade Funda's sized path to its max asset."""
+    url = (value or '').strip()
+    if not url.startswith('https://'):
+        return ''
+    if '://cloud.funda.nl/' in url.lower():
+        # Funda's _1920x1280 route returns the largest available source asset
+        # (and leaves genuinely smaller uploads unchanged). The UI may derive
+        # responsive card/thumb variants without changing this stored URL.
+        url = re.sub(
+            r'_\d{2,5}x\d{2,5}(?=\.(?:jpe?g)(?:[?#]|$))',
+            '_1920x1280',
+            url,
+            flags=re.I,
+        )
+    return url
+
+
 def collect_photos(row):
     seen, out = set(), []
-    keys = ['photo', 'photoUrl', 'imageUrl', 'thumbnail', 'images/0'] + [
+    # Prefer explicit original/photo arrays. `thumbnail` remains a last-resort
+    # compatibility input; canonical_photo_url upgrades any sized Funda URL.
+    keys = ['photo', 'photoUrl', 'imageUrl', 'images/0'] + [
         k for k in row if re.match(r'^(photos|images|imageUrls)/\d+$', k)
-    ]
+    ] + ['thumbnail']
     for k in keys:
-        v = (row.get(k) or '').strip()
-        if v.startswith('https://') and v not in seen:
+        v = canonical_photo_url(row.get(k))
+        if v and v not in seen:
             seen.add(v)
             out.append(v)
     return out
@@ -219,10 +257,10 @@ def main():
         print('Usage: merge-rental-csv.py [--surgical] file.csv', file=sys.stderr)
         sys.exit(2)
     csv_path = Path(args[0])
-    existing = json.loads(OUT.read_text(encoding='utf-8'))
+    existing = json.loads(DATA_FULL.read_text(encoding='utf-8'))
     if surgical:
         final, stats = surgical_import(csv_path, existing)
-        OUT.write_text(json.dumps(final, ensure_ascii=False, indent=2), encoding='utf-8')
+        write_outputs(final)
         types = Counter(x.get('propertyType') for x in final)
         rooms = sum(1 for x in final if x.get('propertyType') in ('Kamer', 'Studio'))
         homes = sum(1 for x in final if x.get('propertyType') in ('Huis', 'Appartement'))
@@ -285,7 +323,7 @@ def main():
             stats['csv_' + upsert(listing, prefer_new=True)] += 1
 
     final = [by_key[k] for k in order]
-    OUT.write_text(json.dumps(final, ensure_ascii=False, indent=2), encoding='utf-8')
+    write_outputs(final)
     types = Counter(x.get('propertyType') for x in final)
     print(json.dumps({'before': len(existing), 'after': len(final), 'stats': dict(stats), 'types': dict(types)}, indent=2))
 
