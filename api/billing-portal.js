@@ -41,7 +41,7 @@ module.exports = async function handler(req, res) {
       customerId,
       subscriptionId: active ? active.id : null,
       status: active ? active.status : null,
-      cancelHint: 'POST {"cancel":true} to cancel (1-klik opzeggen). 14-day money-back per site copy.',
+      cancelHint: 'POST {"cancel":true} to cancel (1-klik opzeggen). 1-day free trial then €18.50/mo; cancel before first charge to avoid conversion.',
     });
   } catch (e) {
     return sendJson(res, 502, { error: e.message });

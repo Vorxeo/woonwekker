@@ -33,15 +33,22 @@ module.exports = async function handler(req, res) {
       metadata: { product: 'woonwekker-bellen' },
     });
     const stateToken = crypto.randomBytes(16).toString('hex');
+    // €0.00 first payment creates mandate (creditcard / Apple Pay / Google Pay per Mollie).
+    // Hosted checkout filters methods; iDEAL needs non-zero first payment — leave method selection to Mollie profile.
+    // Subscription (Bellen €18.50/mo) is created on return/webhook with startDate = tomorrow (1-day trial).
     const pay = await mollieRequest('POST', '/payments', {
-      amount: { currency: 'EUR', value: '18.50' },
-      description: 'Woonwekker Bellen — €18,50/maand',
+      amount: { currency: 'EUR', value: '0.00' },
+      description: 'Woonwekker Bellen — 1 dag gratis, daarna €18,50/maand',
       redirectUrl: `${base}/api/checkout/return?customer_id=${encodeURIComponent(customer.id)}&state=${encodeURIComponent(stateToken)}`,
       webhookUrl: `${base}/api/mollie/webhook`,
       sequenceType: 'first',
       customerId: customer.id,
-      // Do NOT hardcode method — enable iDEAL in Mollie Dashboard (dynamic PMs).
-      metadata: { product: 'woonwekker-bellen', plan: 'bellen', state: stateToken },
+      metadata: {
+        product: 'woonwekker-bellen',
+        plan: 'bellen',
+        trial: '1d',
+        state: stateToken,
+      },
     });
     const checkoutUrl = pay._links && pay._links.checkout && pay._links.checkout.href;
     if (!checkoutUrl) return sendJson(res, 502, { error: 'no_checkout_url' });
