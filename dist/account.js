@@ -782,6 +782,42 @@ async function handleCheckoutQuery(){
     statusEl(t('planBellen')+' ✓');
   }else if(c==='unavailable'){
     statusEl('Mollie niet geconfigureerd — unlock gesloten.');
+  }else if(c==='pending'||c==='open'||c==='authorized'){
+    // Return-before-paid race: poll return?format=json a few times, then refresh entitlement.
+    statusEl('Betaling wordt verwerkt…');
+    const paymentId=q.get('payment_id');
+    const customerId=q.get('customer_id');
+    if(paymentId||customerId){
+      const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+      for(let i=0;i<6;i++){
+        await sleep(i===0?1200:2000);
+        try{
+          const params=new URLSearchParams({format:'json'});
+          if(paymentId)params.set('payment_id',paymentId);
+          if(customerId)params.set('customer_id',customerId);
+          const r=await fetch('/api/checkout/return?'+params.toString(),{credentials:'include',cache:'no-store',headers:{Accept:'application/json'}});
+          const j=await r.json().catch(()=>({}));
+          if(j&&j.status==='paid'){
+            if(typeof window.refreshEntitlement==='function')await window.refreshEntitlement();
+            if(typeof window.wwIsBellen==='function'&&window.wwIsBellen()){
+              statusEl(t('planBellen')+' ✓');
+              try{history.replaceState({},'', '/account/?checkout=success')}catch{}
+              renderAccount();
+              return;
+            }
+          }
+          if(j&&j.status&&!['open','pending','authorized'].includes(j.status))break;
+        }catch{}
+      }
+      if(typeof window.refreshEntitlement==='function')await window.refreshEntitlement();
+      if(typeof window.wwIsBellen==='function'&&window.wwIsBellen()){
+        statusEl(t('planBellen')+' ✓');
+        try{history.replaceState({},'', '/account/?checkout=success')}catch{}
+        renderAccount();
+      }else{
+        statusEl('Betaling nog niet bevestigd — vernieuw over enkele seconden of check je bank.');
+      }
+    }
   }
 }
 
