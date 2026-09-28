@@ -85,3 +85,28 @@
 .ww-or{display:flex;align-items:center;gap:12px;margin:16px 0 4px;color:var(--muted,#62718a);font-size:13px;font-weight:600}
 .ww-or::before,.ww-or::after{content:"";flex:1;height:1px;background:var(--line,#e0e7f1)}
 .ww-check-inbox{margin-top:14px;padding:12px 14px;border-radius:10px;background:#eaf0ff;color:#1546a5;font-size:14px;font-weight:600;line-height:1.45}
+
+/* Dedicated signup / login auth pages */
+.ww-auth-page{max-width:560px}
+.ww-auth-page .page-head{text-align:center;margin-bottom:8px}
+.ww-auth-page .lead{margin-bottom:20px}
+.ww-auth-card{padding:32px 28px 28px;box-shadow:0 8px 28px rgba(16,37,76,.06)}
+.ww-auth-card .ww-avatar-fallback{width:64px;height:64px;font-size:22px;margin:0 auto 12px}
+.ww-auth-page .ww-btn-google{min-width:min(100%,320px);padding:14px 20px;font-size:15px}
+.ww-auth-page .ww-google-wrap{margin:8px 0 4px}
+.ww-auth-form{margin-top:4px}
+.ww-auth-form .ww-field{min-width:0}
+.ww-auth-legal{margin-top:18px;font-size:12px;color:var(--muted,#62718a);line-height:1.5}
+.ww-auth-legal a{color:var(--blue,#0754f8);font-weight:600;text-decoration:none}
+.ww-auth-legal a:hover{text-decoration:underline}
+.ww-auth-switch{margin-top:16px;font-size:14px;color:var(--muted,#62718a)}
+.ww-auth-switch a{color:var(--blue,#0754f8);font-weight:700;text-decoration:none}
+.ww-auth-switch a:hover{text-decoration:underline}
+.ww-auth-page .ww-check-inbox{text-align:left;margin:8px 0 0}
+.ww-auth-page .ww-check-inbox strong{display:block;margin-bottom:6px}
+.ww-auth-page .ww-check-inbox p{margin:0;font-weight:500}
+.ww-auth-extra{width:100%}
+@media(max-width:560px){
+  .ww-auth-card{padding:24px 16px}
+  .ww-auth-page .ww-btn-google{min-width:100%}
+}
