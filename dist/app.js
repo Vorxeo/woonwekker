@@ -51,8 +51,6 @@ const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerC
 function frame(){document.documentElement.lang=lang;document.querySelector('#language').value=lang;document.querySelectorAll('[data-t]').forEach(n=>n.textContent=t(n.dataset.t));document.querySelectorAll('header nav a[href]').forEach(a=>{const path=(location.pathname.replace(/\/$/,'')||'/');const href=((a.getAttribute('href')||'').replace(/\/$/,'')||'/');const on=href==='/'?path==='/':path.startsWith(href);if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});document.querySelector('.close').ariaLabel=t('close');document.querySelector('.skip').textContent={nl:'Naar inhoud',en:'Skip to content',es:'Ir al contenido',pl:'Przejdź do treści',pt:'Ir para o conteúdo'}[lang];document.title=(location.pathname.startsWith('/kamers')?t('roomsPageTitle'):location.pathname.startsWith('/huizen')?t('housesPageTitle'):location.pathname.startsWith('/insights')?(insightPageTitle()||('Woonwekker — '+t('insights'))):('Woonwekker — '+(location.pathname.startsWith('/prijzen')||location.pathname.startsWith('/pricing')?t('pricing'):location.pathname.startsWith('/faq')?t('faq'):location.pathname.startsWith('/legal')?t('legal'):location.pathname.startsWith('/signup')?(t('signupTitle')||t('signUp')):location.pathname.startsWith('/login')?(t('loginTitle')||t('signIn')):location.pathname.startsWith('/account')?t('account'):location.pathname.startsWith('/plaats')?t('listHome'):t('homes'))));const meta=document.querySelector('meta[name="description"]');if(meta){if(location.pathname.startsWith('/kamers'))meta.content=t('roomsMeta');else if(location.pathname.startsWith('/huizen'))meta.content=t('housesMeta');else if(location.pathname.startsWith('/insights')){const s=(location.pathname.match(/^\/insights\/?([^/]*)\/?$/)||[])[1]||'';const i=['kamer-studio-or-house-netherlands','dutch-rental-search-without-refreshing','free-account-vs-bellen-woonwekker'].indexOf(s);meta.content=(i>=0?(t('insightsA'+(i+1)+'Intro')||t('insightsIntro')):t('insightsIntro'))||meta.content;}else if(location.pathname.startsWith('/signup'))meta.content=t('signupMeta')||t('signupIntro')||meta.content;else if(location.pathname.startsWith('/login'))meta.content=t('loginMeta')||t('loginIntro')||meta.content;}}
 function render(){frame();syncLanguageMenu();const path=location.pathname;if(path.startsWith('/insights'))renderInsights();else if(path.startsWith('/faq'))renderFaq();else if(path.startsWith('/legal'))renderLegal();else if(path.startsWith('/prijzen')||path.startsWith('/pricing'))renderPricing();else if(path.startsWith('/signup'))renderSignup();else if(path.startsWith('/login'))renderLoginPage();else if(path.startsWith('/account'))renderAccount();else if(path.startsWith('/plaats'))renderPlaats();else if(path.startsWith('/kamers'))renderCategory('rooms');else if(path.startsWith('/huizen'))renderCategory('homes');else renderHomes();}
 
-function bronKind(p){const s=String(p.source||p.url||'').toLowerCase();return /kamernet/.test(s)?'paid':'free'}
-function bronChip(p){const paid=bronKind(p)==='paid';return `<span class="bron-chip ${paid?'paid':'free'}">${esc(t(paid?'bronPaid':'bronFree'))}</span>`}
 function isNewListing(p){if(!p)return false;if(p.isNew===true||p.isNew==='true'||p.isNew===1||p.isNew==='1')return true;return String(p.status||'').trim().toLowerCase()==='nieuw'}
 function newBadge(p){return isNewListing(p)?`<span class="tag tag-new">${esc(t('tagNew'))}</span>`:''}
 function newListingsStripHtml(pool){const items=(Array.isArray(pool)?pool:listings).filter(isNewListing);if(!items.length)return'';const cards=items.slice(0,8).map(p=>`<article class="card card-new-mini"><button type="button" class="card-hit" data-new-id="${p.id}" aria-label="${esc(t('view')+': '+p.address)}"><div class="card-image"><img src="${esc(photoSrc(p.photo,'card'))}" alt="${esc(p.address+', '+p.city)}" loading="lazy" width="640" height="420" decoding="async"><span class="tag tag-new">${esc(t('tagNew'))}</span></div><div class="card-body"><p class="location">${esc(p.city)}</p><h3>${esc(p.address)}</h3><p class="price">${p.price?money(p.price):t('unknown')} <small>${t('month')}</small></p></div></button></article>`).join('');return `<section class="new-listings" aria-labelledby="new-listings-title"><div class="new-listings-head"><div><div class="eyebrow">${esc(t('tagNew'))}</div><h2 id="new-listings-title">${esc(t('newSectionTitle'))}</h2><p>${esc(String(t('newSectionSub')||'').replace('{n}',String(items.length)))}</p></div><button type="button" class="primary outline" id="filter-new-cta">${esc(t('newSectionCta'))}</button></div><div class="new-listings-grid">${cards}</div></section>`}
@@ -70,8 +68,101 @@ function renderHomes(){filters.ptype='';const hero=listings.find(p=>p.city==='De
 function pageKind(){const path=(location.pathname||'/').replace(/\/+$/,'')||'/';if(path==='/kamers'||path.endsWith('/kamers')||path.includes('/kamers/'))return 'rooms';if(path==='/huizen'||path.endsWith('/huizen')||path.includes('/huizen/'))return 'homes';return 'all'}
 function typeAllowed(pt,kind){if(kind==='rooms')return pt==='Kamer'||pt==='Studio';if(kind==='homes')return pt==='Huis'||pt==='Appartement';return true}
 function applyFilters(){const kind=pageKind();if(kind==='rooms'&&filters.ptype!=='Kamer'&&filters.ptype!=='Studio')filters.ptype='rooms';if(kind==='homes'&&filters.ptype!=='Huis'&&filters.ptype!=='Appartement')filters.ptype='homes';filtered=listings.filter(p=>{if(!typeAllowed(p.propertyType,kind))return false;if(filters.city&&!norm([p.city,p.address,p.neighbourhood,p.postalCode].join(' ')).includes(norm(filters.city.trim())))return false;if(filters.budget&&!(p.price&&Number(p.price)<=Number(filters.budget)))return false;if(filters.beds&&!(p.bedrooms!==''&&p.bedrooms!=null&&Number(p.bedrooms)>=Number(filters.beds)))return false;if(filters.isNew&&!isNewListing(p))return false;if(!filters.ptype||filters.ptype==='rooms'||filters.ptype==='homes')return true;return p.propertyType===filters.ptype});if(filters.sort==='priceAsc')filtered.sort((a,b)=>+a.price-+b.price);else if(filters.sort==='priceDesc')filtered.sort((a,b)=>+b.price-+a.price);else if(filters.sort==='area')filtered.sort((a,b)=>+b.livingArea-+a.livingArea);else filtered.sort((a,b)=>Number(isNewListing(b))-Number(isNewListing(a)));drawCards()}
-function drawCards(){document.querySelector('#result-title').textContent=`${filtered.length} ${t('results')}`;document.querySelector('#results').innerHTML=filtered.length?filtered.slice(0,limit).map(p=>`<article class="card"><button class="card-hit" data-id="${p.id}" aria-label="${esc(t('view')+': '+p.address)}"><div class="card-image"><img src="${esc(photoSrc(p.photo,'card'))}" srcset="${esc(photoSrcset(p.photo))}" sizes="(max-width:640px) 100vw, (max-width:1100px) 50vw, 360px" decoding="async" alt="${esc(p.address+', '+p.city)}" loading="lazy" width="640" height="420"><span class="tag">${type(p)}</span>${newBadge(p)}${bronChip(p)}<span class="count">▧ ${photos(p).length} ${t('photos')}</span></div><div class="card-body"><p class="location">${esc(p.city)} · ${esc(p.postalCode)}</p><h3>${esc(p.address)}</h3><div class="specs"><span>▱ ${esc(p.livingArea||'—')} m²</span><span>⌑ ${esc(p.bedrooms||'—')} ${t('bed')}</span>${p.energyLabel?`<span>${t('energy')} ${esc(p.energyLabel)}</span>`:''}</div><div class="price-row"><span class="price">${p.price?money(p.price):t('unknown')} <small>${t('month')}</small></span><span class="view" aria-hidden="true">↗</span></div></div></button></article>`).join(''):`<div class="empty"><h3>${t('empty')}</h3><p>${t('emptyText')}</p><button class="primary" id="reset">${t('reset')}</button></div>`;document.querySelector('#more').hidden=limit>=filtered.length;document.querySelectorAll('[data-id]').forEach(el=>el.onclick=()=>openProperty(listings.find(p=>p.id===el.dataset.id)));const reset=document.querySelector('#reset');if(reset)reset.onclick=()=>{const kind=typeof pageKind==='function'?pageKind():'all';Object.assign(filters,{city:'',budget:'',beds:'',ptype:kind==='rooms'?'rooms':kind==='homes'?'homes':'',sort:'source',isNew:false});limit=12;render()};imageFallbacks()}
+function drawCards(){document.querySelector('#result-title').textContent=`${filtered.length} ${t('results')}`;document.querySelector('#results').innerHTML=filtered.length?filtered.slice(0,limit).map(p=>`<article class="card"><button class="card-hit" data-id="${p.id}" aria-label="${esc(t('view')+': '+p.address)}"><div class="card-image"><img src="${esc(photoSrc(p.photo,'card'))}" srcset="${esc(photoSrcset(p.photo))}" sizes="(max-width:640px) 100vw, (max-width:1100px) 50vw, 360px" decoding="async" alt="${esc(p.address+', '+p.city)}" loading="lazy" width="640" height="420"><span class="tag">${type(p)}</span>${newBadge(p)}<span class="count">▧ ${photos(p).length} ${t('photos')}</span></div><div class="card-body"><p class="location">${esc(p.city)} · ${esc(p.postalCode)}</p><h3>${esc(p.address)}</h3><div class="specs"><span>▱ ${esc(p.livingArea||'—')} m²</span><span>⌑ ${esc(p.bedrooms||'—')} ${t('bed')}</span>${p.energyLabel?`<span>${t('energy')} ${esc(p.energyLabel)}</span>`:''}</div><div class="price-row"><span class="price">${p.price?money(p.price):t('unknown')} <small>${t('month')}</small></span><span class="view" aria-hidden="true">↗</span></div></div></button></article>`).join(''):`<div class="empty"><h3>${t('empty')}</h3><p>${t('emptyText')}</p><button class="primary" id="reset">${t('reset')}</button></div>`;document.querySelector('#more').hidden=limit>=filtered.length;document.querySelectorAll('[data-id]').forEach(el=>el.onclick=()=>openProperty(listings.find(p=>p.id===el.dataset.id)));const reset=document.querySelector('#reset');if(reset)reset.onclick=()=>{const kind=typeof pageKind==='function'?pageKind():'all';Object.assign(filters,{city:'',budget:'',beds:'',ptype:kind==='rooms'?'rooms':kind==='homes'?'homes':'',sort:'source',isNew:false});limit=12;render()};imageFallbacks()}
 function imageFallbacks(){document.querySelectorAll('img:not(.brand img)').forEach(im=>im.onerror=()=>{im.removeAttribute('src');im.alt=t('photoUnavailable');im.style.objectFit='contain';im.onerror=null})}
+
+function loadZoekprofielen(){try{const raw=JSON.parse(localStorage.getItem('woonwekker-account')||'null');return Array.isArray(raw&&raw.zoekprofielen)?raw.zoekprofielen.slice(0,4):[]}catch{return[]}}
+function activeFilterChips(){
+  const chips=[];
+  if(filters.city)chips.push({k:'city',label:filters.city});
+  if(filters.budget)chips.push({k:'budget',label:'≤ '+money(filters.budget)});
+  if(filters.minBudget)chips.push({k:'minBudget',label:'≥ '+money(filters.minBudget)});
+  if(filters.beds)chips.push({k:'beds',label:filters.beds+'+'});
+  if(filters.ptype&&filters.ptype!=='rooms'&&filters.ptype!=='homes')chips.push({k:'ptype',label:type({propertyType:filters.ptype})});
+  else if(filters.type)chips.push({k:'type',label:type({propertyType:filters.type})});
+  if(filters.area)chips.push({k:'area',label:'≥ '+filters.area+' m²'});
+  if(filters.garden)chips.push({k:'garden',label:t('garden')});
+  if(filters.balcony)chips.push({k:'balcony',label:t('balcony')});
+  if(filters.energy)chips.push({k:'energy',label:t('energy')+' A+'});
+  if(filters.isNew)chips.push({k:'isNew',label:t('tagNew')||'Nieuw'});
+  return chips;
+}
+function listingMatchesChip(p,chip){
+  const k=chip.k;
+  if(k==='city')return norm([p.city,p.address,p.neighbourhood,p.postalCode].join(' ')).includes(norm(filters.city.trim()));
+  if(k==='budget')return !!(p.price&&Number(p.price)<=Number(filters.budget));
+  if(k==='minBudget')return !!(p.price&&Number(p.price)>=Number(filters.minBudget));
+  if(k==='beds')return p.bedrooms!==''&&p.bedrooms!=null&&Number(p.bedrooms)>=Number(filters.beds);
+  if(k==='ptype'||k==='type'){const want=filters.type||filters.ptype;return p.propertyType===want}
+  if(k==='area')return !!(p.livingArea&&Number(p.livingArea)>=Number(filters.area));
+  if(k==='garden')return p.garden==='true'||p.garden===true;
+  if(k==='balcony')return p.balcony==='true'||p.balcony===true;
+  if(k==='energy')return /^A\+*$/.test(String(p.energyLabel||''));
+  if(k==='isNew')return typeof isNewListing==='function'?isNewListing(p):(p.isNew===true||p.isNew==='true'||String(p.status||'').toLowerCase()==='nieuw');
+  return true;
+}
+function zoekLabel(z){return [z.name||z.city||z.cities,z.maxPrice?('max €'+z.maxPrice):'',z.minBeds?(z.minBeds+'+'):'',z.type||''].filter(Boolean).join(' · ')||t('zoekSlotExample')}
+function listingMatchesZoek(p,z){
+  if(z.city&&!norm([p.city,p.address,p.neighbourhood,p.postalCode].join(' ')).includes(norm(String(z.city))))return false;
+  if(z.maxPrice&&!(p.price&&Number(p.price)<=Number(z.maxPrice)))return false;
+  if(z.minBeds&&!(p.bedrooms!==''&&p.bedrooms!=null&&Number(p.bedrooms)>=Number(z.minBeds)))return false;
+  if(z.type&&p.propertyType!==z.type)return false;
+  return true;
+}
+function detailSearchProfileHtml(p){
+  const chips=activeFilterChips();
+  const zoeks=loadZoekprofielen();
+  const has=chips.length||zoeks.length;
+  const panelId='ww-detail-profile-panel';
+  const btnId='ww-detail-profile-toggle';
+  let body='';
+  if(!has){
+    body=`<p class="ww-detail-profile-empty">${esc(t('detailProfileNone'))}</p>`;
+  }else{
+    if(chips.length){
+      const items=chips.map(c=>{
+        const ok=listingMatchesChip(p,c);
+        return `<li class="${ok?'ww-detail-profile-pass':'ww-detail-profile-fail'}"><span class="ww-detail-profile-mark" aria-hidden="true">${ok?'✓':'✗'}</span> ${esc(c.label)} <small>${esc(ok?t('detailProfileMatch'):t('detailProfileMiss'))}</small></li>`;
+      }).join('');
+      body+=`<div class="ww-detail-profile-block"><h3>${esc(t('detailProfileFilters'))}</h3><ul class="ww-detail-profile-list">${items}</ul></div>`;
+    }else{
+      body+=`<div class="ww-detail-profile-block"><h3>${esc(t('detailProfileFilters'))}</h3><p class="ww-detail-profile-empty">${esc(t('detailProfileEmptyFilters'))}</p></div>`;
+    }
+    if(zoeks.length){
+      const items=zoeks.map(z=>{
+        const ok=listingMatchesZoek(p,z);
+        const lab=zoekLabel(z)+(z.active?' · ✓':'');
+        return `<li class="${ok?'ww-detail-profile-pass':'ww-detail-profile-fail'}"><span class="ww-detail-profile-mark" aria-hidden="true">${ok?'✓':'✗'}</span> ${esc(lab)} <small>${esc(ok?t('detailProfileMatch'):t('detailProfileMiss'))}</small></li>`;
+      }).join('');
+      body+=`<div class="ww-detail-profile-block"><h3>${esc(t('detailProfileSaved'))}</h3><ul class="ww-detail-profile-list">${items}</ul><p class="ww-detail-profile-hint"><a href="/account/">${esc(t('account'))}</a></p></div>`;
+    }else{
+      body+=`<div class="ww-detail-profile-block"><h3>${esc(t('detailProfileSaved'))}</h3><p class="ww-detail-profile-empty">${esc(t('detailProfileEmptySaved'))} — <a href="/account/">${esc(t('account'))}</a></p></div>`;
+    }
+  }
+  return `<section class="ww-detail-profile" data-ww-detail-profile>
+    <button type="button" class="ww-detail-profile-toggle" id="${btnId}" aria-expanded="false" aria-controls="${panelId}">
+      <span class="ww-detail-profile-title">${esc(t('detailProfileTitle'))}</span>
+      <span class="ww-detail-profile-action" data-ww-profile-action>${esc(t('detailProfileExpand'))}</span>
+      <span class="ww-detail-profile-chevron" aria-hidden="true">▾</span>
+    </button>
+    <div class="ww-detail-profile-panel" id="${panelId}" hidden>${body}</div>
+  </section>`;
+}
+function wireDetailSearchProfile(){
+  const btn=document.getElementById('ww-detail-profile-toggle');
+  const panel=document.getElementById('ww-detail-profile-panel');
+  if(!btn||!panel)return;
+  btn.onclick=()=>{
+    const open=btn.getAttribute('aria-expanded')==='true';
+    const next=!open;
+    btn.setAttribute('aria-expanded',String(next));
+    panel.hidden=!next;
+    const action=btn.querySelector('[data-ww-profile-action]');
+    if(action)action.textContent=next?t('detailProfileCollapse'):t('detailProfileExpand');
+    btn.classList.toggle('is-open',next);
+  };
+}
+
 function openProperty(p){active=p;const pics=photos(p);const entitled=typeof window.wwIsBellen==='function'&&window.wwIsBellen();
 if(entitled&&!p.url&&p.id!=null&&!p._wwUrlFetch){p._wwUrlFetch=1;fetch('/api/listing/'+encodeURIComponent(p.id),{credentials:'include'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.url){p.url=j.url;openProperty(p)}}).catch(()=>{});}const specs=[[t('area'),p.livingArea?p.livingArea+' m²':t('unknown')],[t('beds'),p.bedrooms||t('unknown')],[t('rooms'),p.rooms||t('unknown')],[t('energy'),p.energyLabel||t('unknown')],[t('built'),p.yearBuilt||t('unknown')],[t('garden'),p.garden==='true'?t('yes'):p.garden==='false'?t('no'):t('unknown')],[t('balcony'),p.balcony==='true'?t('yes'):p.balcony==='false'?t('no'):t('unknown')],[t('parking'),p.privateParking==='true'?t('yes'):p.privateParking==='false'?t('no'):t('unknown')]];
 const desc=(!entitled && p.description)?String(p.description).slice(0,140)+(String(p.description).length>140?'…':''): (entitled && p.description?String(p.description):'');
@@ -81,10 +172,11 @@ const sourceBlock=entitled
 const FREE_PHOTO_LIMIT=3;const visiblePics=entitled?pics:pics.slice(0,FREE_PHOTO_LIMIT);const lockedExtra=entitled?0:Math.max(0,pics.length-FREE_PHOTO_LIMIT);
 const galleryBtns=visiblePics.map((u,i)=>`<button type="button" class="${i===0?'active':''}" data-photo="${i}" aria-label="${esc(t('photos')+' '+(i+1))}" aria-pressed="${i===0}"><img src="${esc(photoSrc(u,'thumb'))}" loading="lazy" decoding="async" alt=""></button>`).join('')+(lockedExtra?`<button type="button" class="ww-photo-locked" data-photo-locked="1" aria-label="${esc(t('unlockPhotos'))}"><span class="ww-photo-lock-thumb" aria-hidden="true"></span><span class="ww-photo-lock-more">+${lockedExtra}</span></button>`:'');
 const photosUnlockBlock=(!entitled&&lockedExtra)?`<div class="ww-photos-locked ww-paywall" data-ww-lock="photos" data-ww-locked="1"><p>${esc(t('photosLocked'))}</p><button type="button" class="primary" data-ww-checkout="1">${esc(t('unlockPhotos'))}</button><p class="ww-locked"><a href="/prijzen/">${esc(t('upgradeBellen'))}</a></p></div>`:'';
-document.querySelector('#detail').innerHTML=`<div class="ww-detail-photos"><img class="detail-photo" id="large-photo" src="${esc(photoSrc(visiblePics[0]||p.photo,'detail'))}" decoding="async" alt="${esc(p.address)}"><div class="gallery">${galleryBtns}</div>${photosUnlockBlock}</div><div class="detail-body"><p class="location">${esc(p.city)} · ${esc(p.postalCode)}</p><h2>${esc(p.address)}</h2><div class="price">${money(p.price)} <small>${t('month')}</small></div><div class="detail-specs">${specs.map(([k,v])=>`<div><small>${k}</small><strong>${esc(v)}</strong></div>`).join('')}</div>${desc?`<p class="ww-detail-desc">${esc(desc)}</p>`:''}${sourceBlock}<p>${t('detailNote')}</p></div>`;
+document.querySelector('#detail').innerHTML=`<div class="ww-detail-photos"><img class="detail-photo" id="large-photo" src="${esc(photoSrc(visiblePics[0]||p.photo,'detail'))}" decoding="async" alt="${esc(p.address)}"><div class="gallery">${galleryBtns}</div>${photosUnlockBlock}</div><div class="detail-body"><p class="location">${esc(p.city)} · ${esc(p.postalCode)}</p><h2>${esc(p.address)}</h2><div class="price">${money(p.price)} <small>${t('month')}</small></div><div class="detail-specs">${specs.map(([k,v])=>`<div><small>${k}</small><strong>${esc(v)}</strong></div>`).join('')}</div>${desc?`<p class="ww-detail-desc">${esc(desc)}</p>`:''}${detailSearchProfileHtml(p)}${sourceBlock}<p>${t('detailNote')}</p></div>`;
 document.querySelectorAll('[data-photo]').forEach(b=>b.onclick=()=>{const idx=+b.dataset.photo;if(!entitled&&idx>=FREE_PHOTO_LIMIT)return;const im=document.querySelector('#large-photo');im.src=photoSrc(visiblePics[idx],'detail');im.alt=p.address+' · '+(idx+1);document.querySelectorAll('[data-photo]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',String(x===b))});imageFallbacks()});
 document.querySelectorAll('[data-photo-locked]').forEach(b=>b.onclick=()=>{const el=document.querySelector('[data-ww-lock="photos"]');if(el)el.scrollIntoView({block:'nearest',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
 document.querySelectorAll('[data-ww-checkout]').forEach(b=>b.onclick=()=>{if(typeof window.startBellenCheckout==='function')window.startBellenCheckout();else location.href='/prijzen/'});
+wireDetailSearchProfile();
 imageFallbacks();if(!dialog.open){dialog.showModal();document.body.style.overflow='hidden'}dialog.scrollTop=0;}
 document.querySelector('.close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>{document.body.style.overflow='';active=null});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
 

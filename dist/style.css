@@ -102,3 +102,28 @@ a.nav-signup:hover{filter:brightness(1.06)}
 .card-new-mini .location{font-size:11px;margin:0 0 6px}
 @media(max-width:1000px){.new-listings-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:640px){.new-listings-grid{grid-template-columns:1fr}.new-listings{padding:16px}}
+
+/* Listing detail: search profile accordion (collapsed by default) */
+.ww-detail-profile{margin:18px 0;border:1px solid var(--line,#e0e7f1);border-radius:12px;background:#f6f8fc;overflow:hidden}
+.ww-detail-profile-toggle{width:100%;display:flex;align-items:center;gap:10px;padding:14px 16px;border:0;background:transparent;color:var(--navy,#10254c);cursor:pointer;text-align:left;font:inherit}
+.ww-detail-profile-toggle:hover{background:#eef3ff}
+.ww-detail-profile-toggle:focus-visible{outline:2px solid var(--blue,#0754f8);outline-offset:-2px}
+.ww-detail-profile-title{font-weight:650;font-size:15px;flex:1}
+.ww-detail-profile-action{font-size:13px;color:var(--blue,#0754f8);font-weight:600}
+.ww-detail-profile-chevron{font-size:14px;color:var(--muted,#62718a);transition:transform .18s}
+.ww-detail-profile-toggle.is-open .ww-detail-profile-chevron,.ww-detail-profile-toggle[aria-expanded=true] .ww-detail-profile-chevron{transform:rotate(180deg)}
+.ww-detail-profile-panel{padding:0 16px 14px;border-top:1px solid var(--line,#e0e7f1)}
+.ww-detail-profile-panel[hidden]{display:none!important}
+.ww-detail-profile-block{margin-top:12px}
+.ww-detail-profile-block h3{margin:0 0 8px;font-size:13px;letter-spacing:.4px;text-transform:uppercase;color:var(--muted,#62718a)}
+.ww-detail-profile-list{margin:0;padding:0;list-style:none}
+.ww-detail-profile-list li{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;padding:7px 0;border-bottom:1px solid #e8eef7;font-size:14px;color:var(--navy,#10254c)}
+.ww-detail-profile-list li:last-child{border-bottom:0}
+.ww-detail-profile-list small{color:var(--muted,#62718a);font-size:12px}
+.ww-detail-profile-mark{font-weight:700;width:1.1em}
+.ww-detail-profile-pass .ww-detail-profile-mark{color:#1a6b3c}
+.ww-detail-profile-fail .ww-detail-profile-mark{color:#8a3b2a}
+.ww-detail-profile-empty,.ww-detail-profile-hint{margin:0;font-size:13px;line-height:1.5;color:var(--muted,#62718a)}
+.ww-detail-profile-hint{margin-top:8px}
+.ww-detail-profile a{color:var(--blue,#0754f8);font-weight:600}
+@media(prefers-reduced-motion:reduce){.ww-detail-profile-chevron{transition:none}}
