@@ -38,23 +38,23 @@
     },
     {
       "source": "/api/auth/status",
-      "destination": "/api/auth/status"
+      "destination": "/api/auth/[action]?action=status"
     },
     {
       "source": "/api/auth/me",
-      "destination": "/api/auth/me"
+      "destination": "/api/auth/[action]?action=me"
     },
     {
       "source": "/api/auth/logout",
-      "destination": "/api/auth/logout"
+      "destination": "/api/auth/[action]?action=logout"
     },
     {
       "source": "/api/auth/signup",
-      "destination": "/api/auth/signup"
+      "destination": "/api/auth/[action]?action=signup"
     },
     {
       "source": "/api/auth/confirm",
-      "destination": "/api/auth/confirm"
+      "destination": "/api/auth/[action]?action=confirm"
     },
     {
       "source": "/api/listing/:id",
