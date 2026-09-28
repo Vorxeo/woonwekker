@@ -75,21 +75,21 @@ module.exports = async function handler(req, res) {
 
     if (payment.status === 'paid') {
       let payload = await grantIfPaid(payment);
-      // Attach subscription id when present so later entitlement polls can refresh.
+      // Prefer live Mollie sub (nextPaymentDate) so exp tracks monthly anniversary.
       if (payload && payload.customerId) {
         try {
           const active = await findActiveBellenSubscription(payload.customerId);
           if (active) {
             payload = entitlementPayloadFromPayment(payment, {
               customerId: payload.customerId,
-              subscriptionId: active.id,
+              subscription: active,
             });
           }
         } catch (_) {}
       }
       const headers = {};
       if (payload) {
-        headers['Set-Cookie'] = cookieHeader(signEntitlement(payload), { secure });
+        headers['Set-Cookie'] = cookieHeader(signEntitlement(payload), { secure, exp: payload.exp });
       }
       if (asJson) {
         return sendJsonLocal(
