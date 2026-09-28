@@ -1,7 +1,7 @@
 'use strict';
 /**
  * Hobby plan allows ≤12 serverless functions. Bundle status/me/logout/signup/confirm
- * into one dynamic route. google.js + google/callback.js stay separate (OAuth).
+ * into one static actions.js route. google.js + google/callback.js stay separate (OAuth).
  */
 const { readJsonBody } = require('../../lib/ww-gate.cjs');
 const {
