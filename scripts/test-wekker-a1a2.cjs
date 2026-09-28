@@ -46,8 +46,8 @@ function ok(name, cond, detail) {
     income: '5plus',
     email: 'x@y.com',
     evil: 'drop table',
-    garden: 'yes',
-    requirePhoto: 1,
+    garden: 'true',
+    requirePhoto: true,
     query: 'x'.repeat(500)
   };
   const clean = W.sanitizeWekkerProfile(dirty);
@@ -59,6 +59,27 @@ function ok(name, cond, detail) {
   ok('garden bool', clean.garden === true);
   ok('query truncated', clean.query.length <= 200);
   ok('schema v', clean.v === 1);
+}
+
+// --- F1 bool coerce (string "false" must stay false) ---
+{
+  const f = W.sanitizeWekkerProfile({
+    garden: 'false', balcony: 'false', energy: 'false', requirePhoto: 'false'
+  });
+  ok('garden string false → false', f.garden === false);
+  ok('balcony string false → false', f.balcony === false);
+  ok('energy string false → false', f.energy === false);
+  ok('requirePhoto string false → false', f.requirePhoto === false);
+  const t = W.sanitizeWekkerProfile({
+    garden: 'true', balcony: true, energy: 'true', requirePhoto: true
+  });
+  ok('garden string true → true', t.garden === true);
+  ok('balcony bool true → true', t.balcony === true);
+  ok('energy string true → true', t.energy === true);
+  ok('requirePhoto bool true → true', t.requirePhoto === true);
+  const junk = W.sanitizeWekkerProfile({ garden: 'yes', balcony: 1, energy: '1' });
+  ok('garden junk yes → false', junk.garden === false);
+  ok('balcony junk 1 → false', junk.balcony === false);
 }
 
 // --- persist roundtrip ---
@@ -129,7 +150,7 @@ function ok(name, cond, detail) {
   const json = contentSrc.replace(/^const copy=/, '').replace(/;\s*$/, '');
   const copy = JSON.parse(json);
   const langs = ['nl', 'en', 'es', 'pl'];
-  const need = ['whyPassBudget', 'whyFailPhoto', 'whyNeedProfile', 'wekkerProfileTitle', 'whySummaryPass'];
+  const need = ['whyPassBudget', 'whyFailPhoto', 'whyNeedProfile', 'wekkerProfileTitle', 'whySummaryPass', 'wekkerClearedFiltersActive'];
   for (const lang of langs) {
     for (const k of need) {
       ok(`i18n ${lang}.${k}`, !!(copy[lang] && copy[lang][k]));
@@ -170,6 +191,14 @@ ok('account sanitize zoek', /sanitizeZoekprofielen|sanitizeZoekEntry/.test(accSr
   const a1a2 = enhSrc.slice(enhSrc.indexOf('A1+A2 wekker'));
   ok('enhancements A1A2 no fetch', !/fetch\(/.test(a1a2));
   ok('enhancements A1A2 no resend', !/resend/i.test(a1a2));
+}
+
+// --- F3 CITY_TOKENS no duplicates ---
+{
+  const m = profileSrc.match(/const CITY_TOKENS = \[([\s\S]*?)\]/);
+  ok('CITY_TOKENS present', !!m);
+  const tokens = m[1].match(/'[^']+'/g).map((s) => s.slice(1, -1));
+  ok('CITY_TOKENS unique', tokens.length === new Set(tokens).size);
 }
 
 console.log('TOTAL_PASSED', passed);

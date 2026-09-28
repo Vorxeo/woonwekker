@@ -85,10 +85,10 @@
       type,
       beds: clampBeds(o.beds),
       area: clampArea(o.area),
-      garden: !!o.garden,
-      balcony: !!o.balcony,
-      energy: !!o.energy,
-      requirePhoto: !!o.requirePhoto,
+      garden: o.garden === true || o.garden === 'true',
+      balcony: o.balcony === true || o.balcony === 'true',
+      energy: o.energy === true || o.energy === 'true',
+      requirePhoto: o.requirePhoto === true || o.requirePhoto === 'true',
       query: String(o.query || '').trim().slice(0, MAX.query)
     };
   }
@@ -149,7 +149,7 @@
     'amsterdam', 'rotterdam', 'utrecht', 'den haag', 'the hague', 'haarlem',
     'eindhoven', 'groningen', 'tilburg', 'almere', 'breda', 'nijmegen',
     'arnhem', 'leiden', 'delft', 'amersfoort', 'zwolle', 'maastricht',
-    'enschede', 'hilversum', 'zaandam', 'leiden', 'haarlem'
+    'enschede', 'hilversum', 'zaandam'
   ];
   const CITIES = [...new Set(CITY_TOKENS.map((c) => c.trim().toLowerCase()).filter(Boolean))];
 

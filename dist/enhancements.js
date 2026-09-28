@@ -281,7 +281,8 @@ function injectWekkerProfilePanel(){
     WWWekker.clearWekkerProfile();
     const nl=document.querySelector('#wekker-nl');if(nl)nl.value='';
     const rp=document.querySelector('#wekker-require-photo');if(rp)rp.checked=false;
-    status(typeof x==='function'?x('forgot'):'');
+    // Profile cleared; live filters (if any) still drive why chips via wwEffectiveProfile.
+    status(t('wekkerClearedFiltersActive')||t('wekkerClear')||'');
     drawCards();
   };
   document.querySelector('#wekker-require-photo')?.addEventListener('change',()=>{
