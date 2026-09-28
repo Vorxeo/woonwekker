@@ -1,6 +1,8 @@
 # Deploy Woonwekker on Vercel (Mollie Bellen + Google OAuth)
 
-There is **no** Woonwekker Vercel project yet. Create/link one when ready:
+> **Framework Preset must be Other** (not Node / Next.js). Build Command empty or the noop `npm run build`; Output Directory `dist`; Root Directory `.`. Vercel serves the committed static `dist/` plus `/api` serverless functions. **Never** use `npm start` / `server.cjs` on Vercel — that is local-box only. A Node preset will try to execute browser bundles (e.g. `dist/app.js`) as serverless and fail with `FUNCTION_INVOCATION_FAILED` / `copy is not defined`.
+
+Create/link the project if needed (project already exists as `woonwekker` / `prj_Fb9aShowEkreEPvJrEoVkQoRZqhV`):
 
 ```bash
 cd /workspace/woonwekker
