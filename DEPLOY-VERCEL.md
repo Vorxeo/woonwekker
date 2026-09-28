@@ -2,7 +2,7 @@
 
 > **Framework Preset must be Other** (not Node / Next.js). Build Command empty or the noop `npm run build`; Output Directory `dist`; Root Directory `.`. Vercel serves the committed static `dist/` plus `/api` serverless functions. **Never** use `npm start` / `server.cjs` on Vercel — that is local-box only. A Node preset will try to execute browser bundles (e.g. `dist/app.js`) as serverless and fail with `FUNCTION_INVOCATION_FAILED` / `copy is not defined`.
 
-> **Hobby plan:** ≤12 Serverless Functions per deployment. Auth status/me/logout/signup/confirm share `api/auth/[action].js`; keep google + callback as separate files. Do not add more `api/*.js` files without consolidating.
+> **Hobby plan:** ≤12 Serverless Functions per deployment. Auth status/me/logout/signup/confirm share `api/auth/actions.js`; keep google + callback as separate files. Do not add more `api/*.js` files without consolidating.
 
 Create/link the project if needed (project already exists as `woonwekker` / `prj_Fb9aShowEkreEPvJrEoVkQoRZqhV`):
 
