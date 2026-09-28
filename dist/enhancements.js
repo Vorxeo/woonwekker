@@ -78,8 +78,9 @@ applyFilters=function(){
     return true;
   });
   if(filters.sort==='priceAsc')filtered.sort((a,b)=>+a.price-+b.price);
-  if(filters.sort==='priceDesc')filtered.sort((a,b)=>+b.price-+a.price);
-  if(filters.sort==='area')filtered.sort((a,b)=>+b.livingArea-+a.livingArea);
+  else if(filters.sort==='priceDesc')filtered.sort((a,b)=>+b.price-+a.price);
+  else if(filters.sort==='area')filtered.sort((a,b)=>+b.livingArea-+a.livingArea);
+  else filtered.sort((a,b)=>Number(typeof isNewListing==='function'?isNewListing(b):(b.isNew===true||b.isNew==='true'||String(b.status||'').toLowerCase()==='nieuw'))-Number(typeof isNewListing==='function'?isNewListing(a):(a.isNew===true||a.isNew==='true'||String(a.status||'').toLowerCase()==='nieuw')));
   drawCards();drawChips();
 };
 function clearFilters(){

@@ -86,8 +86,10 @@ a.nav-signup:hover{filter:brightness(1.06)}
 }
 
 /* New listing badge + home strip */
-.tag-new{background:var(--blue,#0754f8);color:#fff;border:0;box-shadow:0 4px 12px #0754f855;letter-spacing:.3px;text-transform:uppercase;font-size:11px;left:auto;right:14px;top:14px}
+.tag-new{background:var(--blue,#0754f8);color:#fff;border:0;box-shadow:0 4px 12px #0754f855;letter-spacing:.3px;text-transform:uppercase;font-size:11px;left:auto;right:56px;top:14px}
 .card-image .tag+.tag-new,.card-image .tag-new{position:absolute;z-index:2}
+.card-new-mini .tag-new{right:14px}
+.save-home{z-index:3}
 .new-listings{margin:8px 0 28px;padding:22px;border:1px solid var(--line,#e0e7f1);border-radius:18px;background:linear-gradient(180deg,#f4f7ff 0%,#fff 55%);box-shadow:0 10px 30px #1b39720a}
 .new-listings-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:16px;flex-wrap:wrap}
 .new-listings-head h2{margin:6px 0;font-size:26px;letter-spacing:-.6px}
