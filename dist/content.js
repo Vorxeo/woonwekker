@@ -43,7 +43,7 @@ const copy={
     "anyBeds": "Maakt niet uit",
     "search": "Zoek woningen",
     "results": "huuradvertenties",
-    "updated": "Gegevens van 24 september 2026",
+    "updated": "Controleer de actuele status bij de aanbieder",
     "sort": "Sorteer op",
     "newest": "Volgorde bron",
     "cheap": "Prijs: laag naar hoog",
@@ -109,7 +109,7 @@ const copy={
       ],
       [
         "Zijn de woningen nog beschikbaar?",
-        "Het overzicht bevat 770 advertenties uit een bestand van 24 september 2026. Aanbod en prijzen kunnen inmiddels zijn gewijzigd. Controleer altijd de actuele status via de knop “Bekijk oorspronkelijke advertentie”."
+        "Aanbod en prijzen kunnen inmiddels zijn gewijzigd. Controleer altijd de actuele status via de knop “Bekijk oorspronkelijke advertentie”."
       ],
       [
         "Hoe plan ik een bezichtiging?",
@@ -133,7 +133,7 @@ const copy={
       ],
       [
         "Krijg ik meldingen van nieuwe woningen?",
-        "Ja, via zoekprofielen in je account. Met Kijken: max. 3 e-mailalerts per week. Met Bellen (€18,50/mnd): onbeperkt e-mail + WhatsApp (doel <60s). Stel tot 4 zoekprofielen in onder Account. De dataset zelf is een momentopname (zie datum); alerts zijn een productdemo op dit apparaat."
+        "Ja, via zoekprofielen in je account. Met Kijken: max. 3 e-mailalerts per week. Met Bellen (€18,50/mnd): onbeperkt e-mail + WhatsApp (doel <60s). Stel tot 4 zoekprofielen in onder Account. De dataset zelf is een momentopname; alerts zijn een productdemo op dit apparaat."
       ],
       [
         "Wat doe ik bij een fout of een verdachte advertentie?",
@@ -415,7 +415,7 @@ const copy={
     "anyBeds": "Any number",
     "search": "Find homes",
     "results": "rental listings",
-    "updated": "Data from 24 September 2026",
+    "updated": "Check current status with the provider",
     "sort": "Sort by",
     "newest": "Source order",
     "cheap": "Price: low to high",
@@ -481,7 +481,7 @@ const copy={
       ],
       [
         "Are these homes still available?",
-        "This collection contains 770 listings from a file dated 24 September 2026. Prices and availability may have changed. Always check the current status using “View original listing”."
+        "Prices and availability may have changed. Always check the current status using “View original listing”."
       ],
       [
         "How do I arrange a viewing?",
@@ -505,7 +505,7 @@ const copy={
       ],
       [
         "Will I receive new property alerts?",
-        "Yes — via search profiles in your account. Kijken: max 3 email alerts per week. Bellen (€18.50/mo): unlimited email + WhatsApp (target <60s). Set up to 4 profiles under Account. The listing dataset is a snapshot (see date); alerts are a local product demo on this device."
+        "Yes — via search profiles in your account. Kijken: max 3 email alerts per week. Bellen (€18.50/mo): unlimited email + WhatsApp (target <60s). Set up to 4 profiles under Account. The listing dataset is a snapshot; alerts are a local product demo on this device."
       ],
       [
         "What if I notice an error or a suspicious listing?",
@@ -787,7 +787,7 @@ const copy={
     "anyBeds": "Cualquier número",
     "search": "Buscar viviendas",
     "results": "anuncios de alquiler",
-    "updated": "Datos del 24 de septiembre de 2026",
+    "updated": "Comprueba el estado actual con el proveedor",
     "sort": "Ordenar por",
     "newest": "Orden de la fuente",
     "cheap": "Precio: de menor a mayor",
@@ -853,7 +853,7 @@ const copy={
       ],
       [
         "¿Siguen disponibles las viviendas?",
-        "La selección contiene 770 anuncios de un archivo del 24 de septiembre de 2026. Los precios y la disponibilidad pueden haber cambiado. Comprueba el estado actual mediante “Ver anuncio original”."
+        "Los precios y la disponibilidad pueden haber cambiado. Comprueba el estado actual mediante “Ver anuncio original”."
       ],
       [
         "¿Cómo concertar una visita?",
@@ -1159,7 +1159,7 @@ const copy={
     "anyBeds": "Dowolna liczba",
     "search": "Szukaj nieruchomości",
     "results": "ofert wynajmu",
-    "updated": "Dane z 24 września 2026",
+    "updated": "Sprawdź aktualny stan u oferenta",
     "sort": "Sortuj",
     "newest": "Kolejność źródłowa",
     "cheap": "Cena: rosnąco",
@@ -1225,7 +1225,7 @@ const copy={
       ],
       [
         "Czy oferty są nadal aktualne?",
-        "Zestawienie zawiera 770 ogłoszeń z pliku z 24 września 2026. Ceny i dostępność mogły się zmienić. Sprawdź aktualny stan przyciskiem „Zobacz oryginalne ogłoszenie”."
+        "Ceny i dostępność mogły się zmienić. Sprawdź aktualny stan przyciskiem „Zobacz oryginalne ogłoszenie”."
       ],
       [
         "Jak umówić oglądanie?",
@@ -1531,7 +1531,7 @@ const copy={
     "anyBeds": "Qualquer número",
     "search": "Buscar imóveis",
     "results": "anúncios de aluguel",
-    "updated": "Dados de 24 de setembro de 2026",
+    "updated": "Confirme o estado atual com o anunciante",
     "sort": "Ordenar por",
     "newest": "Ordem da fonte",
     "cheap": "Preço: menor para maior",
@@ -1597,7 +1597,7 @@ const copy={
       ],
       [
         "Esses imóveis ainda estão disponíveis?",
-        "Esta coleção contém 770 anúncios de um arquivo datado de 24 de setembro de 2026. Preços e disponibilidade podem ter mudado. Sempre confira o status atual em “Ver anúncio original”."
+        "Preços e disponibilidade podem ter mudado. Sempre confira o status atual em “Ver anúncio original”."
       ],
       [
         "Como agendar uma visita?",
