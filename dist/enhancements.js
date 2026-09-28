@@ -206,3 +206,26 @@ function wwBindCardTilt(root){
 }
 const wwOriginalDrawCards=drawCards;
 drawCards=function(){wwOriginalDrawCards();wwBindCardTilt(document.querySelector('#results')||document)};
+
+/* --- Mobile header nav toggle --- */
+(function(){
+  const header=document.querySelector('header');
+  const toggle=document.querySelector('#nav-toggle');
+  const nav=document.querySelector('#main-nav');
+  if(!header||!toggle||!nav)return;
+  const labels={nl:'Menu',en:'Menu',es:'Menú',pl:'Menu',pt:'Menu'};
+  const closeLabels={nl:'Sluiten',en:'Close',es:'Cerrar',pl:'Zamknij',pt:'Fechar'};
+  function lang(){return (document.documentElement.lang||'nl').slice(0,2)}
+  function setOpen(open){
+    header.classList.toggle('nav-open',open);
+    toggle.setAttribute('aria-expanded',String(open));
+    toggle.setAttribute('aria-label',open?(closeLabels[lang()]||'Close'):(labels[lang()]||'Menu'));
+  }
+  toggle.addEventListener('click',e=>{e.preventDefault();setOpen(!header.classList.contains('nav-open'))});
+  header.querySelectorAll('#main-nav a, #nav-auth a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&header.classList.contains('nav-open')){setOpen(false);toggle.focus()}});
+  const mq=window.matchMedia('(max-width:900px)');
+  function onMq(){if(!mq.matches)setOpen(false)}
+  if(mq.addEventListener)mq.addEventListener('change',onMq);else mq.addListener(onMq);
+  setOpen(false);
+})();
