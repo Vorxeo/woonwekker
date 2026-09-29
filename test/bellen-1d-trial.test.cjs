@@ -216,9 +216,11 @@ describe('Bellen 1-day trial → subscription', () => {
     assert.match(ent.setCookie || '', /Max-Age=0/);
   });
 
-  it('4c) no MOLLIE_API_KEY → mollieEnabled false; checkout path fail-closed (grant skips sub)', async () => {
+  it('4c) no Mollie key → mollieEnabled false; checkout path fail-closed (grant skips sub)', async () => {
     const prev = process.env.MOLLIE_API_KEY;
+    const prevAlt = process.env.Mollie_Api_Key;
     delete process.env.MOLLIE_API_KEY;
+    delete process.env.Mollie_Api_Key;
     try {
       assert.equal(gate.mollieEnabled(), false);
       const payload = await grantIfPaid({
@@ -231,7 +233,25 @@ describe('Bellen 1-day trial → subscription', () => {
       assert.equal(payload.plan, 'bellen');
       assert.equal(payload.subscriptionId, undefined);
     } finally {
-      process.env.MOLLIE_API_KEY = prev;
+      if (prev === undefined) delete process.env.MOLLIE_API_KEY;
+      else process.env.MOLLIE_API_KEY = prev;
+      if (prevAlt === undefined) delete process.env.Mollie_Api_Key;
+      else process.env.Mollie_Api_Key = prevAlt;
+    }
+  });
+
+  it('4d) Mollie_Api_Key alone enables Mollie when MOLLIE_API_KEY unset', () => {
+    const prev = process.env.MOLLIE_API_KEY;
+    const prevAlt = process.env.Mollie_Api_Key;
+    delete process.env.MOLLIE_API_KEY;
+    process.env.Mollie_Api_Key = 'test_fallback_alt_name';
+    try {
+      assert.equal(gate.mollieEnabled(), true);
+    } finally {
+      if (prev === undefined) delete process.env.MOLLIE_API_KEY;
+      else process.env.MOLLIE_API_KEY = prev;
+      if (prevAlt === undefined) delete process.env.Mollie_Api_Key;
+      else process.env.Mollie_Api_Key = prevAlt;
     }
   });
 
