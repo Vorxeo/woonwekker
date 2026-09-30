@@ -3,10 +3,12 @@ const {
   getEntitlement,
   mollieEnabled,
   mollieRequest,
+  resolveCustomerEmail,
   readJsonBody,
   sendJson,
   cookieHeader,
 } = require('../lib/ww-gate.cjs');
+const { trySendBellenCanceled, resendConfigured } = require('../lib/ww-bellen-mail.cjs');
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET' && req.method !== 'POST') {
@@ -35,6 +37,15 @@ module.exports = async function handler(req, res) {
     if (wantCancel && active) {
       await mollieRequest('DELETE', `/customers/${encodeURIComponent(customerId)}/subscriptions/${active.id}`);
       res.setHeader('Set-Cookie', cookieHeader('', { clear: true }));
+      // Email D — cancel path saw canceled subscription (side effect; unlock already cleared).
+      try {
+        if (resendConfigured()) {
+          const email = await resolveCustomerEmail(customerId, null);
+          if (email) await trySendBellenCanceled({ email });
+        }
+      } catch (mailErr) {
+        console.error('[billing-portal] bellen-mail D failed:', mailErr && mailErr.message);
+      }
       return sendJson(res, 200, { canceled: true, plan: 'kijken' });
     }
     return sendJson(res, 200, {
