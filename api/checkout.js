@@ -25,28 +25,47 @@ module.exports = async function handler(req, res) {
   }
   const email = String(body.email || '').trim().slice(0, 120);
   const name = String(body.name || '').trim().slice(0, 80);
+  const ideal = String(body.method || '').toLowerCase() === 'ideal';
   const base = publicBase(req);
   try {
+    if (ideal) {
+      const methods = await mollieRequest(
+        'GET',
+        '/methods?sequenceType=recurring&amount[value]=18.50&amount[currency]=EUR'
+      );
+      const list = (methods && methods._embedded && methods._embedded.methods) || [];
+      const sepa = list.some((m) => m && m.id === 'directdebit');
+      if (!sepa) {
+        return sendJson(res, 503, {
+          error: 'sepa_unavailable',
+          message: 'SEPA Direct Debit is not active. iDEAL recurring stays closed.',
+        });
+      }
+    }
     const customer = await mollieRequest('POST', '/customers', {
       ...(name ? { name } : {}),
       ...(email ? { email } : {}),
       metadata: { product: 'woonwekker-bellen' },
     });
     const stateToken = crypto.randomBytes(16).toString('hex');
-    // €0.00 first payment creates mandate (creditcard / Apple Pay / Google Pay per Mollie).
-    // Hosted checkout filters methods; iDEAL needs non-zero first payment — leave method selection to Mollie profile.
-    // Subscription (Bellen €18.50/mo) is created on return/webhook with startDate = tomorrow (1-day trial).
+    // Card/wallet: €0.00 first payment creates a card mandate; subscription starts tomorrow (1-day trial).
+    // iDEAL: Mollie will not mandate at €0. First payment is €18.50 (first month) and creates a SEPA mandate.
+    // Subscription starts in one month so that first iDEAL charge is not billed again the next day.
     const pay = await mollieRequest('POST', '/payments', {
-      amount: { currency: 'EUR', value: '0.00' },
-      description: 'Woonwekker Bellen — 1 dag gratis, daarna €18,50/maand',
+      amount: { currency: 'EUR', value: ideal ? '18.50' : '0.00' },
+      description: ideal
+        ? 'Woonwekker Bellen — €18,50 nu, daarna €18,50/maand'
+        : 'Woonwekker Bellen — 1 dag gratis, daarna €18,50/maand',
       redirectUrl: `${base}/api/checkout/return?customer_id=${encodeURIComponent(customer.id)}&state=${encodeURIComponent(stateToken)}`,
       webhookUrl: `${base}/api/mollie/webhook`,
       sequenceType: 'first',
       customerId: customer.id,
+      ...(ideal ? { method: 'ideal' } : {}),
       metadata: {
         product: 'woonwekker-bellen',
         plan: 'bellen',
-        trial: '1d',
+        trial: ideal ? '0' : '1d',
+        billing: ideal ? 'ideal-sepa' : 'card-trial',
         state: stateToken,
       },
     });

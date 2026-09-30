@@ -770,7 +770,7 @@ function bindWwCheckoutButtons(root){
   (root||document).querySelectorAll('[data-ww-checkout]').forEach(b=>{
     if(b.dataset.wwCheckoutBound)return;
     b.dataset.wwCheckoutBound='1';
-    b.addEventListener('click',e=>{e.preventDefault();if(typeof window.startBellenCheckout==='function')window.startBellenCheckout();else location.href='/prijzen/'});
+    b.addEventListener('click',e=>{e.preventDefault();if(typeof window.startBellenCheckout==='function')window.startBellenCheckout(b.getAttribute('data-ww-checkout')==='ideal'?'ideal':undefined);else location.href='/prijzen/'});
   });
 }
 async function handleCheckoutQuery(){
