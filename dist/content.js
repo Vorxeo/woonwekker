@@ -174,6 +174,14 @@ const copy={
     ],
     "clear": "Verwijder opgeslagen taalvoorkeur",
     "cleared": "Taalvoorkeur verwijderd.",
+    "languageHeading": "Taal",
+    "languageOf": {
+      "nl": "Nederlands",
+      "en": "Engels",
+      "es": "Spaans",
+      "pl": "Pools",
+      "pt": "Portugees"
+    },
     "references": "Meer informatie",
     "account": "Account",
     "listHome": "Plaats woning",
@@ -558,6 +566,14 @@ const copy={
     ],
     "clear": "Remove saved language preference",
     "cleared": "Language preference removed.",
+    "languageHeading": "Language",
+    "languageOf": {
+      "nl": "Dutch",
+      "en": "English",
+      "es": "Spanish",
+      "pl": "Polish",
+      "pt": "Portuguese"
+    },
     "references": "Further information",
     "account": "Account",
     "listHome": "List a home",
@@ -942,6 +958,14 @@ const copy={
     ],
     "clear": "Eliminar el idioma guardado",
     "cleared": "Preferencia de idioma eliminada.",
+    "languageHeading": "Idioma",
+    "languageOf": {
+      "nl": "Neerlandés",
+      "en": "Inglés",
+      "es": "Español",
+      "pl": "Polaco",
+      "pt": "Portugués"
+    },
     "references": "Más información",
     "account": "Cuenta",
     "listHome": "Publicar vivienda",
@@ -1326,6 +1350,14 @@ const copy={
     ],
     "clear": "Usuń zapisaną preferencję języka",
     "cleared": "Usunięto preferencję języka.",
+    "languageHeading": "Język",
+    "languageOf": {
+      "nl": "Niderlandzki",
+      "en": "Angielski",
+      "es": "Hiszpański",
+      "pl": "Polski",
+      "pt": "Portugalski"
+    },
     "references": "Więcej informacji",
     "account": "Konto",
     "listHome": "Dodaj ofertę",
@@ -1710,6 +1742,14 @@ const copy={
     ],
     "clear": "Remover preferência de idioma salva",
     "cleared": "Preferência de idioma removida.",
+    "languageHeading": "Idioma",
+    "languageOf": {
+      "nl": "Holandês",
+      "en": "Inglês",
+      "es": "Espanhol",
+      "pl": "Polonês",
+      "pt": "Português"
+    },
     "references": "Mais informações",
     "account": "Conta",
     "listHome": "Anunciar um imóvel",
