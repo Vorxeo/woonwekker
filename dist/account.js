@@ -48,6 +48,27 @@ function sanitizeAvatar(v){
   if(Math.floor(s.length*0.75)>AVATAR_MAX)return'';
   return s;
 }
+function sanitizeZoekEntry(z){
+  if(typeof WWWekker!=='undefined'&&WWWekker.sanitizeZoekprofiel)return WWWekker.sanitizeZoekprofiel(z);
+  const o=z&&typeof z==='object'?z:{};
+  const TYPE_OK=new Set(['','Appartement','Huis','Studio','Kamer']);
+  const type=TYPE_OK.has(String(o.type||''))?String(o.type||''):'';
+  const dig=v=>String(v==null?'':v).replace(/[^\d]/g,'').slice(0,7);
+  return{
+    id:String(o.id||'').slice(0,40),
+    name:String(o.name||'').trim().slice(0,60),
+    city:String(o.city||'').trim().slice(0,80),
+    maxPrice:dig(o.maxPrice),
+    minBeds:(()=>{const s=dig(o.minBeds).slice(0,2);if(!s)return'';const n=Math.min(20,Math.max(0,Number(s)));return String(n)})(),
+    type,
+    active:!!o.active
+  };
+}
+function sanitizeZoekprofielen(list){
+  if(!Array.isArray(list))return[];
+  return list.slice(0,4).map(sanitizeZoekEntry).filter(z=>z.id||z.name||z.city);
+}
+
 function sanitizeProfile(p){
   const o=p&&typeof p==='object'?p:{};
   // Display-only: mirror wwIsBellen if present; never trust raw localStorage paid flag for unlock.
@@ -72,7 +93,7 @@ function loadAccount(){
     if(!raw||typeof raw!=='object')return base;
     return{
       profile:sanitizeProfile({...base.profile,...(raw.profile||{})}),
-      zoekprofielen:Array.isArray(raw.zoekprofielen)?raw.zoekprofielen.slice(0,4):[],
+      zoekprofielen:sanitizeZoekprofielen(raw.zoekprofielen),
       alerts:{...base.alerts,...(raw.alerts||{})},
       templates:{...base.templates,...(raw.templates||{})},
       zoekgenoot:{...base.zoekgenoot,...(raw.zoekgenoot||{})},
@@ -413,8 +434,9 @@ function zoekPanel(a){
     <p>${esc(t('accCity'))}: ${esc(z.city||'—')}</p>
     <p>${esc(t('maxPrice'))}: ${z.maxPrice?esc(String(z.maxPrice)):'—'}</p>
     <p>${esc(t('minBeds'))}: ${z.minBeds!=null&&z.minBeds!==''?esc(String(z.minBeds)):'—'}</p>
+    <p>${esc(t('propertyTypes')||t('ptype')||'Type')}: ${esc(z.type||'—')}</p>
     <label class="ww-check"><input type="checkbox" data-z-active="${esc(z.id)}" ${z.active?'checked':''}> ${esc(t('activeProfile'))}</label>
-    <div class="row"><button type="button" class="ww-btn danger" data-z-del="${esc(z.id)}">${esc(t('deleteProfile'))}</button></div>
+    <div class="row"><button type="button" class="ww-btn secondary" data-z-apply="${esc(z.id)}">${esc(t('wekkerApply')||'Apply')}</button><button type="button" class="ww-btn danger" data-z-del="${esc(z.id)}">${esc(t('deleteProfile'))}</button></div>
   </article>`).join('');
   return`<div class="ww-panel">
     <h2>${esc(t('zoekprofielen'))}</h2>
@@ -422,10 +444,16 @@ function zoekPanel(a){
     <div class="ww-meter" aria-hidden="true"><span style="width:${(a.zoekprofielen.length/4)*100}%"></span></div>
     <div class="ww-cards" id="zoek-cards">${cards||`<p class="ww-status">${esc(t('pipelineEmpty'))}</p>`}</div>
     ${a.zoekprofielen.length<4?`<form id="zoek-add" class="ww-grid2" style="margin-top:18px">
-      <div class="ww-field"><label for="z-name">${esc(t('profileName'))}</label><input id="z-name" name="name" required></div>
-      <div class="ww-field"><label for="z-city">${esc(t('accCity'))}</label><input id="z-city" name="city"></div>
+      <div class="ww-field"><label for="z-name">${esc(t('profileName'))}</label><input id="z-name" name="name" required maxlength="60"></div>
+      <div class="ww-field"><label for="z-city">${esc(t('accCity'))}</label><input id="z-city" name="city" maxlength="80"></div>
       <div class="ww-field"><label for="z-price">${esc(t('maxPrice'))}</label><input id="z-price" name="maxPrice" type="number" min="0" step="50"></div>
       <div class="ww-field"><label for="z-beds">${esc(t('minBeds'))}</label><input id="z-beds" name="minBeds" type="number" min="0" max="10"></div>
+      <div class="ww-field"><label for="z-type">${esc(t('propertyTypes')||'Type')}</label>
+        <select id="z-type" name="type">
+          <option value="">—</option>
+          ${['Appartement','Huis','Studio','Kamer'].map(v=>`<option value="${v}">${esc(v)}</option>`).join('')}
+        </select>
+      </div>
       <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn" type="submit">${esc(t('addProfile'))}</button></div>
     </form>`:''}
   </div>`;
@@ -590,14 +618,15 @@ function bindAccountPanel(a){
     const next=loadAccount();
     if(next.zoekprofielen.length>=4)return;
     const fd=new FormData(zoekAdd);
-    next.zoekprofielen.push({
+    next.zoekprofielen.push(sanitizeZoekEntry({
       id:uid(),
       name:String(fd.get('name')||'').trim(),
       city:String(fd.get('city')||'').trim(),
       maxPrice:fd.get('maxPrice')?Number(fd.get('maxPrice')):'',
       minBeds:fd.get('minBeds')!==''&&fd.get('minBeds')!=null?Number(fd.get('minBeds')):'',
+      type:String(fd.get('type')||'').trim(),
       active:true
-    });
+    }));
     saveAccount(next);
     statusEl(t('savedOk'));
     renderAccount();
@@ -612,6 +641,20 @@ function bindAccountPanel(a){
     const next=loadAccount();
     const z=next.zoekprofielen.find(x=>x.id===b.dataset.zActive);
     if(z){z.active=b.checked;saveAccount(next)}
+  });
+  document.querySelectorAll('[data-z-apply]').forEach(b=>b.onclick=()=>{
+    const next=loadAccount();
+    const z=next.zoekprofielen.find(x=>x.id===b.dataset.zApply);
+    if(!z||typeof WWWekker==='undefined')return;
+    const prof=WWWekker.profileFromZoekprofiel(z);
+    WWWekker.saveWekkerProfile(prof);
+    if(typeof filters!=='undefined'){
+      WWWekker.applyProfileToFilters(prof, filters);
+      if(typeof limit!=='undefined')limit=12;
+      if(typeof syncFilterFields==='function')syncFilterFields();
+      if(typeof applyFilters==='function')applyFilters();
+    }
+    statusEl(t('savedOk'));
   });
 
   const alerts=document.querySelector('#alerts-form');
