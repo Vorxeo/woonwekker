@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.woonwekker.nl/</loc></url>
-  <url><loc>https://www.woonwekker.nl/kamers/</loc></url>
-  <url><loc>https://www.woonwekker.nl/huizen/</loc></url>
-  <url><loc>https://www.woonwekker.nl/prijzen/</loc></url>
-  <url><loc>https://www.woonwekker.nl/plaats/</loc></url>
+  <url><loc>https://www.woonwekker.nl/account/</loc></url>
   <url><loc>https://www.woonwekker.nl/faq/</loc></url>
+  <url><loc>https://www.woonwekker.nl/huizen/</loc></url>
   <url><loc>https://www.woonwekker.nl/insights/</loc></url>
-  <url><loc>https://www.woonwekker.nl/insights/kamer-studio-or-house-netherlands/</loc></url>
   <url><loc>https://www.woonwekker.nl/insights/dutch-rental-search-without-refreshing/</loc></url>
   <url><loc>https://www.woonwekker.nl/insights/free-account-vs-bellen-woonwekker/</loc></url>
   <url><loc>https://www.woonwekker.nl/insights/how-many-people-move-to-the-netherlands/</loc></url>
-  <url><loc>https://www.woonwekker.nl/privacy/</loc></url>
+  <url><loc>https://www.woonwekker.nl/insights/kamer-studio-or-house-netherlands/</loc></url>
+  <url><loc>https://www.woonwekker.nl/kamers/</loc></url>
   <url><loc>https://www.woonwekker.nl/legal/</loc></url>
   <url><loc>https://www.woonwekker.nl/login/</loc></url>
+  <url><loc>https://www.woonwekker.nl/plaats/</loc></url>
+  <url><loc>https://www.woonwekker.nl/prijzen/</loc></url>
+  <url><loc>https://www.woonwekker.nl/privacy/</loc></url>
   <url><loc>https://www.woonwekker.nl/signup/</loc></url>
   <url><loc>https://www.woonwekker.nl/stad/aalsmeer/</loc></url>
   <url><loc>https://www.woonwekker.nl/stad/aalsmeerderbrug/</loc></url>

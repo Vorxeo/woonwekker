@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /stad/
+Allow: /privacy/
+Allow: /insights/
 
 Sitemap: https://www.woonwekker.nl/sitemap.xml
