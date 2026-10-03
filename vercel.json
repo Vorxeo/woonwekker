@@ -1,6 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "framework": null,
+  "buildCommand": "",
+  "installCommand": "npm install",
   "cleanUrls": true,
   "trailingSlash": true,
   "outputDirectory": "dist",
@@ -35,27 +38,67 @@
     },
     {
       "source": "/api/auth/status",
-      "destination": "/api/auth/status"
+      "destination": "/api/auth/actions?action=status"
+    },
+    {
+      "source": "/api/auth/status/",
+      "destination": "/api/auth/actions?action=status"
     },
     {
       "source": "/api/auth/me",
-      "destination": "/api/auth/me"
+      "destination": "/api/auth/actions?action=me"
+    },
+    {
+      "source": "/api/auth/me/",
+      "destination": "/api/auth/actions?action=me"
     },
     {
       "source": "/api/auth/logout",
-      "destination": "/api/auth/logout"
+      "destination": "/api/auth/actions?action=logout"
+    },
+    {
+      "source": "/api/auth/logout/",
+      "destination": "/api/auth/actions?action=logout"
     },
     {
       "source": "/api/auth/signup",
-      "destination": "/api/auth/signup"
+      "destination": "/api/auth/actions?action=signup"
+    },
+    {
+      "source": "/api/auth/signup/",
+      "destination": "/api/auth/actions?action=signup"
     },
     {
       "source": "/api/auth/confirm",
-      "destination": "/api/auth/confirm"
+      "destination": "/api/auth/actions?action=confirm"
+    },
+    {
+      "source": "/api/auth/confirm/",
+      "destination": "/api/auth/actions?action=confirm"
     },
     {
       "source": "/api/listing/:id",
       "destination": "/api/listing/[id]?id=:id"
+    },
+    {
+      "source": "/api/listing/:id/",
+      "destination": "/api/listing/[id]?id=:id"
+    },
+    {
+      "source": "/api/checkout/return/",
+      "destination": "/api/checkout/return"
+    },
+    {
+      "source": "/api/mollie/webhook/",
+      "destination": "/api/mollie/webhook"
+    },
+    {
+      "source": "/api/auth/google/callback/",
+      "destination": "/api/auth/google/callback"
+    },
+    {
+      "source": "/api/auth/google/",
+      "destination": "/api/auth/google"
     }
   ],
   "headers": [

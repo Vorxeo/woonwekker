@@ -1,11 +1,15 @@
 # Deploy Woonwekker on Vercel (Mollie Bellen + Google OAuth)
 
-There is **no** Woonwekker Vercel project yet. Create/link one when ready:
+> **Framework Preset must be Other** (not Node / Next.js). Build Command empty or the noop `npm run build`; Output Directory `dist`; Root Directory `.`. Vercel serves the committed static `dist/` plus `/api` serverless functions. **Never** use `npm start` / `server.cjs` on Vercel — that is local-box only. A Node preset will try to execute browser bundles (e.g. `dist/app.js`) as serverless and fail with `FUNCTION_INVOCATION_FAILED` / `copy is not defined`.
+
+> **Hobby plan:** ≤12 Serverless Functions per deployment. Auth status/me/logout/signup/confirm share `api/auth/actions.js`; keep google + callback as separate files. Do not add more `api/*.js` files without consolidating.
+
+Create/link the project if needed (project already exists as `woonwekker` / `prj_Fb9aShowEkreEPvJrEoVkQoRZqhV`):
 
 ```bash
 cd /workspace/woonwekker
 npx vercel link          # or: vercel project add woonwekker
-npx vercel env add MOLLIE_API_KEY production   # paste live_/test_ key — server-only
+npx vercel env add MOLLIE_API_KEY production   # or Mollie_Api_Key — either name; live_/test_ — server-only
 npx vercel env add WW_ENTITLEMENT_SECRET production
 npx vercel env add GOOGLE_CLIENT_ID production
 npx vercel env add GOOGLE_CLIENT_SECRET production
@@ -17,7 +21,7 @@ npx vercel --prod
 ## Env (Production, server-only)
 | Key | Required | Notes |
 |-----|----------|-------|
-| `MOLLIE_API_KEY` | yes | Mollie dashboard; enable **iDEAL** (do not hardcode methods in code) |
+| `MOLLIE_API_KEY` or `Mollie_Api_Key` | yes (either) | Mollie dashboard; enable **iDEAL** (do not hardcode methods in code). Prefer `MOLLIE_API_KEY`; `Mollie_Api_Key` also accepted |
 | `WW_ENTITLEMENT_SECRET` | yes on Vercel | HMAC for httpOnly `ww_bellen` cookie (+ session/state if `WW_AUTH_SECRET` unset) |
 | `WW_PUBLIC_BASE` | optional | Public site origin for Mollie redirect/webhook + Google redirect default |
 | `GOOGLE_CLIENT_ID` | for Google login | OAuth Web client — Consent **External** (any Google account; no `hd=`) |
@@ -46,6 +50,6 @@ npx vercel --prod
 - Public `dist/listings.json` is URL-redacted; `/listings.json` rewrites to `/api/listings` (entitlement-aware)
 
 ## Fail-closed
-If `MOLLIE_API_KEY` is missing at runtime: `POST /api/checkout` → 503, no entitlement cookie, no source URLs.
+If neither `MOLLIE_API_KEY` nor `Mollie_Api_Key` is set at runtime: `POST /api/checkout` → 503, no entitlement cookie, no source URLs.
 If `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` missing: `GET /api/auth/google` → 503 JSON, `/api/auth/status` → `googleConfigured:false`. Google login ≠ Bellen unlock (`ww_bellen` untouched).
 If `RESEND_API_KEY` missing: `POST /api/auth/signup` → 503, never pretends email was sent. `resendConfigured:false` on status.

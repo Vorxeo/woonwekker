@@ -3,10 +3,12 @@ const {
   getEntitlement,
   mollieEnabled,
   mollieRequest,
+  resolveCustomerEmail,
   readJsonBody,
   sendJson,
   cookieHeader,
 } = require('../lib/ww-gate.cjs');
+const { trySendBellenCanceled, resendConfigured } = require('../lib/ww-bellen-mail.cjs');
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'GET' && req.method !== 'POST') {
@@ -35,13 +37,22 @@ module.exports = async function handler(req, res) {
     if (wantCancel && active) {
       await mollieRequest('DELETE', `/customers/${encodeURIComponent(customerId)}/subscriptions/${active.id}`);
       res.setHeader('Set-Cookie', cookieHeader('', { clear: true }));
+      // Email D — cancel path saw canceled subscription (side effect; unlock already cleared).
+      try {
+        if (resendConfigured()) {
+          const email = await resolveCustomerEmail(customerId, null);
+          if (email) await trySendBellenCanceled({ email });
+        }
+      } catch (mailErr) {
+        console.error('[billing-portal] bellen-mail D failed:', mailErr && mailErr.message);
+      }
       return sendJson(res, 200, { canceled: true, plan: 'kijken' });
     }
     return sendJson(res, 200, {
       customerId,
       subscriptionId: active ? active.id : null,
       status: active ? active.status : null,
-      cancelHint: 'POST {"cancel":true} to cancel (1-klik opzeggen). 14-day money-back per site copy.',
+      cancelHint: 'POST {"cancel":true} to cancel (1-klik opzeggen). 1-day free trial then €18.50/mo; cancel before first charge to avoid conversion.',
     });
   } catch (e) {
     return sendJson(res, 502, { error: e.message });

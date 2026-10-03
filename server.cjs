@@ -3,7 +3,7 @@
  * Local API + static server for Woonwekker (dev / Verified proofs).
  * Shares Mollie + entitlement logic with Vercel api/* via lib/ww-gate.cjs.
  * Google OAuth via lib/ww-auth.cjs — fail-closed without GOOGLE_CLIENT_*.
- * Fail-closed without process.env.MOLLIE_API_KEY — no fake unlock.
+ * Fail-closed without MOLLIE_API_KEY or Mollie_Api_Key — no fake unlock.
  */
 const http = require('http');
 const fs = require('fs');
@@ -82,6 +82,7 @@ function adapt(handler) {
 
 const entitlement = adapt(require('./api/entitlement.js'));
 const checkout = adapt(require('./api/checkout.js'));
+const plaats = adapt(require('./api/plaats.js'));
 const checkoutReturn = adapt(require('./api/checkout/return.js'));
 const webhook = adapt(require('./api/mollie/webhook.js'));
 const listings = adapt(require('./api/listings.js'));
@@ -104,6 +105,7 @@ const server = http.createServer(async (req, res) => {
     if (pathname === '/listings.full.json' || pathname.startsWith('/data/')) return notFound(req, res, url);
     if (pathname === '/api/entitlement' && req.method === 'GET') return entitlement(req, res, url);
     if (pathname === '/api/checkout' && req.method === 'POST') return checkout(req, res, url);
+    if ((pathname === '/api/plaats' || pathname === '/api/plaats/') && req.method === 'POST') return plaats(req, res, url);
     if (pathname === '/api/checkout/return' && req.method === 'GET') return checkoutReturn(req, res, url);
     if (pathname === '/api/mollie/webhook' && req.method === 'POST') return webhook(req, res, url);
     if (pathname === '/api/billing-portal') return billing(req, res, url);

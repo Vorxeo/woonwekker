@@ -14,7 +14,7 @@ module.exports = async function handler(req, res) {
     return sendJson(res, 503, {
       error: 'payments_unavailable',
       message:
-        'Mollie not configured. Set MOLLIE_API_KEY in Vercel Production env (server-only). Unlock remains closed.',
+        'Mollie not configured. Set MOLLIE_API_KEY or Mollie_Api_Key in Vercel Production env (server-only). Unlock remains closed.',
     });
   }
   let body = {};
@@ -25,23 +25,49 @@ module.exports = async function handler(req, res) {
   }
   const email = String(body.email || '').trim().slice(0, 120);
   const name = String(body.name || '').trim().slice(0, 80);
+  const ideal = String(body.method || '').toLowerCase() === 'ideal';
   const base = publicBase(req);
   try {
+    if (ideal) {
+      const methods = await mollieRequest(
+        'GET',
+        '/methods?sequenceType=recurring&amount[value]=18.50&amount[currency]=EUR'
+      );
+      const list = (methods && methods._embedded && methods._embedded.methods) || [];
+      const sepa = list.some((m) => m && m.id === 'directdebit');
+      if (!sepa) {
+        return sendJson(res, 503, {
+          error: 'sepa_unavailable',
+          message: 'SEPA Direct Debit is not active. iDEAL recurring stays closed.',
+        });
+      }
+    }
     const customer = await mollieRequest('POST', '/customers', {
       ...(name ? { name } : {}),
       ...(email ? { email } : {}),
       metadata: { product: 'woonwekker-bellen' },
     });
     const stateToken = crypto.randomBytes(16).toString('hex');
+    // Card/wallet: €0.00 first payment creates a card mandate; subscription starts tomorrow (1-day trial).
+    // iDEAL: Mollie will not mandate at €0. First payment is €18.50 (first month) and creates a SEPA mandate.
+    // Subscription starts in one month so that first iDEAL charge is not billed again the next day.
     const pay = await mollieRequest('POST', '/payments', {
-      amount: { currency: 'EUR', value: '18.50' },
-      description: 'Woonwekker Bellen — €18,50/maand',
+      amount: { currency: 'EUR', value: ideal ? '18.50' : '0.00' },
+      description: ideal
+        ? 'Woonwekker Bellen — €18,50 nu, daarna €18,50/maand'
+        : 'Woonwekker Bellen — 1 dag gratis, daarna €18,50/maand',
       redirectUrl: `${base}/api/checkout/return?customer_id=${encodeURIComponent(customer.id)}&state=${encodeURIComponent(stateToken)}`,
       webhookUrl: `${base}/api/mollie/webhook`,
       sequenceType: 'first',
       customerId: customer.id,
-      // Do NOT hardcode method — enable iDEAL in Mollie Dashboard (dynamic PMs).
-      metadata: { product: 'woonwekker-bellen', plan: 'bellen', state: stateToken },
+      ...(ideal ? { method: 'ideal' } : {}),
+      metadata: {
+        product: 'woonwekker-bellen',
+        plan: 'bellen',
+        trial: ideal ? '0' : '1d',
+        billing: ideal ? 'ideal-sepa' : 'card-trial',
+        state: stateToken,
+      },
     });
     const checkoutUrl = pay._links && pay._links.checkout && pay._links.checkout.href;
     if (!checkoutUrl) return sendJson(res, 502, { error: 'no_checkout_url' });

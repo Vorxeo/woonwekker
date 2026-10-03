@@ -152,7 +152,23 @@ function avatarHtml(profile){
 
 function renderAccount(){
   const a=loadAccount();
-  if(!isLoggedIn(a)){renderLogin(a);return}
+  if(!isLoggedIn(a)){
+    const q=new URLSearchParams(location.search);
+    if(q.get('oauth')||q.get('confirmed')||q.get('confirm')||q.get('checkout')){
+      main.innerHTML=`<p class="loading" role="status">Woonwekker…</p>`;
+      Promise.resolve()
+        .then(()=>handleOAuthQuery())
+        .then(()=>handleConfirmQuery())
+        .then(()=>handleCheckoutQuery())
+        .then(()=>{
+          if(isLoggedIn(loadAccount())) renderAccount();
+          else location.replace('/login/?next='+encodeURIComponent('/account/'));
+        });
+      return;
+    }
+    location.replace('/login/?next='+encodeURIComponent('/account/'));
+    return;
+  }
   const plan=hasBellenAccess(a)?'bellen':'kijken';
   const tabs=[
     ['profile',t('profileTitle')],
@@ -202,93 +218,164 @@ function renderAccount(){
   handleOAuthQuery();
 }
 
-function renderLogin(a){
-  main.innerHTML=`<div class="ww-account">
-    <div class="page-head compact">
-      <div class="eyebrow">${esc(t('account'))}</div>
-      <h1>${esc(t('accountTitle'))}</h1>
-      <p class="lead">${esc(t('accountIntro'))}</p>
-    </div>
-    <div class="ww-how">
-      <article><div class="n">1</div><h3>${esc(t('how1Title'))}</h3><p>${esc(t('how1Text'))}</p></article>
-      <article><div class="n">2</div><h3>${esc(t('how2Title'))}</h3><p>${esc(t('how2Text'))}</p></article>
-      <article><div class="n">3</div><h3>${esc(t('how3Title'))}</h3><p>${esc(t('how3Text'))}</p></article>
-    </div>
-    <div class="ww-trust"><span>${esc(t('trust1'))}</span><span>${esc(t('trust2'))}</span><span>${esc(t('trust3'))}</span></div>
-    <div class="ww-panel ww-gate">
-      <div class="ww-avatar-fallback" aria-hidden="true">W</div>
-      <h2>${esc(t('loginTitle'))}</h2>
-      <p class="ww-status">${esc(t('accountDemo'))}</p>
-      <div class="ww-google-wrap">
+function authShell(opts){
+  const title=opts.title, intro=opts.intro, eyebrow=opts.eyebrow||t('account');
+  const pending=opts.pending;
+  let mid='';
+  if(pending){
+    mid=`<div class="ww-check-inbox" role="status"><strong>${esc(t('checkInboxTitle')||t('checkInbox'))}</strong><p>${esc(t('checkInbox'))}</p></div>`;
+  }else{
+    mid=`<div class="ww-google-wrap">
         <a class="ww-btn ww-btn-google" id="acc-google" href="/api/auth/google">${esc(t('continueGoogle'))}</a>
         <p class="ww-status" id="acc-google-status" role="status"></p>
-      </div>
-      <div class="ww-or"><span>${esc(t('orLocal'))}</span></div>
-      <form id="acc-login" class="ww-grid2" style="text-align:left;margin-top:18px">
-        <div class="ww-field"><label for="login-name">${esc(t('name'))}</label><input id="login-name" name="name" required autocomplete="name" value="${esc(a.profile.name||'')}"></div>
-        <div class="ww-field"><label for="login-email">${esc(t('email'))}</label><input id="login-email" name="email" type="email" required autocomplete="email" value="${esc(a.profile.email||'')}"></div>
-        <div class="ww-field"><label for="login-phone">${esc(t('phone'))}</label><input id="login-phone" name="phone" type="tel" autocomplete="tel" value="${esc(a.profile.phone||'')}"></div>
-        <div class="ww-field"><label>${esc(t('plan'))}</label>
-          <p class="ww-status">${esc(hasBellenAccess(a)?t('planBellen'):t('planKijken'))}</p>
-          ${hasBellenAccess(a)?'':`<p class="ww-locked ww-paywall" data-ww-locked="1"><button type="button" class="ww-btn" data-ww-checkout="1">${esc(t('upgradeBellen'))}</button> — ${esc(t('paywallUnlock'))}</p>`}
-        </div>
-        <div class="ww-field" style="grid-column:1/-1"><label for="login-pass">${esc(t('password'))}</label><input id="login-pass" name="password" type="password" autocomplete="new-password"></div>
-        <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn" type="submit" id="acc-signup-btn">${esc(t('signupEmail'))}</button></div>
-      </form>
+      </div>${opts.body||''}`;
+  }
+  return `<div class="ww-account ww-auth-page">
+    <div class="page-head compact">
+      <div class="eyebrow">${esc(eyebrow)}</div>
+      <h1>${esc(title)}</h1>
+      <p class="lead">${esc(intro)}</p>
+    </div>
+    <div class="ww-panel ww-gate ww-auth-card">
+      <div class="ww-avatar-fallback" aria-hidden="true">W</div>
+      ${mid}
       <p class="ww-status" id="acc-status" role="status"></p>
+      <p class="ww-auth-legal">${esc(t('authLegalNote')||'')}<br><a href="/legal/#privacy">${esc(t('privacy')||'Privacy')}</a> · <a href="/legal/">${esc(t('legal'))}</a></p>
+      ${opts.footer||''}
     </div>
   </div>`;
-  document.querySelector('#acc-login').onsubmit=async e=>{
+}
+
+function showCheckInboxPanel(){
+  const card=document.querySelector('.ww-auth-card');
+  if(!card)return;
+  const google=card.querySelector('.ww-google-wrap');
+  const form=card.querySelector('#acc-signup-form, #acc-login-resend, .ww-or, .ww-auth-extra');
+  [google, form].forEach(el=>{if(el)el.remove()});
+  card.querySelectorAll('.ww-or, #acc-signup-form, .ww-auth-extra, .ww-auth-switch').forEach(el=>el.remove());
+  if(!card.querySelector('.ww-check-inbox')){
+    const note=document.createElement('div');
+    note.className='ww-check-inbox';
+    note.setAttribute('role','status');
+    note.innerHTML=`<strong>${esc(t('checkInboxTitle')||'')}</strong><p>${esc(t('checkInbox'))}</p>`;
+    const status=card.querySelector('#acc-status');
+    if(status)card.insertBefore(note,status);
+    else card.appendChild(note);
+  }
+}
+
+async function submitEmailSignup({name,email,phone,btn}){
+  if(btn)btn.disabled=true;
+  statusEl(t('signupSending')||'…');
+  try{
+    const r=await fetch('/api/auth/signup',{
+      method:'POST',
+      credentials:'same-origin',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,email,phone})
+    });
+    let j={};
+    try{j=await r.json()}catch{}
+    if(r.status===503||j.error==='resend_unavailable'){
+      statusEl(t('resendNotConfigured'));
+      return false;
+    }
+    if(r.status===429){
+      statusEl(t('signupRateLimited'));
+      return false;
+    }
+    if(!r.ok){
+      statusEl(t('signupFailed'));
+      return false;
+    }
+    try{sessionStorage.setItem('ww-pending-signup',JSON.stringify({name,email,phone}))}catch{}
+    statusEl(t('checkInbox'));
+    showCheckInboxPanel();
+    return true;
+  }catch{
+    statusEl(t('signupFailed'));
+    return false;
+  }finally{
+    if(btn)btn.disabled=false;
+  }
+}
+
+function renderSignup(){
+  const a=loadAccount();
+  if(isLoggedIn(a)){location.replace('/account/');return}
+  const q=new URLSearchParams(location.search);
+  const pending=q.get('pending')==='1';
+  main.innerHTML=authShell({
+    title:t('signupTitle')||t('signUp'),
+    intro:t('signupIntro')||t('accountDemo'),
+    eyebrow:t('signUp'),
+    pending,
+    body:`<div class="ww-or"><span>${esc(t('orEmail')||t('orLocal'))}</span></div>
+      <form id="acc-signup-form" class="ww-grid2 ww-auth-form" style="text-align:left;margin-top:8px">
+        <div class="ww-field"><label for="signup-name">${esc(t('name'))}</label><input id="signup-name" name="name" required autocomplete="name" value="${esc(a.profile.name||'')}"></div>
+        <div class="ww-field"><label for="signup-email">${esc(t('email'))}</label><input id="signup-email" name="email" type="email" required autocomplete="email" value="${esc(a.profile.email||'')}"></div>
+        <div class="ww-field" style="grid-column:1/-1"><label for="signup-phone">${esc(t('phoneOptional')||t('phone'))}</label><input id="signup-phone" name="phone" type="tel" autocomplete="tel" value="${esc(a.profile.phone||'')}"></div>
+        <p class="ww-status ww-auth-extra" style="grid-column:1/-1">${esc(t('passwordNote')||'')}</p>
+        <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn" type="submit" id="acc-signup-btn">${esc(t('signupEmail'))}</button></div>
+      </form>`,
+    footer:`<p class="ww-auth-switch">${esc(t('hasAccount'))} <a href="/login/">${esc(t('goLogin')||t('signIn'))}</a></p>`
+  });
+  const form=document.querySelector('#acc-signup-form');
+  if(form)form.onsubmit=async e=>{
     e.preventDefault();
-    const fd=new FormData(e.target);
+    const fd=new FormData(form);
     const name=String(fd.get('name')||'').trim();
     const email=String(fd.get('email')||'').trim();
     const phone=String(fd.get('phone')||'').trim();
     if(!name||!email)return;
-    const btn=document.querySelector('#acc-signup-btn');
-    if(btn){btn.disabled=true}
-    statusEl(t('signupSending')||'…');
-    try{
-      const r=await fetch('/api/auth/signup',{
-        method:'POST',
-        credentials:'same-origin',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({name,email,phone})
-      });
-      let j={};
-      try{j=await r.json()}catch{}
-      if(r.status===503||j.error==='resend_unavailable'){
-        statusEl(t('resendNotConfigured'));
-        return;
-      }
-      if(r.status===429){
-        statusEl(t('signupRateLimited'));
-        return;
-      }
-      if(!r.ok){
-        statusEl(t('signupFailed'));
-        return;
-      }
-      // Pending confirm — do NOT mark logged in; stash name/email for UX after confirm
-      try{sessionStorage.setItem('ww-pending-signup',JSON.stringify({name,email,phone}))}catch{}
-      statusEl(t('checkInbox'));
-      const panel=document.querySelector('.ww-gate');
-      if(panel){
-        const note=document.createElement('p');
-        note.className='ww-check-inbox';
-        note.textContent=t('checkInbox');
-        panel.appendChild(note);
-      }
-    }catch{
-      statusEl(t('signupFailed'));
-    }finally{
-      if(btn){btn.disabled=false}
-    }
+    await submitEmailSignup({name,email,phone,btn:document.querySelector('#acc-signup-btn')});
   };
-  bindWwCheckoutButtons(main);
   refreshGoogleButtonState();
   handleOAuthQuery();
   handleConfirmQuery();
+}
+
+function renderLoginPage(){
+  const a=loadAccount();
+  if(isLoggedIn(a)){
+    const next=new URLSearchParams(location.search).get('next');
+    const dest=(next&&next.startsWith('/')&&!next.startsWith('//'))?next:'/account/';
+    location.replace(dest);
+    return;
+  }
+  main.innerHTML=authShell({
+    title:t('loginTitle'),
+    intro:t('loginIntro')||t('accountDemo'),
+    eyebrow:t('signIn'),
+    body:`<div class="ww-auth-extra">
+        <p class="ww-status" style="text-align:left;margin-top:18px">${esc(t('emailLoginHint'))}</p>
+        <form id="acc-login-resend" class="ww-grid2 ww-auth-form" style="text-align:left;margin-top:8px">
+          <div class="ww-field"><label for="login-name">${esc(t('name'))}</label><input id="login-name" name="name" required autocomplete="name" value="${esc(a.profile.name||'')}"></div>
+          <div class="ww-field"><label for="login-email">${esc(t('email'))}</label><input id="login-email" name="email" type="email" required autocomplete="email" value="${esc(a.profile.email||'')}"></div>
+          <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn secondary" type="submit" id="acc-resend-btn">${esc(t('resendConfirm'))}</button></div>
+        </form>
+      </div>`,
+    footer:`<p class="ww-auth-switch">${esc(t('needAccount'))} <a href="/signup/">${esc(t('goSignup')||t('signUp'))}</a></p>`
+  });
+  const form=document.querySelector('#acc-login-resend');
+  if(form)form.onsubmit=async e=>{
+    e.preventDefault();
+    const fd=new FormData(form);
+    const name=String(fd.get('name')||'').trim();
+    const email=String(fd.get('email')||'').trim();
+    if(!name||!email)return;
+    await submitEmailSignup({name,email,phone:'',btn:document.querySelector('#acc-resend-btn')});
+  };
+  refreshGoogleButtonState();
+  handleOAuthQuery();
+  handleConfirmQuery();
+}
+
+function renderLogin(a){
+  // Legacy alias — route to dedicated signup when mode=signup, else login page
+  const mode=new URLSearchParams(location.search).get('mode');
+  if(mode==='signup'){location.replace('/signup/'+(location.search.replace(/[?&]mode=signup/,'').replace(/^&/,'?')||''));return}
+  location.replace('/login/'+(location.search||''));
 }
 
 function drawAccountPanel(a){
@@ -323,7 +410,7 @@ function profilePanel(a){
       <div class="ww-field"><label for="prof-phone">${esc(t('phone'))}</label><input id="prof-phone" name="phone" type="tel" value="${esc(p.phone||'')}"></div>
       <div class="ww-field"><label>${esc(t('plan'))}</label>
         <p class="ww-status">${esc(hasBellenAccess(a)?t('planBellen'):t('planKijken'))}</p>
-        ${hasBellenAccess(a)?'':`<p class="ww-locked ww-paywall" data-ww-locked="1"><button type="button" class="ww-btn" data-ww-checkout="1">${esc(t('upgradeBellen'))} — €18,50</button></p>`}
+        ${hasBellenAccess(a)?'':`<p class="ww-locked ww-paywall" data-ww-locked="1"><button type="button" class="ww-btn" data-ww-checkout="1">${esc(t('upgradeBellen'))} — ${esc(t('bellenPrice'))}</button></p>`}
       </div>
       <div class="ww-field"><label for="prof-income">${esc(t('income'))}</label>
         <select id="prof-income" name="income">
@@ -653,21 +740,23 @@ function bindAccountPanel(a){
 }
 
 function renderPlaats(){
-  const a=loadAccount();
-  const logged=isLoggedIn(a);
   main.innerHTML=`<div class="ww-account">
     <div class="page-head compact">
       <div class="eyebrow">${esc(t('listHome'))}</div>
       <h1>${esc(t('plaatsTitle'))}</h1>
       <p class="lead">${esc(t('plaatsIntro'))}</p>
     </div>
-    ${logged?`<div class="ww-panel">
+    <div class="ww-panel">
       <form id="plaats-form" class="ww-grid2">
-        <div class="ww-field"><label for="pl-address">${esc(t('plaatsAddress'))}</label><input id="pl-address" name="address" required></div>
-        <div class="ww-field"><label for="pl-city">${esc(t('plaatsCity'))}</label><input id="pl-city" name="city" required></div>
-        <div class="ww-field"><label for="pl-price">${esc(t('plaatsPrice'))}</label><input id="pl-price" name="price" type="number" min="0" required></div>
+        <div class="ww-field"><label for="pl-name">${esc(t('plaatsName'))}</label><input id="pl-name" name="name" required maxlength="80" autocomplete="name"></div>
+        <div class="ww-field"><label for="pl-email">${esc(t('plaatsEmail'))}</label><input id="pl-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
+        <div class="ww-field"><label for="pl-phone">${esc(t('plaatsPhone'))}</label><input id="pl-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel"></div>
+        <div class="ww-field"><label for="pl-address">${esc(t('plaatsAddress'))}</label><input id="pl-address" name="address" required maxlength="120"></div>
+        <div class="ww-field"><label for="pl-postcode">${esc(t('plaatsPostcode'))}</label><input id="pl-postcode" name="postcode" required maxlength="12" autocomplete="postal-code" placeholder="1234 AB"></div>
+        <div class="ww-field"><label for="pl-city">${esc(t('plaatsCity'))}</label><input id="pl-city" name="city" required maxlength="60"></div>
+        <div class="ww-field"><label for="pl-price">${esc(t('plaatsPrice'))}</label><input id="pl-price" name="price" type="number" min="1" max="20000" required></div>
         <div class="ww-field"><label for="pl-type">${esc(t('plaatsType'))}</label>
-          <select id="pl-type" name="type">
+          <select id="pl-type" name="type" required>
             <option value="Appartement">${esc(t('apartment'))}</option>
             <option value="Huis">${esc(t('house'))}</option>
             <option value="Studio">${esc(t('studio'))}</option>
@@ -675,58 +764,61 @@ function renderPlaats(){
           </select>
         </div>
         <div class="ww-field"><label for="pl-beds">${esc(t('plaatsBeds'))}</label><input id="pl-beds" name="beds" type="number" min="0" max="20"></div>
-        <div class="ww-field"><label for="pl-area">${esc(t('plaatsArea'))}</label><input id="pl-area" name="area" type="number" min="0"></div>
-        <div class="ww-field" style="grid-column:1/-1"><label for="pl-desc">${esc(t('plaatsDesc'))}</label><textarea id="pl-desc" name="desc" rows="4"></textarea></div>
-        <div class="ww-field" style="grid-column:1/-1"><label for="pl-photo">${esc(t('plaatsPhoto'))}</label><input id="pl-photo" name="photo" type="url" placeholder="https://"></div>
+        <div class="ww-field"><label for="pl-area">${esc(t('plaatsArea'))}</label><input id="pl-area" name="area" type="number" min="0" max="2000"></div>
+        <div class="ww-field"><label for="pl-avail">${esc(t('plaatsAvail'))}</label><input id="pl-avail" name="availableFrom" type="date"></div>
+        <div class="ww-field" style="grid-column:1/-1"><label for="pl-desc">${esc(t('plaatsDesc'))}</label><textarea id="pl-desc" name="desc" rows="4" maxlength="2000"></textarea></div>
+        <div class="ww-field" style="grid-column:1/-1"><label for="pl-photo">${esc(t('plaatsPhoto'))}</label><input id="pl-photo" name="photo" type="url" placeholder="https://" maxlength="500"></div>
+        <div class="ww-field" style="grid-column:1/-1"><label><input id="pl-consent" name="consent" type="checkbox" required> ${esc(t('plaatsConsent'))}</label></div>
         <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn" type="submit">${esc(t('plaatsSubmit'))}</button></div>
       </form>
       <p class="ww-status" id="plaats-status" role="status"></p>
-      ${a.plaatsListings.length?`<h2 style="margin-top:28px">${esc(t('plaatsTitle'))} (${a.plaatsListings.length})</h2>
-        <div class="ww-cards">${a.plaatsListings.slice().reverse().map(item=>`<article class="ww-zcard">
-          <h3>${esc(item.address)}</h3>
-          <p>${esc(item.city)} · ${item.price?esc(String(item.price))+' €':''}</p>
-          <p>${esc(item.type||'')} · ${item.beds!=null?esc(String(item.beds))+' '+esc(t('bed')):''}</p>
-        </article>`).join('')}</div>`:''}
-    </div>`:`<div class="ww-panel ww-gate">
-      <p class="ww-locked">${esc(t('plaatsNeedLogin'))}</p>
-      <div class="ww-actions">
-        <a class="ww-btn" href="/account/">${esc(t('account'))}</a>
-        <a class="ww-btn secondary" href="/">${esc(t('openHomes'))}</a>
-      </div>
-    </div>`}
+    </div>
   </div>`;
   const form=document.querySelector('#plaats-form');
-  if(form)form.onsubmit=e=>{
+  if(!form)return;
+  form.onsubmit=async e=>{
     e.preventDefault();
-    const next=loadAccount();
-    if(!isLoggedIn(next)){renderPlaats();return}
+    const st=document.querySelector('#plaats-status');
+    const btn=form.querySelector('button[type="submit"]');
     const fd=new FormData(form);
-    next.plaatsListings.push({
-      id:uid(),
+    const num=k=>{const v=fd.get(k);return v===''||v==null?'':Number(v)};
+    const body={
+      name:String(fd.get('name')||'').trim(),
+      email:String(fd.get('email')||'').trim(),
+      phone:String(fd.get('phone')||'').trim(),
       address:String(fd.get('address')||'').trim(),
+      postcode:String(fd.get('postcode')||'').trim(),
       city:String(fd.get('city')||'').trim(),
-      price:Number(fd.get('price')||0),
+      price:num('price'),
       type:String(fd.get('type')||''),
-      beds:fd.get('beds')!==''?Number(fd.get('beds')):'',
-      area:fd.get('area')!==''?Number(fd.get('area')):'',
+      beds:num('beds'),
+      area:num('area'),
+      availableFrom:String(fd.get('availableFrom')||''),
       desc:String(fd.get('desc')||'').trim(),
       photo:String(fd.get('photo')||'').trim(),
-      at:new Date().toISOString()
-    });
-    saveAccount(next);
-    const st=document.querySelector('#plaats-status');
-    if(st)st.textContent=t('plaatsOk');
-    form.reset();
-    setTimeout(()=>renderPlaats(),600);
+      consent:!!fd.get('consent')
+    };
+    if(btn)btn.disabled=true;
+    if(st)st.textContent='';
+    try{
+      const r=await fetch('/api/plaats',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});
+      if(r.status===503){if(st)st.textContent=t('plaatsClosed');return}
+      if(!r.ok){if(st)st.textContent=t('plaatsErr');return}
+      if(st)st.textContent=t('plaatsOk');
+      form.reset();
+    }catch{
+      if(st)st.textContent=t('plaatsErr');
+    }finally{
+      if(btn)btn.disabled=false;
+    }
   };
 }
-
 
 function bindWwCheckoutButtons(root){
   (root||document).querySelectorAll('[data-ww-checkout]').forEach(b=>{
     if(b.dataset.wwCheckoutBound)return;
     b.dataset.wwCheckoutBound='1';
-    b.addEventListener('click',e=>{e.preventDefault();if(typeof window.startBellenCheckout==='function')window.startBellenCheckout();else location.href='/prijzen/'});
+    b.addEventListener('click',e=>{e.preventDefault();if(typeof window.startBellenCheckout==='function')window.startBellenCheckout(b.getAttribute('data-ww-checkout')==='ideal'?'ideal':undefined);else location.href='/prijzen/'});
   });
 }
 async function handleCheckoutQuery(){
@@ -738,10 +830,48 @@ async function handleCheckoutQuery(){
     statusEl(t('planBellen')+' ✓');
   }else if(c==='unavailable'){
     statusEl('Mollie niet geconfigureerd — unlock gesloten.');
+  }else if(c==='pending'||c==='open'||c==='authorized'){
+    // Return-before-paid race: poll return?format=json a few times, then refresh entitlement.
+    statusEl('Betaling wordt verwerkt…');
+    const paymentId=q.get('payment_id');
+    const customerId=q.get('customer_id');
+    if(paymentId||customerId){
+      const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+      for(let i=0;i<6;i++){
+        await sleep(i===0?1200:2000);
+        try{
+          const params=new URLSearchParams({format:'json'});
+          if(paymentId)params.set('payment_id',paymentId);
+          if(customerId)params.set('customer_id',customerId);
+          const r=await fetch('/api/checkout/return?'+params.toString(),{credentials:'include',cache:'no-store',headers:{Accept:'application/json'}});
+          const j=await r.json().catch(()=>({}));
+          if(j&&j.status==='paid'){
+            if(typeof window.refreshEntitlement==='function')await window.refreshEntitlement();
+            if(typeof window.wwIsBellen==='function'&&window.wwIsBellen()){
+              statusEl(t('planBellen')+' ✓');
+              try{history.replaceState({},'', '/account/?checkout=success')}catch{}
+              renderAccount();
+              return;
+            }
+          }
+          if(j&&j.status&&!['open','pending','authorized'].includes(j.status))break;
+        }catch{}
+      }
+      if(typeof window.refreshEntitlement==='function')await window.refreshEntitlement();
+      if(typeof window.wwIsBellen==='function'&&window.wwIsBellen()){
+        statusEl(t('planBellen')+' ✓');
+        try{history.replaceState({},'', '/account/?checkout=success')}catch{}
+        renderAccount();
+      }else{
+        statusEl('Betaling nog niet bevestigd — vernieuw over enkele seconden of check je bank.');
+      }
+    }
   }
 }
 
 window.renderAccount=renderAccount;
+window.renderSignup=renderSignup;
+window.renderLoginPage=renderLoginPage;
 window.renderPlaats=renderPlaats;
 window.hasBellenAccess=hasBellenAccess;
 
@@ -844,7 +974,7 @@ function syncNavAuth(){
   if(logged){
     el.innerHTML=`<a class="nav-signin" href="/account/">${esc(label||t('account'))}</a>`;
   }else{
-    el.innerHTML=`<a class="nav-signin" href="/account/" data-t="signIn"></a><a class="nav-signup" href="/account/?mode=signup" data-t="signUp"></a>`;
+    el.innerHTML=`<a class="nav-signin" href="/login/" data-t="signIn"></a><a class="nav-signup" href="/signup/" data-t="signUp"></a>`;
     el.querySelectorAll('[data-t]').forEach(n=>{ try{ n.textContent=t(n.dataset.t) }catch{} });
   }
 }
@@ -920,7 +1050,10 @@ async function handleOAuthQuery(){
         history.replaceState({},'',u.pathname+(u.search||'')+(u.hash||''));
       }catch{}
       if(!isLoggedIn(loadAccount())){/* keep */}
-      else if(document.querySelector('#acc-login')||document.querySelector('.ww-gate'))renderAccount();
+      else if(document.querySelector('#acc-signup-form')||document.querySelector('#acc-login-resend')||document.querySelector('.ww-auth-page')||document.querySelector('.ww-gate')){
+        if(location.pathname.indexOf('/signup')>=0||location.pathname.indexOf('/login')>=0)location.replace('/account/');
+        else renderAccount();
+      }
     }else{
       statusEl(t('googleLoginErr'));
     }
@@ -936,21 +1069,61 @@ async function handleOAuthQuery(){
     }catch{}
   }
 }
+
+async function handleConfirmQuery(){
+  const q=new URLSearchParams(location.search);
+  const confirmed=q.get('confirmed')||q.get('confirm');
+  if(!confirmed)return;
+  const ok=confirmed==='1'||confirmed==='ok'||confirmed==='true';
+  if(ok){
+    const user=await fetchAuthMe();
+    if(user){
+      mergeServerUser(user);
+      statusEl(t('confirmOk')||t('emailConfirmed'));
+      syncNavAuth();
+      try{
+        const u=new URL(location.href);
+        u.searchParams.delete('confirmed');
+        u.searchParams.delete('confirm');
+        history.replaceState({},'',u.pathname+(u.search||'')+(u.hash||''));
+      }catch{}
+      if(location.pathname.indexOf('/signup')>=0||location.pathname.indexOf('/login')>=0){
+        location.replace('/account/?confirm=ok');
+        return;
+      }
+      if(isLoggedIn(loadAccount()))renderAccount();
+    }else{
+      statusEl(t('confirmErr')||t('confirmFailed'));
+    }
+  }else{
+    statusEl(t('confirmErr')||t('confirmFailed'));
+    try{
+      const u=new URL(location.href);
+      u.searchParams.delete('confirmed');
+      u.searchParams.delete('confirm');
+      history.replaceState({},'',u.pathname+(u.search||'')+(u.hash||''));
+    }catch{}
+  }
+}
+
 async function bootstrapGoogleSession(){
   try{
     const status=await fetchAuthStatus();
     if(status&&status.loggedIn&&status.user){
       mergeServerUser(status.user);
       syncNavAuth();
-      if(typeof main!=='undefined'&&main&&location.pathname.indexOf('/account')>=0){
-        if(document.querySelector('#acc-login')||document.querySelector('.ww-gate'))renderAccount();
+      if(typeof main!=='undefined'&&main){
+        const p=location.pathname;
+        if(p.indexOf('/account')>=0 && (document.querySelector('.ww-auth-page')||document.querySelector('.ww-gate')))renderAccount();
+        else if((p.indexOf('/signup')>=0||p.indexOf('/login')>=0) && isLoggedIn(loadAccount()))location.replace('/account/');
       }
     }else{
       serverAuthed=false;
       syncNavAuth();
     }
   }catch{serverAuthed=false}
-  if(location.pathname.indexOf('/account')>=0){
+  const path=location.pathname;
+  if(path.indexOf('/account')>=0||path.indexOf('/signup')>=0||path.indexOf('/login')>=0){
     await handleOAuthQuery();
     await handleConfirmQuery();
   }

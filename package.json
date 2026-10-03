@@ -1,10 +1,10 @@
 {
   "name": "woonwekker",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Woonwekker: Vercel serves committed dist/ + /api serverless; server.cjs is local-only (npm start / npm run dev:local).",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test test/*.test.cjs",
+    "build": "node -e \"console.log('Woonwekker: static dist committed; no compile')\"",
     "start": "node server.cjs",
     "dev:local": "node server.cjs"
   },
