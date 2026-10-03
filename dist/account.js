@@ -697,21 +697,23 @@ function bindAccountPanel(a){
 }
 
 function renderPlaats(){
-  const a=loadAccount();
-  const logged=isLoggedIn(a);
   main.innerHTML=`<div class="ww-account">
     <div class="page-head compact">
       <div class="eyebrow">${esc(t('listHome'))}</div>
       <h1>${esc(t('plaatsTitle'))}</h1>
       <p class="lead">${esc(t('plaatsIntro'))}</p>
     </div>
-    ${logged?`<div class="ww-panel">
+    <div class="ww-panel">
       <form id="plaats-form" class="ww-grid2">
-        <div class="ww-field"><label for="pl-address">${esc(t('plaatsAddress'))}</label><input id="pl-address" name="address" required></div>
-        <div class="ww-field"><label for="pl-city">${esc(t('plaatsCity'))}</label><input id="pl-city" name="city" required></div>
-        <div class="ww-field"><label for="pl-price">${esc(t('plaatsPrice'))}</label><input id="pl-price" name="price" type="number" min="0" required></div>
+        <div class="ww-field"><label for="pl-name">${esc(t('plaatsName'))}</label><input id="pl-name" name="name" required maxlength="80" autocomplete="name"></div>
+        <div class="ww-field"><label for="pl-email">${esc(t('plaatsEmail'))}</label><input id="pl-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
+        <div class="ww-field"><label for="pl-phone">${esc(t('plaatsPhone'))}</label><input id="pl-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel"></div>
+        <div class="ww-field"><label for="pl-address">${esc(t('plaatsAddress'))}</label><input id="pl-address" name="address" required maxlength="120"></div>
+        <div class="ww-field"><label for="pl-postcode">${esc(t('plaatsPostcode'))}</label><input id="pl-postcode" name="postcode" required maxlength="12" autocomplete="postal-code" placeholder="1234 AB"></div>
+        <div class="ww-field"><label for="pl-city">${esc(t('plaatsCity'))}</label><input id="pl-city" name="city" required maxlength="60"></div>
+        <div class="ww-field"><label for="pl-price">${esc(t('plaatsPrice'))}</label><input id="pl-price" name="price" type="number" min="1" max="20000" required></div>
         <div class="ww-field"><label for="pl-type">${esc(t('plaatsType'))}</label>
-          <select id="pl-type" name="type">
+          <select id="pl-type" name="type" required>
             <option value="Appartement">${esc(t('apartment'))}</option>
             <option value="Huis">${esc(t('house'))}</option>
             <option value="Studio">${esc(t('studio'))}</option>
@@ -719,52 +721,55 @@ function renderPlaats(){
           </select>
         </div>
         <div class="ww-field"><label for="pl-beds">${esc(t('plaatsBeds'))}</label><input id="pl-beds" name="beds" type="number" min="0" max="20"></div>
-        <div class="ww-field"><label for="pl-area">${esc(t('plaatsArea'))}</label><input id="pl-area" name="area" type="number" min="0"></div>
-        <div class="ww-field" style="grid-column:1/-1"><label for="pl-desc">${esc(t('plaatsDesc'))}</label><textarea id="pl-desc" name="desc" rows="4"></textarea></div>
-        <div class="ww-field" style="grid-column:1/-1"><label for="pl-photo">${esc(t('plaatsPhoto'))}</label><input id="pl-photo" name="photo" type="url" placeholder="https://"></div>
+        <div class="ww-field"><label for="pl-area">${esc(t('plaatsArea'))}</label><input id="pl-area" name="area" type="number" min="0" max="2000"></div>
+        <div class="ww-field"><label for="pl-avail">${esc(t('plaatsAvail'))}</label><input id="pl-avail" name="availableFrom" type="date"></div>
+        <div class="ww-field" style="grid-column:1/-1"><label for="pl-desc">${esc(t('plaatsDesc'))}</label><textarea id="pl-desc" name="desc" rows="4" maxlength="2000"></textarea></div>
+        <div class="ww-field" style="grid-column:1/-1"><label for="pl-photo">${esc(t('plaatsPhoto'))}</label><input id="pl-photo" name="photo" type="url" placeholder="https://" maxlength="500"></div>
+        <div class="ww-field" style="grid-column:1/-1"><label><input id="pl-consent" name="consent" type="checkbox" required> ${esc(t('plaatsConsent'))}</label></div>
         <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn" type="submit">${esc(t('plaatsSubmit'))}</button></div>
       </form>
       <p class="ww-status" id="plaats-status" role="status"></p>
-      ${a.plaatsListings.length?`<h2 style="margin-top:28px">${esc(t('plaatsTitle'))} (${a.plaatsListings.length})</h2>
-        <div class="ww-cards">${a.plaatsListings.slice().reverse().map(item=>`<article class="ww-zcard">
-          <h3>${esc(item.address)}</h3>
-          <p>${esc(item.city)} · ${item.price?esc(String(item.price))+' €':''}</p>
-          <p>${esc(item.type||'')} · ${item.beds!=null?esc(String(item.beds))+' '+esc(t('bed')):''}</p>
-        </article>`).join('')}</div>`:''}
-    </div>`:`<div class="ww-panel ww-gate">
-      <p class="ww-locked">${esc(t('plaatsNeedLogin'))}</p>
-      <div class="ww-actions">
-        <a class="ww-btn" href="/login/?next=/plaats/">${esc(t('signIn'))}</a>
-        <a class="ww-btn secondary" href="/signup/">${esc(t('signUp'))}</a>
-      </div>
-    </div>`}
+    </div>
   </div>`;
   const form=document.querySelector('#plaats-form');
-  if(form)form.onsubmit=e=>{
+  if(!form)return;
+  form.onsubmit=async e=>{
     e.preventDefault();
-    const next=loadAccount();
-    if(!isLoggedIn(next)){renderPlaats();return}
+    const st=document.querySelector('#plaats-status');
+    const btn=form.querySelector('button[type="submit"]');
     const fd=new FormData(form);
-    next.plaatsListings.push({
-      id:uid(),
+    const num=k=>{const v=fd.get(k);return v===''||v==null?'':Number(v)};
+    const body={
+      name:String(fd.get('name')||'').trim(),
+      email:String(fd.get('email')||'').trim(),
+      phone:String(fd.get('phone')||'').trim(),
       address:String(fd.get('address')||'').trim(),
+      postcode:String(fd.get('postcode')||'').trim(),
       city:String(fd.get('city')||'').trim(),
-      price:Number(fd.get('price')||0),
+      price:num('price'),
       type:String(fd.get('type')||''),
-      beds:fd.get('beds')!==''?Number(fd.get('beds')):'',
-      area:fd.get('area')!==''?Number(fd.get('area')):'',
+      beds:num('beds'),
+      area:num('area'),
+      availableFrom:String(fd.get('availableFrom')||''),
       desc:String(fd.get('desc')||'').trim(),
       photo:String(fd.get('photo')||'').trim(),
-      at:new Date().toISOString()
-    });
-    saveAccount(next);
-    const st=document.querySelector('#plaats-status');
-    if(st)st.textContent=t('plaatsOk');
-    form.reset();
-    setTimeout(()=>renderPlaats(),600);
+      consent:!!fd.get('consent')
+    };
+    if(btn)btn.disabled=true;
+    if(st)st.textContent='';
+    try{
+      const r=await fetch('/api/plaats',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});
+      if(r.status===503){if(st)st.textContent=t('plaatsClosed');return}
+      if(!r.ok){if(st)st.textContent=t('plaatsErr');return}
+      if(st)st.textContent=t('plaatsOk');
+      form.reset();
+    }catch{
+      if(st)st.textContent=t('plaatsErr');
+    }finally{
+      if(btn)btn.disabled=false;
+    }
   };
 }
-
 
 function bindWwCheckoutButtons(root){
   (root||document).querySelectorAll('[data-ww-checkout]').forEach(b=>{
