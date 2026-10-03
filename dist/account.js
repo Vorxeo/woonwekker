@@ -18,6 +18,7 @@ function defaultAccount(){
     profile:{name:'',email:'',phone:'',plan:'kijken',bellenPaid:false,avatar:'',income:'',bio:''},
     zoekprofielen:[],
     alerts:{email:true,whatsapp:false,phone:''},
+    notifications:{emailConfirmed:false,city:'',maxPrice:'',type:''},
     templates:{...DEFAULT_TEMPLATES},
     zoekgenoot:{name:'',email:''},
     pipeline:{reacted:[],visited:[]},
@@ -69,6 +70,18 @@ function sanitizeZoekprofielen(list){
   return list.slice(0,4).map(sanitizeZoekEntry).filter(z=>z.id||z.name||z.city);
 }
 
+function sanitizeNotifications(raw){
+  const o=raw&&typeof raw==='object'&&!Array.isArray(raw)?raw:{};
+  const TYPE_OK=new Set(['Appartement','Huis','Studio','Kamer']);
+  const type=TYPE_OK.has(String(o.type||''))?String(o.type):'';
+  const digits=String(o.maxPrice==null?'':o.maxPrice).replace(/[^\d]/g,'').slice(0,7);
+  return {
+    emailConfirmed:o.emailConfirmed===true,
+    city:String(o.city||'').trim().slice(0,80),
+    maxPrice:digits,
+    type
+  };
+}
 function sanitizeProfile(p){
   const o=p&&typeof p==='object'?p:{};
   // Display-only: mirror wwIsBellen if present; never trust raw localStorage paid flag for unlock.
@@ -95,6 +108,7 @@ function loadAccount(){
       profile:sanitizeProfile({...base.profile,...(raw.profile||{})}),
       zoekprofielen:sanitizeZoekprofielen(raw.zoekprofielen),
       alerts:{...base.alerts,...(raw.alerts||{})},
+      notifications:sanitizeNotifications(raw.notifications),
       templates:{...base.templates,...(raw.templates||{})},
       zoekgenoot:{...base.zoekgenoot,...(raw.zoekgenoot||{})},
       pipeline:{
@@ -173,6 +187,7 @@ function renderAccount(){
   const tabs=[
     ['profile',t('profileTitle')],
     ['zoek',t('zoekprofielen')],
+    ['notify',t('notifyTitle')],
     ['alerts',t('alertsTitle')],
     ['reactie',t('reactieTitle')],
     ['zoekgenoot',t('zoekgenootTitle')],
@@ -383,6 +398,7 @@ function drawAccountPanel(a){
   if(!panel)return;
   if(accTab==='profile')panel.innerHTML=profilePanel(a);
   else if(accTab==='zoek')panel.innerHTML=zoekPanel(a);
+  else if(accTab==='notify')panel.innerHTML=notificationsPanel(a);
   else if(accTab==='alerts')panel.innerHTML=alertsPanel(a);
   else if(accTab==='reactie')panel.innerHTML=reactiePanel(a);
   else if(accTab==='zoekgenoot')panel.innerHTML=zoekgenootPanel(a);
@@ -424,6 +440,29 @@ function profilePanel(a){
         <p class="ww-status">${esc(t('bioHint'))}</p>
       </div>
       <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn" type="submit">${esc(t('saveProfile'))}</button></div>
+    </form>
+  </div>`;
+}
+
+function notificationsPanel(a){
+  const n=sanitizeNotifications(a&&a.notifications);
+  const email=a&&a.profile&&a.profile.email?a.profile.email:'';
+  return`<div class="ww-panel" id="notify-section">
+    <h2>${esc(t('notifyTitle'))}</h2>
+    <p class="ww-status">${esc(t('notifyHint'))}</p>
+    <p class="ww-status">${esc(email)}</p>
+    <form id="notify-form">
+      <label class="ww-check"><input type="checkbox" name="emailConfirmed" ${n.emailConfirmed===true?'checked':''}> ${esc(t('notifyConfirm'))}</label>
+      <div class="ww-field"><label for="notify-city">${esc(t('notifyCity'))}</label><input id="notify-city" name="city" maxlength="80" value="${esc(n.city||'')}"></div>
+      <div class="ww-field"><label for="notify-price">${esc(t('notifyMaxPrice'))}</label><input id="notify-price" name="maxPrice" inputmode="numeric" value="${esc(n.maxPrice||'')}"></div>
+      <div class="ww-field"><label for="notify-type">${esc(t('notifyType'))}</label>
+        <select id="notify-type" name="type">
+          <option value="">—</option>
+          ${['Appartement','Huis','Studio','Kamer'].map(v=>`<option value="${v}" ${n.type===v?'selected':''}>${esc(v)}</option>`).join('')}
+        </select>
+      </div>
+      <p class="ww-status">${esc(t('notifyMatchNote'))}</p>
+      <div class="ww-actions"><button class="ww-btn" type="submit">${esc(t('saveProfile'))}</button></div>
     </form>
   </div>`;
 }
@@ -656,6 +695,22 @@ function bindAccountPanel(a){
     }
     statusEl(t('savedOk'));
   });
+
+  const notify=document.querySelector('#notify-form');
+  if(notify)notify.onsubmit=e=>{
+    e.preventDefault();
+    const next=loadAccount();
+    const box=notify.querySelector('[name="emailConfirmed"]');
+    next.notifications=sanitizeNotifications({
+      emailConfirmed:!!(box&&box.checked),
+      city:notify.city.value,
+      maxPrice:notify.maxPrice.value,
+      type:notify.type.value
+    });
+    saveAccount(next);
+    statusEl(t('savedOk'));
+    renderAccount();
+  };
 
   const alerts=document.querySelector('#alerts-form');
   if(alerts)alerts.onsubmit=e=>{
