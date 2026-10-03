@@ -244,3 +244,5 @@ header.nav-open .nav-toggle-bars:after{transform:rotate(-45deg)}
   .view-plate{border-radius:14px}
   .view-arrow svg{width:19px;height:19px}
 }
+
+.hero p.expat-line{margin:8px 0 0;font-size:15px;font-weight:500;line-height:1.5;color:var(--muted);max-width:440px}

@@ -288,11 +288,11 @@ describe('Bellen 1-day trial → subscription', () => {
         n++;
         const v = m[1];
         assert.ok(
-          /1 dag gratis|1 day free|1 día gratis|1 dzień za darmo|1 dia grátis/i.test(v),
+          /1 dag gratis|1 day free|1 día gratis|1 dzień za darmo|1 dia grátis|1 zi gratuită|1 ден безплатно|1 giorno gratis/i.test(v),
           `${key} locale missing 1-day trial: ${v.slice(0, 80)}`
         );
       }
-      assert.equal(n, 5, key + ' should exist in 5 locales');
+      assert.equal(n, 8, key + ' should exist in 8 locales');
     }
   });
 });
