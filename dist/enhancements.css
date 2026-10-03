@@ -125,3 +125,12 @@
 .insights-article{max-width:760px}
 .insights-article h2{font-size:22px;letter-spacing:-.4px;margin:1.5em 0 .4em}
 @media(max-width:780px){.insights-grid{grid-template-columns:1fr}.insight-cover{border-radius:16px}}
+
+.ww-contract .listing{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:12px 0 16px}
+.ww-contract .points{display:grid;gap:12px;margin-top:16px}
+.ww-contract .point,.ww-chegada .item{border:1px solid rgba(15,61,62,.12);border-radius:16px;padding:14px 16px;background:#fff}
+.ww-contract .point h2,.ww-chegada .item h2{font-size:1rem;margin:0 0 6px}
+.ww-contract blockquote{margin:0 0 8px;padding-left:12px;border-left:3px solid #0f3d3e}
+.ww-contract .absent,.ww-contract .warn{color:#3d4f55}
+.ww-chegada .item{margin:12px 0}
+.ww-chegada .ww-check{display:flex;gap:8px;align-items:flex-start}

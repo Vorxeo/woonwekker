@@ -9,6 +9,8 @@ const DEFAULT_TEMPLATES={
   student:'Beste {naam},\n\nAls student ben ik op zoek naar woonruimte en heb interesse in uw woning. Is deze nog beschikbaar voor studenten, en wanneer kan ik langskomen?\n\nMet vriendelijke groet'
 };
 const CHECK_KEYS=['checkId','checkIncome','checkEmployer','checkBank','checkKvK','checkDeposit','checkRefs'];
+const CHEGADA_KEYS=['digid','brp','bsn','insurance'];
+function sanitizeChegada(o){const src=o&&typeof o==='object'?o:{};const out={};CHEGADA_KEYS.forEach(k=>{out[k]=src[k]===true});return out;}
 let accTab='profile';
 let pipeTab='fav';
 let serverAuthed=false; // true only after Google or email-confirm session
@@ -22,6 +24,7 @@ function defaultAccount(){
     zoekgenoot:{name:'',email:''},
     pipeline:{reacted:[],visited:[]},
     checklist:Object.fromEntries(CHECK_KEYS.map(k=>[k,false])),
+    chegada:sanitizeChegada(null),
     plaatsListings:[]
   };
 }
@@ -102,6 +105,7 @@ function loadAccount(){
         visited:Array.isArray(raw.pipeline?.visited)?raw.pipeline.visited.filter(u=>typeof u==='string'):[]
       },
       checklist:{...base.checklist,...(raw.checklist||{})},
+      chegada:sanitizeChegada(raw.chegada),
       plaatsListings:Array.isArray(raw.plaatsListings)?raw.plaatsListings:[]
     };
   }catch{return base}
@@ -556,8 +560,10 @@ function pipelinePanel(a){
 }
 
 function checklistPanel(a){
+  const chegadaLabel=({nl:'Aankomst: DigiD, gemeente, BSN, zorgverzekering',en:'Arrival: DigiD, municipality, BSN, health insurance',es:'Llegada: DigiD, municipio, BSN, seguro de salud',pl:'Przyjazd: DigiD, gmina, BSN, ubezpieczenie',pt:'Chegada: DigiD, município, BSN, seguro de saúde',ro:'Sosire: DigiD, primărie, BSN, asigurare',bg:'Пристигане: DigiD, община, BSN, осигуровка',it:'Arrivo: DigiD, comune, BSN, assicurazione'})[lang]||'Arrival';
   return`<div class="ww-panel">
     <h2>${esc(t('checklistTitle'))}</h2>
+    <p><a href="/chegada/">${esc(chegadaLabel)}</a></p>
     <form id="check-form">${CHECK_KEYS.map(k=>`<label class="ww-check"><input type="checkbox" name="${k}" ${a.checklist[k]?'checked':''}> ${esc(t(k))}</label>`).join('')}
       <div class="ww-actions"><button class="ww-btn" type="submit">${esc(t('saveProfile'))}</button></div>
     </form>
@@ -1123,6 +1129,7 @@ async function bootstrapGoogleSession(){
     }
   }catch{serverAuthed=false}
   const path=location.pathname;
+  if(path.indexOf('/chegada')>=0 && window.wwRenderChegada) window.wwRenderChegada();
   if(path.indexOf('/account')>=0||path.indexOf('/signup')>=0||path.indexOf('/login')>=0){
     await handleOAuthQuery();
     await handleConfirmQuery();
