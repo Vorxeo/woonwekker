@@ -14,7 +14,7 @@ module.exports = async function handler(req, res) {
     return sendJson(res, 503, {
       error: 'payments_unavailable',
       message:
-        'Mollie not configured. Set MOLLIE_API_KEY or Mollie_Api_Key in Vercel Production env (server-only). Unlock remains closed.',
+        'Mollie not configured. Set MOLLIE_API_KEY, Mollie_Api_Key, or mollie_api_key in Vercel Production env (server-only). Unlock remains closed.',
     });
   }
   let body = {};

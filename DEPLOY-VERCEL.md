@@ -9,7 +9,7 @@ Create/link the project if needed (project already exists as `woonwekker` / `prj
 ```bash
 cd /workspace/woonwekker
 npx vercel link          # or: vercel project add woonwekker
-npx vercel env add MOLLIE_API_KEY production   # or Mollie_Api_Key — either name; live_/test_ — server-only
+npx vercel env add MOLLIE_API_KEY production   # or Mollie_Api_Key / mollie_api_key; live_/test_ — server-only
 npx vercel env add WW_ENTITLEMENT_SECRET production
 npx vercel env add GOOGLE_CLIENT_ID production
 npx vercel env add GOOGLE_CLIENT_SECRET production
@@ -21,7 +21,7 @@ npx vercel --prod
 ## Env (Production, server-only)
 | Key | Required | Notes |
 |-----|----------|-------|
-| `MOLLIE_API_KEY` or `Mollie_Api_Key` | yes (either) | Mollie dashboard; enable **iDEAL** (do not hardcode methods in code). Prefer `MOLLIE_API_KEY`; `Mollie_Api_Key` also accepted |
+| `MOLLIE_API_KEY`, `Mollie_Api_Key`, or `mollie_api_key` | yes (any) | Mollie dashboard; enable **iDEAL** (do not hardcode methods in code). The Vercel name `mollie_api_key` is accepted. |
 | `WW_ENTITLEMENT_SECRET` | yes on Vercel | HMAC for httpOnly `ww_bellen` cookie (+ session/state if `WW_AUTH_SECRET` unset) |
 | `WW_PUBLIC_BASE` | optional | Public site origin for Mollie redirect/webhook + Google redirect default |
 | `GOOGLE_CLIENT_ID` | for Google login | OAuth Web client — Consent **External** (any Google account; no `hd=`) |
@@ -50,6 +50,6 @@ npx vercel --prod
 - Public `dist/listings.json` is URL-redacted; `/listings.json` rewrites to `/api/listings` (entitlement-aware)
 
 ## Fail-closed
-If neither `MOLLIE_API_KEY` nor `Mollie_Api_Key` is set at runtime: `POST /api/checkout` → 503, no entitlement cookie, no source URLs.
+If none of `MOLLIE_API_KEY`, `Mollie_Api_Key`, or `mollie_api_key` is set at runtime: `POST /api/checkout` → 503, no entitlement cookie, no source URLs.
 If `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` missing: `GET /api/auth/google` → 503 JSON, `/api/auth/status` → `googleConfigured:false`. Google login ≠ Bellen unlock (`ww_bellen` untouched).
 If `RESEND_API_KEY` missing: `POST /api/auth/signup` → 503, never pretends email was sent. `resendConfigured:false` on status.

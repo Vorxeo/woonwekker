@@ -219,8 +219,10 @@ describe('Bellen 1-day trial → subscription', () => {
   it('4c) no Mollie key → mollieEnabled false; checkout path fail-closed (grant skips sub)', async () => {
     const prev = process.env.MOLLIE_API_KEY;
     const prevAlt = process.env.Mollie_Api_Key;
+    const prevLower = process.env.mollie_api_key;
     delete process.env.MOLLIE_API_KEY;
     delete process.env.Mollie_Api_Key;
+    delete process.env.mollie_api_key;
     try {
       assert.equal(gate.mollieEnabled(), false);
       const payload = await grantIfPaid({
@@ -237,6 +239,8 @@ describe('Bellen 1-day trial → subscription', () => {
       else process.env.MOLLIE_API_KEY = prev;
       if (prevAlt === undefined) delete process.env.Mollie_Api_Key;
       else process.env.Mollie_Api_Key = prevAlt;
+      if (prevLower === undefined) delete process.env.mollie_api_key;
+      else process.env.mollie_api_key = prevLower;
     }
   });
 
@@ -255,6 +259,25 @@ describe('Bellen 1-day trial → subscription', () => {
     }
   });
 
+
+  it('4e) mollie_api_key alone enables Mollie when the other names are unset', () => {
+    const prev = process.env.MOLLIE_API_KEY;
+    const prevAlt = process.env.Mollie_Api_Key;
+    const prevLower = process.env.mollie_api_key;
+    delete process.env.MOLLIE_API_KEY;
+    delete process.env.Mollie_Api_Key;
+    process.env.mollie_api_key = 'test_lowercase_name';
+    try {
+      assert.equal(gate.mollieEnabled(), true);
+    } finally {
+      if (prev === undefined) delete process.env.MOLLIE_API_KEY;
+      else process.env.MOLLIE_API_KEY = prev;
+      if (prevAlt === undefined) delete process.env.Mollie_Api_Key;
+      else process.env.Mollie_Api_Key = prevAlt;
+      if (prevLower === undefined) delete process.env.mollie_api_key;
+      else process.env.mollie_api_key = prevLower;
+    }
+  });
   it('5) copy gate: no leftover 14 money-back / geen trial / no trial in pricing strings', () => {
     const contentPath = path.join(__dirname, '..', 'dist', 'content.js');
     const s = fs.readFileSync(contentPath, 'utf8');
