@@ -112,7 +112,7 @@ const server = http.createServer(async (req, res) => {
     if (/^\/api\/listing\/[^/]+\/?$/.test(pathname) && req.method === 'GET') return listingId(req, res, url);
     if (pathname === '/api/auth/status' && req.method === 'GET') return authStatus(req, res, url);
     if (pathname === '/api/auth/google' && req.method === 'GET') return authGoogle(req, res, url);
-    if (pathname === '/api/auth/google/callback' && req.method === 'GET') return authGoogleCb(req, res, url);
+    if ((pathname === '/api/auth/callback/google' || pathname === '/api/auth/google/callback') && req.method === 'GET') return authGoogleCb(req, res, url);
     if (pathname === '/api/auth/me' && req.method === 'GET') return authMe(req, res, url);
     if (pathname === '/api/auth/logout' && (req.method === 'GET' || req.method === 'POST'))
       return authLogout(req, res, url);

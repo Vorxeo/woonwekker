@@ -1,7 +1,7 @@
 'use strict';
 const { describe, it } = require('node:test');
 const assert = require('node:assert/strict');
-const { googleConfigured } = require('../lib/ww-auth.cjs');
+const { googleConfigured, redirectUri } = require('../lib/ww-auth.cjs');
 
 describe('google oauth env names', () => {
   it('woonwekker_google_oauth_clientid and clientsecret enable Google when the old names are unset', () => {
@@ -26,6 +26,18 @@ describe('google oauth env names', () => {
       else process.env.woonwekker_google_oauth_clientid = prevAltId;
       if (prevAltSecret === undefined) delete process.env.woonwekker_google_oauth_clientsecret;
       else process.env.woonwekker_google_oauth_clientsecret = prevAltSecret;
+    }
+  });
+
+  it('sends the redirect uri Google has saved, with www and no trailing slash', () => {
+    const prev = process.env.GOOGLE_REDIRECT_URI;
+    delete process.env.GOOGLE_REDIRECT_URI;
+    try {
+      const uri = redirectUri({ headers: { host: 'www.woonwekker.nl', 'x-forwarded-proto': 'https' } });
+      assert.equal(uri, 'https://www.woonwekker.nl/api/auth/callback/google');
+    } finally {
+      if (prev === undefined) delete process.env.GOOGLE_REDIRECT_URI;
+      else process.env.GOOGLE_REDIRECT_URI = prev;
     }
   });
 });

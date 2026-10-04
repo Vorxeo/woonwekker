@@ -26,14 +26,14 @@ npx vercel --prod
 | `WW_PUBLIC_BASE` | optional | Public site origin for Mollie redirect/webhook + Google redirect default |
 | `GOOGLE_CLIENT_ID` or `woonwekker_google_oauth_clientid` | for Google login | OAuth Web client — Consent **External** (any Google account; no `hd=`) |
 | `GOOGLE_CLIENT_SECRET` or `woonwekker_google_oauth_clientsecret` | for Google login | Server-only; never ship to frontend |
-| `GOOGLE_REDIRECT_URI` | optional | Default `${WW_PUBLIC_BASE}/api/auth/google/callback` |
+| `GOOGLE_REDIRECT_URI` | optional | Default `${WW_PUBLIC_BASE}/api/auth/callback/google` |
 | `WW_AUTH_SECRET` | optional | Prefer separate secret for `ww_session` / OAuth state / confirm tokens; else entitlement secret |
 | `RESEND_API_KEY` | for email signup | Resend API key (server-only). Without it signup → 503 |
 | `RESEND_FROM` | optional | Default `Woonwekker <noreply@woonwekker.nl>` — must be verified domain |
 
 ### Google Cloud Console
 1. APIs & Services → Credentials → Create OAuth client ID → **Web application**
-2. Authorized redirect URIs: `https://YOUR_DOMAIN/api/auth/google/callback` (and local `http://127.0.0.1:4174/api/auth/google/callback` for box/dev)
+2. Authorized redirect URIs: `https://YOUR_DOMAIN/api/auth/callback/google` (and local `http://127.0.0.1:4174/api/auth/callback/google` for box/dev)
 3. OAuth consent screen: **External** — do not restrict to a Workspace domain
 
 ### Resend (email confirmation)

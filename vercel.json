@@ -29,6 +29,10 @@
       "destination": "/api/mollie/webhook"
     },
     {
+      "source": "/api/auth/callback/google",
+      "destination": "/api/auth/google/callback"
+    },
+    {
       "source": "/api/auth/google/callback",
       "destination": "/api/auth/google/callback"
     },
@@ -91,6 +95,10 @@
     {
       "source": "/api/mollie/webhook/",
       "destination": "/api/mollie/webhook"
+    },
+    {
+      "source": "/api/auth/callback/google/",
+      "destination": "/api/auth/google/callback"
     },
     {
       "source": "/api/auth/google/callback/",
