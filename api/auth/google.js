@@ -16,7 +16,7 @@ module.exports = async function handler(req, res) {
     return sendJson(res, 503, {
       error: 'google_unavailable',
       message:
-        'Google OAuth not configured. Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET (server-only).',
+        'Google OAuth not configured. Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET, or woonwekker_google_oauth_clientid and woonwekker_google_oauth_clientsecret (server-only).',
       googleConfigured: false,
     });
   }

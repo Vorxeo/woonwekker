@@ -2,7 +2,7 @@
 /**
  * Local API + static server for Woonwekker (dev / Verified proofs).
  * Shares Mollie + entitlement logic with Vercel api/* via lib/ww-gate.cjs.
- * Google OAuth via lib/ww-auth.cjs — fail-closed without GOOGLE_CLIENT_*.
+ * Google OAuth via lib/ww-auth.cjs — fail-closed without GOOGLE_CLIENT_* or woonwekker_google_oauth_clientid / woonwekker_google_oauth_clientsecret.
  * Fail-closed without MOLLIE_API_KEY, Mollie_Api_Key, or mollie_api_key — no fake unlock.
  */
 const http = require('http');

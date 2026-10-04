@@ -24,8 +24,8 @@ npx vercel --prod
 | `MOLLIE_API_KEY`, `Mollie_Api_Key`, or `mollie_api_key` | yes (any) | Mollie dashboard; enable **iDEAL** (do not hardcode methods in code). The Vercel name `mollie_api_key` is accepted. |
 | `WW_ENTITLEMENT_SECRET` | yes on Vercel | HMAC for httpOnly `ww_bellen` cookie (+ session/state if `WW_AUTH_SECRET` unset) |
 | `WW_PUBLIC_BASE` | optional | Public site origin for Mollie redirect/webhook + Google redirect default |
-| `GOOGLE_CLIENT_ID` | for Google login | OAuth Web client — Consent **External** (any Google account; no `hd=`) |
-| `GOOGLE_CLIENT_SECRET` | for Google login | Server-only; never ship to frontend |
+| `GOOGLE_CLIENT_ID` or `woonwekker_google_oauth_clientid` | for Google login | OAuth Web client — Consent **External** (any Google account; no `hd=`) |
+| `GOOGLE_CLIENT_SECRET` or `woonwekker_google_oauth_clientsecret` | for Google login | Server-only; never ship to frontend |
 | `GOOGLE_REDIRECT_URI` | optional | Default `${WW_PUBLIC_BASE}/api/auth/google/callback` |
 | `WW_AUTH_SECRET` | optional | Prefer separate secret for `ww_session` / OAuth state / confirm tokens; else entitlement secret |
 | `RESEND_API_KEY` | for email signup | Resend API key (server-only). Without it signup → 503 |
@@ -51,5 +51,5 @@ npx vercel --prod
 
 ## Fail-closed
 If none of `MOLLIE_API_KEY`, `Mollie_Api_Key`, or `mollie_api_key` is set at runtime: `POST /api/checkout` → 503, no entitlement cookie, no source URLs.
-If `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` missing: `GET /api/auth/google` → 503 JSON, `/api/auth/status` → `googleConfigured:false`. Google login ≠ Bellen unlock (`ww_bellen` untouched).
+If neither client id name nor either client secret name is set: `GET /api/auth/google` → 503 JSON, `/api/auth/status` → `googleConfigured:false`. Google login ≠ Bellen unlock (`ww_bellen` untouched).
 If `RESEND_API_KEY` missing: `POST /api/auth/signup` → 503, never pretends email was sent. `resendConfigured:false` on status.
