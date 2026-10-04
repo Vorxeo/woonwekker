@@ -246,3 +246,4 @@ header.nav-open .nav-toggle-bars:after{transform:rotate(-45deg)}
 }
 
 .hero p.expat-line{margin:8px 0 0;font-size:15px;font-weight:500;line-height:1.5;color:var(--muted);max-width:440px}
+footer .province-links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 16px;font-size:14px}.province-cities{font-size:15px;line-height:1.7;max-width:720px}.province-cities a{color:var(--blue);text-decoration:underline}

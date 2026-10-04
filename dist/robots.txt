@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Allow: /stad/
+Allow: /provincie/
 Allow: /privacy/
 Allow: /insights/
 

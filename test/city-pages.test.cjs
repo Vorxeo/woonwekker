@@ -146,10 +146,11 @@ describe('sitemap robots schema', () => {
     assert.match(robots, /^User-agent: \*$/m);
     assert.match(robots, /^Allow: \/$/m);
     assert.match(robots, /^Allow: \/stad\/$/m);
+    assert.match(robots, /^Allow: \/provincie\/$/m);
     assert.match(robots, /^Allow: \/privacy\/$/m);
     assert.match(robots, /^Allow: \/insights\/$/m);
     assert.match(robots, /^Sitemap: https:\/\/www\.woonwekker\.nl\/sitemap\.xml$/m);
-    assert.equal(/disallow:\s*\/(stad|privacy|insights)/i.test(robots), false);
+    assert.equal(/disallow:\s*\/(stad|provincie|privacy|insights)/i.test(robots), false);
   });
 
   it('describes each city as a collection of the listings on that page', () => {

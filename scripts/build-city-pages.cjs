@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const { groupListingsByCity } = require('../lib/ww-city.cjs');
+const { groupListingsByProvince } = require('../lib/ww-province.cjs');
 
 const root = path.join(__dirname, '..');
 const dist = path.join(root, 'dist');
@@ -42,12 +43,12 @@ function withCanonical(html, url) {
   return out.replace('</title>', `</title>${tag}`);
 }
 
-function walkHtml(dir, acc = [], skipStad = false) {
+function walkHtml(dir, acc = [], skipGenerated = false) {
   for (const name of fs.readdirSync(dir)) {
-    if (skipStad && dir === dist && name === 'stad') continue;
+    if (skipGenerated && dir === dist && (name === 'stad' || name === 'provincie')) continue;
     const full = path.join(dir, name);
     const stat = fs.statSync(full);
-    if (stat.isDirectory()) walkHtml(full, acc, skipStad);
+    if (stat.isDirectory()) walkHtml(full, acc, skipGenerated);
     else if (name.endsWith('.html')) acc.push(full);
   }
   return acc;
@@ -120,12 +121,12 @@ function graphFor(html) {
   };
   if (description) page.description = description;
   const names = listingNames(html);
-  if (/\/stad\/[^/]+\/$/.test(canonical)) {
-    if (!names.length) throw new Error('empty city page ' + canonical);
+  if (/\/stad\/[^/]+\/$/.test(canonical) || /\/provincie\/[^/]+\/$/.test(canonical)) {
+    if (!names.length) throw new Error('empty collection page ' + canonical);
     page['@type'] = 'CollectionPage';
-    const city = field(html, /<h1>([^<]*)<\/h1>/);
-    if (!city) throw new Error('city h1 missing ' + canonical);
-    page.about = { '@type': 'Place', name: city };
+    const place = field(html, /<h1>([^<]*)<\/h1>/);
+    if (!place) throw new Error('collection h1 missing ' + canonical);
+    page.about = { '@type': 'Place', name: place };
     page.mainEntity = {
       '@type': 'ItemList',
       numberOfItems: names.length,
@@ -141,13 +142,12 @@ function graphFor(html) {
 
 function upsertJsonLd(html, data) {
   const tag = `<script type="application/ld+json">${jsonForScript(data)}</script>`;
-  if (!html.includes('application/ld+json')) {
+  const re = /<script type="application\/ld\+json">[\s\S]*?<\/script>/;
+  if (!re.test(html)) {
     if (!html.includes('</head>')) throw new Error('missing head');
     return html.replace('</head>', `${tag}</head>`);
   }
-  const next = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, tag);
-  if (next === html) throw new Error('json-ld replace failed');
-  return next;
+  return html.replace(re, tag);
 }
 
 function stampSchema(file) {
@@ -172,7 +172,8 @@ function writeSitemap() {
   const unique = [...new Set(locs)];
   if (unique.length !== locs.length) throw new Error('duplicate canonical');
   unique.sort((a, b) => a.localeCompare(b));
-  const body = unique.map((loc) => `  <url><loc>${esc(loc)}</loc></url>`).join('\n');
+  const lastmod = '2026-10-04';
+  const body = unique.map((loc) => `  <url><loc>${esc(loc)}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n');
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
   fs.writeFileSync(path.join(dist, 'sitemap.xml'), xml);
   return unique.length;
@@ -183,42 +184,107 @@ function writeRobots() {
     'User-agent: *',
     'Allow: /',
     'Allow: /stad/',
+    'Allow: /provincie/',
     'Allow: /privacy/',
     'Allow: /insights/',
     '',
     `Sitemap: ${ORIGIN}/sitemap.xml`,
     '',
   ].join('\n');
-  if (/disallow:\s*\/(stad|privacy|insights)/i.test(robots)) {
+  if (/disallow:\s*\/(stad|provincie|privacy|insights)/i.test(robots)) {
     throw new Error('robots disallows a public section');
   }
   fs.writeFileSync(path.join(dist, 'robots.txt'), robots);
 }
 
+function provinceCopy(name) {
+  return {
+    title: `Huis te huur ${name} | Woonwekker`,
+    description: `Huis te huur in ${name}. Alleen het aanbod in plaatsen in ${name}.`,
+  };
+}
+
+function withProvinceFooter(html, provinces) {
+  const links = provinces.map((entry) => `<a href="/provincie/${entry.slug}/">${esc(entry.province)}</a>`).join('');
+  const block = `<div class="province-links">${links}</div>`;
+  if (!html.includes('<footer>')) return html;
+  return html.replace(/<footer>([\s\S]*?)<\/footer>/, (full, inner) => {
+    let next = inner.replace(/<div class="province-links">[\s\S]*?<\/div>/, '');
+    if (!next.includes('<small>')) throw new Error('footer copyright missing');
+    next = next.replace('<small>', `${block}<small>`);
+    return `<footer>${next}</footer>`;
+  });
+}
+
 function main() {
   const rows = JSON.parse(fs.readFileSync(path.join(dist, 'listings.json'), 'utf8'));
   const grouped = groupListingsByCity(rows);
+  const byProvince = groupListingsByProvince(rows);
   if (grouped.slugClash) {
     console.error('slug clash', grouped.slugClash);
     process.exit(1);
   }
   for (const file of walkHtml(dist, [], true)) {
-    const href = ORIGIN + publicPath(file);
-    const next = withCanonical(fs.readFileSync(file, 'utf8'), href);
-    fs.writeFileSync(file, next);
+    let html = withProvinceFooter(fs.readFileSync(file, 'utf8'), byProvince.provinces);
+    html = withCanonical(html, ORIGIN + publicPath(file));
+    fs.writeFileSync(file, html);
   }
   const freshShell = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
   writeCityPagesFixed(freshShell, grouped.cities);
+  writeProvincePages(freshShell, byProvince.provinces);
   for (const file of walkHtml(dist)) stampSchema(file);
   const sitemapUrls = writeSitemap();
   writeRobots();
   console.log(JSON.stringify({
     cities: grouped.cities.length,
     missingCity: grouped.missingCity,
+    provinces: byProvince.provinces.map((entry) => ({
+      province: entry.province,
+      slug: entry.slug,
+      listings: entry.listings.length,
+      cities: entry.cities.length,
+    })),
+    unmappedCities: byProvince.unmappedCities,
     listings: rows.length,
     sitemapUrls,
     htmlPages: walkHtml(dist).length,
   }));
+}
+
+
+function writeProvincePages(shell, provinces) {
+  const rootDir = path.join(dist, 'provincie');
+  fs.rmSync(rootDir, { recursive: true, force: true });
+  fs.mkdirSync(rootDir, { recursive: true });
+  for (const entry of provinces) {
+    if (!entry.listings.length) throw new Error('empty province ' + entry.province);
+    const copy = provinceCopy(entry.province);
+    const url = `${ORIGIN}/provincie/${entry.slug}/`;
+    let html = shell;
+    html = html.replace(/<title>.*?<\/title>/, `<title>${esc(copy.title)}</title>`);
+    html = html.replace(
+      /(<meta name="description" content=")[^"]*(")/,
+      `$1${esc(copy.description)}$2`
+    );
+    html = html.replace(/<link\s+rel="canonical"[^>]*>/g, '');
+    html = html.replace(/<link\s+[^>]*hreflang=[^>]*>/g, '');
+    html = html.replace(/<meta name="ww-city"[^>]*>/g, '');
+    html = html.replace(/<meta name="ww-province"[^>]*>/g, '');
+    html = html.replace(/<script type="application\/json" id="ww-province-cities">[\s\S]*?<\/script>/g, '');
+    const places = entry.cities.map((city) => ({ city: city.city, slug: city.slug }));
+    const headBits = `<link rel="canonical" href="${esc(url)}"><meta name="ww-province" content="${esc(entry.province)}"><script type="application/json" id="ww-province-cities">${jsonForScript(places)}</script>`;
+    html = html.replace('</title>', `</title>${headBits}`);
+    const items = entry.listings.map(listingItem).join('');
+    const cityLinks = places.map((city) => `<a href="/stad/${esc(city.slug)}/">${esc(city.city)}</a>`).join(' · ');
+    const mainHtml = `<main id="main"><h1>${esc(entry.province)}</h1><p class="province-cities">${cityLinks}</p><ul class="city-listings">${items}</ul></main>`;
+    if (!html.includes('<main id="main"></main>')) throw new Error('shell main missing');
+    html = html.replace('<main id="main"></main>', mainHtml);
+    if (/vorxeo/i.test(html)) throw new Error('Vorxeo in province page');
+    if (html.includes('hreflang')) throw new Error('hreflang in province page');
+    const dir = path.join(rootDir, entry.slug);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), html);
+  }
 }
 
 function writeCityPagesFixed(shell, cities) {
