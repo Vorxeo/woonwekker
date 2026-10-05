@@ -247,3 +247,18 @@ header.nav-open .nav-toggle-bars:after{transform:rotate(-45deg)}
 
 .hero p.expat-line{margin:8px 0 0;font-size:15px;font-weight:500;line-height:1.5;color:var(--muted);max-width:440px}
 footer .province-links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 16px;font-size:14px}.province-cities{font-size:15px;line-height:1.7;max-width:720px}.province-cities a{color:var(--blue);text-decoration:underline}
+
+/* Cookie consent banner — equal-weight Accept / Reject */
+.ww-cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:40;max-width:720px;margin:0 auto;background:#fff;border:1px solid var(--line,#e0e7f1);border-radius:16px;box-shadow:0 16px 40px #10254c22;padding:18px 20px}
+.ww-cookie-inner{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
+.ww-cookie-text{margin:0;flex:1 1 240px;font-size:14px;line-height:1.55;color:var(--navy,#10254c)}
+.ww-cookie-text a{color:var(--blue,#0754f8);text-decoration:underline;font-weight:600}
+.ww-cookie-actions{display:flex;gap:10px;flex:0 0 auto}
+.ww-cookie-btn{min-height:44px;min-width:110px;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid var(--line,#e0e7f1);background:#fff;color:var(--navy,#10254c)}
+.ww-cookie-accept,.ww-cookie-reject{background:#fff;color:var(--navy,#10254c)}
+.ww-cookie-btn:hover{border-color:#b8c7e0;background:#f7f9fc}
+@media(max-width:560px){
+  .ww-cookie-banner{left:10px;right:10px;bottom:10px;padding:16px}
+  .ww-cookie-actions{width:100%}
+  .ww-cookie-btn{flex:1}
+}

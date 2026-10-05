@@ -159,7 +159,7 @@ const copy={
       [
         "privacy",
         "Privacyverklaring",
-        "Zoekfilters worden uitsluitend in je browser toegepast. Je kunt een account aanmaken via Google of e-mailbevestiging (/signup/ en /login/); Bellen-unlock verloopt apart via Mollie. Er zijn geen advertentietrackers of eigen analytics. Je taalkeuze wordt lokaal op je apparaat bewaard om de gekozen taal bij een volgend bezoek te herstellen.",
+        "Zoekfilters worden uitsluitend in je browser toegepast. Je kunt een account aanmaken via Google of e-mailbevestiging (/signup/ en /login/); Bellen-unlock verloopt apart via Mollie. Google Ads laadt alleen na toestemming via het cookiebanner. Je taalkeuze wordt lokaal op je apparaat bewaard om de gekozen taal bij een volgend bezoek te herstellen.",
         "Bij het openen van pagina’s en foto’s ontvangen de hostingdienst en de externe beeldserver technische gegevens, zoals IP-adres, browsertype en tijdstip, voor de levering en beveiliging van de inhoud. Foto’s worden geladen vanaf een externe beeldserver. Bij het volgen van een externe link geldt het privacybeleid van die website. De exacte hostingbewaartermijnen en eventuele internationale doorgiften moeten vóór publieke lancering worden bevestigd.",
         "Voor zover persoonsgegevens worden verwerkt, kun je onder de AVG onder meer inzage, correctie, verwijdering, beperking of overdraagbaarheid vragen en bezwaar maken waar dat van toepassing is. Je kunt een klacht indienen bij de Autoriteit Persoonsgegevens. Het verantwoordelijke bedrijf en het contactpunt voor deze verzoeken moeten vóór publieke lancering worden aangevuld.",
         "Favorieten worden uitsluitend op dit apparaat opgeslagen, totdat je ze verwijdert of de browsergegevens wist. Je vergelijking blijft alleen in deze browsersessie beschikbaar."
@@ -167,7 +167,7 @@ const copy={
       [
         "cookies",
         "Cookies en lokale opslag",
-        "De websitecode plaatst geen advertentie- of analytische cookies. Je taalvoorkeur wordt opgeslagen onder de sleutel woonwekker-language in localStorage, totdat je de browsergegevens wist of de voorkeur hieronder verwijdert. De hostingomgeving kan noodzakelijke beveiligings- of toegangsmechanismen gebruiken.",
+        "Na toestemming via het cookiebanner laadt de site Google Ads (tag AW-18493510630) om advertenties te meten. Zonder toestemming blijven advertentiecookies uit. Je keuze staat onder woonwekker-cookie-consent in localStorage. Je taalvoorkeur staat onder woonwekker-language, totdat je de browsergegevens wist of de voorkeur hieronder verwijdert. De hostingomgeving kan noodzakelijke beveiligings- of toegangsmechanismen gebruiken.",
         "Je kunt het overzicht bekijken zonder een account bij Woonwekker aan te maken. Er worden geen zoekopdrachten of voorkeuren naar een eigen Woonwekker-database verstuurd. Een besloten hostingomgeving kan apart om toegang vragen.",
         "Favorieten worden uitsluitend op dit apparaat opgeslagen, totdat je ze verwijdert of de browsergegevens wist. Je vergelijking blijft alleen in deze browsersessie beschikbaar."
       ]
@@ -458,7 +458,7 @@ const copy={
       ],
       [
         "Op dit apparaat",
-        "De taalkeuze staat in localStorage onder woonwekker-language. Favorieten staan in localStorage onder woonwekker-favourites. Zoekprofielen en accountvelden die je in de browser invult staan in localStorage onder woonwekker-account. Een lopende aanmelding kan in sessionStorage staan onder ww-pending-signup. Dat blijft op dit apparaat tot je het wist."
+        "De taalkeuze staat in localStorage onder woonwekker-language. Favorieten staan in localStorage onder woonwekker-favourites. Zoekprofielen en accountvelden die je in de browser invult staan in localStorage onder woonwekker-account. Een lopende aanmelding kan in sessionStorage staan onder ww-pending-signup. Dat blijft op dit apparaat tot je het wist. De cookiekeuze staat in localStorage onder woonwekker-cookie-consent."
       ],
       [
         "Bellen en Mollie",
@@ -470,7 +470,11 @@ const copy={
       ],
       [
         "Wat de code niet doet",
-        "De code van de site zet geen advertentiecookies en laadt geen eigen analytics. Zoekfilters draaien in je browser."
+        "De code van de site laadt geen eigen analytics buiten Google Ads na toestemming. Zoekfilters draaien in je browser."
+      ],
+      [
+        "Google Ads",
+        "Na jouw toestemming via het cookiebanner laadt de site Google Ads (tag AW-18493510630), zodat Google advertenties kan meten. Zonder toestemming blijven advertentiecookies uit (Consent Mode). Je keuze staat in localStorage onder woonwekker-cookie-consent. Wis je sitegegevens om opnieuw te kiezen."
       ],
       [
         "Hosting en foto’s",
@@ -642,7 +646,7 @@ const copy={
       [
         "privacy",
         "Privacy notice",
-        "Search filters run in your browser. You can create an account via Google or email confirmation (/signup/ and /login/); Bellen unlock is separate via Mollie. There are no advertising trackers or own analytics. Your language preference is stored locally on your device so it can be restored on your next visit.",
+        "Search filters run only in your browser. You can create an account via Google or email confirmation (/signup/ and /login/); Bellen unlock runs separately via Mollie. Google Ads loads only after you accept cookies in the banner. Your language choice is kept locally on your device so the chosen language returns on a later visit.",
         "When pages and photos load, the hosting service and external image server receive technical information such as IP address, browser type and access time to deliver and secure the content. Photos are loaded from an external image server. External websites apply their own privacy policies. Exact hosting retention periods and any international transfers must be confirmed before public launch.",
         "Where personal data is processed, GDPR rights may include access, correction, erasure, restriction, portability and objection as applicable. You can lodge a complaint with the Dutch Autoriteit Persoonsgegevens. The responsible business and contact point for these requests must be added before public launch.",
         "Favourites are stored only on this device until you remove them or clear browser data. Your comparison is available only in this browser session."
@@ -650,7 +654,7 @@ const copy={
       [
         "cookies",
         "Cookies and local storage",
-        "The website code sets no advertising or analytics cookies. It saves your language preference under woonwekker-language in localStorage until you clear your browser data or remove the preference below. The hosting environment may use necessary security or access mechanisms.",
+        "After you accept cookies in the banner, the site loads Google Ads (tag AW-18493510630) to measure ads. Without consent, advertising cookies stay off. Your choice is stored under woonwekker-cookie-consent in localStorage. Your language preference is saved under woonwekker-language until you clear browser data or remove the preference below. The hosting environment may use necessary security or access mechanisms.",
         "You do not need a Woonwekker account to browse. Searches and preferences are not sent to a Woonwekker database. A private hosting environment may separately require access.",
         "Favourites are stored only on this device until you remove them or clear browser data. Your comparison is available only in this browser session."
       ]
@@ -941,7 +945,7 @@ const copy={
       ],
       [
         "On this device",
-        "Your language choice is stored in localStorage under woonwekker-language. Favourites are stored in localStorage under woonwekker-favourites. Search profiles and account fields you fill in the browser are stored in localStorage under woonwekker-account. A signup in progress can sit in sessionStorage under ww-pending-signup. It stays on this device until you clear it."
+        "Your language choice is stored in localStorage under woonwekker-language. Favourites are stored in localStorage under woonwekker-favourites. Search profiles and account fields you fill in the browser are stored in localStorage under woonwekker-account. A signup in progress can sit in sessionStorage under ww-pending-signup. It stays on this device until you clear it. The cookie choice is stored in localStorage under woonwekker-cookie-consent."
       ],
       [
         "Bellen and Mollie",
@@ -953,7 +957,11 @@ const copy={
       ],
       [
         "What the code does not do",
-        "The site code does not set advertising cookies and does not load its own analytics. Search filters run in your browser."
+        "The site code does not load its own analytics beyond Google Ads after consent. Search filters run in your browser."
+      ],
+      [
+        "Google Ads",
+        "After you accept cookies in the banner, the site loads Google Ads (tag AW-18493510630) so Google can measure ads. Without consent, advertising cookies stay off (Consent Mode). Your choice is stored in localStorage under woonwekker-cookie-consent. Clear site data to choose again."
       ],
       [
         "Hosting and photos",
@@ -1125,7 +1133,7 @@ const copy={
       [
         "privacy",
         "Política de privacidad",
-        "Los filtros funcionan en tu navegador. Puedes crear una cuenta con Google o confirmación por email (/signup/ y /login/); el desbloqueo Bellen va aparte vía Mollie. No hay rastreadores publicitarios ni analítica propia. El idioma elegido se guarda localmente en tu dispositivo para recuperarlo en la próxima visita.",
+        "Los filtros de búsqueda se aplican solo en tu navegador. Puedes crear una cuenta con Google o confirmación por correo (/signup/ y /login/); el desbloqueo Bellen va aparte por Mollie. Google Ads se carga solo tras aceptar cookies en el aviso. El idioma se guarda en este dispositivo para recuperarlo en una visita posterior.",
         "Al cargar páginas y fotos, el alojamiento y el servidor externo de imágenes reciben datos técnicos como dirección IP, navegador y hora de acceso para prestar y proteger el servicio. Las fotos se cargan desde un servidor externo de imágenes. Los sitios externos aplican sus propias políticas. Los plazos de conservación del alojamiento y las posibles transferencias internacionales deben confirmarse antes del lanzamiento público.",
         "Cuando se traten datos personales, el RGPD puede otorgar derechos de acceso, rectificación, supresión, limitación, portabilidad y oposición, según corresponda. Puedes reclamar ante la Autoriteit Persoonsgegevens neerlandesa. Deben añadirse el responsable y el contacto para ejercer estos derechos antes del lanzamiento público.",
         "Los favoritos se guardan solo en este dispositivo hasta que los elimines o borres los datos del navegador. La comparación está disponible solo durante esta sesión."
@@ -1133,7 +1141,7 @@ const copy={
       [
         "cookies",
         "Cookies y almacenamiento local",
-        "El código del sitio no instala cookies publicitarias ni analíticas. Guarda el idioma con la clave woonwekker-language en localStorage hasta que borres los datos del navegador o elimines la preferencia abajo. El alojamiento puede utilizar mecanismos necesarios de seguridad o acceso.",
+        "Tras aceptar cookies en el aviso, el sitio carga Google Ads (etiqueta AW-18493510630) para medir anuncios. Sin consentimiento, las cookies publicitarias siguen desactivadas. Tu elección se guarda bajo woonwekker-cookie-consent en localStorage. El idioma se guarda con la clave woonwekker-language en localStorage hasta que borres los datos del navegador o elimines la preferencia abajo. El alojamiento puede utilizar mecanismos necesarios de seguridad o acceso.",
         "No necesitas una cuenta de Woonwekker para consultar viviendas. Las búsquedas y preferencias no se envían a una base de datos de Woonwekker. El alojamiento privado puede solicitar acceso por separado.",
         "Los favoritos se guardan solo en este dispositivo hasta que los elimines o borres los datos del navegador. La comparación está disponible solo durante esta sesión."
       ]
@@ -1424,7 +1432,7 @@ const copy={
       ],
       [
         "En este dispositivo",
-        "La lengua se guarda en localStorage bajo woonwekker-language. Los favoritos se guardan en localStorage bajo woonwekker-favourites. Los perfiles de búsqueda y los campos de cuenta que rellenas en el navegador se guardan en localStorage bajo woonwekker-account. Un alta en curso puede estar en sessionStorage bajo ww-pending-signup. Sigue en este dispositivo hasta que lo borres."
+        "La lengua se guarda en localStorage bajo woonwekker-language. Los favoritos se guardan en localStorage bajo woonwekker-favourites. Los perfiles de búsqueda y los campos de cuenta que rellenas en el navegador se guardan en localStorage bajo woonwekker-account. Un alta en curso puede estar en sessionStorage bajo ww-pending-signup. Sigue en este dispositivo hasta que lo borres. La elección de cookies se guarda en localStorage bajo woonwekker-cookie-consent."
       ],
       [
         "Bellen y Mollie",
@@ -1436,11 +1444,15 @@ const copy={
       ],
       [
         "Lo que el código no hace",
-        "El código del sitio no pone cookies de publicidad y no carga analítica propia. Los filtros de búsqueda corren en tu navegador."
+        "El código del sitio no carga analítica propia aparte de Google Ads tras el consentimiento. Los filtros de búsqueda corren en tu navegador."
       ],
       [
         "Alojamiento y fotos",
         "Al abrir páginas y fotos, el alojamiento y el servidor de imágenes reciben datos técnicos de la petición, como la IP y el tipo de navegador, necesarios para mostrar la página. Los enlaces externos, también el del propietario, tienen su propia política. Esta página no indica un plazo de conservación."
+      ],
+      [
+        "Google Ads",
+        "Tras aceptar cookies en el aviso, el sitio carga Google Ads (etiqueta AW-18493510630) para que Google mida los anuncios. Sin consentimiento, las cookies publicitarias siguen desactivadas (Consent Mode). Tu elección se guarda en localStorage bajo woonwekker-cookie-consent. Borra los datos del sitio para elegir de nuevo."
       ],
       [
         "Derechos",
@@ -1608,7 +1620,7 @@ const copy={
       [
         "privacy",
         "Polityka prywatności",
-        "Filtry działają w przeglądarce. Konto możesz założyć przez Google lub potwierdzenie e-mailem (/signup/ i /login/); odblokowanie Bellen jest osobno przez Mollie. Nie ma reklamowych narzędzi śledzących ani własnej analityki. Wybrany język jest przechowywany lokalnie na urządzeniu na potrzeby kolejnych wizyt.",
+        "Filtry wyszukiwania działają wyłącznie w przeglądarce. Możesz założyć konto przez Google lub potwierdzenie e-mailem (/signup/ i /login/); odblokowanie Bellen idzie osobno przez Mollie. Google Ads ładuje się tylko po akceptacji cookies w banerze. Wybór języka jest lokalnie na urządzeniu, by wrócić przy kolejnej wizycie.",
         "Podczas wczytywania stron i zdjęć hosting oraz zewnętrzny serwer obrazów otrzymują dane techniczne, np. adres IP, typ przeglądarki i czas dostępu, aby dostarczać i zabezpieczać treści. Zdjęcia są pobierane z zewnętrznego serwera obrazów. Strony zewnętrzne stosują własne polityki. Okresy przechowywania danych przez hosting i ewentualne transfery międzynarodowe wymagają potwierdzenia przed publicznym uruchomieniem.",
         "W zakresie przetwarzania danych RODO może zapewniać prawo dostępu, sprostowania, usunięcia, ograniczenia, przenoszenia i sprzeciwu, zależnie od sytuacji. Możesz złożyć skargę do holenderskiego Autoriteit Persoonsgegevens. Administrator i kontakt do realizacji tych praw muszą zostać dodani przed publicznym uruchomieniem.",
         "Ulubione są zapisywane tylko na tym urządzeniu do czasu ich usunięcia lub wyczyszczenia danych przeglądarki. Porównanie jest dostępne tylko w bieżącej sesji."
@@ -1616,7 +1628,7 @@ const copy={
       [
         "cookies",
         "Pliki cookie i pamięć lokalna",
-        "Kod strony nie ustawia reklamowych ani analitycznych plików cookie. Przechowuje język pod kluczem woonwekker-language w localStorage do czasu usunięcia danych przeglądarki lub preferencji poniżej. Hosting może stosować niezbędne mechanizmy bezpieczeństwa lub dostępu.",
+        "Po akceptacji w banerze cookies strona ładuje Google Ads (tag AW-18493510630), by mierzyć reklamy. Bez zgody reklamowe pliki cookie pozostają wyłączone. Twój wybór jest pod woonwekker-cookie-consent w localStorage. Język jest pod kluczem woonwekker-language w localStorage do czasu usunięcia danych przeglądarki lub preferencji poniżej. Hosting może stosować niezbędne mechanizmy bezpieczeństwa lub dostępu.",
         "Do przeglądania nie potrzebujesz konta Woonwekker. Wyszukiwania i preferencje nie są wysyłane do bazy danych Woonwekker. Prywatny hosting może wymagać osobnego dostępu.",
         "Ulubione są zapisywane tylko na tym urządzeniu do czasu ich usunięcia lub wyczyszczenia danych przeglądarki. Porównanie jest dostępne tylko w bieżącej sesji."
       ]
@@ -1907,7 +1919,7 @@ const copy={
       ],
       [
         "Na tym urządzeniu",
-        "Wybór języka jest w localStorage pod kluczem woonwekker-language. Ulubione są w localStorage pod woonwekker-favourites. Profile wyszukiwania i pola konta wpisane w przeglądarce są w localStorage pod woonwekker-account. Trwająca rejestracja może być w sessionStorage pod ww-pending-signup. Zostaje na tym urządzeniu, aż ją skasujesz."
+        "Wybór języka jest w localStorage pod kluczem woonwekker-language. Ulubione są w localStorage pod woonwekker-favourites. Profile wyszukiwania i pola konta wpisane w przeglądarce są w localStorage pod woonwekker-account. Trwająca rejestracja może być w sessionStorage pod ww-pending-signup. Zostaje na tym urządzeniu, aż ją skasujesz. Wybór cookies jest w localStorage pod woonwekker-cookie-consent."
       ],
       [
         "Bellen i Mollie",
@@ -1919,7 +1931,11 @@ const copy={
       ],
       [
         "Czego kod nie robi",
-        "Kod strony nie ustawia ciasteczek reklamowych i nie ładuje własnej analityki. Filtry wyszukiwania działają w przeglądarce."
+        "Kod strony nie ładuje własnej analityki poza Google Ads po zgodzie. Filtry wyszukiwania działają w przeglądarce."
+      ],
+      [
+        "Google Ads",
+        "Po akceptacji w banerze cookies strona ładuje Google Ads (tag AW-18493510630), żeby Google mogło mierzyć reklamy. Bez zgody reklamowe pliki cookie pozostają wyłączone (Consent Mode). Twój wybór jest w localStorage pod woonwekker-cookie-consent. Wyczyść dane witryny, by wybrać ponownie."
       ],
       [
         "Hosting i zdjęcia",
@@ -2091,7 +2107,7 @@ const copy={
       [
         "privacy",
         "Aviso de privacidade",
-        "Os filtros de busca rodam no seu navegador. Você pode criar uma conta via Google ou confirmação por e-mail (/signup/ e /login/); o desbloqueio Bellen é separado via Mollie. Não há rastreadores de anúncios nem analytics próprios. Sua preferência de idioma é salva localmente no seu dispositivo para ser restaurada na próxima visita.",
+        "Os filtros de pesquisa aplicam-se só no seu navegador. Pode criar uma conta via Google ou confirmação por correio (/signup/ e /login/); o desbloqueio Bellen corre à parte via Mollie. O Google Ads carrega só após aceitar cookies no aviso. A escolha de língua fica localmente no aparelho para a recuperar numa visita seguinte.",
         "Ao carregar páginas e fotos, o serviço de hospedagem e o servidor externo de imagens recebem informações técnicas como endereço IP, tipo de navegador e horário de acesso para entregar e proteger o conteúdo. As fotos são carregadas de um servidor de imagens externo. Sites externos aplicam suas próprias políticas de privacidade. Os prazos exatos de retenção da hospedagem e eventuais transferências internacionais devem ser confirmados antes do lançamento público.",
         "Quando dados pessoais forem processados, os direitos do GDPR podem incluir acesso, correção, exclusão, restrição, portabilidade e oposição, conforme o caso. Você pode apresentar uma reclamação à Autoriteit Persoonsgegevens holandesa. A empresa responsável e o ponto de contato para esses pedidos devem ser incluídos antes do lançamento público.",
         "Os favoritos ficam apenas neste dispositivo até você removê-los ou limpar os dados do navegador. Sua comparação fica disponível só nesta sessão do navegador."
@@ -2099,7 +2115,7 @@ const copy={
       [
         "cookies",
         "Cookies e armazenamento local",
-        "O código do site não coloca cookies de anúncios ou analytics. Ele salva sua preferência de idioma sob a chave woonwekker-language no localStorage até você limpar os dados do navegador ou remover a preferência abaixo. O ambiente de hospedagem pode usar mecanismos necessários de segurança ou acesso.",
+        "Depois de aceitar cookies no aviso, o sítio carrega o Google Ads (etiqueta AW-18493510630) para medir anúncios. Sem consentimento, os cookies de publicidade ficam desligados. A sua escolha fica sob woonwekker-cookie-consent no localStorage. A preferência de idioma fica sob woonwekker-language no localStorage até limpar os dados do navegador ou remover a preferência abaixo. O ambiente de alojamento pode usar mecanismos necessários de segurança ou acesso.",
         "Você não precisa de uma conta Woonwekker para navegar. Buscas e preferências não são enviadas a um banco de dados próprio do Woonwekker. Um ambiente de hospedagem privado pode exigir acesso à parte.",
         "Os favoritos ficam apenas neste dispositivo até você removê-los ou limpar os dados do navegador. Sua comparação fica disponível só nesta sessão do navegador."
       ]
@@ -2390,7 +2406,7 @@ const copy={
       ],
       [
         "Neste aparelho",
-        "A escolha de língua fica em localStorage sob woonwekker-language. Os favoritos ficam em localStorage sob woonwekker-favourites. Os perfis de pesquisa e os campos de conta que preenche no navegador ficam em localStorage sob woonwekker-account. Um registo a decorrer pode ficar em sessionStorage sob ww-pending-signup. Fica neste aparelho até o apagar."
+        "A escolha de língua fica em localStorage sob woonwekker-language. Os favoritos ficam em localStorage sob woonwekker-favourites. Os perfis de pesquisa e os campos de conta que preenche no navegador ficam em localStorage sob woonwekker-account. Um registo a decorrer pode ficar em sessionStorage sob ww-pending-signup. Fica neste aparelho até o apagar. A escolha de cookies fica em localStorage sob woonwekker-cookie-consent."
       ],
       [
         "Bellen e Mollie",
@@ -2402,11 +2418,15 @@ const copy={
       ],
       [
         "O que o código não faz",
-        "O código do sítio não define cookies de publicidade e não carrega analítica própria. Os filtros de pesquisa correm no seu navegador."
+        "O código do sítio não carrega analítica própria para além do Google Ads após consentimento. Os filtros de pesquisa correm no seu navegador."
       ],
       [
         "Alojamento e fotografias",
         "Ao abrir páginas e fotografias, o alojamento e o servidor de imagens recebem dados técnicos do pedido, como o endereço IP e o tipo de navegador, necessários para mostrar a página. As ligações externas, incluindo o sítio do senhorio, têm a sua própria política. Esta página não indica um prazo de conservação."
+      ],
+      [
+        "Google Ads",
+        "Depois de aceitar cookies no aviso, o sítio carrega o Google Ads (etiqueta AW-18493510630) para o Google medir anúncios. Sem consentimento, os cookies de publicidade ficam desligados (Consent Mode). A sua escolha fica em localStorage sob woonwekker-cookie-consent. Limpe os dados do sítio para escolher de novo."
       ],
       [
         "Direitos",
@@ -2574,7 +2594,7 @@ const copy={
       [
         "privacy",
         "Notă de confidențialitate",
-        "Filtrele de căutare rulează în browserul tău. Poți crea un cont prin Google sau prin confirmare pe e-mail (/signup/ și /login/); deblocarea Bellen este separată, prin Mollie. Nu există trackere publicitare și nici analize proprii. Preferința de limbă este stocată local pe dispozitiv ca să fie restaurată la vizita următoare.",
+        "Filtrele de căutare rulează doar în browser. Poți crea un cont prin Google sau confirmare pe e-mail (/signup/ și /login/); deblocarea Bellen merge separat prin Mollie. Google Ads se încarcă doar după ce accepți cookie-urile din banner. Limba aleasă e păstrată local pe dispozitiv ca să revină la o vizită ulterioară.",
         "Când se încarcă paginile și fotografiile, serviciul de găzduire și serverul extern de imagini primesc informații tehnice precum adresa IP, tipul de browser și ora accesului, ca să livreze și să protejeze conținutul. Fotografiile se încarcă de pe un server extern de imagini. Site-urile externe aplică propriile politici de confidențialitate. Perioadele exacte de păstrare ale găzduirii și eventualele transferuri internaționale trebuie confirmate înainte de lansarea publică.",
         "Acolo unde se prelucrează date personale, drepturile GDPR pot include accesul, corectarea, ștergerea, restricționarea, portabilitatea și opoziția, după caz. Poți depune o plângere la Autoriteit Persoonsgegevens din Țările de Jos. Firma responsabilă și punctul de contact pentru aceste cereri trebuie adăugate înainte de lansarea publică.",
         "Favoritele sunt stocate doar pe acest dispozitiv până le elimini sau ștergi datele browserului. Comparația ta este disponibilă doar în această sesiune de browser."
@@ -2582,7 +2602,7 @@ const copy={
       [
         "cookies",
         "Cookie-uri și stocare locală",
-        "Codul site-ului nu setează cookie-uri de publicitate sau de analiză. Salvează preferința de limbă sub woonwekker-language în localStorage până ștergi datele browserului sau elimini preferința mai jos. Mediul de găzduire poate folosi mecanisme necesare de securitate sau de acces.",
+        "După ce accepți cookie-urile din banner, site-ul încarcă Google Ads (eticheta AW-18493510630) pentru a măsura anunțurile. Fără consimțământ, cookie-urile publicitare rămân oprite. Alegerea ta stă la woonwekker-cookie-consent în localStorage. Preferința de limbă stă sub woonwekker-language în localStorage până ștergi datele browserului sau elimini preferința mai jos. Mediul de găzduire poate folosi mecanisme necesare de securitate sau de acces.",
         "Nu îți trebuie un cont Woonwekker ca să răsfoiești. Căutările și preferințele nu sunt trimise către o bază de date Woonwekker. Un mediu de găzduire privat poate cere separat acces.",
         "Favoritele sunt stocate doar pe acest dispozitiv până le elimini sau ștergi datele browserului. Comparația ta este disponibilă doar în această sesiune de browser."
       ]
@@ -2873,7 +2893,7 @@ const copy={
       ],
       [
         "Pe acest dispozitiv",
-        "Limba aleasă stă în localStorage la woonwekker-language. Favoritele stau în localStorage la woonwekker-favourites. Profilurile de căutare și câmpurile de cont completate în browser stau în localStorage la woonwekker-account. O înscriere în curs poate sta în sessionStorage la ww-pending-signup. Rămâne pe acest dispozitiv până o ștergi."
+        "Limba aleasă stă în localStorage la woonwekker-language. Favoritele stau în localStorage la woonwekker-favourites. Profilurile de căutare și câmpurile de cont completate în browser stau în localStorage la woonwekker-account. O înscriere în curs poate sta în sessionStorage la ww-pending-signup. Rămâne pe acest dispozitiv până o ștergi. Alegerea cookie-urilor stă în localStorage la woonwekker-cookie-consent."
       ],
       [
         "Bellen și Mollie",
@@ -2885,7 +2905,11 @@ const copy={
       ],
       [
         "Ce nu face codul",
-        "Codul site-ului nu setează cookie-uri de publicitate și nu încarcă analiză proprie. Filtrele de căutare rulează în browser."
+        "Codul site-ului nu încarcă analiză proprie în afară de Google Ads după consimțământ. Filtrele de căutare rulează în browser."
+      ],
+      [
+        "Google Ads",
+        "După ce accepți cookie-urile din banner, site-ul încarcă Google Ads (eticheta AW-18493510630) ca Google să măsoare anunțurile. Fără consimțământ, cookie-urile publicitare rămân oprite (Consent Mode). Alegerea ta stă în localStorage la woonwekker-cookie-consent. Șterge datele site-ului ca să alegi din nou."
       ],
       [
         "Găzduire și fotografii",
@@ -3057,7 +3081,7 @@ const copy={
       [
         "privacy",
         "Бележка за поверителност",
-        "Филтрите за търсене работят в браузъра ви. Можете да създадете профил чрез Google или потвърждение по имейл (/signup/ и /login/); отключването на Bellen е отделно, чрез Mollie. Няма рекламни тракери и няма собствена аналитика. Езиковата предпочитание се пази локално на устройството, за да се възстанови при следващо посещение.",
+        "Филтрите за търсене се прилагат само в браузъра. Можете да създадете акаунт чрез Google или имейл потвърждение (/signup/ и /login/); отключването Bellen минава отделно през Mollie. Google Ads се зарежда само след приемане на бисквитките в банера. Изборът на език се пази локално на устройството, за да се върне при следващо посещение.",
         "Когато се зареждат страници и снимки, хостингът и външният сървър за изображения получават техническа информация като IP адрес, тип на браузъра и час на достъп, за да доставят и пазят съдържанието. Снимките се зареждат от външен сървър за изображения. Външните сайтове прилагат свои политики за поверителност. Точните срокове за съхранение при хостинга и евентуални международни трансфери трябва да се потвърдят преди публично пускане.",
         "Когато се обработват лични данни, правата по GDPR могат да включват достъп, поправка, изтриване, ограничаване, преносимост и възражение, когато е приложимо. Можете да подадете жалба до нидерландския Autoriteit Persoonsgegevens. Отговорната фирма и контактната точка за тези искания трябва да се добавят преди публично пускане.",
         "Любимите се пазят само на това устройство, докато ги премахнете или изчистите данните на браузъра. Сравнението ви е налично само в тази сесия на браузъра."
@@ -3065,7 +3089,7 @@ const copy={
       [
         "cookies",
         "Бисквитки и локално съхранение",
-        "Кодът на сайта не слага рекламни или аналитични бисквитки. Запазва езиковата предпочитание под woonwekker-language в localStorage, докато изчистите данните на браузъра или премахнете предпочитанието по-долу. Хостинг средата може да ползва необходими механизми за сигурност или достъп.",
+        "След като приемете бисквитките в банера, сайтът зарежда Google Ads (таг AW-18493510630), за да мери реклами. Без съгласие рекламните бисквитки остават изключени. Изборът ви е под woonwekker-cookie-consent в localStorage. Езиковата предпочитание е под woonwekker-language в localStorage, докато изчистите данните на браузъра или премахнете предпочитанието по-долу. Хостинг средата може да ползва необходими механизми за сигурност или достъп.",
         "Не ви трябва профил в Woonwekker, за да разглеждате. Търсенията и предпочитанията не се изпращат към база данни на Woonwekker. Частна хостинг среда може отделно да изисква достъп.",
         "Любимите се пазят само на това устройство, докато ги премахнете или изчистите данните на браузъра. Сравнението ви е налично само в тази сесия на браузъра."
       ]
@@ -3356,7 +3380,7 @@ const copy={
       ],
       [
         "На това устройство",
-        "Изборът на език е в localStorage под woonwekker-language. Любимите са в localStorage под woonwekker-favourites. Профилите за търсене и полетата на профила, които попълвате в браузъра, са в localStorage под woonwekker-account. Текуща регистрация може да стои в sessionStorage под ww-pending-signup. Остава на това устройство, докато я изтриете."
+        "Изборът на език е в localStorage под woonwekker-language. Любимите са в localStorage под woonwekker-favourites. Профилите за търсене и полетата на профила, които попълвате в браузъра, са в localStorage под woonwekker-account. Текуща регистрация може да стои в sessionStorage под ww-pending-signup. Остава на това устройство, докато я изтриете. Изборът за бисквитки е в localStorage под woonwekker-cookie-consent."
       ],
       [
         "Bellen и Mollie",
@@ -3368,7 +3392,11 @@ const copy={
       ],
       [
         "Каквото кодът не прави",
-        "Кодът на сайта не слага рекламни бисквитки и не зарежда собствена аналитика. Филтрите за търсене работят в браузъра."
+        "Кодът на сайта не зарежда собствена аналитика освен Google Ads след съгласие. Филтрите за търсене работят в браузъра."
+      ],
+      [
+        "Google Ads",
+        "След като приемете бисквитките в банера, сайтът зарежда Google Ads (таг AW-18493510630), за да може Google да измерва реклами. Без съгласие рекламните бисквитки остават изключени (Consent Mode). Изборът ви е в localStorage под woonwekker-cookie-consent. Изчистете данните на сайта, за да изберете отново."
       ],
       [
         "Хостинг и снимки",
@@ -3540,7 +3568,7 @@ const copy={
       [
         "privacy",
         "Informativa privacy",
-        "I filtri di ricerca girano nel tuo browser. Puoi creare un account con Google o con conferma e-mail (/signup/ e /login/); lo sblocco Bellen è separato, tramite Mollie. Non ci sono tracker pubblicitari né analitiche nostre. La preferenza di lingua è salvata in locale sul dispositivo per essere ripristinata alla visita successiva.",
+        "I filtri di ricerca si applicano solo nel browser. Puoi creare un account con Google o conferma email (/signup/ e /login/); lo sblocco Bellen passa a parte via Mollie. Google Ads si carica solo dopo che accetti i cookie nel banner. La lingua scelta resta in locale sul dispositivo per ripristinarla a una visita successiva.",
         "Quando si caricano pagine e foto, il servizio di hosting e il server immagini esterno ricevono informazioni tecniche come indirizzo IP, tipo di browser e orario di accesso per consegnare e proteggere i contenuti. Le foto sono caricate da un server immagini esterno. I siti esterni applicano le proprie informative. I tempi esatti di conservazione dell’hosting e gli eventuali trasferimenti internazionali vanno confermati prima del lancio pubblico.",
         "Dove si trattano dati personali, i diritti GDPR possono includere accesso, rettifica, cancellazione, limitazione, portabilità e opposizione, ove applicabili. Puoi presentare reclamo all’Autoriteit Persoonsgegevens dei Paesi Bassi. L’impresa responsabile e il punto di contatto per queste richieste vanno aggiunti prima del lancio pubblico.",
         "I preferiti restano solo su questo dispositivo finché non li togli o cancelli i dati del browser. Il confronto è disponibile solo in questa sessione del browser."
@@ -3548,7 +3576,7 @@ const copy={
       [
         "cookies",
         "Cookie e archiviazione locale",
-        "Il codice del sito non imposta cookie pubblicitari o di analisi. Salva la preferenza di lingua sotto woonwekker-language in localStorage finché non cancelli i dati del browser o togli la preferenza qui sotto. L’ambiente di hosting può usare meccanismi necessari di sicurezza o di accesso.",
+        "Dopo che accetti i cookie nel banner, il sito carica Google Ads (tag AW-18493510630) per misurare gli annunci. Senza consenso i cookie pubblicitari restano disattivati. La tua scelta sta sotto woonwekker-cookie-consent in localStorage. La preferenza di lingua sta sotto woonwekker-language in localStorage finché non cancelli i dati del browser o togli la preferenza qui sotto. L’ambiente di hosting può usare meccanismi necessari di sicurezza o di accesso.",
         "Non ti serve un account Woonwekker per sfogliare. Ricerche e preferenze non sono inviate a un database Woonwekker. Un ambiente di hosting privato può richiedere un accesso a parte.",
         "I preferiti restano solo su questo dispositivo finché non li togli o cancelli i dati del browser. Il confronto è disponibile solo in questa sessione del browser."
       ]
@@ -3839,7 +3867,7 @@ const copy={
       ],
       [
         "Su questo dispositivo",
-        "La lingua scelta sta in localStorage sotto woonwekker-language. I preferiti stanno in localStorage sotto woonwekker-favourites. I profili di ricerca e i campi account compilati nel browser stanno in localStorage sotto woonwekker-account. Un’iscrizione in corso può stare in sessionStorage sotto ww-pending-signup. Resta su questo dispositivo finché non la cancelli."
+        "La lingua scelta sta in localStorage sotto woonwekker-language. I preferiti stanno in localStorage sotto woonwekker-favourites. I profili di ricerca e i campi account compilati nel browser stanno in localStorage sotto woonwekker-account. Un’iscrizione in corso può stare in sessionStorage sotto ww-pending-signup. Resta su questo dispositivo finché non la cancelli. La scelta dei cookie sta in localStorage sotto woonwekker-cookie-consent."
       ],
       [
         "Bellen e Mollie",
@@ -3851,7 +3879,11 @@ const copy={
       ],
       [
         "Che cosa il codice non fa",
-        "Il codice del sito non imposta cookie pubblicitari e non carica analitiche proprie. I filtri di ricerca girano nel browser."
+        "Il codice del sito non carica analitiche proprie oltre a Google Ads dopo il consenso. I filtri di ricerca girano nel browser."
+      ],
+      [
+        "Google Ads",
+        "Dopo che accetti i cookie nel banner, il sito carica Google Ads (tag AW-18493510630) così Google può misurare gli annunci. Senza consenso i cookie pubblicitari restano disattivati (Consent Mode). La tua scelta sta in localStorage sotto woonwekker-cookie-consent. Cancella i dati del sito per scegliere di nuovo."
       ],
       [
         "Hosting e foto",
