@@ -262,3 +262,32 @@ footer .province-links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 16p
   .ww-cookie-actions{width:100%}
   .ww-cookie-btn{flex:1}
 }
+
+/* Structured footer: navigation, legal information, contact and locations. */
+footer{display:block;padding:56px max(5vw,24px) 24px;background:linear-gradient(180deg,#fff 0%,#f4f7fc 100%);border-top:1px solid var(--line)}
+footer .ww-footer-main{display:grid;grid-template-columns:1.3fr 1fr 1.15fr 1.05fr;gap:40px;max-width:1296px;margin:0 auto 36px;align-items:start}
+footer .ww-footer-logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:10px}
+footer .ww-footer-logo img{width:40px;height:40px;border-radius:11px}
+footer .ww-footer-logo strong{font-size:25px;letter-spacing:-1px}
+footer .ww-footer-brand p{margin:8px 0;max-width:270px;font-size:13px;line-height:1.75}
+footer .ww-footer-company{color:var(--navy);font-weight:500}
+footer .ww-sources{font-size:12px!important;color:var(--muted)}
+footer .ww-footer-heading{font-size:12px;font-weight:750;letter-spacing:1.1px;text-transform:uppercase;line-height:1.5;margin:5px 0 18px;color:var(--navy)}
+footer .ww-footer-links{display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+footer .ww-footer-links a,footer .ww-company-contact a{font-size:13px;line-height:1.6;color:var(--muted);transition:color .15s;text-underline-offset:4px}
+footer .ww-footer-links a:hover,footer .ww-company-contact a:hover{color:var(--blue);text-decoration:underline}
+footer .ww-company-contact{display:flex;flex-direction:column;gap:12px;font-style:normal;font-size:13px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
+footer .ww-contact-company{font-weight:700;color:var(--navy)}
+footer .ww-footer-provinces{max-width:1296px;margin:auto;padding:24px 0;border-top:1px solid var(--line)}
+footer .ww-footer-provinces .ww-footer-heading{margin:0 0 14px}
+footer .province-links{display:flex;flex-wrap:wrap;gap:8px}
+footer .province-links a{display:inline-flex;align-items:center;min-height:34px;padding:6px 12px;background:#fff;border:1px solid var(--line);border-radius:8px;font-size:12px;line-height:1.4;color:var(--muted);transition:color .15s,border-color .15s,background .15s}
+footer .province-links a:hover{color:var(--blue);border-color:#c4d5ff;background:#eef3ff}
+footer .ww-legal-id{max-width:1296px;margin:auto;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;font-size:11px;line-height:1.6;color:var(--muted)}
+footer .ww-legal-id>span:first-child{margin-right:auto}
+@media(min-width:1600px){footer{padding-left:calc((100vw - 1296px)/2);padding-right:calc((100vw - 1296px)/2)}}
+@media(max-width:1100px){footer .ww-footer-main{grid-template-columns:1fr 1fr;gap:32px 48px}footer .ww-footer-brand p{max-width:360px}}
+@media(max-width:600px){footer{padding:36px 22px 24px}footer .ww-footer-main{grid-template-columns:1fr 1fr;gap:28px 20px;margin-bottom:28px}footer .ww-footer-brand,footer .ww-footer-contact{grid-column:1/-1}footer .ww-footer-heading{font-size:11px;letter-spacing:.7px;margin-bottom:14px}footer .ww-footer-links{gap:12px}footer .ww-footer-links a{font-size:12px}footer .ww-company-contact{display:grid;grid-template-columns:1fr;gap:10px}footer .ww-legal-id{display:grid;grid-template-columns:1fr;gap:5px}footer .province-links{gap:7px}footer .province-links a{padding:7px 10px;min-height:36px}}
+footer .ww-footer-main .ww-footer-links{flex-direction:column;flex-wrap:nowrap;gap:11px}
+footer .ww-footer-main .ww-footer-links a{color:var(--muted)}
+footer .ww-footer-main .ww-footer-links a:hover{color:var(--blue)}

@@ -221,7 +221,8 @@ function withProvinceFooter(html, provinces) {
   const block = `<div class="province-links">${links}</div>`;
   if (!html.includes('<footer>')) return html;
   return html.replace(/<footer>([\s\S]*?)<\/footer>/, (full, inner) => {
-    let next = inner.replace(/<div class="province-links">[\s\S]*?<\/div>/, '');
+    let next = inner;
+    if (/<div class="province-links">/.test(next)) return `<footer>${next.replace(/<div class="province-links">[\s\S]*?<\/div>/, block)}</footer>`;
     if (!/<small\b/.test(next)) throw new Error('footer copyright missing');
     next = next.replace(/<small\b/, `${block}<small`);
     return `<footer>${next}</footer>`;

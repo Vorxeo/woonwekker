@@ -472,7 +472,11 @@ const copy={
     "cancelDone": "Je abonnement is opgezegd op {date}. Er wordt niets meer afgeschreven.",
     "cancelAccessUntil": "Je houdt toegang tot en met {date}.",
     "cancelReceived": "Je opzegging is ontvangen op {date}. Referentie: {ref}. We verwerken haar handmatig; daarna wordt er niets meer afgeschreven.",
-    "companyIdentity": "Woonwekker is een bedrijfsonderdeel van Vorxeo."
+    "companyIdentity": "Woonwekker is een bedrijfsonderdeel van Vorxeo.",
+    "footerExplore": "Ontdek Woonwekker",
+    "footerLegal": "Voorwaarden & privacy",
+    "footerContact": "Contact",
+    "footerProvinces": "Zoek per provincie"
   },
   "en": {
     "homes": "Find a home",
@@ -947,7 +951,11 @@ const copy={
     "cancelDone": "Your subscription was cancelled on {date}. Nothing more will be charged.",
     "cancelAccessUntil": "You keep access up to and including {date}.",
     "cancelReceived": "Your cancellation was received on {date}. Reference: {ref}. We process it by hand; after that nothing more will be charged.",
-    "companyIdentity": "Woonwekker is a business division of Vorxeo."
+    "companyIdentity": "Woonwekker is a business division of Vorxeo.",
+    "footerExplore": "Explore Woonwekker",
+    "footerLegal": "Terms & privacy",
+    "footerContact": "Contact",
+    "footerProvinces": "Browse by province"
   },
   "es": {
     "homes": "Viviendas",
@@ -1422,7 +1430,11 @@ const copy={
     "cancelDone": "Tu suscripción se canceló el {date}. No se cobrará nada más.",
     "cancelAccessUntil": "Conservas el acceso hasta el {date} inclusive.",
     "cancelReceived": "Tu cancelación se recibió el {date}. Referencia: {ref}. La tramitamos manualmente; después no se cobrará nada más.",
-    "companyIdentity": "Woonwekker es una división de Vorxeo."
+    "companyIdentity": "Woonwekker es una división de Vorxeo.",
+    "footerExplore": "Explora Woonwekker",
+    "footerLegal": "Condiciones y privacidad",
+    "footerContact": "Contacto",
+    "footerProvinces": "Buscar por provincia"
   },
   "pl": {
     "homes": "Mieszkania i domy",
@@ -1897,7 +1909,11 @@ const copy={
     "cancelDone": "Twoja subskrypcja została anulowana {date}. Nic więcej nie zostanie pobrane.",
     "cancelAccessUntil": "Dostęp zachowujesz do {date} włącznie.",
     "cancelReceived": "Twoją rezygnację otrzymaliśmy {date}. Numer referencyjny: {ref}. Przetwarzamy ją ręcznie; potem nic więcej nie zostanie pobrane.",
-    "companyIdentity": "Woonwekker jest częścią firmy Vorxeo."
+    "companyIdentity": "Woonwekker jest częścią firmy Vorxeo.",
+    "footerExplore": "Odkryj Woonwekker",
+    "footerLegal": "Warunki i prywatność",
+    "footerContact": "Kontakt",
+    "footerProvinces": "Szukaj według prowincji"
   },
   "pt": {
     "homes": "Encontrar um imóvel",
@@ -2372,7 +2388,11 @@ const copy={
     "cancelDone": "A sua subscrição foi cancelada em {date}. Não será cobrado mais nada.",
     "cancelAccessUntil": "Mantém o acesso até {date}, inclusive.",
     "cancelReceived": "O seu cancelamento foi recebido em {date}. Referência: {ref}. Tratamos dele manualmente; depois não será cobrado mais nada.",
-    "companyIdentity": "Woonwekker é uma área de atuação da Vorxeo."
+    "companyIdentity": "Woonwekker é uma área de atuação da Vorxeo.",
+    "footerExplore": "Explore a Woonwekker",
+    "footerLegal": "Termos e privacidade",
+    "footerContact": "Contacto",
+    "footerProvinces": "Pesquisar por província"
   },
   "ro": {
     "homes": "Găsește o locuință",
@@ -2847,7 +2867,11 @@ const copy={
     "cancelDone": "Abonamentul tău a fost anulat la {date}. Nu se mai încasează nimic.",
     "cancelAccessUntil": "Păstrezi accesul până la {date} inclusiv.",
     "cancelReceived": "Anularea ta a fost primită la {date}. Referință: {ref}. O procesăm manual; după aceea nu se mai încasează nimic.",
-    "companyIdentity": "Woonwekker este o divizie a Vorxeo."
+    "companyIdentity": "Woonwekker este o divizie a Vorxeo.",
+    "footerExplore": "Descoperă Woonwekker",
+    "footerLegal": "Condiții și confidențialitate",
+    "footerContact": "Contact",
+    "footerProvinces": "Caută după provincie"
   },
   "bg": {
     "homes": "Намери дом",
@@ -3322,7 +3346,11 @@ const copy={
     "cancelDone": "Абонаментът ви е прекратен на {date}. Повече нищо няма да бъде таксувано.",
     "cancelAccessUntil": "Запазвате достъпа до {date} включително.",
     "cancelReceived": "Прекратяването ви е получено на {date}. Референтен номер: {ref}. Обработваме го ръчно; след това нищо повече няма да бъде таксувано.",
-    "companyIdentity": "Woonwekker е направление на Vorxeo."
+    "companyIdentity": "Woonwekker е направление на Vorxeo.",
+    "footerExplore": "Разгледайте Woonwekker",
+    "footerLegal": "Условия и поверителност",
+    "footerContact": "Контакт",
+    "footerProvinces": "Търсене по провинция"
   },
   "it": {
     "homes": "Trova una casa",
@@ -3797,6 +3825,10 @@ const copy={
     "cancelDone": "Il tuo abbonamento è stato disdetto il {date}. Non verrà addebitato altro.",
     "cancelAccessUntil": "Mantieni l’accesso fino al {date} incluso.",
     "cancelReceived": "La tua disdetta è stata ricevuta il {date}. Riferimento: {ref}. La gestiamo manualmente; dopo non verrà addebitato altro.",
-    "companyIdentity": "Woonwekker è una divisione di Vorxeo."
+    "companyIdentity": "Woonwekker è una divisione di Vorxeo.",
+    "footerExplore": "Scopri Woonwekker",
+    "footerLegal": "Condizioni e privacy",
+    "footerContact": "Contatti",
+    "footerProvinces": "Cerca per provincia"
   }
 };
