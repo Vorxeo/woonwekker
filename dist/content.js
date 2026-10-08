@@ -428,7 +428,7 @@ const copy={
         "Voor zover persoonsgegevens worden verwerkt, kun je onder de AVG inzage, correctie, wissing, beperking of overdraagbaarheid vragen en bezwaar maken waar dat geldt. Je kunt een klacht indienen bij de Autoriteit Persoonsgegevens. Deze pagina publiceert geen inbox voor die verzoeken."
       ]
     ],
-    "serviceNotice": "Woonwekker is een zoek- en alertdienst. Wij zijn geen makelaar of bemiddelaar en verhuren geen woningen. Het aanbod komt van openbare advertenties op andere websites; je neemt rechtstreeks contact op met de aanbieder.",
+    "serviceNotice": "Woonwekker is een zoek- en alertdienst. Wij zijn geen makelaar of bemiddelaar en verhuren geen woningen. Het aanbod komt van vastgoedbedrijven en andere adverteerders; je neemt rechtstreeks contact op met de aanbieder.",
     "footerSources": "Aanbod afkomstig van openbare advertenties op",
     "footerTerms": "Algemene voorwaarden",
     "footerRefund": "Opzeg- en terugbetalingsbeleid",
@@ -903,7 +903,7 @@ const copy={
         "Where personal data is processed, you can ask under the GDPR for access, correction, erasure, restriction or portability, and object where that applies. You can lodge a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens). This page does not publish an inbox for those requests."
       ]
     ],
-    "serviceNotice": "Woonwekker is a search and alert service. We are not an estate agent or intermediary and do not rent out homes. Listings come from public ads on other websites; you contact the advertiser directly.",
+    "serviceNotice": "Woonwekker is a search and alert service. We are not an estate agent or intermediary and do not rent out homes. Listings from property companies and advertisers; you contact the advertiser directly.",
     "footerSources": "Listings taken from public ads on",
     "footerTerms": "Terms and conditions",
     "footerRefund": "Cancellation and refund policy",
@@ -1378,7 +1378,7 @@ const copy={
         "Cuando se tratan datos personales, puedes pedir acceso, rectificación, supresión, limitación o portabilidad, y oponerte cuando corresponda, según el RGPD. Puedes reclamar ante la Autoriteit Persoonsgegevens. Esta página no publica un buzón para esas solicitudes."
       ]
     ],
-    "serviceNotice": "Woonwekker es un servicio de búsqueda y alertas. No somos una agencia inmobiliaria ni un intermediario y no alquilamos viviendas. Los anuncios proceden de anuncios públicos en otros sitios web; tú contactas directamente con el anunciante.",
+    "serviceNotice": "Woonwekker es un servicio de búsqueda y alertas. No somos una agencia inmobiliaria ni un intermediario y no alquilamos viviendas. Los anuncios proceden de empresas inmobiliarias y otros anunciantes; tú contactas directamente con el anunciante.",
     "footerSources": "Anuncios procedentes de anuncios públicos en",
     "footerTerms": "Condiciones generales",
     "footerRefund": "Política de cancelación y reembolso",
@@ -1853,7 +1853,7 @@ const copy={
         "Gdy przetwarzane są dane osobowe, możesz na podstawie RODO żądać dostępu, sprostowania, usunięcia, ograniczenia albo przenoszenia oraz wnieść sprzeciw, gdy to przysługuje. Możesz złożyć skargę do Autoriteit Persoonsgegevens. Ta strona nie publikuje skrzynki na te wnioski."
       ]
     ],
-    "serviceNotice": "Woonwekker to serwis wyszukiwania i powiadomień. Nie jesteśmy agencją nieruchomości ani pośrednikiem i nie wynajmujemy mieszkań. Oferty pochodzą z publicznych ogłoszeń na innych stronach internetowych; z ogłoszeniodawcą kontaktujesz się bezpośrednio.",
+    "serviceNotice": "Woonwekker to serwis wyszukiwania i powiadomień. Nie jesteśmy agencją nieruchomości ani pośrednikiem i nie wynajmujemy mieszkań. Oferty pochodzą od firm z branży nieruchomości i innych ogłoszeniodawców; z ogłoszeniodawcą kontaktujesz się bezpośrednio.",
     "footerSources": "Oferty pochodzą z publicznych ogłoszeń w serwisach",
     "footerTerms": "Ogólne warunki",
     "footerRefund": "Zasady rezygnacji i zwrotów",
@@ -2328,7 +2328,7 @@ const copy={
         "Quando há tratamento de dados pessoais, pode pedir acesso, retificação, apagamento, limitação ou portabilidade, e opor-se quando isso se aplica, ao abrigo do RGPD. Pode apresentar queixa à Autoriteit Persoonsgegevens. Esta página não publica uma caixa de correio para esses pedidos."
       ]
     ],
-    "serviceNotice": "O Woonwekker é um serviço de pesquisa e alertas. Não somos uma agência imobiliária nem um intermediário e não arrendamos habitações. As ofertas provêm de anúncios públicos noutros sítios web; contacta diretamente o anunciante.",
+    "serviceNotice": "O Woonwekker é um serviço de pesquisa e alertas. Não somos uma agência imobiliária nem um intermediário e não arrendamos habitações. As ofertas provêm de empresas imobiliárias e outros anunciantes; contacta diretamente o anunciante.",
     "footerSources": "Ofertas provenientes de anúncios públicos em",
     "footerTerms": "Condições gerais",
     "footerRefund": "Política de cancelamento e reembolso",
@@ -2803,7 +2803,7 @@ const copy={
         "Când sunt prelucrate date cu caracter personal, poți cere acces, rectificare, ștergere, restricționare sau portabilitate și te poți opune când se aplică, în temeiul GDPR. Poți depune o plângere la Autoriteit Persoonsgegevens. Această pagină nu publică o căsuță pentru aceste cereri."
       ]
     ],
-    "serviceNotice": "Woonwekker este un serviciu de căutare și alerte. Nu suntem agenție imobiliară sau intermediar și nu închiriem locuințe. Ofertele provin din anunțuri publice de pe alte site-uri; iei legătura direct cu cel care a publicat anunțul.",
+    "serviceNotice": "Woonwekker este un serviciu de căutare și alerte. Nu suntem agenție imobiliară sau intermediar și nu închiriem locuințe. Ofertele provin de la companii imobiliare și alți ofertanți; iei legătura direct cu cel care a publicat anunțul.",
     "footerSources": "Oferte preluate din anunțuri publice de pe",
     "footerTerms": "Condiții generale",
     "footerRefund": "Politica de anulare și rambursare",
@@ -3278,7 +3278,7 @@ const copy={
         "Когато се обработват лични данни, можете по ОРЗД да поискате достъп, поправка, изтриване, ограничаване или преносимост и да възразите, когато това важи. Можете да подадете жалба до Autoriteit Persoonsgegevens. Тази страница не публикува пощенска кутия за тези искания."
       ]
     ],
-    "serviceNotice": "Woonwekker е услуга за търсене и известия. Не сме агенция за недвижими имоти или посредник и не отдаваме жилища под наем. Обявите идват от публични обяви на други уебсайтове; свързвате се директно с рекламодателя.",
+    "serviceNotice": "Woonwekker е услуга за търсене и известия. Не сме агенция за недвижими имоти или посредник и не отдаваме жилища под наем. Обявите идват от компании за недвижими имоти и други рекламодатели; свързвате се директно с рекламодателя.",
     "footerSources": "Обявите са взети от публични обяви в",
     "footerTerms": "Общи условия",
     "footerRefund": "Политика за прекратяване и възстановяване",
@@ -3753,7 +3753,7 @@ const copy={
         "Quando sono trattati dati personali puoi chiedere accesso, rettifica, cancellazione, limitazione o portabilità e opporti quando spetta, in base al GDPR. Puoi proporre reclamo all’Autoriteit Persoonsgegevens. Questa pagina non pubblica una casella per quelle richieste."
       ]
     ],
-    "serviceNotice": "Woonwekker è un servizio di ricerca e avvisi. Non siamo un’agenzia immobiliare né un intermediario e non affittiamo abitazioni. Gli annunci provengono da annunci pubblici su altri siti web; contatti direttamente l’inserzionista.",
+    "serviceNotice": "Woonwekker è un servizio di ricerca e avvisi. Non siamo un’agenzia immobiliare né un intermediario e non affittiamo abitazioni. Gli annunci provengono da società immobiliari e altri inserzionisti; contatti direttamente l’inserzionista.",
     "footerSources": "Annunci tratti da annunci pubblici su",
     "footerTerms": "Condizioni generali",
     "footerRefund": "Politica di disdetta e rimborso",
