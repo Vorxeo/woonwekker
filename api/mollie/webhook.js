@@ -10,8 +10,12 @@ const {
 const {
   trySendBellenChargeFailed,
   trySendBellenCanceled,
+  trySendBellenReceipt,
   resendConfigured,
 } = require('../../lib/ww-bellen-mail.cjs');
+
+/** Per-instance dedupe so a webhook retry does not mail a second receipt (best effort). */
+const receiptsSent = new Set();
 
 function queryFromReq(req) {
   try {
@@ -73,6 +77,15 @@ module.exports = async function handler(req, res) {
     if (payment.status === 'paid') {
       // grantIfPaid unlocks + may send email B when a subscription is created
       await grantIfPaid(payment);
+      // Receipt for every real charge (not the €0 mandate payment).
+      const amountVal = payment.amount && payment.amount.value;
+      if (amountVal && amountVal !== '0.00' && !receiptsSent.has(payment.id) && resendConfigured()) {
+        const email = await resolveCustomerEmail(payment.customerId, payment);
+        if (email) {
+          const sent = await trySendBellenReceipt({ email, amount: amountVal, paidAt: payment.paidAt, paymentId: payment.id });
+          if (sent && sent.sent) receiptsSent.add(payment.id);
+        }
+      }
       return ok(res);
     }
 

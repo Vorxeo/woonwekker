@@ -7,6 +7,18 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/legal",
+      "destination": "/voorwaarden/",
+      "permanent": true
+    },
+    {
+      "source": "/legal/",
+      "destination": "/voorwaarden/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/listings.full.json",
@@ -15,6 +27,42 @@
     {
       "source": "/data/(.*)",
       "destination": "/api/not-found"
+    },
+    {
+      "source": "/plaats",
+      "destination": "/api/not-found?gone=1"
+    },
+    {
+      "source": "/plaats/",
+      "destination": "/api/not-found?gone=1"
+    },
+    {
+      "source": "/plaats/:path*",
+      "destination": "/api/not-found?gone=1"
+    },
+    {
+      "source": "/api/plaats",
+      "destination": "/api/not-found?gone=1"
+    },
+    {
+      "source": "/api/plaats/",
+      "destination": "/api/not-found?gone=1"
+    },
+    {
+      "source": "/api/withdrawal",
+      "destination": "/api/billing-portal?action=withdraw"
+    },
+    {
+      "source": "/api/withdrawal/",
+      "destination": "/api/billing-portal?action=withdraw"
+    },
+    {
+      "source": "/api/cancel",
+      "destination": "/api/billing-portal?action=cancel"
+    },
+    {
+      "source": "/api/cancel/",
+      "destination": "/api/billing-portal?action=cancel"
     },
     {
       "source": "/listings.json",
@@ -119,5 +167,13 @@
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/listings.js": {
+      "includeFiles": "data/listings.full.json"
+    },
+    "api/listing/*.js": {
+      "includeFiles": "data/listings.full.json"
+    }
+  }
 }
