@@ -84,9 +84,9 @@ const copy={
     "yes": "Ja",
     "no": "Nee",
     "unknown": "Niet vermeld",
-    "source": "Bekijk de originele advertentie op {source} ↗",
+    "source": "Bekijk de originele advertentie op externe woningplatforms ↗",
     "detailNote": "Controleer de actuele beschikbaarheid, huurvoorwaarden en eventuele bijkomende kosten bij de verhuurder.",
-    "sourceText": "Deze advertentie staat op {source}. Reageren en contact met de aanbieder gaan via {source}. Woonwekker heeft zelf geen contact met de verhuurder en weet niet of de woning nog beschikbaar is.",
+    "sourceText": "Deze advertentie staat op externe woningplatforms. Reageren en contact met de aanbieder gaan via externe woningplatforms. Woonwekker heeft zelf geen contact met de verhuurder en weet niet of de woning nog beschikbaar is.",
     "close": "Sluiten",
     "photoUnavailable": "Foto niet beschikbaar",
     "loadError": "De woningen kunnen niet worden geladen.",
@@ -102,7 +102,7 @@ const copy={
       ],
       [
         "Waar komt het aanbod vandaan?",
-        "Uit openbare advertenties op andere websites: Funda, Kamernet, Pararius. Bij elke woning staan de bron en de datum waarop we de advertentie het laatst hebben gecontroleerd."
+        "Uit openbare advertenties op andere websites: externe woningplatforms. Bij elke woning staan de bron en de datum waarop we de advertentie het laatst hebben gecontroleerd."
       ],
       [
         "Zijn de woningen nog beschikbaar?",
@@ -110,7 +110,7 @@ const copy={
       ],
       [
         "Hoe neem ik contact op of plan ik een bezichtiging?",
-        "Open een woning en kies ‘Bekijk de originele advertentie’. Je reageert rechtstreeks bij de aanbieder, op die website. Dat is gratis bij Woonwekker. De bronwebsite heeft eigen voorwaarden; bij Kamernet heb je mogelijk een betaald Kamernet-account nodig om te reageren."
+        "Open een woning en kies ‘Bekijk de originele advertentie’. Je reageert rechtstreeks bij de aanbieder, op die website. Dat is gratis bij Woonwekker. De bronwebsite heeft eigen voorwaarden. Externe woningplatforms kunnen een eigen account of betaling vereisen om te reageren. Dit staat los van Woonwekker."
       ],
       [
         "Moet ik betalen om te zoeken?",
@@ -421,7 +421,7 @@ const copy={
       ],
       [
         "Hosting en foto’s",
-        "De site draait bij Vercel. Bij het openen van pagina’s ontvangt Vercel technische verzoekgegevens, zoals IP-adres en browsertype, die nodig zijn om de pagina te tonen. Foto’s van woningen worden rechtstreeks geladen van de beeldservers van de bronwebsites (Funda, Kamernet, Pararius); die ontvangen daarbij ook je IP-adres. Als je een originele advertentie opent, geldt het privacybeleid van die website."
+        "De site draait bij Vercel. Bij het openen van pagina’s ontvangt Vercel technische verzoekgegevens, zoals IP-adres en browsertype, die nodig zijn om de pagina te tonen. Foto’s van woningen worden rechtstreeks geladen van de beeldservers van de bronwebsites; die ontvangen daarbij ook je IP-adres. Als je een originele advertentie opent, geldt het privacybeleid van die website."
       ],
       [
         "Rechten",
@@ -437,8 +437,8 @@ const copy={
     "footerWithdraw": "Overeenkomst ontbinden",
     "kvkLabel": "KvK-nummer",
     "btwLabel": "Btw-nummer",
-    "kamernetNote": "Let op: om op Kamernet te reageren heb je mogelijk een betaald Kamernet-account nodig. Dat staat los van Woonwekker.",
-    "sourceLine": "Bron: {source}",
+    "kamernetNote": "Externe woningplatforms kunnen een eigen account of betaling vereisen om te reageren. Dit staat los van Woonwekker.",
+    "sourceLine": "Bron: externe woningplatforms",
     "lastChecked": "laatst gecontroleerd {date}",
     "checkoutTitle": "Bellen starten",
     "checkoutUnavailable": "Nieuwe abonnementen zijn tijdelijk niet beschikbaar. Er wordt niets afgeschreven. Zoeken en de links naar advertenties blijven gratis.",
@@ -471,7 +471,8 @@ const copy={
     "cancelSubmit": "Abonnement opzeggen",
     "cancelDone": "Je abonnement is opgezegd op {date}. Er wordt niets meer afgeschreven.",
     "cancelAccessUntil": "Je houdt toegang tot en met {date}.",
-    "cancelReceived": "Je opzegging is ontvangen op {date}. Referentie: {ref}. We verwerken haar handmatig; daarna wordt er niets meer afgeschreven."
+    "cancelReceived": "Je opzegging is ontvangen op {date}. Referentie: {ref}. We verwerken haar handmatig; daarna wordt er niets meer afgeschreven.",
+    "companyIdentity": "Woonwekker is een bedrijfsonderdeel van Vorxeo."
   },
   "en": {
     "homes": "Find a home",
@@ -558,9 +559,9 @@ const copy={
     "yes": "Yes",
     "no": "No",
     "unknown": "Not provided",
-    "source": "View the original ad on {source} ↗",
+    "source": "View the original ad on external property platforms ↗",
     "detailNote": "Check current availability, rental terms and additional costs with the landlord.",
-    "sourceText": "This ad is on {source}. Responding and contacting the advertiser happen via {source}. Woonwekker has no contact with the landlord and does not know whether the home is still available.",
+    "sourceText": "This ad is on external property platforms. Responding and contacting the advertiser happen via external property platforms. Woonwekker has no contact with the landlord and does not know whether the home is still available.",
     "close": "Close",
     "photoUnavailable": "Photo unavailable",
     "loadError": "The homes could not be loaded.",
@@ -576,7 +577,7 @@ const copy={
       ],
       [
         "Where do the listings come from?",
-        "From public ads on other websites: Funda, Kamernet, Pararius. Every home shows the source and the date we last checked the ad."
+        "From public ads on other websites: external property platforms. Every home shows the source and the date we last checked the ad."
       ],
       [
         "Are the homes still available?",
@@ -584,7 +585,7 @@ const copy={
       ],
       [
         "How do I contact the advertiser or book a viewing?",
-        "Open a home and choose ‘View the original ad’. You respond directly to the advertiser, on that website. That is free on Woonwekker. The source website has its own terms; on Kamernet you may need a paid Kamernet account to respond."
+        "Open a home and choose ‘View the original ad’. You respond directly to the advertiser, on that website. That is free on Woonwekker. The source website has its own terms. External property platforms may require their own account or payment to respond. This is separate from Woonwekker."
       ],
       [
         "Do I have to pay to search?",
@@ -895,7 +896,7 @@ const copy={
       ],
       [
         "Hosting and photos",
-        "The site runs on Vercel. When you open pages, Vercel receives technical request data, such as IP address and browser type, needed to show the page. Photos of homes are loaded directly from the image servers of the source websites (Funda, Kamernet, Pararius), which also receive your IP address. When you open an original ad, that website’s privacy policy applies."
+        "The site runs on Vercel. When you open pages, Vercel receives technical request data, such as IP address and browser type, needed to show the page. Photos of homes are loaded directly from the image servers of the source websites, which also receive your IP address. When you open an original ad, that website’s privacy policy applies."
       ],
       [
         "Rights",
@@ -911,8 +912,8 @@ const copy={
     "footerWithdraw": "Withdraw from contract",
     "kvkLabel": "Chamber of Commerce (KvK) no.",
     "btwLabel": "VAT no.",
-    "kamernetNote": "Note: to respond on Kamernet you may need a paid Kamernet account. That is separate from Woonwekker.",
-    "sourceLine": "Source: {source}",
+    "kamernetNote": "External property platforms may require their own account or payment to respond. This is separate from Woonwekker.",
+    "sourceLine": "Source: external property platforms",
     "lastChecked": "last checked {date}",
     "checkoutTitle": "Start Bellen",
     "checkoutUnavailable": "New subscriptions are temporarily unavailable. Nothing will be charged. Searching and the links to ads remain free.",
@@ -945,7 +946,8 @@ const copy={
     "cancelSubmit": "Cancel subscription",
     "cancelDone": "Your subscription was cancelled on {date}. Nothing more will be charged.",
     "cancelAccessUntil": "You keep access up to and including {date}.",
-    "cancelReceived": "Your cancellation was received on {date}. Reference: {ref}. We process it by hand; after that nothing more will be charged."
+    "cancelReceived": "Your cancellation was received on {date}. Reference: {ref}. We process it by hand; after that nothing more will be charged.",
+    "companyIdentity": "Woonwekker is a business division of Vorxeo."
   },
   "es": {
     "homes": "Viviendas",
@@ -1032,9 +1034,9 @@ const copy={
     "yes": "Sí",
     "no": "No",
     "unknown": "No indicado",
-    "source": "Ver el anuncio original en {source} ↗",
+    "source": "Ver el anuncio original en plataformas inmobiliarias externas ↗",
     "detailNote": "Consulta la disponibilidad actual, las condiciones y los gastos adicionales con el propietario.",
-    "sourceText": "Este anuncio está en {source}. Las respuestas y el contacto con el anunciante se hacen a través de {source}. Woonwekker no tiene contacto con el arrendador y no sabe si la vivienda sigue disponible.",
+    "sourceText": "Este anuncio está en plataformas inmobiliarias externas. Las respuestas y el contacto con el anunciante se hacen a través de plataformas inmobiliarias externas. Woonwekker no tiene contacto con el arrendador y no sabe si la vivienda sigue disponible.",
     "close": "Cerrar",
     "photoUnavailable": "Foto no disponible",
     "loadError": "No se pudieron cargar las viviendas.",
@@ -1050,7 +1052,7 @@ const copy={
       ],
       [
         "¿De dónde viene la oferta?",
-        "De anuncios públicos en otros sitios web: Funda, Kamernet, Pararius. Cada vivienda muestra la fuente y la fecha en que comprobamos el anuncio por última vez."
+        "De anuncios públicos en otros sitios web: plataformas inmobiliarias externas. Cada vivienda muestra la fuente y la fecha en que comprobamos el anuncio por última vez."
       ],
       [
         "¿Siguen disponibles las viviendas?",
@@ -1058,7 +1060,7 @@ const copy={
       ],
       [
         "¿Cómo contacto con el anunciante o reservo una visita?",
-        "Abre una vivienda y elige «Ver el anuncio original». Respondes directamente al anunciante, en ese sitio web. En Woonwekker es gratis. El sitio de origen tiene sus propias condiciones; en Kamernet puede que necesites una cuenta de pago de Kamernet para responder."
+        "Abre una vivienda y elige «Ver el anuncio original». Respondes directamente al anunciante, en ese sitio web. En Woonwekker es gratis. El sitio de origen tiene sus propias condiciones. Las plataformas externas pueden exigir una cuenta o un pago para responder. Esto es independiente de Woonwekker."
       ],
       [
         "¿Tengo que pagar para buscar?",
@@ -1369,7 +1371,7 @@ const copy={
       ],
       [
         "Alojamiento y fotos",
-        "El sitio funciona en Vercel. Al abrir páginas, Vercel recibe datos técnicos de la solicitud, como la dirección IP y el tipo de navegador, necesarios para mostrar la página. Las fotos de las viviendas se cargan directamente desde los servidores de imágenes de los sitios de origen (Funda, Kamernet, Pararius), que también reciben tu dirección IP. Cuando abres un anuncio original, se aplica la política de privacidad de ese sitio web."
+        "El sitio funciona en Vercel. Al abrir páginas, Vercel recibe datos técnicos de la solicitud, como la dirección IP y el tipo de navegador, necesarios para mostrar la página. Las fotos de las viviendas se cargan directamente desde los servidores de imágenes de los sitios de origen, que también reciben tu dirección IP. Cuando abres un anuncio original, se aplica la política de privacidad de ese sitio web."
       ],
       [
         "Derechos",
@@ -1385,8 +1387,8 @@ const copy={
     "footerWithdraw": "Desistir del contrato",
     "kvkLabel": "N.º KvK (Cámara de Comercio)",
     "btwLabel": "N.º IVA",
-    "kamernetNote": "Atención: para responder en Kamernet puede que necesites una cuenta de pago de Kamernet. Eso es independiente de Woonwekker.",
-    "sourceLine": "Fuente: {source}",
+    "kamernetNote": "Las plataformas externas pueden exigir una cuenta o un pago para responder. Esto es independiente de Woonwekker.",
+    "sourceLine": "Fuente: plataformas inmobiliarias externas",
     "lastChecked": "última comprobación {date}",
     "checkoutTitle": "Empezar Bellen",
     "checkoutUnavailable": "Las nuevas suscripciones no están disponibles temporalmente. No se cobrará nada. Buscar y los enlaces a los anuncios siguen siendo gratis.",
@@ -1419,7 +1421,8 @@ const copy={
     "cancelSubmit": "Cancelar suscripción",
     "cancelDone": "Tu suscripción se canceló el {date}. No se cobrará nada más.",
     "cancelAccessUntil": "Conservas el acceso hasta el {date} inclusive.",
-    "cancelReceived": "Tu cancelación se recibió el {date}. Referencia: {ref}. La tramitamos manualmente; después no se cobrará nada más."
+    "cancelReceived": "Tu cancelación se recibió el {date}. Referencia: {ref}. La tramitamos manualmente; después no se cobrará nada más.",
+    "companyIdentity": "Woonwekker es una división de Vorxeo."
   },
   "pl": {
     "homes": "Mieszkania i domy",
@@ -1506,9 +1509,9 @@ const copy={
     "yes": "Tak",
     "no": "Nie",
     "unknown": "Nie podano",
-    "source": "Zobacz oryginalne ogłoszenie w serwisie {source} ↗",
+    "source": "Zobacz oryginalne ogłoszenie w serwisie zewnętrzne platformy mieszkaniowe ↗",
     "detailNote": "Sprawdź aktualną dostępność, warunki najmu i dodatkowe koszty u właściciela.",
-    "sourceText": "To ogłoszenie jest w serwisie {source}. Odpowiedź i kontakt z ogłoszeniodawcą odbywają się przez {source}. Woonwekker nie ma kontaktu z wynajmującym i nie wie, czy oferta jest nadal aktualna.",
+    "sourceText": "To ogłoszenie jest w serwisie zewnętrzne platformy mieszkaniowe. Odpowiedź i kontakt z ogłoszeniodawcą odbywają się przez zewnętrzne platformy mieszkaniowe. Woonwekker nie ma kontaktu z wynajmującym i nie wie, czy oferta jest nadal aktualna.",
     "close": "Zamknij",
     "photoUnavailable": "Zdjęcie niedostępne",
     "loadError": "Nie udało się wczytać ofert.",
@@ -1524,7 +1527,7 @@ const copy={
       ],
       [
         "Skąd pochodzą oferty?",
-        "Z publicznych ogłoszeń na innych stronach: Funda, Kamernet, Pararius. Przy każdym mieszkaniu widać źródło i datę ostatniego sprawdzenia ogłoszenia."
+        "Z publicznych ogłoszeń na innych stronach: zewnętrzne platformy mieszkaniowe. Przy każdym mieszkaniu widać źródło i datę ostatniego sprawdzenia ogłoszenia."
       ],
       [
         "Czy mieszkania są nadal dostępne?",
@@ -1532,7 +1535,7 @@ const copy={
       ],
       [
         "Jak skontaktować się z ogłoszeniodawcą lub umówić oglądanie?",
-        "Otwórz mieszkanie i wybierz „Zobacz oryginalne ogłoszenie”. Odpowiadasz bezpośrednio ogłoszeniodawcy, na tamtej stronie. W Woonwekker jest to bezpłatne. Strona źródłowa ma własne warunki; na Kamernet możesz potrzebować płatnego konta Kamernet, aby odpowiedzieć."
+        "Otwórz mieszkanie i wybierz „Zobacz oryginalne ogłoszenie”. Odpowiadasz bezpośrednio ogłoszeniodawcy, na tamtej stronie. W Woonwekker jest to bezpłatne. Strona źródłowa ma własne warunki. Zewnętrzne platformy mogą wymagać konta lub opłaty, aby odpowiedzieć. Jest to niezależne od Woonwekker."
       ],
       [
         "Czy muszę płacić za wyszukiwanie?",
@@ -1843,7 +1846,7 @@ const copy={
       ],
       [
         "Hosting i zdjęcia",
-        "Strona działa na Vercel. Przy otwieraniu stron Vercel otrzymuje techniczne dane żądania, takie jak adres IP i typ przeglądarki, potrzebne do wyświetlenia strony. Zdjęcia mieszkań są ładowane bezpośrednio z serwerów obrazów stron źródłowych (Funda, Kamernet, Pararius), które również otrzymują Twój adres IP. Po otwarciu oryginalnego ogłoszenia obowiązuje polityka prywatności tej strony."
+        "Strona działa na Vercel. Przy otwieraniu stron Vercel otrzymuje techniczne dane żądania, takie jak adres IP i typ przeglądarki, potrzebne do wyświetlenia strony. Zdjęcia mieszkań są ładowane bezpośrednio z serwerów obrazów stron źródłowych, które również otrzymują Twój adres IP. Po otwarciu oryginalnego ogłoszenia obowiązuje polityka prywatności tej strony."
       ],
       [
         "Prawa",
@@ -1859,8 +1862,8 @@ const copy={
     "footerWithdraw": "Odstąp od umowy",
     "kvkLabel": "Nr KvK (Izba Handlowa)",
     "btwLabel": "Nr VAT",
-    "kamernetNote": "Uwaga: aby odpowiedzieć w serwisie Kamernet, możesz potrzebować płatnego konta Kamernet. Nie jest to związane z Woonwekker.",
-    "sourceLine": "Źródło: {source}",
+    "kamernetNote": "Zewnętrzne platformy mogą wymagać konta lub opłaty, aby odpowiedzieć. Jest to niezależne od Woonwekker.",
+    "sourceLine": "Źródło: zewnętrzne platformy mieszkaniowe",
     "lastChecked": "ostatnio sprawdzono {date}",
     "checkoutTitle": "Rozpocznij Bellen",
     "checkoutUnavailable": "Nowe subskrypcje są tymczasowo niedostępne. Nic nie zostanie pobrane. Wyszukiwanie i linki do ogłoszeń pozostają bezpłatne.",
@@ -1893,7 +1896,8 @@ const copy={
     "cancelSubmit": "Anuluj subskrypcję",
     "cancelDone": "Twoja subskrypcja została anulowana {date}. Nic więcej nie zostanie pobrane.",
     "cancelAccessUntil": "Dostęp zachowujesz do {date} włącznie.",
-    "cancelReceived": "Twoją rezygnację otrzymaliśmy {date}. Numer referencyjny: {ref}. Przetwarzamy ją ręcznie; potem nic więcej nie zostanie pobrane."
+    "cancelReceived": "Twoją rezygnację otrzymaliśmy {date}. Numer referencyjny: {ref}. Przetwarzamy ją ręcznie; potem nic więcej nie zostanie pobrane.",
+    "companyIdentity": "Woonwekker jest częścią firmy Vorxeo."
   },
   "pt": {
     "homes": "Encontrar um imóvel",
@@ -1980,9 +1984,9 @@ const copy={
     "yes": "Sim",
     "no": "Não",
     "unknown": "Não informado",
-    "source": "Ver o anúncio original no {source} ↗",
+    "source": "Ver o anúncio original no plataformas imobiliárias externas ↗",
     "detailNote": "Confirme a disponibilidade atual, as condições de aluguel e custos extras com o proprietário.",
-    "sourceText": "Este anúncio está no {source}. A resposta e o contacto com o anunciante fazem-se através do {source}. O Woonwekker não tem contacto com o senhorio e não sabe se a habitação continua disponível.",
+    "sourceText": "Este anúncio está no plataformas imobiliárias externas. A resposta e o contacto com o anunciante fazem-se através do plataformas imobiliárias externas. O Woonwekker não tem contacto com o senhorio e não sabe se a habitação continua disponível.",
     "close": "Fechar",
     "photoUnavailable": "Foto indisponível",
     "loadError": "Não foi possível carregar os imóveis.",
@@ -1998,7 +2002,7 @@ const copy={
       ],
       [
         "De onde vem a oferta?",
-        "De anúncios públicos noutros sites: Funda, Kamernet, Pararius. Cada casa mostra a fonte e a data em que verificámos o anúncio pela última vez."
+        "De anúncios públicos noutros sites: plataformas imobiliárias externas. Cada casa mostra a fonte e a data em que verificámos o anúncio pela última vez."
       ],
       [
         "As casas ainda estão disponíveis?",
@@ -2006,7 +2010,7 @@ const copy={
       ],
       [
         "Como contacto o anunciante ou marco uma visita?",
-        "Abra uma casa e escolha «Ver o anúncio original». Responde diretamente ao anunciante, nesse site. Na Woonwekker é grátis. O site de origem tem as suas próprias condições; no Kamernet poderá precisar de uma conta paga do Kamernet para responder."
+        "Abra uma casa e escolha «Ver o anúncio original». Responde diretamente ao anunciante, nesse site. Na Woonwekker é grátis. O site de origem tem as suas próprias condições. As plataformas externas podem exigir uma conta ou pagamento para responder. Isso é independente da Woonwekker."
       ],
       [
         "Tenho de pagar para pesquisar?",
@@ -2317,7 +2321,7 @@ const copy={
       ],
       [
         "Alojamento e fotografias",
-        "O site funciona na Vercel. Ao abrir páginas, a Vercel recebe dados técnicos do pedido, como o endereço IP e o tipo de navegador, necessários para mostrar a página. As fotografias das casas são carregadas diretamente dos servidores de imagens dos sites de origem (Funda, Kamernet, Pararius), que também recebem o seu endereço IP. Quando abre um anúncio original, aplica-se a política de privacidade desse site."
+        "O site funciona na Vercel. Ao abrir páginas, a Vercel recebe dados técnicos do pedido, como o endereço IP e o tipo de navegador, necessários para mostrar a página. As fotografias das casas são carregadas diretamente dos servidores de imagens dos sites de origem, que também recebem o seu endereço IP. Quando abre um anúncio original, aplica-se a política de privacidade desse site."
       ],
       [
         "Direitos",
@@ -2333,8 +2337,8 @@ const copy={
     "footerWithdraw": "Resolver o contrato",
     "kvkLabel": "N.º KvK (Câmara de Comércio)",
     "btwLabel": "N.º IVA",
-    "kamernetNote": "Atenção: para responder no Kamernet pode precisar de uma conta paga do Kamernet. Isso é independente do Woonwekker.",
-    "sourceLine": "Fonte: {source}",
+    "kamernetNote": "As plataformas externas podem exigir uma conta ou pagamento para responder. Isso é independente da Woonwekker.",
+    "sourceLine": "Fonte: plataformas imobiliárias externas",
     "lastChecked": "última verificação {date}",
     "checkoutTitle": "Iniciar Bellen",
     "checkoutUnavailable": "As novas subscrições estão temporariamente indisponíveis. Nada será cobrado. A pesquisa e as ligações para os anúncios continuam gratuitas.",
@@ -2367,7 +2371,8 @@ const copy={
     "cancelSubmit": "Cancelar subscrição",
     "cancelDone": "A sua subscrição foi cancelada em {date}. Não será cobrado mais nada.",
     "cancelAccessUntil": "Mantém o acesso até {date}, inclusive.",
-    "cancelReceived": "O seu cancelamento foi recebido em {date}. Referência: {ref}. Tratamos dele manualmente; depois não será cobrado mais nada."
+    "cancelReceived": "O seu cancelamento foi recebido em {date}. Referência: {ref}. Tratamos dele manualmente; depois não será cobrado mais nada.",
+    "companyIdentity": "Woonwekker é uma área de atuação da Vorxeo."
   },
   "ro": {
     "homes": "Găsește o locuință",
@@ -2454,9 +2459,9 @@ const copy={
     "yes": "Da",
     "no": "Nu",
     "unknown": "Nespecificat",
-    "source": "Vezi anunțul original pe {source} ↗",
+    "source": "Vezi anunțul original pe platforme imobiliare externe ↗",
     "detailNote": "Verifică disponibilitatea, condițiile de închiriere și costurile suplimentare la proprietar.",
-    "sourceText": "Acest anunț este pe {source}. Răspunsul și contactul cu cel care a publicat anunțul se fac prin {source}. Woonwekker nu are contact cu proprietarul și nu știe dacă locuința mai este disponibilă.",
+    "sourceText": "Acest anunț este pe platforme imobiliare externe. Răspunsul și contactul cu cel care a publicat anunțul se fac prin platforme imobiliare externe. Woonwekker nu are contact cu proprietarul și nu știe dacă locuința mai este disponibilă.",
     "close": "Închide",
     "photoUnavailable": "Fotografie indisponibilă",
     "loadError": "Locuințele nu au putut fi încărcate.",
@@ -2472,7 +2477,7 @@ const copy={
       ],
       [
         "De unde provin ofertele?",
-        "Din anunțuri publice de pe alte site-uri: Funda, Kamernet, Pararius. Fiecare locuință afișează sursa și data la care am verificat ultima dată anunțul."
+        "Din anunțuri publice de pe alte site-uri: platforme imobiliare externe. Fiecare locuință afișează sursa și data la care am verificat ultima dată anunțul."
       ],
       [
         "Mai sunt disponibile locuințele?",
@@ -2480,7 +2485,7 @@ const copy={
       ],
       [
         "Cum contactez ofertantul sau programez o vizionare?",
-        "Deschide o locuință și alege „Vezi anunțul original”. Răspunzi direct ofertantului, pe acel site. Pe Woonwekker este gratuit. Site-ul sursă are propriile condiții; pe Kamernet s-ar putea să ai nevoie de un cont Kamernet plătit ca să răspunzi."
+        "Deschide o locuință și alege „Vezi anunțul original”. Răspunzi direct ofertantului, pe acel site. Pe Woonwekker este gratuit. Site-ul sursă are propriile condiții. Platformele externe pot solicita un cont sau o plată pentru a răspunde. Acest lucru este separat de Woonwekker."
       ],
       [
         "Trebuie să plătesc ca să caut?",
@@ -2791,7 +2796,7 @@ const copy={
       ],
       [
         "Găzduire și fotografii",
-        "Site-ul rulează pe Vercel. Când deschizi pagini, Vercel primește date tehnice ale cererii, cum ar fi adresa IP și tipul de browser, necesare pentru afișarea paginii. Fotografiile locuințelor se încarcă direct de pe serverele de imagini ale site-urilor sursă (Funda, Kamernet, Pararius), care primesc și ele adresa ta IP. Când deschizi un anunț original, se aplică politica de confidențialitate a acelui site."
+        "Site-ul rulează pe Vercel. Când deschizi pagini, Vercel primește date tehnice ale cererii, cum ar fi adresa IP și tipul de browser, necesare pentru afișarea paginii. Fotografiile locuințelor se încarcă direct de pe serverele de imagini ale site-urilor sursă, care primesc și ele adresa ta IP. Când deschizi un anunț original, se aplică politica de confidențialitate a acelui site."
       ],
       [
         "Drepturi",
@@ -2807,8 +2812,8 @@ const copy={
     "footerWithdraw": "Retragere din contract",
     "kvkLabel": "Nr. KvK (Camera de Comerț)",
     "btwLabel": "Cod TVA",
-    "kamernetNote": "Atenție: pentru a răspunde pe Kamernet s-ar putea să ai nevoie de un cont Kamernet plătit. Acesta nu are legătură cu Woonwekker.",
-    "sourceLine": "Sursa: {source}",
+    "kamernetNote": "Platformele externe pot solicita un cont sau o plată pentru a răspunde. Acest lucru este separat de Woonwekker.",
+    "sourceLine": "Sursa: platforme imobiliare externe",
     "lastChecked": "verificat ultima dată {date}",
     "checkoutTitle": "Pornește Bellen",
     "checkoutUnavailable": "Abonamentele noi nu sunt disponibile temporar. Nu se va încasa nimic. Căutarea și linkurile către anunțuri rămân gratuite.",
@@ -2841,7 +2846,8 @@ const copy={
     "cancelSubmit": "Anulează abonamentul",
     "cancelDone": "Abonamentul tău a fost anulat la {date}. Nu se mai încasează nimic.",
     "cancelAccessUntil": "Păstrezi accesul până la {date} inclusiv.",
-    "cancelReceived": "Anularea ta a fost primită la {date}. Referință: {ref}. O procesăm manual; după aceea nu se mai încasează nimic."
+    "cancelReceived": "Anularea ta a fost primită la {date}. Referință: {ref}. O procesăm manual; după aceea nu se mai încasează nimic.",
+    "companyIdentity": "Woonwekker este o divizie a Vorxeo."
   },
   "bg": {
     "homes": "Намери дом",
@@ -2928,9 +2934,9 @@ const copy={
     "yes": "Да",
     "no": "Не",
     "unknown": "Не е посочено",
-    "source": "Вижте оригиналната обява в {source} ↗",
+    "source": "Вижте оригиналната обява в външни платформи за имоти ↗",
     "detailNote": "Проверете наличността, условията и допълнителните разходи при собственика.",
-    "sourceText": "Тази обява е в {source}. Отговорът и контактът с рекламодателя стават чрез {source}. Woonwekker няма контакт с наемодателя и не знае дали жилището все още е свободно.",
+    "sourceText": "Тази обява е в външни платформи за имоти. Отговорът и контактът с рекламодателя стават чрез външни платформи за имоти. Woonwekker няма контакт с наемодателя и не знае дали жилището все още е свободно.",
     "close": "Затвори",
     "photoUnavailable": "Снимката липсва",
     "loadError": "Жилищата не можаха да се заредят.",
@@ -2946,7 +2952,7 @@ const copy={
       ],
       [
         "Откъде идват офертите?",
-        "От публични обяви на други сайтове: Funda, Kamernet, Pararius. При всяко жилище се виждат източникът и датата, на която последно сме проверили обявата."
+        "От публични обяви на други сайтове: външни платформи за имоти. При всяко жилище се виждат източникът и датата, на която последно сме проверили обявата."
       ],
       [
         "Свободни ли са още жилищата?",
@@ -2954,7 +2960,7 @@ const copy={
       ],
       [
         "Как да се свържа с рекламодателя или да уговоря оглед?",
-        "Отворете жилище и изберете „Вижте оригиналната обява“. Отговаряте директно на рекламодателя, на онзи сайт. В Woonwekker това е безплатно. Сайтът източник има свои условия; в Kamernet може да ви е нужен платен акаунт в Kamernet, за да отговорите."
+        "Отворете жилище и изберете „Вижте оригиналната обява“. Отговаряте директно на рекламодателя, на онзи сайт. В Woonwekker това е безплатно. Сайтът източник има свои условия. Външните платформи може да изискват акаунт или плащане за отговор. Това е независимо от Woonwekker."
       ],
       [
         "Трябва ли да плащам, за да търся?",
@@ -3265,7 +3271,7 @@ const copy={
       ],
       [
         "Хостинг и снимки",
-        "Сайтът работи на Vercel. При отваряне на страници Vercel получава технически данни за заявката, като IP адрес и вид браузър, необходими за показване на страницата. Снимките на жилищата се зареждат директно от сървърите за изображения на сайтовете източници (Funda, Kamernet, Pararius), които също получават вашия IP адрес. Когато отворите оригинална обява, важи политиката за поверителност на този сайт."
+        "Сайтът работи на Vercel. При отваряне на страници Vercel получава технически данни за заявката, като IP адрес и вид браузър, необходими за показване на страницата. Снимките на жилищата се зареждат директно от сървърите за изображения на сайтовете източници, които също получават вашия IP адрес. Когато отворите оригинална обява, важи политиката за поверителност на този сайт."
       ],
       [
         "Права",
@@ -3281,8 +3287,8 @@ const copy={
     "footerWithdraw": "Отказ от договора",
     "kvkLabel": "Рег. № KvK (Търговска камара)",
     "btwLabel": "ДДС №",
-    "kamernetNote": "Внимание: за да отговорите в Kamernet, може да ви е нужен платен акаунт в Kamernet. Това няма връзка с Woonwekker.",
-    "sourceLine": "Източник: {source}",
+    "kamernetNote": "Външните платформи може да изискват акаунт или плащане за отговор. Това е независимо от Woonwekker.",
+    "sourceLine": "Източник: външни платформи за имоти",
     "lastChecked": "последна проверка {date}",
     "checkoutTitle": "Стартирай Bellen",
     "checkoutUnavailable": "Новите абонаменти временно не са налични. Нищо няма да бъде таксувано. Търсенето и връзките към обявите остават безплатни.",
@@ -3315,7 +3321,8 @@ const copy={
     "cancelSubmit": "Прекратяване на абонамента",
     "cancelDone": "Абонаментът ви е прекратен на {date}. Повече нищо няма да бъде таксувано.",
     "cancelAccessUntil": "Запазвате достъпа до {date} включително.",
-    "cancelReceived": "Прекратяването ви е получено на {date}. Референтен номер: {ref}. Обработваме го ръчно; след това нищо повече няма да бъде таксувано."
+    "cancelReceived": "Прекратяването ви е получено на {date}. Референтен номер: {ref}. Обработваме го ръчно; след това нищо повече няма да бъде таксувано.",
+    "companyIdentity": "Woonwekker е направление на Vorxeo."
   },
   "it": {
     "homes": "Trova una casa",
@@ -3402,9 +3409,9 @@ const copy={
     "yes": "Sì",
     "no": "No",
     "unknown": "Non indicato",
-    "source": "Vedi l’annuncio originale su {source} ↗",
+    "source": "Vedi l’annuncio originale su piattaforme immobiliari esterne ↗",
     "detailNote": "Controlla disponibilità, condizioni e costi extra con il proprietario.",
-    "sourceText": "Questo annuncio è su {source}. Le risposte e il contatto con l’inserzionista avvengono tramite {source}. Woonwekker non ha contatti con il locatore e non sa se la casa è ancora disponibile.",
+    "sourceText": "Questo annuncio è su piattaforme immobiliari esterne. Le risposte e il contatto con l’inserzionista avvengono tramite piattaforme immobiliari esterne. Woonwekker non ha contatti con il locatore e non sa se la casa è ancora disponibile.",
     "close": "Chiudi",
     "photoUnavailable": "Foto non disponibile",
     "loadError": "Non è stato possibile caricare le case.",
@@ -3420,7 +3427,7 @@ const copy={
       ],
       [
         "Da dove vengono gli annunci?",
-        "Da inserzioni pubbliche su altri siti: Funda, Kamernet, Pararius. Ogni casa mostra la fonte e la data in cui abbiamo controllato l’annuncio per l’ultima volta."
+        "Da inserzioni pubbliche su altri siti: piattaforme immobiliari esterne. Ogni casa mostra la fonte e la data in cui abbiamo controllato l’annuncio per l’ultima volta."
       ],
       [
         "Le case sono ancora disponibili?",
@@ -3428,7 +3435,7 @@ const copy={
       ],
       [
         "Come contatto l’inserzionista o prenoto una visita?",
-        "Apri una casa e scegli «Vedi l’annuncio originale». Rispondi direttamente all’inserzionista, su quel sito. Su Woonwekker è gratis. Il sito di origine ha le sue condizioni; su Kamernet potresti aver bisogno di un account Kamernet a pagamento per rispondere."
+        "Apri una casa e scegli «Vedi l’annuncio originale». Rispondi direttamente all’inserzionista, su quel sito. Su Woonwekker è gratis. Il sito di origine ha le sue condizioni. Le piattaforme esterne possono richiedere un account o un pagamento per rispondere. Questo è indipendente da Woonwekker."
       ],
       [
         "Devo pagare per cercare?",
@@ -3739,7 +3746,7 @@ const copy={
       ],
       [
         "Hosting e foto",
-        "Il sito è ospitato su Vercel. Quando apri le pagine, Vercel riceve dati tecnici della richiesta, come indirizzo IP e tipo di browser, necessari per mostrare la pagina. Le foto delle case sono caricate direttamente dai server di immagini dei siti di origine (Funda, Kamernet, Pararius), che ricevono anche il tuo indirizzo IP. Quando apri un annuncio originale, si applica l’informativa sulla privacy di quel sito."
+        "Il sito è ospitato su Vercel. Quando apri le pagine, Vercel riceve dati tecnici della richiesta, come indirizzo IP e tipo di browser, necessari per mostrare la pagina. Le foto delle case sono caricate direttamente dai server di immagini dei siti di origine, che ricevono anche il tuo indirizzo IP. Quando apri un annuncio originale, si applica l’informativa sulla privacy di quel sito."
       ],
       [
         "Diritti",
@@ -3755,8 +3762,8 @@ const copy={
     "footerWithdraw": "Recedi dal contratto",
     "kvkLabel": "N. KvK (Camera di Commercio)",
     "btwLabel": "Partita IVA",
-    "kamernetNote": "Nota: per rispondere su Kamernet potrebbe servire un account Kamernet a pagamento. Non dipende da Woonwekker.",
-    "sourceLine": "Fonte: {source}",
+    "kamernetNote": "Le piattaforme esterne possono richiedere un account o un pagamento per rispondere. Questo è indipendente da Woonwekker.",
+    "sourceLine": "Fonte: piattaforme immobiliari esterne",
     "lastChecked": "ultimo controllo {date}",
     "checkoutTitle": "Avvia Bellen",
     "checkoutUnavailable": "I nuovi abbonamenti sono temporaneamente non disponibili. Non verrà addebitato nulla. La ricerca e i link agli annunci restano gratuiti.",
@@ -3789,6 +3796,7 @@ const copy={
     "cancelSubmit": "Disdici l’abbonamento",
     "cancelDone": "Il tuo abbonamento è stato disdetto il {date}. Non verrà addebitato altro.",
     "cancelAccessUntil": "Mantieni l’accesso fino al {date} incluso.",
-    "cancelReceived": "La tua disdetta è stata ricevuta il {date}. Riferimento: {ref}. La gestiamo manualmente; dopo non verrà addebitato altro."
+    "cancelReceived": "La tua disdetta è stata ricevuta il {date}. Riferimento: {ref}. La gestiamo manualmente; dopo non verrà addebitato altro.",
+    "companyIdentity": "Woonwekker è una divisione di Vorxeo."
   }
 };

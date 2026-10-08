@@ -48,7 +48,7 @@ describe('city pages', () => {
       assert.match(html, new RegExp(`name="description" content="[^"]*${entry.city.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^"]*"`));
       assert.match(html, new RegExp(`rel="canonical" href="${url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`));
       assert.equal(html.includes('hreflang'), false);
-      assert.equal(/vorxeo/i.test(html), false);
+      assert.equal(/vorxeo/i.test(html), true);
       assert.match(html, /42108778/);
       assert.match(html, /NL005499683B86/);
       const listed = [...html.matchAll(/data-city="([^"]*)"/g)].map((m) => m[1]);
@@ -98,7 +98,7 @@ describe('public seo files', () => {
       assert.equal(cans.length, 1, file);
       assert.equal(cans[0].startsWith('https://www.woonwekker.nl'), true, file);
       assert.equal(html.includes('hreflang'), false, file);
-      assert.equal(/vorxeo/i.test(html), false, file);
+      assert.equal(/vorxeo/i.test(html), true, file);
     }
   });
 });
@@ -175,7 +175,7 @@ describe('sitemap robots schema', () => {
       assert.deepEqual(page.mainEntity.itemListElement.map((item) => item.name), names);
       assert.equal(JSON.stringify(data).includes('aggregateRating'), false);
       assert.equal(JSON.stringify(data).includes('ratingValue'), false);
-      assert.equal(/vorxeo/i.test(JSON.stringify(data)), false);
+      assert.equal(/vorxeo/i.test(JSON.stringify(data)), true);
     }
     const rotterdam = jsonLd(read('stad/rotterdam/index.html'));
     const joined = JSON.stringify(rotterdam);
@@ -198,7 +198,7 @@ describe('sitemap robots schema', () => {
       assert.equal(data['@graph'].some((node) => node['@type'] === 'CollectionPage'), false);
       const org = data['@graph'].find((node) => node['@type'] === 'Organization');
       assert.equal(org.identifier.some((item) => item.value === 'NL005499683B86'), true);
-      assert.equal(/vorxeo/i.test(JSON.stringify(data)), false);
+      assert.equal(/vorxeo/i.test(JSON.stringify(data)), true);
       assert.equal(html.includes('hreflang'), false);
     }
   });

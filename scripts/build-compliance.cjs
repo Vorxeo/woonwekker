@@ -183,11 +183,11 @@ function footerHtml(nl, provinceLinks, sources) {
   const link = (href, key) => `<a href="${href}" data-t="${key}">${esc(nl[key])}</a>`;
   return '<footer>'
     + `<div><strong>Woonwekker</strong><p data-t="footer">${esc(nl.footer)}</p>`
-    + `<p class="ww-sources"><span data-t="footerSources">${esc(nl.footerSources)}</span> <span class="ww-source-list">${esc(sources.join(', '))}</span>.</p></div>`
+    + `<p data-t="companyIdentity">${esc(nl.companyIdentity)}</p><p class="ww-sources"><span data-t="footerSources">${esc(nl.footerSources)}</span> <span class="ww-source-list">externe woningplatforms</span>.</p></div>`
     + `<div>${link('/prijzen/', 'pricing')}${link('/account/', 'account')}${link('/faq/', 'faq')}${link('/insights/', 'insights')}</div>`
     + `<div class="ww-legal-links">${link('/voorwaarden/', 'footerTerms')}${link('/privacy/', 'privacy')}${link('/terugbetaling/', 'footerRefund')}${link('/herroeping/', 'footerWithdrawalInfo')}${link('/opzeggen/', 'footerCancel')}${link('/herroeping/#ontbinden', 'footerWithdraw')}</div>`
     + provinceLinks
-    + `<small class="ww-legal-id">© 2026 Woonwekker · <span data-t="kvkLabel">${esc(nl.kvkLabel)}</span> ${KVK} · <span data-t="btwLabel">${esc(nl.btwLabel)}</span> ${BTW}</small>`
+    + `<small class="ww-legal-id">© 2026 Vorxeo (Woonwekker) · <span data-t="kvkLabel">${esc(nl.kvkLabel)}</span> ${KVK} · <span data-t="btwLabel">${esc(nl.btwLabel)}</span> ${BTW}</small>`
     + '</footer>';
 }
 

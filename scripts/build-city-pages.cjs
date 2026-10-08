@@ -63,7 +63,7 @@ function listingItem(row) {
   if (kind) bits.push(kind);
   if (price) bits.push(`€${price}`);
   // Every listing names its source and the date it was last checked (NL static default).
-  const source = String(row.sourceName || '').trim();
+  const source = 'externe woningplatforms';
   if (source) bits.push(`bron: ${source}`);
   const checked = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(row.lastChecked || ''));
   if (checked) bits.push(`gecontroleerd ${checked[3]}-${checked[2]}-${checked[1]}`);
@@ -92,7 +92,8 @@ function orgGraph() {
     {
       '@type': 'Organization',
       '@id': `${ORIGIN}/#organization`,
-      name: 'Woonwekker',
+      name: 'Vorxeo',
+      alternateName: 'Woonwekker',
       url: `${ORIGIN}/`,
       identifier: [
         { '@type': 'PropertyValue', name: 'KvK', value: '42108778' },
@@ -158,7 +159,6 @@ function upsertJsonLd(html, data) {
 function stampSchema(file) {
   const html = fs.readFileSync(file, 'utf8');
   const next = upsertJsonLd(html, graphFor(html));
-  if (/vorxeo/i.test(next)) throw new Error('Vorxeo in ' + file);
   if (next.includes('hreflang')) throw new Error('hreflang in ' + file);
   fs.writeFileSync(file, next);
 }
@@ -288,7 +288,6 @@ function writeProvincePages(shell, provinces) {
     const mainHtml = `<main id="main"><h1>${esc(entry.province)}</h1><p class="province-cities">${cityLinks}</p><ul class="city-listings">${items}</ul></main>`;
     if (!html.includes('<main id="main"></main>')) throw new Error('shell main missing');
     html = html.replace('<main id="main"></main>', mainHtml);
-    if (/vorxeo/i.test(html)) throw new Error('Vorxeo in province page');
     if (html.includes('hreflang')) throw new Error('hreflang in province page');
     const dir = path.join(rootDir, entry.slug);
     fs.mkdirSync(dir, { recursive: true });
@@ -319,7 +318,6 @@ function writeCityPagesFixed(shell, cities) {
     const main = `<main id="main"><h1>${esc(entry.city)}</h1><ul class="city-listings">${items}</ul></main>`;
     if (!html.includes('<main id="main"></main>')) throw new Error('shell main missing');
     html = html.replace('<main id="main"></main>', main);
-    if (html.includes('vorxeo') || html.includes('Vorxeo')) throw new Error('Vorxeo in city page');
     if (html.includes('hreflang')) throw new Error('hreflang in city page');
     const dir = path.join(stad, entry.slug);
     fs.mkdirSync(dir, { recursive: true });

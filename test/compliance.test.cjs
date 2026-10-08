@@ -2,7 +2,7 @@
 /**
  * Compliance guarantees (2026-10-08): service framing, sources, no paywall on contact,
  * /plaats/ gone, consent boxes, footer legal block on every page, legal pages,
- * no visitor-facing payment-provider or Vorxeo names, withdrawal/cancel without login, mails.
+ * generic source descriptions, Vorxeo legal identity, no inactive payment-provider names, withdrawal/cancel without login, mails.
  */
 const { describe, it, beforeEach, afterEach } = require('node:test');
 const assert = require('node:assert/strict');
@@ -63,18 +63,19 @@ describe('service framing and sources', () => {
       assert.ok(copy[lang].serviceNotice && copy[lang].serviceNotice.length > 60, lang);
       assert.ok(copy[lang].footerSources, lang);
       const faqTitles = copy[lang].faqItems.map((q) => q[1]).join(' ');
-      assert.match(faqTitles, /Funda, Kamernet, Pararius/, 'FAQ names the sources: ' + lang);
+      assert.doesNotMatch(faqTitles, /Funda|Kamernet|Pararius/i, 'FAQ uses generic sources: ' + lang);
+      assert.match(copy[lang].companyIdentity, /Vorxeo/);
     }
     assert.match(copy.en.serviceNotice, /search and alert service/);
     assert.match(copy.en.serviceNotice, /contact the advertiser directly/);
   });
 
-  it('names the sources from the data on every page and on every listing', () => {
+  it('uses generic source descriptions on every page while preserving listing data', () => {
     const rows = JSON.parse(read('listings.json'));
     const names = [...new Set(rows.map((r) => r.sourceName))].sort();
     assert.deepEqual(names, ['Funda', 'Kamernet', 'Pararius']);
     for (const f of htmlFiles) {
-      assert.match(fs.readFileSync(f, 'utf8'), /<span class="ww-source-list">Funda, Kamernet, Pararius<\/span>/, path.relative(dist, f));
+      assert.match(fs.readFileSync(f, 'utf8'), /<span class="ww-source-list">externe woningplatforms<\/span>/, path.relative(dist, f));
     }
     const app = read('app.js');
     assert.match(app, /class="ww-card-source"/);
@@ -242,11 +243,11 @@ describe('legal pages', () => {
 });
 
 describe('visitor-facing text', () => {
-  it('names no payment provider and never Vorxeo', () => {
+  it('names no inactive payment provider and identifies Vorxeo on public pages', () => {
     for (const f of textFiles) {
       const src = fs.readFileSync(f, 'utf8');
       assert.equal(/mollie/i.test(src), false, 'mollie in ' + path.relative(dist, f));
-      assert.equal(/vorxeo/i.test(src), false, 'vorxeo in ' + path.relative(dist, f));
+      if (f.endsWith('.html')) assert.match(src, /Vorxeo/, path.relative(dist, f));
     }
   });
 

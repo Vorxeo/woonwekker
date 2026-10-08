@@ -50,7 +50,7 @@ describe('Google Ads tag + Consent Mode v2', () => {
       assert.match(html, /googletagmanager\.com\/gtag\/js\?id=AW-18493510630/);
       assert.match(html, /gtag\('config','AW-18493510630'\)/);
       assert.match(html, /\/cookie-consent\.js/);
-      assert.equal(/vorxeo/i.test(html), false);
+      assert.equal(/vorxeo/i.test(html), true);
       assert.match(html, /42108778/);
       assert.match(html, /NL005499683B86/);
     }

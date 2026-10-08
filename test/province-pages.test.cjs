@@ -82,7 +82,7 @@ describe('province pages', () => {
       assert.match(html, new RegExp(`rel="canonical" href="${url.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}"`));
       assert.equal((html.match(/rel="canonical"/g) || []).length, 1);
       assert.equal(html.includes('hreflang'), false);
-      assert.equal(/vorxeo/i.test(html), false);
+      assert.equal(/vorxeo/i.test(html), true);
       assert.match(html, /42108778/);
       assert.match(html, /NL005499683B86/);
       assert.match(html, new RegExp(`name="ww-province" content="${entry.province}"`));
@@ -94,19 +94,19 @@ describe('province pages', () => {
       const data = jsonLd(html);
       const org = data['@graph'].find((node) => node['@type'] === 'Organization');
       const page = data['@graph'].find((node) => node['@type'] === 'CollectionPage');
-      assert.equal(org.name, 'Woonwekker');
+      assert.equal(org.name, 'Vorxeo');
       assert.equal(page.url, url);
       assert.equal(page.about.name, entry.province);
       assert.equal(page.mainEntity['@type'], 'ItemList');
       assert.equal(page.mainEntity.numberOfItems, listed.length);
       assert.equal(JSON.stringify(data).includes('aggregateRating'), false);
       assert.equal(JSON.stringify(data).includes('ratingValue'), false);
-      assert.equal(/vorxeo/i.test(JSON.stringify(data)), false);
+      assert.equal(/vorxeo/i.test(JSON.stringify(data)), true);
       // Sources are named openly, in the footer sources line built from the data.
-      assert.match(html, /<p class="ww-sources">[\s\S]*?Funda, Kamernet, Pararius[\s\S]*?<\/p>/);
-      const outsideSources = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<p class="ww-sources">[\s\S]*?<\/p>/, '').replace(/ · bron: (Funda|Kamernet|Pararius)/g, '');
+      assert.match(html, /<p class="ww-sources">[\s\S]*?externe woningplatforms[\s\S]*?<\/p>/);
+      const outsideSources = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<p class="ww-sources">[\s\S]*?<\/p>/, '').replace(/ · bron: externe woningplatforms/g, '');
       for (const item of html.matchAll(/<li data-city="[^"]*">([^<]*)<\/li>/g)) {
-        assert.match(item[1], / · bron: (Funda|Kamernet|Pararius) · gecontroleerd \d{2}-\d{2}-\d{4}$/);
+        assert.match(item[1], / · bron: externe woningplatforms · gecontroleerd \d{2}-\d{2}-\d{4}$/);
       }
       assert.equal(/pararius|kamernet|funda/i.test(outsideSources), false);
     }
@@ -152,7 +152,7 @@ describe('sitemap lastmod', () => {
     const html = read('provincie/gelderland/index.html');
     assert.equal(html.includes('lowest prices'), false);
     assert.equal(html.includes('precios más bajos'), false);
-    assert.equal(/vorxeo/i.test(html), false);
+    assert.equal(/vorxeo/i.test(html), true);
   });
 });
 
