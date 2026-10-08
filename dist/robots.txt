@@ -4,5 +4,9 @@ Allow: /stad/
 Allow: /provincie/
 Allow: /privacy/
 Allow: /insights/
+Allow: /voorwaarden/
+Allow: /terugbetaling/
+Allow: /herroeping/
+Allow: /opzeggen/
 
 Sitemap: https://www.woonwekker.nl/sitemap.xml

@@ -3,8 +3,14 @@ nl:{all:'Alle advertenties',saved:'Favorieten',save:'Bewaren',unsave:'Verwijdere
 en:{all:'All listings',saved:'Favourites',save:'Save',unsave:'Remove from favourites',compare:'Compare',comparison:'Your comparison',choose:'Select 2 or 3 homes to compare.',limit:'You can compare up to 3 listings.',clear:'Clear',type:'Property type',typesAll:'All types',types:['All types','Apartment','House','Studio','Room'],area:'Minimum area',any:'No minimum',minBudget:'Min. monthly rent',garden:'With a garden',balcony:'With a balcony',energy:'Energy rating A or better',filters:'More filters',reset:'Clear all',local:'Favourites are saved on this device.',monthly:'Monthly rent',perM:'Rent per m² / month',open:'View home',remove:'Remove from comparison',empty:'No favourites yet.',hint:'Save a listing with the heart and find it here later.',active:'Active filters',about:'Favourites and comparison',faq:'Use the heart to save listings on this device. Select Compare on 2 or 3 listings to review price, area and features side by side. No account is needed.',data:'Not all costs are known. Check service charges, energy and deposits with the provider.',forget:'Clear all saved preferences',forgot:'Preferences and favourites cleared.'},
 es:{all:'Todos los anuncios',saved:'Favoritos',save:'Guardar',unsave:'Quitar de favoritos',compare:'Comparar',comparison:'Tu comparación',choose:'Selecciona 2 o 3 viviendas para comparar.',limit:'Puedes comparar hasta 3 anuncios.',clear:'Borrar',type:'Tipo de inmueble',typesAll:'Todos los tipos',types:['Todos los tipos','Apartamento','Casa','Estudio','Habitación'],area:'Superficie mínima',any:'Sin mínimo',minBudget:'Alquiler mensual mínimo',garden:'Con jardín',balcony:'Con balcón',energy:'Clase energética A o superior',filters:'Más filtros',reset:'Borrar todo',local:'Los favoritos se guardan en este dispositivo.',monthly:'Alquiler mensual',perM:'Alquiler por m² / mes',open:'Ver vivienda',remove:'Quitar de la comparación',empty:'Todavía no tienes favoritos.',hint:'Guarda un anuncio con el corazón y encuéntralo aquí.',active:'Filtros activos',about:'Favoritos y comparación',faq:'Usa el corazón para guardar anuncios en este dispositivo. Selecciona Comparar en 2 o 3 anuncios para comparar precio, superficie y características. No necesitas una cuenta.',data:'No se conocen todos los gastos. Consulta los servicios, la energía y la fianza con el anunciante.',forget:'Borrar todas las preferencias guardadas',forgot:'Preferencias y favoritos eliminados.'},
 pl:{all:'Wszystkie oferty',saved:'Ulubione',save:'Zapisz',unsave:'Usuń z ulubionych',compare:'Porównaj',comparison:'Twoje porównanie',choose:'Wybierz 2 lub 3 nieruchomości do porównania.',limit:'Możesz porównać maksymalnie 3 oferty.',clear:'Wyczyść',type:'Typ nieruchomości',typesAll:'Wszystkie typy',types:['Wszystkie typy','Mieszkanie','Dom','Kawalerka','Pokój'],area:'Minimalna powierzchnia',any:'Bez minimum',minBudget:'Minimalny czynsz miesięczny',garden:'Z ogrodem',balcony:'Z balkonem',energy:'Klasa energetyczna A lub lepsza',filters:'Więcej filtrów',reset:'Wyczyść wszystko',local:'Ulubione są zapisywane na tym urządzeniu.',monthly:'Czynsz miesięczny',perM:'Czynsz za m² / miesiąc',open:'Zobacz ofertę',remove:'Usuń z porównania',empty:'Nie masz jeszcze ulubionych.',hint:'Zapisz ofertę serduszkiem, aby znaleźć ją tutaj.',active:'Aktywne filtry',about:'Ulubione i porównanie',faq:'Zapisuj oferty serduszkiem na tym urządzeniu. Wybierz Porównaj przy 2 lub 3 ofertach, aby zestawić ceny, powierzchnię i cechy. Konto nie jest wymagane.',data:'Nie wszystkie koszty są znane. Sprawdź opłaty, energię i kaucję u ogłoszeniodawcy.',forget:'Usuń wszystkie zapisane preferencje',forgot:'Usunięto preferencje i ulubione.'},
-pt:{all:'Todos os anúncios',saved:'Favoritos',save:'Salvar',unsave:'Remover dos favoritos',compare:'Comparar',comparison:'Sua comparação',choose:'Selecione 2 ou 3 imóveis para comparar.',limit:'Você pode comparar no máximo 3 anúncios.',clear:'Limpar',type:'Tipo de imóvel',typesAll:'Todos os tipos',types:['Todos os tipos','Apartamento','Casa','Studio','Quarto'],area:'Área mínima',any:'Sem mínimo',minBudget:'Aluguel mensal mínimo',garden:'Com jardim',balcony:'Com varanda',energy:'Classificação energética A ou melhor',filters:'Mais filtros',reset:'Limpar tudo',local:'Os favoritos são salvos neste dispositivo.',monthly:'Aluguel mensal',perM:'Aluguel por m² / mês',open:'Ver imóvel',remove:'Remover da comparação',empty:'Você ainda não tem favoritos.',hint:'Salve um anúncio com o coração e encontre-o aqui.',active:'Filtros ativos',about:'Favoritos e comparação',faq:'Use o coração para salvar anúncios neste dispositivo. Selecione Comparar em 2 ou 3 anúncios para ver preço, área e características lado a lado. Não é preciso ter conta.',data:'Nem todos os custos são conhecidos. Confira taxas de serviço, energia e caução com o anunciante.',forget:'Limpar todas as preferências salvas',forgot:'Preferências e favoritos apagados.'}};
-const x=k=>extra[lang][k];
+pt:{all:'Todos os anúncios',saved:'Favoritos',save:'Guardar',unsave:'Remover dos favoritos',compare:'Comparar',comparison:'A sua comparação',choose:'Selecione 2 ou 3 casas para comparar.',limit:'Pode comparar no máximo 3 anúncios.',clear:'Limpar',type:'Tipo de imóvel',typesAll:'Todos os tipos',types:['Todos os tipos','Apartamento','Moradia','Estúdio','Quarto'],area:'Área mínima',any:'Sem mínimo',minBudget:'Renda mensal mínima',garden:'Com jardim',balcony:'Com varanda',energy:'Classe energética A ou superior',filters:'Mais filtros',reset:'Limpar tudo',local:'Os favoritos são guardados neste dispositivo.',monthly:'Renda mensal',perM:'Renda por m² / mês',open:'Ver casa',remove:'Remover da comparação',empty:'Ainda não tem favoritos.',hint:'Guarde um anúncio com o coração e encontre-o aqui.',active:'Filtros ativos',about:'Favoritos e comparação',faq:'Use o coração para guardar anúncios neste dispositivo. Selecione Comparar em 2 ou 3 anúncios para ver preço, área e características lado a lado. Não precisa de conta.',data:'Nem todos os custos são conhecidos. Confirme despesas, energia e caução com o anunciante.',forget:'Limpar todas as preferências guardadas',forgot:'Preferências e favoritos apagados.'},
+ro:{all:'Toate anunțurile',saved:'Favorite',save:'Salvează',unsave:'Elimină din favorite',compare:'Compară',comparison:'Comparația ta',choose:'Selectează 2 sau 3 locuințe pentru comparare.',limit:'Poți compara cel mult 3 anunțuri.',clear:'Șterge',type:'Tip de locuință',typesAll:'Toate tipurile',types:['Toate tipurile','Apartament','Casă','Garsonieră','Cameră'],area:'Suprafață minimă',any:'Fără minim',minBudget:'Chirie lunară minimă',garden:'Cu grădină',balcony:'Cu balcon',energy:'Clasă energetică A sau mai bună',filters:'Mai multe filtre',reset:'Șterge tot',local:'Favoritele sunt salvate pe acest dispozitiv.',monthly:'Chirie lunară',perM:'Chirie pe m² / lună',open:'Vezi locuința',remove:'Elimină din comparație',empty:'Nu ai încă favorite.',hint:'Salvează un anunț cu inima și îl găsești aici.',active:'Filtre active',about:'Favorite și comparare',faq:'Folosește inima pentru a salva anunțuri pe acest dispozitiv. Alege Compară la 2 sau 3 anunțuri pentru a vedea prețul, suprafața și caracteristicile una lângă alta. Nu ai nevoie de cont.',data:'Nu toate costurile sunt cunoscute. Verifică întreținerea, energia și garanția la ofertant.',forget:'Șterge toate preferințele salvate',forgot:'Preferințele și favoritele au fost șterse.'},
+bg:{all:'Всички обяви',saved:'Любими',save:'Запази',unsave:'Премахни от любими',compare:'Сравни',comparison:'Вашето сравнение',choose:'Изберете 2 или 3 жилища за сравнение.',limit:'Можете да сравните най-много 3 обяви.',clear:'Изчисти',type:'Вид имот',typesAll:'Всички видове',types:['Всички видове','Апартамент','Къща','Студио','Стая'],area:'Минимална площ',any:'Без минимум',minBudget:'Минимален месечен наем',garden:'С градина',balcony:'С балкон',energy:'Енергиен клас A или по-добър',filters:'Още филтри',reset:'Изчисти всичко',local:'Любимите се пазят на това устройство.',monthly:'Месечен наем',perM:'Наем на м² / месец',open:'Виж жилището',remove:'Премахни от сравнението',empty:'Все още нямате любими.',hint:'Запазете обява със сърцето и ще я намерите тук.',active:'Активни филтри',about:'Любими и сравнение',faq:'Използвайте сърцето, за да запазвате обяви на това устройство. Изберете Сравни при 2 или 3 обяви, за да видите цена, площ и характеристики една до друга. Не е нужен акаунт.',data:'Не всички разходи са известни. Проверете такси, енергия и депозит при рекламодателя.',forget:'Изчисти всички запазени предпочитания',forgot:'Предпочитанията и любимите са изчистени.'},
+it:{all:'Tutti gli annunci',saved:'Preferiti',save:'Salva',unsave:'Rimuovi dai preferiti',compare:'Confronta',comparison:'Il tuo confronto',choose:'Seleziona 2 o 3 case da confrontare.',limit:'Puoi confrontare al massimo 3 annunci.',clear:'Cancella',type:'Tipo di immobile',typesAll:'Tutti i tipi',types:['Tutti i tipi','Appartamento','Casa','Monolocale','Stanza'],area:'Superficie minima',any:'Nessun minimo',minBudget:'Affitto mensile minimo',garden:'Con giardino',balcony:'Con balcone',energy:'Classe energetica A o superiore',filters:'Altri filtri',reset:'Cancella tutto',local:'I preferiti sono salvati su questo dispositivo.',monthly:'Affitto mensile',perM:'Affitto al m² / mese',open:'Vedi la casa',remove:'Rimuovi dal confronto',empty:'Non hai ancora preferiti.',hint:'Salva un annuncio con il cuore e lo ritrovi qui.',active:'Filtri attivi',about:'Preferiti e confronto',faq:'Usa il cuore per salvare annunci su questo dispositivo. Seleziona Confronta su 2 o 3 annunci per vedere prezzo, superficie e caratteristiche fianco a fianco. Non serve un account.',data:'Non tutti i costi sono noti. Verifica spese, energia e deposito con l’inserzionista.',forget:'Cancella tutte le preferenze salvate',forgot:'Preferenze e preferiti cancellati.'}};
+const x=k=>(extra[lang]||extra.en)[k];
+// City and province pages use the full catalog; other pages use the priced list.
+function wwPool(){return (typeof cityLockName==='function'&&cityLockName())||(typeof provinceLock==='function'&&provinceLock())?catalog:listings}
+function wwFind(id){return wwPool().find(p=>String(p.id)===String(id))}
 function listingKey(p){if(!p)return'';const u=p.url!=null?String(p.url).trim():'';if(u)return u;return p.id!=null?String(p.id):''}
 let favouriteIds=new Set();try{const a=JSON.parse(localStorage.getItem('woonwekker-favourites')||'[]');if(Array.isArray(a))favouriteIds=new Set(a.filter(v=>typeof v==='string'&&v))}catch{}
 let compareIds=new Set(),savedOnly=false,favMigrated=false;
@@ -53,7 +59,7 @@ function injectDiscoveryTools(){
   injectWekkerProfilePanel();
   applyFilters();
 }
-const originalHomes=renderHomes,originalCategory=renderCategory,originalCards=drawCards,originalFaq=renderFaq,originalLegal=renderLegal;
+const originalHomes=renderHomes,originalCategory=renderCategory,originalCards=drawCards,originalFaq=renderFaq;
 renderHomes=function(){originalHomes();injectDiscoveryTools()};
 renderCategory=function(ptype){originalCategory(ptype);injectDiscoveryTools()};
 applyFilters=function(){
@@ -62,8 +68,13 @@ applyFilters=function(){
   if(kind==='rooms'&&filters.ptype!=='Kamer'&&filters.ptype!=='Studio')filters.ptype='rooms';
   if(kind==='homes'&&filters.ptype!=='Huis'&&filters.ptype!=='Appartement')filters.ptype='homes';
   sanitizeTypeForKind(kind);
-  filtered=listings.filter(p=>{
-    if(typeof typeAllowed==='function'&&!typeAllowed(p.propertyType,kind))return false;
+  // A city page shows only that city; a province page only its cities (never invent a city).
+  const locked=typeof cityLockName==='function'?cityLockName():'';
+  const province=!locked&&typeof provinceLock==='function'?provinceLock():null;
+  filtered=wwPool().filter(p=>{
+    if(locked){if(String(p.city||'').trim()!==locked)return false}
+    else if(province){if(!province.cities.has(String(p.city||'').trim()))return false}
+    else if(typeof typeAllowed==='function'&&!typeAllowed(p.propertyType,kind))return false;
     if(savedOnly&&!favouriteIds.has(listingKey(p)))return false;
     if(filters.city&&!norm([p.city,p.address,p.neighbourhood,p.postalCode].join(' ')).includes(norm(filters.city.trim())))return false;
     if(filters.budget&&!(p.price&&+p.price<=+filters.budget))return false;
@@ -130,7 +141,7 @@ drawCards=function(){
   document.querySelectorAll('.card').forEach(card=>{
     const idEl=card.querySelector('[data-id]');
     if(!idEl)return;
-    const p=listings.find(p=>p.id===idEl.dataset.id);
+    const p=wwFind(idEl.dataset.id);
     if(!p)return;
     const key=listingKey(p);
     const saved=favouriteIds.has(key),selected=compareIds.has(key);
@@ -139,7 +150,7 @@ drawCards=function(){
     if(why)card.insertAdjacentHTML('beforeend',why);
   });
   document.querySelectorAll('[data-save]').forEach(b=>b.onclick=()=>{
-    const p=listings.find(p=>p.id===b.dataset.save);if(!p)return;
+    const p=wwFind(b.dataset.save);if(!p)return;
     const key=listingKey(p);if(!key)return;
     favouriteIds.has(key)?favouriteIds.delete(key):favouriteIds.add(key);
     try{localStorage.setItem('woonwekker-favourites',JSON.stringify([...favouriteIds]))}catch{}
@@ -147,7 +158,7 @@ drawCards=function(){
     const n=document.querySelector('#saved-listings span');if(n)n.textContent=favouriteIds.size;
   });
   document.querySelectorAll('[data-compare]').forEach(b=>b.onclick=()=>{
-    const p=listings.find(p=>p.id===b.dataset.compare);if(!p)return;
+    const p=wwFind(b.dataset.compare);if(!p)return;
     const key=listingKey(p);if(!key)return;
     if(compareIds.has(key))compareIds.delete(key);
     else if(compareIds.size<3)compareIds.add(key);
@@ -171,17 +182,16 @@ function drawCompareTray(){
 }
 const compareDialog=document.createElement('dialog');compareDialog.className='comparison-dialog';compareDialog.setAttribute('aria-labelledby','compare-title');document.body.append(compareDialog);
 function showComparison(){
-  const chosen=listings.filter(p=>compareIds.has(listingKey(p)));
+  const chosen=wwPool().filter(p=>compareIds.has(listingKey(p)));
   const value=(p,k)=>p[k]==='true'?t('yes'):p[k]==='false'?t('no'):p[k]||t('unknown');
   const rows=[[x('monthly'),p=>money(p.price)],[t('area'),p=>p.livingArea?p.livingArea+' m²':t('unknown')],[x('perM'),p=>+p.livingArea>0?money(+p.price/+p.livingArea):t('unknown')],[t('beds'),p=>value(p,'bedrooms')],[t('energy'),p=>value(p,'energyLabel')],[t('garden'),p=>value(p,'garden')],[t('balcony'),p=>value(p,'balcony')],[t('parking'),p=>value(p,'privateParking')]];
   compareDialog.innerHTML=`<div class="comparison-head"><div><h2 id="compare-title">${x('comparison')}</h2><p>${x('data')}</p></div><button id="close-comparison" aria-label="${t('close')}">×</button></div><div class="comparison-scroll"><table><thead><tr><th></th>${chosen.map(p=>`<th><img src="${esc(safePhoto(p.photo))}" alt="${esc(p.address)}"><strong>${esc(p.address)}</strong><small>${esc(p.city)}</small></th>`).join('')}</tr></thead><tbody>${rows.map(([name,get])=>`<tr><th scope="row">${name}</th>${chosen.map(p=>`<td>${esc(get(p))}</td>`).join('')}</tr>`).join('')}<tr><th></th>${chosen.map(p=>`<td><button class="primary" data-open-comp="${p.id}">${x('open')}</button></td>`).join('')}</tr></tbody></table></div>`;
   compareDialog.querySelector('#close-comparison').onclick=()=>compareDialog.close();
-  compareDialog.querySelectorAll('[data-open-comp]').forEach(b=>b.onclick=()=>{compareDialog.close();openProperty(listings.find(p=>p.id===b.dataset.openComp))});
+  compareDialog.querySelectorAll('[data-open-comp]').forEach(b=>b.onclick=()=>{compareDialog.close();openProperty(wwFind(b.dataset.openComp))});
   compareDialog.showModal();document.body.style.overflow='hidden';imageFallbacks();
 }
 compareDialog.addEventListener('close',()=>{document.body.style.overflow=''});
 renderFaq=function(){originalFaq();document.querySelector('.prose').insertAdjacentHTML('afterbegin',`<details><summary>${x('about')}</summary><p>${x('faq')}</p></details>`)};
-renderLegal=function(){originalLegal();const btn=document.querySelector('#clear-language');btn.textContent=x('forget');btn.onclick=()=>{try{localStorage.removeItem('woonwekker-language');localStorage.removeItem('woonwekker-favourites')}catch{}favouriteIds.clear();compareIds.clear();document.querySelector('#clear-status').textContent=x('forgot')}};
 if(listings.length)render();
 
 /* --- 3D card tilt (pointer) --- */
@@ -300,8 +310,8 @@ function injectWekkerProfilePanel(){
   const toggle=document.querySelector('#nav-toggle');
   const nav=document.querySelector('#main-nav');
   if(!header||!toggle||!nav)return;
-  const labels={nl:'Menu',en:'Menu',es:'Menú',pl:'Menu',pt:'Menu'};
-  const closeLabels={nl:'Sluiten',en:'Close',es:'Cerrar',pl:'Zamknij',pt:'Fechar'};
+  const labels={nl:'Menu',en:'Menu',es:'Menú',pl:'Menu',pt:'Menu',ro:'Meniu',bg:'Меню',it:'Menu'};
+  const closeLabels={nl:'Sluiten',en:'Close',es:'Cerrar',pl:'Zamknij',pt:'Fechar',ro:'Închide',bg:'Затвори',it:'Chiudi'};
   function lang(){return (document.documentElement.lang||'nl').slice(0,2)}
   function setOpen(open){
     header.classList.toggle('nav-open',open);

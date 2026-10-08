@@ -62,6 +62,11 @@ function listingItem(row) {
   const bits = [address || city];
   if (kind) bits.push(kind);
   if (price) bits.push(`€${price}`);
+  // Every listing names its source and the date it was last checked (NL static default).
+  const source = String(row.sourceName || '').trim();
+  if (source) bits.push(`bron: ${source}`);
+  const checked = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(row.lastChecked || ''));
+  if (checked) bits.push(`gecontroleerd ${checked[3]}-${checked[2]}-${checked[1]}`);
   return `<li data-city="${esc(city)}">${esc(bits.join(' · '))}</li>`;
 }
 
@@ -172,7 +177,7 @@ function writeSitemap() {
   const unique = [...new Set(locs)];
   if (unique.length !== locs.length) throw new Error('duplicate canonical');
   unique.sort((a, b) => a.localeCompare(b));
-  const lastmod = '2026-10-04';
+  const lastmod = '2026-10-08';
   const body = unique.map((loc) => `  <url><loc>${esc(loc)}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n');
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
   fs.writeFileSync(path.join(dist, 'sitemap.xml'), xml);
@@ -187,6 +192,10 @@ function writeRobots() {
     'Allow: /provincie/',
     'Allow: /privacy/',
     'Allow: /insights/',
+    'Allow: /voorwaarden/',
+    'Allow: /terugbetaling/',
+    'Allow: /herroeping/',
+    'Allow: /opzeggen/',
     '',
     `Sitemap: ${ORIGIN}/sitemap.xml`,
     '',
@@ -210,8 +219,8 @@ function withProvinceFooter(html, provinces) {
   if (!html.includes('<footer>')) return html;
   return html.replace(/<footer>([\s\S]*?)<\/footer>/, (full, inner) => {
     let next = inner.replace(/<div class="province-links">[\s\S]*?<\/div>/, '');
-    if (!next.includes('<small>')) throw new Error('footer copyright missing');
-    next = next.replace('<small>', `${block}<small>`);
+    if (!/<small\b/.test(next)) throw new Error('footer copyright missing');
+    next = next.replace(/<small\b/, `${block}<small`);
     return `<footer>${next}</footer>`;
   });
 }

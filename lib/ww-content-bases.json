@@ -1,0 +1,306 @@
+{
+  "nl": {
+    "privacy": {
+      "1": [
+        "Account en Google",
+        "Je kunt een account starten met naam en e-mailadres. Als e-mail verzenden op de server is ingesteld, stuurt de site een bevestigingsmail via Resend. Na bevestiging zet de site een sessiecookie, ww_session, met je naam en e-mailadres. Inloggen met Google, als dat is ingesteld, gebruikt Google-login en zet hetzelfde soort cookie. Google-login stuurt geen aparte bevestigingsmail. Een telefoonnummer in het formulier gaat niet mee in het aanmeldverzoek naar de server."
+      ],
+      "2": [
+        "Op dit apparaat",
+        "De taalkeuze staat in localStorage onder woonwekker-language. Favorieten staan in localStorage onder woonwekker-favourites. Zoekprofielen en accountvelden die je in de browser invult staan in localStorage onder woonwekker-account. Een lopende aanmelding kan in sessionStorage staan onder ww-pending-signup. Dat blijft op dit apparaat tot je het wist. De cookiekeuze staat in localStorage onder woonwekker-cookie-consent."
+      ],
+      "5": [
+        "Wat de code niet doet",
+        "De code van de site laadt geen eigen analytics buiten Google Ads na toestemming. Zoekfilters draaien in je browser."
+      ],
+      "6": [
+        "Google Ads",
+        "Na jouw toestemming via het cookiebanner laadt de site Google Ads (tag AW-18493510630), zodat Google advertenties kan meten. Zonder toestemming blijven advertentiecookies uit (Consent Mode). Je keuze staat in localStorage onder woonwekker-cookie-consent. Wis je sitegegevens om opnieuw te kiezen."
+      ],
+      "8": [
+        "Rechten",
+        "Voor zover persoonsgegevens worden verwerkt, kun je onder de AVG inzage, correctie, wissing, beperking of overdraagbaarheid vragen en bezwaar maken waar dat geldt. Je kunt een klacht indienen bij de Autoriteit Persoonsgegevens. Deze pagina publiceert geen inbox voor die verzoeken."
+      ]
+    },
+    "faq": {
+      "3": [
+        "Is de getoonde prijs inclusief alle kosten?",
+        "De getoonde prijs is de maandhuur. Servicekosten, energie, borg en andere voorwaarden zijn niet voor alle woningen bekend. Vraag de verhuurder om een volledig kostenoverzicht."
+      ],
+      "5": [
+        "Kan ik zoeken in mijn eigen taal?",
+        "Ja. Kies Nederlands, English, Español, Polski, Português, Română, Български of Italiano in het taalmenu. De interface, FAQ en juridische informatie veranderen mee. Adressen en namen in advertenties blijven ongewijzigd."
+      ],
+      "8": [
+        "Wat doe ik bij een fout of een verdachte advertentie?",
+        "Controleer de advertentie en meld onjuiste gegevens bij de aanbieder. Maak geen geld over op basis van alleen een advertentie; controleer de identiteit en afspraken voordat je betaalt."
+      ]
+    }
+  },
+  "en": {
+    "privacy": {
+      "1": [
+        "Account and Google",
+        "You can start an account with a name and email address. If sending email is configured on the server, the site sends a confirmation email through Resend. After you confirm, the site sets a session cookie, ww_session, with your name and email address. Google sign-in, when configured, uses Google login and sets the same kind of cookie. Google sign-in does not send a separate confirmation email. A phone number typed in the form is not included in the signup request to the server."
+      ],
+      "2": [
+        "On this device",
+        "Your language choice is stored in localStorage under woonwekker-language. Favourites are stored in localStorage under woonwekker-favourites. Search profiles and account fields you fill in the browser are stored in localStorage under woonwekker-account. A signup in progress can sit in sessionStorage under ww-pending-signup. It stays on this device until you clear it. The cookie choice is stored in localStorage under woonwekker-cookie-consent."
+      ],
+      "5": [
+        "What the code does not do",
+        "The site code does not load its own analytics beyond Google Ads after consent. Search filters run in your browser."
+      ],
+      "6": [
+        "Google Ads",
+        "After you accept cookies in the banner, the site loads Google Ads (tag AW-18493510630) so Google can measure ads. Without consent, advertising cookies stay off (Consent Mode). Your choice is stored in localStorage under woonwekker-cookie-consent. Clear site data to choose again."
+      ],
+      "8": [
+        "Rights",
+        "Where personal data is processed, you can ask under the GDPR for access, correction, erasure, restriction or portability, and object where that applies. You can lodge a complaint with the Dutch Data Protection Authority (Autoriteit Persoonsgegevens). This page does not publish an inbox for those requests."
+      ]
+    },
+    "faq": {
+      "3": [
+        "Does the price include all costs?",
+        "The displayed price is the monthly rent. Service charges, energy, deposits and other terms are not available for every listing. Ask the landlord for a complete breakdown."
+      ],
+      "5": [
+        "Can I browse in my own language?",
+        "Yes. Choose Nederlands, English, Español, Polski, Português, Română, Български or Italiano in the language menu. The interface, FAQ and legal information change together. Addresses and names in listings remain unchanged."
+      ],
+      "8": [
+        "What if I notice an error or a suspicious listing?",
+        "Check the listing and report incorrect information to the provider. Do not transfer money based only on an advert; verify identities and agreements before paying."
+      ]
+    }
+  },
+  "es": {
+    "privacy": {
+      "1": [
+        "Cuenta y Google",
+        "Puedes empezar una cuenta con nombre y correo. Si el envío de correo está configurado en el servidor, el sitio manda un correo de confirmación a través de Resend. Tras confirmar, el sitio pone una cookie de sesión, ww_session, con tu nombre y correo. Entrar con Google, si está configurado, usa el acceso de Google y pone el mismo tipo de cookie. El acceso con Google no manda un correo de confirmación aparte. Un teléfono escrito en el formulario no va en la petición de alta al servidor."
+      ],
+      "2": [
+        "En este dispositivo",
+        "La lengua se guarda en localStorage bajo woonwekker-language. Los favoritos se guardan en localStorage bajo woonwekker-favourites. Los perfiles de búsqueda y los campos de cuenta que rellenas en el navegador se guardan en localStorage bajo woonwekker-account. Un alta en curso puede estar en sessionStorage bajo ww-pending-signup. Sigue en este dispositivo hasta que lo borres. La elección de cookies se guarda en localStorage bajo woonwekker-cookie-consent."
+      ],
+      "5": [
+        "Lo que el código no hace",
+        "El código del sitio no carga analítica propia aparte de Google Ads tras el consentimiento. Los filtros de búsqueda corren en tu navegador."
+      ],
+      "6": [
+        "Google Ads",
+        "Tras aceptar cookies en el aviso, el sitio carga Google Ads (etiqueta AW-18493510630) para que Google mida los anuncios. Sin consentimiento, las cookies publicitarias siguen desactivadas (Consent Mode). Tu elección se guarda en localStorage bajo woonwekker-cookie-consent. Borra los datos del sitio para elegir de nuevo."
+      ],
+      "8": [
+        "Derechos",
+        "Cuando se tratan datos personales, puedes pedir acceso, rectificación, supresión, limitación o portabilidad, y oponerte cuando corresponda, según el RGPD. Puedes reclamar ante la Autoriteit Persoonsgegevens. Esta página no publica un buzón para esas solicitudes."
+      ]
+    },
+    "faq": {
+      "3": [
+        "¿El precio incluye todos los gastos?",
+        "El precio mostrado es el alquiler mensual. No todos los anuncios indican gastos de servicios, energía, fianza u otras condiciones. Solicita un desglose completo al propietario."
+      ],
+      "5": [
+        "¿Puedo navegar en mi idioma?",
+        "Sí. Elige Nederlands, English, Español, Polski, Português, Română, Български o Italiano en el menú. La interfaz, las preguntas frecuentes y la información legal cambian de idioma. Los nombres y las direcciones en los anuncios se conservan."
+      ],
+      "8": [
+        "¿Qué hago ante un error o anuncio sospechoso?",
+        "Revisa el anuncio e informa al anunciante. No transfieras dinero basándote solo en un anuncio; verifica la identidad y los acuerdos antes de pagar."
+      ]
+    }
+  },
+  "pl": {
+    "privacy": {
+      "1": [
+        "Konto i Google",
+        "Możesz założyć konto podając imię i adres e-mail. Jeśli wysyłka poczty jest ustawiona na serwerze, strona wysyła potwierdzenie przez Resend. Po potwierdzeniu strona ustawia ciasteczko sesji ww_session z imieniem i adresem e-mail. Logowanie Google, jeśli jest włączone, używa logowania Google i ustawia ten sam rodzaj ciasteczka. Logowanie Google nie wysyła osobnego potwierdzenia. Numer telefonu wpisany w formularzu nie trafia w żądaniu rejestracji na serwer."
+      ],
+      "2": [
+        "Na tym urządzeniu",
+        "Wybór języka jest w localStorage pod kluczem woonwekker-language. Ulubione są w localStorage pod woonwekker-favourites. Profile wyszukiwania i pola konta wpisane w przeglądarce są w localStorage pod woonwekker-account. Trwająca rejestracja może być w sessionStorage pod ww-pending-signup. Zostaje na tym urządzeniu, aż ją skasujesz. Wybór cookies jest w localStorage pod woonwekker-cookie-consent."
+      ],
+      "5": [
+        "Czego kod nie robi",
+        "Kod strony nie ładuje własnej analityki poza Google Ads po zgodzie. Filtry wyszukiwania działają w przeglądarce."
+      ],
+      "6": [
+        "Google Ads",
+        "Po akceptacji w banerze cookies strona ładuje Google Ads (tag AW-18493510630), żeby Google mogło mierzyć reklamy. Bez zgody reklamowe pliki cookie pozostają wyłączone (Consent Mode). Twój wybór jest w localStorage pod woonwekker-cookie-consent. Wyczyść dane witryny, by wybrać ponownie."
+      ],
+      "8": [
+        "Prawa",
+        "Gdy przetwarzane są dane osobowe, możesz na podstawie RODO żądać dostępu, sprostowania, usunięcia, ograniczenia albo przenoszenia oraz wnieść sprzeciw, gdy to przysługuje. Możesz złożyć skargę do Autoriteit Persoonsgegevens. Ta strona nie publikuje skrzynki na te wnioski."
+      ]
+    },
+    "faq": {
+      "3": [
+        "Czy cena obejmuje wszystkie koszty?",
+        "Podana cena to miesięczny czynsz. Opłaty eksploatacyjne, energia, kaucja i pozostałe warunki nie są znane dla każdej oferty. Poproś właściciela o pełne zestawienie kosztów."
+      ],
+      "5": [
+        "Czy mogę korzystać ze swojego języka?",
+        "Tak. Wybierz Nederlands, English, Español, Polski, Português, Română, Български lub Italiano. Interfejs, pytania i informacje prawne zmienią język. Adresy i nazwy w ogłoszeniach pozostaną bez zmian."
+      ],
+      "8": [
+        "Co zrobić w razie błędu lub podejrzanego ogłoszenia?",
+        "Sprawdź ofertę i zgłoś problem ogłoszeniodawcy. Nie wysyłaj pieniędzy wyłącznie na podstawie ogłoszenia; wcześniej zweryfikuj tożsamość i ustalenia."
+      ]
+    }
+  },
+  "pt": {
+    "privacy": {
+      "1": [
+        "Conta e Google",
+        "Pode começar uma conta com nome e endereço de correio. Se o envio de correio estiver configurado no servidor, o sítio envia um correio de confirmação através da Resend. Depois de confirmar, o sítio define um cookie de sessão, ww_session, com o seu nome e o seu correio. A entrada com o Google, quando está configurada, usa o início de sessão Google e define o mesmo tipo de cookie. A entrada com o Google não envia um correio de confirmação separado. Um número de telefone escrito no formulário não segue no pedido de registo para o servidor."
+      ],
+      "2": [
+        "Neste aparelho",
+        "A escolha de língua fica em localStorage sob woonwekker-language. Os favoritos ficam em localStorage sob woonwekker-favourites. Os perfis de pesquisa e os campos de conta que preenche no navegador ficam em localStorage sob woonwekker-account. Um registo a decorrer pode ficar em sessionStorage sob ww-pending-signup. Fica neste aparelho até o apagar. A escolha de cookies fica em localStorage sob woonwekker-cookie-consent."
+      ],
+      "5": [
+        "O que o código não faz",
+        "O código do sítio não carrega analítica própria para além do Google Ads após consentimento. Os filtros de pesquisa correm no seu navegador."
+      ],
+      "6": [
+        "Google Ads",
+        "Depois de aceitar cookies no aviso, o sítio carrega o Google Ads (etiqueta AW-18493510630) para o Google medir anúncios. Sem consentimento, os cookies de publicidade ficam desligados (Consent Mode). A sua escolha fica em localStorage sob woonwekker-cookie-consent. Limpe os dados do sítio para escolher de novo."
+      ],
+      "8": [
+        "Direitos",
+        "Quando há tratamento de dados pessoais, pode pedir acesso, retificação, apagamento, limitação ou portabilidade, e opor-se quando isso se aplica, ao abrigo do RGPD. Pode apresentar queixa à Autoriteit Persoonsgegevens. Esta página não publica uma caixa de correio para esses pedidos."
+      ]
+    },
+    "faq": {
+      "3": [
+        "O preço inclui todos os custos?",
+        "O preço exibido é o aluguel mensal. Taxas de serviço, energia, caução e outras condições não estão disponíveis para todos os anúncios. Peça um detalhamento completo ao proprietário."
+      ],
+      "5": [
+        "Posso navegar no meu idioma?",
+        "Sim. Escolha Nederlands, English, Español, Polski, Português, Română, Български ou Italiano no menu de idiomas. A interface, as perguntas frequentes e as informações jurídicas mudam juntas. Endereços e nomes nos anúncios permanecem iguais."
+      ],
+      "8": [
+        "E se eu notar um erro ou um anúncio suspeito?",
+        "Confira o anúncio e reporte informações incorretas ao anunciante. Não transfira dinheiro só com base em um anúncio; verifique identidades e acordos antes de pagar."
+      ]
+    }
+  },
+  "ro": {
+    "privacy": {
+      "1": [
+        "Cont și Google",
+        "Poți începe un cont cu nume și e-mail. Dacă trimiterea de e-mail este configurată pe server, site-ul trimite un e-mail de confirmare prin Resend. După confirmare, site-ul setează un cookie de sesiune, ww_session, cu numele și e-mailul tău. Intrarea cu Google, când este configurată, folosește autentificarea Google și setează același tip de cookie. Intrarea cu Google nu trimite un e-mail de confirmare separat. Un telefon scris în formular nu pleacă în cererea de înscriere către server."
+      ],
+      "2": [
+        "Pe acest dispozitiv",
+        "Limba aleasă stă în localStorage la woonwekker-language. Favoritele stau în localStorage la woonwekker-favourites. Profilurile de căutare și câmpurile de cont completate în browser stau în localStorage la woonwekker-account. O înscriere în curs poate sta în sessionStorage la ww-pending-signup. Rămâne pe acest dispozitiv până o ștergi. Alegerea cookie-urilor stă în localStorage la woonwekker-cookie-consent."
+      ],
+      "5": [
+        "Ce nu face codul",
+        "Codul site-ului nu încarcă analiză proprie în afară de Google Ads după consimțământ. Filtrele de căutare rulează în browser."
+      ],
+      "6": [
+        "Google Ads",
+        "După ce accepți cookie-urile din banner, site-ul încarcă Google Ads (eticheta AW-18493510630) ca Google să măsoare anunțurile. Fără consimțământ, cookie-urile publicitare rămân oprite (Consent Mode). Alegerea ta stă în localStorage la woonwekker-cookie-consent. Șterge datele site-ului ca să alegi din nou."
+      ],
+      "8": [
+        "Drepturi",
+        "Când sunt prelucrate date cu caracter personal, poți cere acces, rectificare, ștergere, restricționare sau portabilitate și te poți opune când se aplică, în temeiul GDPR. Poți depune o plângere la Autoriteit Persoonsgegevens. Această pagină nu publică o căsuță pentru aceste cereri."
+      ]
+    },
+    "faq": {
+      "3": [
+        "Prețul include toate costurile?",
+        "Prețul afișat este chiria lunară. Costurile de serviciu, energia, garanția și alte condiții nu sunt disponibile la fiecare anunț. Cere proprietarului o defalcare completă."
+      ],
+      "5": [
+        "Pot răsfoi în limba mea?",
+        "Da. Alege Nederlands, English, Español, Polski, Português, Română, Български sau Italiano în meniul de limbă. Interfața, întrebările și informațiile juridice se schimbă împreună. Adresele și numele din anunțuri rămân neschimbate."
+      ],
+      "8": [
+        "Ce fac dacă văd o eroare sau un anunț suspect?",
+        "Verifică anunțul și raportează informația greșită furnizorului. Nu transfera bani doar pe baza unui anunț; verifică identitățile și acordurile înainte să plătești."
+      ]
+    }
+  },
+  "bg": {
+    "privacy": {
+      "1": [
+        "Профил и Google",
+        "Можете да започнете профил с име и имейл. Ако изпращането на имейл е настроено на сървъра, сайтът праща потвърждение чрез Resend. След потвърждение сайтът слага сесийно бисквитка ww_session с вашето име и имейл. Входът с Google, когато е настроен, ползва вход през Google и слага същия вид бисквитка. Входът с Google не праща отделно потвърждение. Телефон, написан във формуляра, не влиза в заявката за регистрация към сървъра."
+      ],
+      "2": [
+        "На това устройство",
+        "Изборът на език е в localStorage под woonwekker-language. Любимите са в localStorage под woonwekker-favourites. Профилите за търсене и полетата на профила, които попълвате в браузъра, са в localStorage под woonwekker-account. Текуща регистрация може да стои в sessionStorage под ww-pending-signup. Остава на това устройство, докато я изтриете. Изборът за бисквитки е в localStorage под woonwekker-cookie-consent."
+      ],
+      "5": [
+        "Каквото кодът не прави",
+        "Кодът на сайта не зарежда собствена аналитика освен Google Ads след съгласие. Филтрите за търсене работят в браузъра."
+      ],
+      "6": [
+        "Google Ads",
+        "След като приемете бисквитките в банера, сайтът зарежда Google Ads (таг AW-18493510630), за да може Google да измерва реклами. Без съгласие рекламните бисквитки остават изключени (Consent Mode). Изборът ви е в localStorage под woonwekker-cookie-consent. Изчистете данните на сайта, за да изберете отново."
+      ],
+      "8": [
+        "Права",
+        "Когато се обработват лични данни, можете по ОРЗД да поискате достъп, поправка, изтриване, ограничаване или преносимост и да възразите, когато това важи. Можете да подадете жалба до Autoriteit Persoonsgegevens. Тази страница не публикува пощенска кутия за тези искания."
+      ]
+    },
+    "faq": {
+      "3": [
+        "Цената включва ли всички разходи?",
+        "Показаната цена е месечният наем. Сервизни разходи, енергия, депозит и други условия не са налични за всяка обява. Поискайте от собственика пълна разбивка."
+      ],
+      "5": [
+        "Мога ли да разглеждам на своя език?",
+        "Да. Изберете Nederlands, English, Español, Polski, Português, Română, Български или Italiano в менюто за език. Интерфейсът, въпросите и правната информация се сменят заедно. Адресите и имената в обявите остават същите."
+      ],
+      "8": [
+        "Какво ако забележа грешка или съмнителна обява?",
+        "Проверете обявата и съобщете невярната информация на обявяващия. Не превеждайте пари само въз основа на обява; проверете самоличности и споразумения, преди да платите."
+      ]
+    }
+  },
+  "it": {
+    "privacy": {
+      "1": [
+        "Account e Google",
+        "Puoi aprire un account con nome e email. Se l’invio di email è configurato sul server, il sito manda una email di conferma tramite Resend. Dopo la conferma il sito imposta un cookie di sessione, ww_session, con nome e email. L’accesso con Google, se configurato, usa il login Google e imposta lo stesso tipo di cookie. L’accesso con Google non manda una email di conferma separata. Un telefono scritto nel modulo non entra nella richiesta di iscrizione al server."
+      ],
+      "2": [
+        "Su questo dispositivo",
+        "La lingua scelta sta in localStorage sotto woonwekker-language. I preferiti stanno in localStorage sotto woonwekker-favourites. I profili di ricerca e i campi account compilati nel browser stanno in localStorage sotto woonwekker-account. Un’iscrizione in corso può stare in sessionStorage sotto ww-pending-signup. Resta su questo dispositivo finché non la cancelli. La scelta dei cookie sta in localStorage sotto woonwekker-cookie-consent."
+      ],
+      "5": [
+        "Che cosa il codice non fa",
+        "Il codice del sito non carica analitiche proprie oltre a Google Ads dopo il consenso. I filtri di ricerca girano nel browser."
+      ],
+      "6": [
+        "Google Ads",
+        "Dopo che accetti i cookie nel banner, il sito carica Google Ads (tag AW-18493510630) così Google può misurare gli annunci. Senza consenso i cookie pubblicitari restano disattivati (Consent Mode). La tua scelta sta in localStorage sotto woonwekker-cookie-consent. Cancella i dati del sito per scegliere di nuovo."
+      ],
+      "8": [
+        "Diritti",
+        "Quando sono trattati dati personali puoi chiedere accesso, rettifica, cancellazione, limitazione o portabilità e opporti quando spetta, in base al GDPR. Puoi proporre reclamo all’Autoriteit Persoonsgegevens. Questa pagina non pubblica una casella per quelle richieste."
+      ]
+    },
+    "faq": {
+      "3": [
+        "Il prezzo include tutti i costi?",
+        "Il prezzo mostrato è l’affitto mensile. Spese di servizio, energia, deposito e altre condizioni non sono disponibili per ogni annuncio. Chiedi al proprietario il dettaglio completo."
+      ],
+      "5": [
+        "Posso navigare nella mia lingua?",
+        "Sì. Scegli Nederlands, English, Español, Polski, Português, Română, Български o Italiano nel menu della lingua. Interfaccia, domande e informazioni legali cambiano insieme. Indirizzi e nomi negli annunci restano invariati."
+      ],
+      "8": [
+        "Che cosa faccio se noto un errore o un annuncio sospetto?",
+        "Controlla l’annuncio e segnala l’informazione errata a chi pubblica. Non trasferire denaro solo sulla base di un annuncio; verifica identità e accordi prima di pagare."
+      ]
+    }
+  }
+}

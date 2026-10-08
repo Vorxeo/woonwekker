@@ -1,5 +1,5 @@
 'use strict';
-/* Woonwekker account + plaats — localStorage demo only */
+/* Woonwekker account — localStorage demo only */
 const ACC_KEY='woonwekker-account';
 const FAV_KEY='woonwekker-favourites';
 const AVATAR_MAX=400*1024;
@@ -22,8 +22,7 @@ function defaultAccount(){
     templates:{...DEFAULT_TEMPLATES},
     zoekgenoot:{name:'',email:''},
     pipeline:{reacted:[],visited:[]},
-    checklist:Object.fromEntries(CHECK_KEYS.map(k=>[k,false])),
-    plaatsListings:[]
+    checklist:Object.fromEntries(CHECK_KEYS.map(k=>[k,false]))
   };
 }
 
@@ -84,7 +83,7 @@ function sanitizeNotifications(raw){
 }
 function sanitizeProfile(p){
   const o=p&&typeof p==='object'?p:{};
-  // Display-only: mirror wwIsBellen if present; never trust raw localStorage paid flag for unlock.
+  // Display-only: mirror wwIsBellen if present; never trust a raw localStorage paid flag.
   const entitled=typeof window.wwIsBellen==='function'?!!window.wwIsBellen():false;
   const plan=entitled?'bellen':'kijken';
   const paid=entitled;
@@ -115,8 +114,7 @@ function loadAccount(){
         reacted:Array.isArray(raw.pipeline?.reacted)?raw.pipeline.reacted.filter(u=>typeof u==='string'):[],
         visited:Array.isArray(raw.pipeline?.visited)?raw.pipeline.visited.filter(u=>typeof u==='string'):[]
       },
-      checklist:{...base.checklist,...(raw.checklist||{})},
-      plaatsListings:Array.isArray(raw.plaatsListings)?raw.plaatsListings:[]
+      checklist:{...base.checklist,...(raw.checklist||{})}
     };
   }catch{return base}
 }
@@ -210,6 +208,7 @@ function renderAccount(){
         ${a.profile.income?`<div class="ww-chip-soft">${esc(t('income'))}: ${esc(t(incomeKey(a.profile.income))||a.profile.income)}</div>`:''}
         ${a.profile.bio?`<p class="ww-bio-preview">${esc(a.profile.bio)}</p>`:''}
         <span class="ww-plan-badge ${plan==='bellen'?'bellen':''}">${esc(plan==='bellen'?t('planBellen'):t('planKijken'))}</span>
+        <p class="ww-cancel-link"><a href="/opzeggen/">${esc(t('footerCancel'))}</a></p>
       </div>
     </div>
     <div class="ww-tabs" role="tablist">${tabs.map(([k,label])=>`<button type="button" role="tab" data-acc-tab="${k}" aria-selected="${accTab===k}">${esc(label)}</button>`).join('')}</div>
@@ -255,7 +254,7 @@ function authShell(opts){
       <div class="ww-avatar-fallback" aria-hidden="true">W</div>
       ${mid}
       <p class="ww-status" id="acc-status" role="status"></p>
-      <p class="ww-auth-legal">${esc(t('authLegalNote')||'')}<br><a href="/legal/#privacy">${esc(t('privacy')||'Privacy')}</a> · <a href="/legal/">${esc(t('legal'))}</a></p>
+      <p class="ww-auth-legal">${esc(t('authLegalNote')||'')}<br><a href="/voorwaarden/">${esc(t('footerTerms'))}</a> · <a href="/privacy/">${esc(t('privacy')||'Privacy')}</a></p>
       ${opts.footer||''}
     </div>
   </div>`;
@@ -426,7 +425,7 @@ function profilePanel(a){
       <div class="ww-field"><label for="prof-phone">${esc(t('phone'))}</label><input id="prof-phone" name="phone" type="tel" value="${esc(p.phone||'')}"></div>
       <div class="ww-field"><label>${esc(t('plan'))}</label>
         <p class="ww-status">${esc(hasBellenAccess(a)?t('planBellen'):t('planKijken'))}</p>
-        ${hasBellenAccess(a)?'':`<p class="ww-locked ww-paywall" data-ww-locked="1"><button type="button" class="ww-btn" data-ww-checkout="1">${esc(t('upgradeBellen'))} — ${esc(t('bellenPrice'))}</button></p>`}
+        ${hasBellenAccess(a)?`<p><a href="/opzeggen/">${esc(t('footerCancel'))}</a></p>`:`<p><a class="ww-btn secondary" href="/prijzen/">${esc(t('upgradeBellen'))}</a></p>`}
       </div>
       <div class="ww-field"><label for="prof-income">${esc(t('income'))}</label>
         <select id="prof-income" name="income">
@@ -505,12 +504,6 @@ function alertsPanel(a){
     <p class="ww-status">${esc(bellen?t('alertFreqBellen'):t('alertFreqKijken'))}</p>
     <form id="alerts-form">
       <label class="ww-check"><input type="checkbox" name="email" ${a.alerts.email?'checked':''}> ${esc(t('alertEmail'))}</label>
-      <label class="ww-check"><input type="checkbox" name="whatsapp" ${a.alerts.whatsapp?'checked':''} ${bellen?'':'disabled'}> ${esc(t('alertWhatsapp'))}</label>
-      ${bellen?'':`<p class="ww-locked">${esc(t('whatsappLocked'))} <a href="/prijzen/">${esc(t('upgradeBellen'))}</a></p>`}
-      <div class="ww-field" style="max-width:320px;margin-top:12px">
-        <label for="alert-phone">${esc(t('alertPhone'))}</label>
-        <input id="alert-phone" name="phone" type="tel" value="${esc(a.alerts.phone||'')}" ${bellen?'':'disabled'}>
-      </div>
       <div class="ww-actions"><button class="ww-btn" type="submit">${esc(t('saveProfile'))}</button></div>
     </form>
   </div>`;
@@ -623,7 +616,7 @@ function bindAccountPanel(a){
         income:INCOME_OK.has(income)?income:'',
         bio:String(fd.get('bio')||'').trim().slice(0,600)
       };
-      if(!entitled)next.alerts.whatsapp=false;
+      next.alerts.whatsapp=false;
       saveAccount(next);
       statusEl(t('savedOk'));
       renderAccount();
@@ -716,10 +709,8 @@ function bindAccountPanel(a){
   if(alerts)alerts.onsubmit=e=>{
     e.preventDefault();
     const next=loadAccount();
-    const bellen=hasBellenAccess(next);
     next.alerts.email=!!alerts.email.checked;
-    next.alerts.whatsapp=bellen&&!!alerts.whatsapp.checked;
-    next.alerts.phone=bellen?String(alerts.phone.value||'').trim():next.alerts.phone;
+    next.alerts.whatsapp=false;
     saveAccount(next);
     statusEl(t('savedOk'));
   };
@@ -794,86 +785,12 @@ function bindAccountPanel(a){
   };
 }
 
-function renderPlaats(){
-  main.innerHTML=`<div class="ww-account">
-    <div class="page-head compact">
-      <div class="eyebrow">${esc(t('listHome'))}</div>
-      <h1>${esc(t('plaatsTitle'))}</h1>
-      <p class="lead">${esc(t('plaatsIntro'))}</p>
-    </div>
-    <div class="ww-panel">
-      <form id="plaats-form" class="ww-grid2">
-        <div class="ww-field"><label for="pl-name">${esc(t('plaatsName'))}</label><input id="pl-name" name="name" required maxlength="80" autocomplete="name"></div>
-        <div class="ww-field"><label for="pl-email">${esc(t('plaatsEmail'))}</label><input id="pl-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
-        <div class="ww-field"><label for="pl-phone">${esc(t('plaatsPhone'))}</label><input id="pl-phone" name="phone" type="tel" required maxlength="30" autocomplete="tel"></div>
-        <div class="ww-field"><label for="pl-address">${esc(t('plaatsAddress'))}</label><input id="pl-address" name="address" required maxlength="120"></div>
-        <div class="ww-field"><label for="pl-postcode">${esc(t('plaatsPostcode'))}</label><input id="pl-postcode" name="postcode" required maxlength="12" autocomplete="postal-code" placeholder="1234 AB"></div>
-        <div class="ww-field"><label for="pl-city">${esc(t('plaatsCity'))}</label><input id="pl-city" name="city" required maxlength="60"></div>
-        <div class="ww-field"><label for="pl-price">${esc(t('plaatsPrice'))}</label><input id="pl-price" name="price" type="number" min="1" max="20000" required></div>
-        <div class="ww-field"><label for="pl-type">${esc(t('plaatsType'))}</label>
-          <select id="pl-type" name="type" required>
-            <option value="Appartement">${esc(t('apartment'))}</option>
-            <option value="Huis">${esc(t('house'))}</option>
-            <option value="Studio">${esc(t('studio'))}</option>
-            <option value="Kamer">${esc(t('room'))}</option>
-          </select>
-        </div>
-        <div class="ww-field"><label for="pl-beds">${esc(t('plaatsBeds'))}</label><input id="pl-beds" name="beds" type="number" min="0" max="20"></div>
-        <div class="ww-field"><label for="pl-area">${esc(t('plaatsArea'))}</label><input id="pl-area" name="area" type="number" min="0" max="2000"></div>
-        <div class="ww-field"><label for="pl-avail">${esc(t('plaatsAvail'))}</label><input id="pl-avail" name="availableFrom" type="date"></div>
-        <div class="ww-field" style="grid-column:1/-1"><label for="pl-desc">${esc(t('plaatsDesc'))}</label><textarea id="pl-desc" name="desc" rows="4" maxlength="2000"></textarea></div>
-        <div class="ww-field" style="grid-column:1/-1"><label for="pl-photo">${esc(t('plaatsPhoto'))}</label><input id="pl-photo" name="photo" type="url" placeholder="https://" maxlength="500"></div>
-        <div class="ww-field" style="grid-column:1/-1"><label><input id="pl-consent" name="consent" type="checkbox" required> ${esc(t('plaatsConsent'))}</label></div>
-        <div class="ww-actions" style="grid-column:1/-1"><button class="ww-btn" type="submit">${esc(t('plaatsSubmit'))}</button></div>
-      </form>
-      <p class="ww-status" id="plaats-status" role="status"></p>
-    </div>
-  </div>`;
-  const form=document.querySelector('#plaats-form');
-  if(!form)return;
-  form.onsubmit=async e=>{
-    e.preventDefault();
-    const st=document.querySelector('#plaats-status');
-    const btn=form.querySelector('button[type="submit"]');
-    const fd=new FormData(form);
-    const num=k=>{const v=fd.get(k);return v===''||v==null?'':Number(v)};
-    const body={
-      name:String(fd.get('name')||'').trim(),
-      email:String(fd.get('email')||'').trim(),
-      phone:String(fd.get('phone')||'').trim(),
-      address:String(fd.get('address')||'').trim(),
-      postcode:String(fd.get('postcode')||'').trim(),
-      city:String(fd.get('city')||'').trim(),
-      price:num('price'),
-      type:String(fd.get('type')||''),
-      beds:num('beds'),
-      area:num('area'),
-      availableFrom:String(fd.get('availableFrom')||''),
-      desc:String(fd.get('desc')||'').trim(),
-      photo:String(fd.get('photo')||'').trim(),
-      consent:!!fd.get('consent')
-    };
-    if(btn)btn.disabled=true;
-    if(st)st.textContent='';
-    try{
-      const r=await fetch('/api/plaats',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(body)});
-      if(r.status===503){if(st)st.textContent=t('plaatsClosed');return}
-      if(!r.ok){if(st)st.textContent=t('plaatsErr');return}
-      if(st)st.textContent=t('plaatsOk');
-      form.reset();
-    }catch{
-      if(st)st.textContent=t('plaatsErr');
-    }finally{
-      if(btn)btn.disabled=false;
-    }
-  };
-}
-
 function bindWwCheckoutButtons(root){
   (root||document).querySelectorAll('[data-ww-checkout]').forEach(b=>{
     if(b.dataset.wwCheckoutBound)return;
     b.dataset.wwCheckoutBound='1';
-    b.addEventListener('click',e=>{e.preventDefault();if(typeof window.startBellenCheckout==='function')window.startBellenCheckout(b.getAttribute('data-ww-checkout')==='ideal'?'ideal':undefined);else location.href='/prijzen/'});
+    // Checkout always goes through the pricing page, where both consent boxes must be ticked.
+    b.addEventListener('click',e=>{e.preventDefault();location.href='/prijzen/#checkout'});
   });
 }
 async function handleCheckoutQuery(){
@@ -884,7 +801,7 @@ async function handleCheckoutQuery(){
   if(c==='success'&&typeof window.wwIsBellen==='function'&&window.wwIsBellen()){
     statusEl(t('planBellen')+' ✓');
   }else if(c==='unavailable'){
-    statusEl('Mollie niet geconfigureerd — unlock gesloten.');
+    statusEl(t('checkoutUnavailable'));
   }else if(c==='pending'||c==='open'||c==='authorized'){
     // Return-before-paid race: poll return?format=json a few times, then refresh entitlement.
     statusEl('Betaling wordt verwerkt…');
@@ -927,19 +844,11 @@ async function handleCheckoutQuery(){
 window.renderAccount=renderAccount;
 window.renderSignup=renderSignup;
 window.renderLoginPage=renderLoginPage;
-window.renderPlaats=renderPlaats;
 window.hasBellenAccess=hasBellenAccess;
 
 
-/* ===== WW_UX_HOOKS: soft source paywall, how/trust strips, onboard ===== */
+/* ===== WW_UX_HOOKS: how/trust strips ===== */
 (function(){
-  function accountPlan(){
-    try{
-      if(typeof window.wwIsBellen==='function')return window.wwIsBellen()?'bellen':'kijken';
-      return 'kijken';
-    }catch{return 'kijken'}
-  }
-
   function howTrustHtml(){
     return `<section class="ww-how" aria-label="${esc(t('howTitle'))}">
       <article><div class="n">1</div><h3>${esc(t('how1Title'))}</h3><p>${esc(t('how1Text'))}</p></article>
@@ -962,30 +871,6 @@ window.hasBellenAccess=hasBellenAccess;
     }
   }
 
-  function gateSourceLink(){
-    // Defense in depth: hard gate in openProperty must not put source URL in DOM.
-    if(document.querySelector('.ww-detail-locked,[data-ww-locked],[data-ww-lock="source"]'))return;
-    const a=document.querySelector('#detail a.primary[href], dialog a.primary[href], .detail-body a.primary[href]');
-    if(!a || a.dataset.wwGated)return;
-    a.dataset.wwGated='1';
-    if(accountPlan()==='bellen')return;
-    const href=a.getAttribute('href')||'';
-    // Never leave original source URL in DOM for Kijken
-    a.removeAttribute('href');
-    a.setAttribute('href','/prijzen/');
-    a.removeAttribute('target');
-    a.classList.add('ww-paywall');
-    a.setAttribute('data-ww-locked','1');
-    a.textContent=t('unlockSource');
-    a.title=t('sourceLocked');
-    a.addEventListener('click',e=>{
-      e.preventDefault();
-      if(typeof window.startBellenCheckout==='function')window.startBellenCheckout();
-      else location.href='/prijzen/';
-      try{sessionStorage.removeItem('ww-pending-source')}catch{}
-    });
-  }
-
   function patch(){
     if(typeof render==='function'){
       const orig=render;
@@ -995,20 +880,6 @@ window.hasBellenAccess=hasBellenAccess;
           injectHowTrust();
         }catch(e){console.warn('ww ux',e)}
       };
-    }
-    if(typeof openProperty==='function'){
-      const origOpen=openProperty;
-      window.openProperty=openProperty=function(){
-        origOpen.apply(this,arguments);
-        setTimeout(gateSourceLink,0);
-      };
-    }else if(typeof openHomes==='function'){
-      /* no-op */
-    }
-    // also try alternate name used in some builds
-    if(typeof openProperty!=='function' && typeof window.openProperty==='undefined'){
-      const names=['openProperty','openListing','showProperty'];
-      // already handled
     }
   }
 
@@ -1063,7 +934,7 @@ function mergeServerUser(user){
     phone:String(pending.phone||next.profile.phone||'').trim(),
     ...(avatar?{avatar}:{})
   });
-  if(!hasBellenAccess(next)){next.alerts.whatsapp=false}
+  next.alerts.whatsapp=false;
   saveAccount(next);
   serverAuthed=true;
   try{sessionStorage.removeItem('ww-pending-signup')}catch{}
