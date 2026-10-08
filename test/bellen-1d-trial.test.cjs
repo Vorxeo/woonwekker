@@ -173,7 +173,7 @@ describe('Bellen 1-day trial → subscription', () => {
     assert.ok(age > 20 * 24 * 60 * 60, 'Max-Age tracks nextPaymentDate');
   });
 
-  it('4a) cancelled subscription → fail-closed kijken + clear ww_bellen', async () => {
+  it('4a) cancelled subscription → access kept until the paid period ends (cookie exp), no re-issue', async () => {
     setMollieRequestForTests(async (method, apiPath) => {
       if (method === 'GET' && /\/subscriptions/.test(apiPath)) {
         return {
@@ -184,21 +184,36 @@ describe('Bellen 1-day trial → subscription', () => {
       }
       throw new Error('unexpected');
     });
+    const exp = trialEndMs(tomorrowYmd());
     const token = signEntitlement({
       plan: 'bellen',
       source: 'mollie',
       customerId: 'cst_1',
       subscriptionId: 'sub_x',
-      exp: trialEndMs(tomorrowYmd()),
+      exp,
     });
+    const ent = await resolveEntitlement(reqWithCookie(token), { refresh: true });
+    assert.equal(ent.plan, 'bellen');
+    assert.equal(ent.payload.exp, exp, 'access ends at the original period end');
+    assert.equal(ent.payload.cancelled, true);
+    assert.equal(ent.setCookie, null, 'cookie is neither extended nor cleared');
+  });
+
+  it('4a2) cancelled subscription with an expired cookie → kijken + clear ww_bellen', async () => {
+    setMollieRequestForTests(async (method, apiPath) => {
+      if (method === 'GET' && /\/subscriptions/.test(apiPath)) {
+        return { _embedded: { subscriptions: [{ id: 'sub_x', status: 'canceled' }] } };
+      }
+      throw new Error('unexpected');
+    });
+    const token = signEntitlement({ plan: 'bellen', source: 'mollie', customerId: 'cst_1', exp: Date.now() - 1000 });
     const ent = await resolveEntitlement(reqWithCookie(token), { refresh: true });
     assert.equal(ent.plan, 'kijken');
     assert.equal(ent.payload, null);
-    assert.ok(ent.setCookie);
-    assert.match(ent.setCookie, /Max-Age=0/);
+    assert.match(ent.setCookie || '', /Max-Age=0/);
   });
 
-  it('4b) missing subscription → fail-closed kijken + clear ww_bellen', async () => {
+  it('4b) missing subscription, expired cookie → kijken + clear ww_bellen', async () => {
     setMollieRequestForTests(async (method, apiPath) => {
       if (method === 'GET' && /\/subscriptions/.test(apiPath)) {
         return { _embedded: { subscriptions: [] } };
@@ -209,7 +224,7 @@ describe('Bellen 1-day trial → subscription', () => {
       plan: 'bellen',
       source: 'mollie',
       customerId: 'cst_missing',
-      exp: Date.now() + 3600_000,
+      exp: Date.now() - 60_000,
     });
     const ent = await resolveEntitlement(reqWithCookie(token), { refresh: true });
     assert.equal(ent.plan, 'kijken');

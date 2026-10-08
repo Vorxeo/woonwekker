@@ -173,12 +173,12 @@ describe('listing email alert', () => {
 });
 
 describe('existing Resend templates close with Woonwekker', () => {
-  it('signup, B, C, D, and plaats templates end with the signature and invent nothing new', () => {
+  it('signup, B, C, D and legal-request templates end with the signature and invent nothing new', () => {
     const root = path.join(__dirname, '..');
     const auth = fs.readFileSync(path.join(root, 'lib/ww-auth.cjs'), 'utf8');
     const bellen = fs.readFileSync(path.join(root, 'lib/ww-bellen-mail.cjs'), 'utf8');
-    const plaats = fs.readFileSync(path.join(root, 'lib/ww-plaats.cjs'), 'utf8');
-    for (const src of [auth, bellen, plaats]) {
+    assert.equal(fs.existsSync(path.join(root, 'lib/ww-plaats.cjs')), false, 'direct placement intake is removed');
+    for (const src of [auth, bellen]) {
       assert.match(src, /professionalEmail/);
       assert.doesNotMatch(src, /whatsapp/i);
     }
@@ -186,7 +186,7 @@ describe('existing Resend templates close with Woonwekker', () => {
     assert.match(bellen, /€18,50 per maand/);
     assert.match(bellen, /betaling voor Bellen is mislukt/);
     assert.match(bellen, /Bellen-abonnement is opgezegd/);
-    assert.match(plaats, /Not published on the site/);
+    assert.match(bellen, /ontbinding \(herroeping\)/);
     assert.equal(layout.SIGNATURE, 'Woonwekker');
     const sample = layout.professionalEmail({ paragraphs: ['Feit.'] });
     assert.ok(sample.text.endsWith('Woonwekker'));

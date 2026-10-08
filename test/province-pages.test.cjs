@@ -102,7 +102,13 @@ describe('province pages', () => {
       assert.equal(JSON.stringify(data).includes('aggregateRating'), false);
       assert.equal(JSON.stringify(data).includes('ratingValue'), false);
       assert.equal(/vorxeo/i.test(JSON.stringify(data)), false);
-      assert.equal(/pararius|kamernet|funda/i.test(html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')), false);
+      // Sources are named openly, in the footer sources line built from the data.
+      assert.match(html, /<p class="ww-sources">[\s\S]*?Funda, Kamernet, Pararius[\s\S]*?<\/p>/);
+      const outsideSources = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<p class="ww-sources">[\s\S]*?<\/p>/, '').replace(/ · bron: (Funda|Kamernet|Pararius)/g, '');
+      for (const item of html.matchAll(/<li data-city="[^"]*">([^<]*)<\/li>/g)) {
+        assert.match(item[1], / · bron: (Funda|Kamernet|Pararius) · gecontroleerd \d{2}-\d{2}-\d{4}$/);
+      }
+      assert.equal(/pararius|kamernet|funda/i.test(outsideSources), false);
     }
     for (const name of PROVINCES) {
       const entry = grouped.provinces.find((p) => p.province === name);
@@ -139,7 +145,7 @@ describe('sitemap lastmod', () => {
     const locs = [...sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)].map((m) => m[1]);
     const dates = [...sitemap.matchAll(/<lastmod>([^<]*)<\/lastmod>/g)].map((m) => m[1]);
     assert.equal(dates.length, locs.length);
-    assert.ok(dates.every((d) => d === '2026-10-04'));
+    assert.ok(dates.every((d) => d === '2026-10-08'));
     for (const slug of ['drenthe','flevoland','friesland','gelderland','groningen','limburg','noord-brabant','noord-holland','overijssel','utrecht','zeeland','zuid-holland']) {
       assert.equal(locs.filter((loc) => loc === `https://www.woonwekker.nl/provincie/${slug}/`).length, 1);
     }
