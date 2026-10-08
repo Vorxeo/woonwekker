@@ -94,6 +94,9 @@ function orgGraph() {
       '@id': `${ORIGIN}/#organization`,
       name: 'Vorxeo',
       alternateName: 'Woonwekker',
+      email: 'support@vorxeo.com',
+      telephone: '+31852127769',
+      address: { '@type': 'PostalAddress', streetAddress: 'Keizersgracht 520H', postalCode: '1017 EK', addressLocality: 'Amsterdam', addressCountry: 'NL' },
       url: `${ORIGIN}/`,
       identifier: [
         { '@type': 'PropertyValue', name: 'KvK', value: '42108778' },

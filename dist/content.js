@@ -389,7 +389,7 @@ const copy={
     "privacySections": [
       [
         "Verantwoordelijke",
-        "Woonwekker is de verantwoordelijke voor verwerkingen op deze website. KvK-nummer 42108778. Btw-nummer NL005499683B86."
+        "Woonwekker is de verantwoordelijke voor verwerkingen op deze website. KvK-nummer 42108778. Btw-nummer NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Account en Google",
@@ -864,7 +864,7 @@ const copy={
     "privacySections": [
       [
         "Controller",
-        "Woonwekker is the controller for processing on this website. KvK number 42108778. VAT number NL005499683B86."
+        "Woonwekker is the controller for processing on this website. KvK number 42108778. VAT number NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Account and Google",
@@ -1339,7 +1339,7 @@ const copy={
     "privacySections": [
       [
         "Responsable",
-        "Woonwekker es el responsable del tratamiento en este sitio web. Número KvK 42108778. Número de IVA NL005499683B86."
+        "Woonwekker es el responsable del tratamiento en este sitio web. Número KvK 42108778. Número de IVA NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Cuenta y Google",
@@ -1814,7 +1814,7 @@ const copy={
     "privacySections": [
       [
         "Administrator",
-        "Woonwekker jest administratorem danych przetwarzanych na tej stronie. Numer KvK 42108778. Numer VAT NL005499683B86."
+        "Woonwekker jest administratorem danych przetwarzanych na tej stronie. Numer KvK 42108778. Numer VAT NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Konto i Google",
@@ -2289,7 +2289,7 @@ const copy={
     "privacySections": [
       [
         "Responsável",
-        "A Woonwekker é a responsável pelo tratamento neste site. Número KvK 42108778. Número de IVA NL005499683B86."
+        "A Woonwekker é a responsável pelo tratamento neste site. Número KvK 42108778. Número de IVA NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Conta e Google",
@@ -2764,7 +2764,7 @@ const copy={
     "privacySections": [
       [
         "Operator",
-        "Woonwekker este operatorul prelucrărilor de pe acest site. Număr KvK 42108778. Cod TVA NL005499683B86."
+        "Woonwekker este operatorul prelucrărilor de pe acest site. Număr KvK 42108778. Cod TVA NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Cont și Google",
@@ -3239,7 +3239,7 @@ const copy={
     "privacySections": [
       [
         "Администратор",
-        "Woonwekker е администратор на обработването на този сайт. KvK номер 42108778. ДДС номер NL005499683B86."
+        "Woonwekker е администратор на обработването на този сайт. KvK номер 42108778. ДДС номер NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Профил и Google",
@@ -3714,7 +3714,7 @@ const copy={
     "privacySections": [
       [
         "Titolare",
-        "Woonwekker è il titolare del trattamento su questo sito. Numero KvK 42108778. Partita IVA NL005499683B86."
+        "Woonwekker è il titolare del trattamento su questo sito. Numero KvK 42108778. Partita IVA NL005499683B86. Vorxeo: Keizersgracht 520H, 1017 EK Amsterdam, Nederland. +31 85 212 77 69. support@vorxeo.com."
       ],
       [
         "Account e Google",
