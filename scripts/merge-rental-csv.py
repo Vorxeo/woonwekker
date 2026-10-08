@@ -31,24 +31,17 @@ def detect_is_new(row, source=''):
 
 REPO = Path(__file__).resolve().parents[1]
 DATA_FULL = REPO / 'data' / 'listings.full.json'
-DIST_FULL = REPO / 'dist' / 'listings.full.json'
-PUBLIC = REPO / 'dist' / 'listings.json'
-SOURCE_FIELDS = ('url', 'sourceUrl', 'originalUrl', 'listingUrl', 'externalUrl')
 
 
 def write_outputs(listings):
-    """Sync full feeds and keep the browser-served feed source-redacted."""
+    """Write the full feed to data/ only.
+
+    The public feed dist/listings.json is built from it by scripts/build-listings.cjs
+    (status + freshness filter, original-ad url kept for everyone). Nothing is written
+    to dist/listings.full.json any more: a static file there was publicly served.
+    """
     text = json.dumps(listings, ensure_ascii=False, indent=2) + '\n'
     DATA_FULL.write_text(text, encoding='utf-8')
-    DIST_FULL.write_text(text, encoding='utf-8')
-    public = []
-    for listing in listings:
-        row = dict(listing)
-        for key in SOURCE_FIELDS:
-            if key in row:
-                row[key] = ''
-        public.append(row)
-    PUBLIC.write_text(json.dumps(public, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 def norm_url(u):
     return (u or '').strip().rstrip('/').split('?')[0].split('#')[0].lower()
