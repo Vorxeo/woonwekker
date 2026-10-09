@@ -102,8 +102,8 @@ describe('province pages', () => {
       assert.equal(JSON.stringify(data).includes('aggregateRating'), false);
       assert.equal(JSON.stringify(data).includes('ratingValue'), false);
       assert.equal(/vorxeo/i.test(JSON.stringify(data)), true);
-      // Sources are named openly, in the footer sources line built from the data.
-      assert.match(html, /<p class="ww-sources">[\s\S]*?externe woningplatforms[\s\S]*?<\/p>/);
+      // Source attribution is absent from the footer; listings retain generic descriptions.
+      assert.doesNotMatch(html, /class="ww-sources"|data-t="footerSources"/);
       const outsideSources = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<p class="ww-sources">[\s\S]*?<\/p>/, '').replace(/ · bron: externe woningplatforms/g, '');
       for (const item of html.matchAll(/<li data-city="[^"]*">([^<]*)<\/li>/g)) {
         assert.match(item[1], / · bron: externe woningplatforms · gecontroleerd \d{2}-\d{2}-\d{4}$/);

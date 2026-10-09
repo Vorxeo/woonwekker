@@ -75,7 +75,7 @@ describe('service framing and sources', () => {
     const names = [...new Set(rows.map((r) => r.sourceName))].sort();
     assert.deepEqual(names, ['Funda', 'Kamernet', 'Pararius']);
     for (const f of htmlFiles) {
-      assert.match(fs.readFileSync(f, 'utf8'), /<span class="ww-source-list">externe woningplatforms<\/span>/, path.relative(dist, f));
+      assert.doesNotMatch(fs.readFileSync(f, 'utf8'), /class="ww-sources"|data-t="footerSources"/, path.relative(dist, f));
     }
     const app = read('app.js');
     assert.match(app, /class="ww-card-source"/);

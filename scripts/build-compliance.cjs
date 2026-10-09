@@ -185,7 +185,7 @@ function footerHtml(nl, provinceLinks, sources) {
   return '<footer>'
     + '<div class="ww-footer-main">'
     + `<div class="ww-footer-brand"><a class="ww-footer-logo" href="/" aria-label="Woonwekker"><img src="/assets/icon-192.png" alt="" width="40" height="40"><strong>Woonwekker</strong></a><p data-t="footer">${esc(nl.footer)}</p><p class="ww-footer-company" data-t="companyIdentity">${esc(nl.companyIdentity)}</p>`
-    + `<p class="ww-sources"><span data-t="footerSources">${esc(nl.footerSources)}</span> <span class="ww-source-list">externe woningplatforms</span>.</p></div>`
+    + `</div>`
     + `<section class="ww-footer-section">${heading('footerExplore')}<div class="ww-footer-links">${link('/huizen/', 'navHouses')}${link('/kamers/', 'navRooms')}${link('/prijzen/', 'pricing')}${link('/account/', 'account')}${link('/faq/', 'faq')}${link('/insights/', 'insights')}</div></section>`
     + `<section class="ww-footer-section">${heading('footerLegal')}<div class="ww-footer-links ww-legal-links">${link('/voorwaarden/', 'footerTerms')}${link('/privacy/', 'privacy')}${link('/terugbetaling/', 'footerRefund')}${link('/herroeping/', 'footerWithdrawalInfo')}${link('/opzeggen/', 'footerCancel')}${link('/herroeping/#ontbinden', 'footerWithdraw')}</div></section>`
     + `<section class="ww-footer-section ww-footer-contact">${heading('footerContact')}<address class="ww-company-contact"><span class="ww-contact-company">Vorxeo</span><span>Keizersgracht 520H<br>1017 EK Amsterdam, Nederland</span><a href="mailto:support@vorxeo.com">support@vorxeo.com</a><a href="tel:+31852127769">+31 85 212 77 69</a></address></section></div>`
